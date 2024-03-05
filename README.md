@@ -5,9 +5,11 @@ A TARUMT Year 2 Degree project for the course Web Applications by a group of Sof
 CursusVia, meaning career path in latin is a course platform idea proposed by [these individuals](#group-members)
 
 ## Development
+> [!NOTE]
 > Microsoft Visual Studio 2022 is recommended for development
-- Installing the .NET Framework project and item templates is recommended
-- Simply open the .sln file and run the project
+> ASP.NET framework is required to be used in the project, usage of ASP.NET Core is ***not allowed***
+- Installing the `.NET Framework project and item templates` is recommended
+- Simply open the `.sln` file and run the project
 
 ## Group Members
 - Wong Xuan Bin
