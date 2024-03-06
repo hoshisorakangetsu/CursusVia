@@ -6,8 +6,7 @@ CursusVia, meaning career path in latin is a course platform idea proposed by [t
 
 ## Development
 > [!NOTE]
-> Microsoft Visual Studio 2022 is recommended for development
-> ASP.NET framework is required to be used in the project, usage of ASP.NET Core is ***not allowed***
+> Microsoft Visual Studio 2022 is recommended for development and ASP.NET framework is required to be used in the project, usage of ASP.NET Core is ***not allowed***
 - Installing the `.NET Framework project and item templates` is recommended
 - Simply open the `.sln` file and run the project
 
