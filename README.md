@@ -12,6 +12,6 @@ CursusVia, meaning career path in latin is a course platform idea proposed by [t
 
 ## Group Members
 - Wong Xuan Bin
-	- A.K.A [hanyue1014](https://github.com/hanyue1014)
-	- A.K.A [hoshisorakangetsu](https://github.com/hoshisorakangetsu)
-	- A.K.A [matt1tech](https://github.com/matt1tech)
+ - A.K.A [hanyue1014](https://github.com/hanyue1014)
+ - A.K.A [hoshisorakangetsu](https://github.com/hoshisorakangetsu)
+ - A.K.A [matt1tech](https://github.com/matt1tech)
