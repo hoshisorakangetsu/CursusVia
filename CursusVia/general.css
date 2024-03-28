@@ -1,0 +1,222 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* basic css resets to make life easier */
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Inter", sans-serif !important; /* have to use !important to force override the styles :sadge: */
+}
+
+/* basic css resets to make life easier */
+a {
+    text-decoration: none;
+    color: inherit;
+    background: none !important; /* wanna customize and remove the arrow to the right of the menu item */
+    padding: 0em !important; /* i rlly hate writing !important everywhere but it is what it is, curse .net framework's customizability */
+}
+
+a:visited {
+    color: inherit;
+}
+
+:root {
+    --primary-color: #E86262;
+    --secondary-color: #29354C;
+    --text-on-primary: #FFFFFF;
+}
+
+/* utility classes */
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.btnPrimary {
+    color: var(--text-on-primary);
+    background: var(--primary-color);
+}
+
+.topBanner {
+    background: var(--primary-color);
+    text-align: center;
+    padding: 1em;
+    color: var(--text-on-primary);
+}
+
+header {
+    display: flex;
+    background-color: var(--secondary-color);
+    padding: 0 1em;
+    justify-content: space-between;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+header img {
+    margin: 1em 0;
+}
+
+.mainContent {
+    min-height: 100vh;
+}
+
+/* took a couple of trial and errors to target the correct element */
+.menu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: #ffffff;
+    height: 100%;
+}
+
+.menu > ul {
+    display: flex;
+    gap: 0.5em;
+    height: 100%;
+}
+
+.menu > ul > li {
+    display: flex !important;
+    align-items: center;
+}
+
+.menu a {
+    display: flex !important;
+    align-items: center;
+    height: 100%;
+    padding: 0 .2em !important;
+}
+
+.menu a:hover {
+    color: var(--primary-color);
+}
+
+/* a couple of reverse engineering this is the class ms applies to a tags with nested items */
+a.popout::after {
+    display: inline-block;
+    content: "\e5cf";
+    font-family: "Material Symbols Outlined" !important;
+    transition: .3s ease;
+}
+
+/* the parent of the a tag being hovered, keep the arrow rotated */
+.has-popup:hover a.popout::after {
+    transform: rotate(180deg);
+}
+
+/* only highlight direct child */
+.has-popup:hover > a {
+    color: var(--primary-color);
+}
+
+.has-popup:hover .level3 {
+    background: var(--secondary-color);
+    padding: .5em !important;
+    animation: menuFadeIn .3s forwards;
+}
+
+@keyframes menuFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 100; }
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+}
+
+.cart {
+    color: var(--text-on-primary);
+    padding: .5em !important;
+}
+
+.cart:hover {
+    color: var(--primary-color);
+}
+
+.headerRightControlsNotLoggedIn {
+    display: flex;
+    gap: .5em;
+}
+
+.headerRightControlsNotLoggedIn input[type="submit"] {
+    stroke: none;
+    border: none;
+    padding: .25em 1em;
+    border-radius: .25em;
+}
+
+#btnLogin {
+    color: #29354C;
+}
+
+.footerNav {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.footerNav div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footerNav a {
+    display: block;
+    padding: 1rem !important;
+    font-size: 1.25em;
+}
+
+.footerNav a:hover {
+    color: var(--primary-color);
+}
+
+.footerContent {
+    background: var(--secondary-color);
+    color: var(--text-on-primary);
+    padding: .75em 2em;
+}
+
+.footerExternalLinks {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem; /* align with the navigation links */
+}
+
+.footerSocials {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.footerSocials img {
+    width: 100%;
+    height: 100%;
+    max-height: 2rem;
+    aspect-ratio: 1/1;
+}
+
+/* matt gave images with only facebook got padding (wtf) so give padding to other 2 to make them balanced */
+.footerSocials img:not(:last-child) {
+    box-sizing: border-box;
+    padding: .25rem;
+}
+
+.footerAcceptedPayments {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.footerAcceptedPayments > img {
+    max-height: 1.5rem;
+}
+
+.copyright {
+    text-align: center;
+    margin: 0;
+    padding: .5em 0;
+    font-weight: bold;
+}

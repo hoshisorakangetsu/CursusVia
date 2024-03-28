@@ -67,12 +67,63 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CourseCategory.aspx" />
+    <Content Include="Courses.aspx" />
+    <Content Include="general.css" />
+    <Content Include="res\cursusvia_logo.svg" />
+    <Content Include="res\digital_marketing_course.png" />
+    <Content Include="res\facebook-logo-png-white.png" />
+    <Content Include="res\fpx.png" />
+    <Content Include="res\google_bw.png" />
+    <Content Include="res\graphic_design.png" />
+    <Content Include="res\lazada_bw.png" />
+    <Content Include="res\linkedin_bw.png" />
+    <Content Include="res\man_with_laptop_cursusvia.png" />
+    <Content Include="res\mastercard.png" />
+    <Content Include="res\microsoft_bw.png" />
+    <Content Include="res\mobile_apps_course.png" />
+    <Content Include="res\new-Instagram-logo-white-glyph.png" />
+    <Content Include="res\touchngo.png" />
+    <Content Include="res\visa.png" />
+    <Content Include="res\web_dev_course.png" />
+    <Content Include="res\women_with_pen.png" />
+    <Content Include="res\x-social-media-white-icon.png" />
     <Content Include="Web.config" />
+    <Content Include="Home.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client.Master.cs">
+      <DependentUpon>Client.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Client.Master.designer.cs">
+      <DependentUpon>Client.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CourseCategory.aspx.cs">
+      <DependentUpon>CourseCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CourseCategory.aspx.designer.cs">
+      <DependentUpon>CourseCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Courses.aspx.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Courses.aspx.designer.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -80,6 +131,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Web.sitemap" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

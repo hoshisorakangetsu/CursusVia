@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Home.aspx" title="Home" description="">
+    <siteMapNode url="~/Courses.aspx" title="Courses"  description="">
+      <siteMapNode url="~/CourseCategory.aspx?category=web_dev" title="Web Development"  description="" />
+      <siteMapNode url="~/CourseCategory.aspx?category=graphic_design" title="Graphic Design"  description="" />
+      <siteMapNode url="~/CourseCategory.aspx?category=mobile_app" title="Mobile Application"  description="" />
+      <siteMapNode url="~/CourseCategory.aspx?category=digital_marketing" title="Digital Marketing"  description="" />
+    </siteMapNode>
+    <siteMapNode url="" title="Become Partner"  description="" />
+    <siteMapNode url="" title="Pricing"  description="" />
+    <siteMapNode url="" title="Support"  description="" />
+  </siteMapNode>
+</siteMap>
