@@ -1,4 +1,5 @@
-﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="CursusVia.WebForm1" %>
+﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" 
+    CodeBehind="Home.aspx.cs" Inherits="CursusVia.WebForm1" %>
 
 <asp:Content ID="headTag" ContentPlaceHolderID="head" runat="server">
     <link href="Home.css" rel="stylesheet" />
@@ -9,7 +10,10 @@
             <h1 class="surfaceText"><span class="primaryText">Free Trial</span> for 30 days
             </h1>
             <p class="surfaceText">
-                Get ready for a high-demand career with CursusVia. Gain unlimited access to our extensive online courses featuring certified tutors. Earn certificates that can enhance your eligibility for job opportunities with our collaborative partners.
+                Get ready for a high-demand career with CursusVia. Gain unlimited
+                access to our extensive online courses featuring certified tutors. 
+                Earn certificates that can enhance your eligibility for job opportunities 
+                with our collaborative partners.
             </p>
         </div>
         <img src="res/women_with_pen.png" class="heroImg" />
@@ -92,7 +96,9 @@
         <div>
             <h1 class="primaryText">Start teaching on CursusVia Today!</h1>
             <p class="surfaceText">
-                Join CursusVia as a tutor and share your skills with students from anywhere in the world. Take control of your income and teaching schedule without the constraints of a boss looming over you.
+                Join CursusVia as a tutor and share your skills with students 
+                from anywhere in the world. Take control of your income and teaching
+                schedule without the constraints of a boss looming over you.
             </p>
             <asp:Button ID="btnApplyNow" CssClass="btnPrimary btn" runat="server" Text="Apply Now" />
         </div>
