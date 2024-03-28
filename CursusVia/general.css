@@ -150,13 +150,13 @@ a.popout::after {
 }
 
 .cart {
-    color: var(--text-on-primary);
+    color:floralwhite !important; /*just change the color , as it was black */
     padding: .5em !important;
 }
 
-.cart:hover {
-    color: var(--primary-color);
-}
+    .cart:hover {
+        color: var(--primary-color) !important; /*just change the color , as it was black */
+    }
 
 .headerRightControlsNotLoggedIn {
     display: flex;
