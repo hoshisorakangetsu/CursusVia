@@ -24,6 +24,8 @@ a:visited {
     --primary-color: #E86262;
     --secondary-color: #29354C;
     --text-on-primary: #FFFFFF;
+    --text-on-surface: #29354C;
+    --bg-surface: rgba(41, 53, 76, 0.07);
 }
 
 /* utility classes */
@@ -35,9 +37,28 @@ a:visited {
     align-items: center;
 }
 
+.btn {
+    all: unset; /* reset styles first */
+    border-radius: .25em;
+    padding: .5em .75em;
+}
+
 .btnPrimary {
     color: var(--text-on-primary);
     background: var(--primary-color);
+}
+
+.btnSecondary {
+    color: var(--text-on-primary);
+    background: var(--secondary-color);
+}
+
+.primaryText {
+    color: var(--primary-color);
+}
+
+.surfaceText {
+    color: var(--text-on-surface);
 }
 
 .topBanner {
@@ -180,8 +201,9 @@ a.popout::after {
 }
 
 .footerExternalLinks {
+    margin-top: 3rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0 1rem; /* align with the navigation links */
 }
 
@@ -189,6 +211,7 @@ a.popout::after {
     display: flex;
     gap: 1rem;
     align-items: center;
+    margin-right: auto;
 }
 
 .footerSocials img {
@@ -208,6 +231,7 @@ a.popout::after {
     display: flex;
     align-items: center;
     gap: .5rem;
+    margin-left: auto;
 }
 
 .footerAcceptedPayments > img {

@@ -1,0 +1,153 @@
+﻿.hero {
+    margin-left: 4rem;
+    margin-top: 7rem;
+    margin-bottom: 4rem;
+    width: 80%;
+    background: var(--bg-surface);
+    position: relative;
+    padding: .75rem 1rem;
+    position: relative;
+    box-sizing: border-box;
+    padding-right: 14rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.heroImg {
+    position: absolute;
+    right: -15%;
+    bottom: 0;
+    height: 120%;
+}
+
+@media (min-width: 1400px) {
+    .heroImg {
+        right: -12%
+    }
+}
+
+.heroBtnGroup {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    display: flex;
+    gap: 1em;
+}
+
+.courseCategories {
+    margin-left: 4rem;
+    margin-right: 2rem;
+}
+
+.courseCategories > h1 {
+    font-size: 2rem;
+}
+
+.courseCategoryContainer {
+    box-sizing: border-box;
+    padding: .5rem 1rem;
+    background: var(--bg-surface);
+}
+
+.selectYourFavorite {
+    color: #EA9739;
+    font-weight: bold;
+}
+
+.courseCategoryScrollerContainer {
+    display: flex;
+    align-items: center;
+}
+
+#scrollLeft, #scrollRight {
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 3rem;
+}
+
+.courseCategoryScroller {
+    overflow-x: auto;
+    display: flex;
+    width: 100%;
+    gap: 2%;
+    align-items: stretch;
+    scroll-snap-type: x mandatory;
+}
+
+/* hide scroll bar, not every browser supports (for instance firefox :)) */
+.courseCategoryScroller::-webkit-scrollbar {
+    display: none;
+}
+
+.courseCategoryCard {
+    flex: 1 0 23%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
+.courseCategoryCard p {
+    font-size: 1.5em;
+}
+
+.courseCategoryCard > div {
+    display: flex;
+}
+
+.courseCategoryCard img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+
+.partners {
+    margin-top: 8rem;
+}
+
+.successPartnerText {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.successPartnerLogos {
+    display: flex;
+    gap: 4em;
+    padding: 3em 4em;
+    background: var(--bg-surface);
+}
+
+.successPartnerLogos > div {
+    display: flex;
+}
+
+.successPartnerLogos > div img {
+    object-fit: contain;
+    width: 100%;
+}
+
+.startTeaching {
+    margin-top: 6rem;
+    display: flex;
+    padding: 1em;
+    padding-bottom: 0;
+}
+
+.startTeaching img {
+    width: 40%;
+}
+
+.startTeaching p {
+    font-size: 1.5em;
+}
+
