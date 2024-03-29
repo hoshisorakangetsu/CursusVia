@@ -1,5 +1,4 @@
-﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" 
-    CodeBehind="Home.aspx.cs" Inherits="CursusVia.WebForm1" %>
+﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="CursusVia.WebForm1" %>
 
 <asp:Content ID="headTag" ContentPlaceHolderID="head" runat="server">
     <link href="Home.css" rel="stylesheet" />
