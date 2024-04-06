@@ -90,6 +90,8 @@
     <Content Include="res\web_dev_course.png" />
     <Content Include="res\women_with_pen.png" />
     <Content Include="res\x-social-media-white-icon.png" />
+    <Content Include="Student.aspx" />
+    <Content Include="Tutor.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
   </ItemGroup>
@@ -122,6 +124,20 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student.aspx.cs">
+      <DependentUpon>Student.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student.aspx.designer.cs">
+      <DependentUpon>Student.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor.aspx.cs">
+      <DependentUpon>Tutor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor.aspx.designer.cs">
+      <DependentUpon>Tutor.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
