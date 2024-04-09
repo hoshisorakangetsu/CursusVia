@@ -77,9 +77,10 @@ CREATE TABLE [dbo].[QuizAnswers]
 CREATE TABLE [dbo].[Courses]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [title] NCHAR(10) NOT NULL, 
-    [description] NCHAR(10) NOT NULL, 
-    [price] NCHAR(10) NOT NULL, 
+    [title] NVARCHAR(50) NOT NULL, 
+    [description] NVARCHAR(MAX) NOT NULL, 
+    [category] NVARCHAR(20) NOT NULL,
+    [price] FLOAT NOT NULL, 
     [cover_pic_res_id] INT NOT NULL, 
     [tutor_id] INT NOT NULL, 
     CONSTRAINT [FK_Course_FileResources] FOREIGN KEY ([cover_pic_res_id]) REFERENCES [FileResources]([id]), 
