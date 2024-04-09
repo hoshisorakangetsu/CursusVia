@@ -235,13 +235,17 @@ CREATE TABLE [dbo].[SupportRequests]
     CONSTRAINT [FK_SupportRequests_Students] FOREIGN KEY ([student_id]) REFERENCES [Students]([id])
 )
 
-CREATE TABLE [dbo].[Replies]
-(
-    [reply] NVARCHAR(MAX) NOT NULL, 
-    [datetime] DATETIME NOT NULL, 
-    [support_req_id] INT NOT NULL, 
-    [admin_id] INT NOT NULL, 
-    CONSTRAINT [FK_Replies_Admins] FOREIGN KEY ([admin_id]) REFERENCES [Admins]([id]), 
-    CONSTRAINT [FK_Replies_SupportRequests] FOREIGN KEY ([support_req_id]) REFERENCES [SupportRequests]([id]), 
-    CONSTRAINT [PK_Replies] PRIMARY KEY ([support_req_id], [admin_id])
-)
+CREATE TABLE [dbo].[Replies] (
+    [reply]          NVARCHAR (MAX) NOT NULL,
+    [datetime]       DATETIME       NOT NULL,
+    [support_req_id] INT            NOT NULL,
+    [admin_id]       INT            NULL,
+    [student_id]     INT            NULL,
+    [tutor_id]       INT            NULL,
+    [id]             INT            IDENTITY (1, 1) NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC),
+    CONSTRAINT [FK_Replies_SupportRequests] FOREIGN KEY ([support_req_id]) REFERENCES [dbo].[SupportRequests] ([id]),
+    CONSTRAINT [student_id] FOREIGN KEY ([student_id]) REFERENCES [dbo].[Students] ([id]),
+    CONSTRAINT [tutor_id] FOREIGN KEY ([tutor_id]) REFERENCES [dbo].[Tutors] ([id]),
+    CONSTRAINT [FK_Replies_Admins] FOREIGN KEY ([admin_id]) REFERENCES [dbo].[Admins] ([id])
+);
