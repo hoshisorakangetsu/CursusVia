@@ -1,0 +1,9 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="TutorMaster.master.cs" Inherits="CursusVia.Tutor.TutorMaster" %>
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+<asp:ContentPlaceHolder ID="TutorMasterHead" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="body" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ContentPlaceHolder ID="TutorMasterBody" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>

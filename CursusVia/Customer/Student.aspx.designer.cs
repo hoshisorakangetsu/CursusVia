@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CursusVia
+namespace CursusVia.Customer
 {
 
 
-	public partial class Student
-	{
-	}
+    public partial class Student
+    {
+    }
 }

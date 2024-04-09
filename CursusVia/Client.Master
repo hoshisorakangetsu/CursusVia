@@ -15,7 +15,7 @@
     <div class="topBanner">Experience educational excellence | limitless learning opportunities </div>
     <form id="form1" runat="server">
         <header>
-            <image src="res/cursusvia_logo.svg" />
+            <image src="~/res/cursusvia_logo.svg" />
             <div class="flex items-center">
                 <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" StaticDisplayLevels="2" Orientation="Horizontal" RenderingMode="List" CssClass="menu"></asp:Menu>
                 <asp:SiteMapDataSource runat="server" ID="SiteMapDataSource1"></asp:SiteMapDataSource>
@@ -54,16 +54,16 @@
                 </div>
                 <div class="footerExternalLinks">
                     <div class="footerSocials">
-                        <img src="res/x-social-media-white-icon.png" />
-                        <img src="res/new-Instagram-logo-white-glyph.png" />
-                        <img src="res/facebook-logo-png-white.png" />
+                        <img src="~/res/x-social-media-white-icon.png" />
+                        <img src="~/res/new-Instagram-logo-white-glyph.png" />
+                        <img src="~/res/facebook-logo-png-white.png" />
                     </div>
-                    <img src="res/cursusvia_logo.svg" class="footerLogo" />
+                    <img src="~/res/cursusvia_logo.svg" class="footerLogo" />
                     <div class="footerAcceptedPayments">
-                        <img src="res/visa.png" />
-                        <img src="res/mastercard.png" />
-                        <img src="res/fpx.png" />
-                        <img src="res/touchngo.png" />
+                        <img src="~/res/visa.png" />
+                        <img src="~/res/mastercard.png" />
+                        <img src="~/res/fpx.png" />
+                        <img src="~/res/touchngo.png" />
                     </div>
                 </div>
             </div>
