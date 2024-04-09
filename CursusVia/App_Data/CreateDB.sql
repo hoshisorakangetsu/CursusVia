@@ -58,8 +58,8 @@ CREATE TABLE [dbo].[Companies]
 CREATE TABLE [dbo].[QuizQuestions]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [question] NVARCHAR(50) NOT NULL, 
-    [order] NVARCHAR(50) NOT NULL, 
+    [question] NVARCHAR(MAX) NOT NULL, 
+    [order] INT NOT NULL, 
     [quiz_id] INT NOT NULL, 
     CONSTRAINT [FK_QuizQuestions_ChapterQuiz] FOREIGN KEY ([quiz_id]) REFERENCES [ChapterQuiz]([id])
 )
