@@ -1,3 +1,66 @@
+CREATE TABLE [dbo].[FileResources]
+(
+	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [file_path] NVARCHAR(50) NOT NULL, 
+    [file_name] NVARCHAR(50) NOT NULL
+)
+
+CREATE TABLE [dbo].[Admins]
+(
+	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [username] NVARCHAR(50) NOT NULL, 
+    [password] NVARCHAR(50) NOT NULL, 
+    [email] NVARCHAR(50) NOT NULL
+)
+
+CREATE TABLE [dbo].[Students]
+(
+	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [email] NVARCHAR(50) NOT NULL, 
+    [password] NVARCHAR(50) NOT NULL, 
+    [name] NVARCHAR(50) NOT NULL
+)
+
+CREATE TABLE [dbo].[Tutors]
+(
+	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [name] NVARCHAR(50) NOT NULL, 
+    [qualifications] NVARCHAR(50) NOT NULL, 
+    [password] NVARCHAR(50) NOT NULL, 
+    [email] NVARCHAR(50) NOT NULL, 
+    [balance] FLOAT NOT NULL
+)
+
+CREATE TABLE [dbo].[Answers]
+(
+	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [answer_content] NVARCHAR(MAX) NOT NULL
+)
+
+CREATE TABLE [dbo].[ChapterQuiz]
+(
+	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [quiz_title] NVARCHAR(50) NOT NULL
+)
+
+CREATE TABLE [dbo].[Companies]
+(
+	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [name] NVARCHAR(50) NOT NULL, 
+    [address] NVARCHAR(50) NOT NULL, 
+    [postcode] NCHAR(5) NOT NULL, 
+    [state] NVARCHAR(50) NOT NULL, 
+    [country] NVARCHAR(50) NOT NULL
+)
+
+CREATE TABLE [dbo].[Chapters]
+(
+	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [title] NVARCHAR(50) NOT NULL, 
+    [course_id] INT NOT NULL, 
+    CONSTRAINT [FK_Chapters_Courses] FOREIGN KEY ([course_id]) REFERENCES [Courses]([id])
+)
+
 CREATE TABLE [dbo].[QuizQuestions]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
@@ -17,25 +80,6 @@ CREATE TABLE [dbo].[QuizAnswers]
     PRIMARY KEY ([question_id], [answer_id])
 )
 
-CREATE TABLE [dbo].[Answers]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [answer_content] NVARCHAR(MAX) NOT NULL
-)
-
-CREATE TABLE [dbo].[ChapterQuiz]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [quiz_title] NVARCHAR(50) NOT NULL
-)
-
-CREATE TABLE [dbo].[Chapters]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [title] NVARCHAR(50) NOT NULL, 
-    [course_id] INT NOT NULL, 
-    CONSTRAINT [FK_Chapters_Courses] FOREIGN KEY ([course_id]) REFERENCES [Courses]([id])
-)
 
 CREATE TABLE [dbo].[ChapterContents]
 (
@@ -66,15 +110,7 @@ CREATE TABLE [dbo].[TutorRatings]
     PRIMARY KEY ([tutor_id], [student_id])
 )
 
-CREATE TABLE [dbo].[Tutors]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [name] NVARCHAR(50) NOT NULL, 
-    [qualifications] NVARCHAR(50) NOT NULL, 
-    [password] NVARCHAR(50) NOT NULL, 
-    [email] NVARCHAR(50) NOT NULL, 
-    [balance] FLOAT NOT NULL
-)
+
 
 CREATE TABLE [dbo].[Courses]
 (
@@ -111,12 +147,6 @@ CREATE TABLE [dbo].[QuizRespones]
     PRIMARY KEY ([answer_id], [question_id], [purchased_course_id])
 )
 
-CREATE TABLE [dbo].[FileResources]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [file_path] NVARCHAR(50) NOT NULL, 
-    [file_name] NVARCHAR(50) NOT NULL
-)
 
 CREATE TABLE [dbo].[JobApplications]
 (
@@ -130,13 +160,6 @@ CREATE TABLE [dbo].[JobApplications]
     PRIMARY KEY ([student_id], [vacancy_id])
 )
 
-CREATE TABLE [dbo].[Students]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [email] NVARCHAR(50) NOT NULL, 
-    [password] NVARCHAR(50) NOT NULL, 
-    [name] NVARCHAR(50) NOT NULL
-)
 
 CREATE TABLE [dbo].[CartItems]
 (
@@ -201,16 +224,6 @@ CREATE TABLE [dbo].[Vacancies]
 
 )
 
-CREATE TABLE [dbo].[Companies]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [name] NVARCHAR(50) NOT NULL, 
-    [address] NVARCHAR(50) NOT NULL, 
-    [postcode] NCHAR(5) NOT NULL, 
-    [state] NVARCHAR(50) NOT NULL, 
-    [country] NVARCHAR(50) NOT NULL
-)
-
 CREATE TABLE [dbo].[SupportRequests]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
@@ -234,14 +247,3 @@ CREATE TABLE [dbo].[Replies]
     CONSTRAINT [FK_Replies_SupportRequests] FOREIGN KEY ([support_req_id]) REFERENCES [SupportRequests]([id]), 
     CONSTRAINT [PK_Replies] PRIMARY KEY ([support_req_id], [admin_id])
 )
-
-CREATE TABLE [dbo].[Admins]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [username] NVARCHAR(50) NOT NULL, 
-    [password] NVARCHAR(50) NOT NULL, 
-    [email] NVARCHAR(50) NOT NULL
-)
-
-
-
