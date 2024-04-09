@@ -158,19 +158,20 @@ CREATE TABLE [dbo].[QuizRespones]
     PRIMARY KEY ([answer_id], [question_id], [purchased_course_id])
 )
 
-CREATE TABLE [dbo].[Vacancies]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [job_title] NVARCHAR(50) NOT NULL, 
-    [min_salary] FLOAT NOT NULL, 
-	[max_salary] FLOAT NOT NULL,
-    [type] NVARCHAR(20) NOT NULL, 
-    [role] NVARCHAR(50) NOT NULL, 
-    [job_requirement] NVARCHAR(MAX) NOT NULL, 
-    [job_description] NVARCHAR(MAX) NOT NULL, 
-    [company_id] INT NOT NULL, 
-    CONSTRAINT [FK_Vacancies_Company] FOREIGN KEY ([company_id]) REFERENCES [Companies]([id]),
-)
+CREATE TABLE [dbo].[Vacancies] (
+    [id]              INT            IDENTITY (1, 1) NOT NULL,
+    [job_title]       NVARCHAR (50)  NOT NULL,
+    [min_salary]      FLOAT (53)     NOT NULL,
+    [max_salary]      FLOAT (53)     NOT NULL,
+    [type]            NVARCHAR (20)  NOT NULL,
+    [role]            NVARCHAR (50)  NOT NULL,
+    [job_requirement] NVARCHAR (MAX) NOT NULL,
+    [job_description] NVARCHAR (MAX) NOT NULL,
+    [company_id]      INT            NOT NULL,
+    [email]           NVARCHAR (50)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC),
+    CONSTRAINT [FK_Vacancies_Company] FOREIGN KEY ([company_id]) REFERENCES [dbo].[Companies] ([id])
+);
 
 CREATE TABLE [dbo].[JobApplications]
 (
