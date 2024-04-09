@@ -74,6 +74,25 @@ CREATE TABLE [dbo].[QuizAnswers]
     PRIMARY KEY ([question_id], [answer_id])
 )
 
+CREATE TABLE [dbo].[Courses]
+(
+	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [title] NCHAR(10) NOT NULL, 
+    [description] NCHAR(10) NOT NULL, 
+    [price] NCHAR(10) NOT NULL, 
+    [cover_pic_res_id] INT NOT NULL, 
+    [tutor_id] INT NOT NULL, 
+    CONSTRAINT [FK_Course_FileResources] FOREIGN KEY ([cover_pic_res_id]) REFERENCES [FileResources]([id]), 
+    CONSTRAINT [FK_Course_Tutors] FOREIGN KEY ([tutor_id]) REFERENCES [Tutors]([id]) 
+)
+
+CREATE TABLE [dbo].[Chapters]
+(
+	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [title] NVARCHAR(50) NOT NULL, 
+    [course_id] INT NOT NULL, 
+    CONSTRAINT [FK_Chapters_Courses] FOREIGN KEY ([course_id]) REFERENCES [Courses]([id])
+)
 
 CREATE TABLE [dbo].[ChapterContents]
 (
@@ -104,26 +123,15 @@ CREATE TABLE [dbo].[TutorRatings]
     PRIMARY KEY ([tutor_id], [student_id])
 )
 
-
-
-CREATE TABLE [dbo].[Courses]
+CREATE TABLE [dbo].[Payments]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [title] NCHAR(10) NOT NULL, 
-    [description] NCHAR(10) NOT NULL, 
-    [price] NCHAR(10) NOT NULL, 
-    [cover_pic_res_id] INT NOT NULL, 
-    [tutor_id] INT NOT NULL, 
-    CONSTRAINT [FK_Course_FileResources] FOREIGN KEY ([cover_pic_res_id]) REFERENCES [FileResources]([id]), 
-    CONSTRAINT [FK_Course_Tutors] FOREIGN KEY ([tutor_id]) REFERENCES [Tutors]([id]) 
-)
-
-CREATE TABLE [dbo].[Chapters]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [title] NVARCHAR(50) NOT NULL, 
-    [course_id] INT NOT NULL, 
-    CONSTRAINT [FK_Chapters_Courses] FOREIGN KEY ([course_id]) REFERENCES [Courses]([id])
+    [payment_amount] FLOAT NOT NULL, 
+    [payment_date] DATETIME NOT NULL, 
+    [payment_method] NVARCHAR(50) NOT NULL, 
+    [transaction_method] NVARCHAR(50) NOT NULL, 
+    [student_id] INT NOT NULL, 
+    CONSTRAINT [FK_Payments_Students] FOREIGN KEY ([student_id]) REFERENCES [Students]([id])
 )
 
 CREATE TABLE [dbo].[PurchasedCourses] (
@@ -149,6 +157,19 @@ CREATE TABLE [dbo].[QuizRespones]
     PRIMARY KEY ([answer_id], [question_id], [purchased_course_id])
 )
 
+CREATE TABLE [dbo].[Vacancies]
+(
+	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [job_title] NVARCHAR(50) NOT NULL, 
+    [min_salary] FLOAT NOT NULL, 
+	[max_salary] FLOAT NOT NULL,
+    [type] NVARCHAR(20) NOT NULL, 
+    [role] NVARCHAR(50) NOT NULL, 
+    [job_requirement] NVARCHAR(MAX) NOT NULL, 
+    [job_description] NVARCHAR(MAX) NOT NULL, 
+    [company_id] INT NOT NULL, 
+    CONSTRAINT [FK_Vacancies_Company] FOREIGN KEY ([company_id]) REFERENCES [Companies]([id]),
+)
 
 CREATE TABLE [dbo].[JobApplications]
 (
@@ -185,17 +206,6 @@ CREATE TABLE [dbo].[WithdrawalRequests]
     CONSTRAINT [FK_WithdrawalRequests_Tutors] FOREIGN KEY ([tutor_id]) REFERENCES [Tutors]([id])
 )
 
-CREATE TABLE [dbo].[Payments]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [payment_amount] FLOAT NOT NULL, 
-    [payment_date] DATETIME NOT NULL, 
-    [payment_method] NVARCHAR(50) NOT NULL, 
-    [transaction_method] NVARCHAR(50) NOT NULL, 
-    [student_id] INT NOT NULL, 
-    CONSTRAINT [FK_Payments_Students] FOREIGN KEY ([student_id]) REFERENCES [Students]([id])
-)
-
 CREATE TABLE [dbo].[Payout]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
@@ -209,21 +219,6 @@ CREATE TABLE [dbo].[Payout]
     CONSTRAINT [FK_Payout_Tutors] FOREIGN KEY ([tutor_id]) REFERENCES [Tutors]([id]), 
     CONSTRAINT [FK_Payout_Admins] FOREIGN KEY ([admin_id]) REFERENCES [Admins]([id]), 
     CONSTRAINT [FK_Payout_WithdrawalRequests] FOREIGN KEY ([withdraw_request]) REFERENCES [WithdrawalRequests]([id])
-)
-
-CREATE TABLE [dbo].[Vacancies]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [job_title] NVARCHAR(50) NOT NULL, 
-    [min_salary] FLOAT NOT NULL, 
-	[max_salary] FLOAT NOT NULL,
-    [type] NVARCHAR(20) NOT NULL, 
-    [role] NVARCHAR(50) NOT NULL, 
-    [job_requirement] NVARCHAR(MAX) NOT NULL, 
-    [job_description] NVARCHAR(MAX) NOT NULL, 
-    [company_id] INT NOT NULL, 
-    CONSTRAINT [FK_Vacancies_Company] FOREIGN KEY ([company_id]) REFERENCES [Companies]([id]),
-
 )
 
 CREATE TABLE [dbo].[SupportRequests]
