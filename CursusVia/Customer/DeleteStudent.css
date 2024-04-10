@@ -1,0 +1,60 @@
+﻿.table1 {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width:70%;
+    margin-top:100px;
+    margin-left:10px;
+
+}
+.table1 tr:hover {
+    background-color: #ddd;
+}
+.table1 td, .table1 th {
+    border: 2px solid black;
+    padding: 8px;
+}
+
+#deletetxt {
+    color: red;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: left;
+    font-size:larger;
+}
+.table1 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgba(255,99,71,0.2);
+    color: white;
+}
+
+.deleteicon {
+    all: unset;
+    margin: .25em 0 0 .2em;
+    
+    color: black;
+}
+
+.dot {
+    height: 35px;
+    width: 35px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+#logouttxt {
+    color: red;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: left;
+    font-size: larger;
+}
+.logouticon {
+    all: unset;
+    margin: .25em 0 0 .2em;
+    
+    color: black;
+}

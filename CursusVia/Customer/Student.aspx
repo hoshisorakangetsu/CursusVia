@@ -4,8 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
    
-<div id="layer1">
+<div>
+    <h1>Update Personal Information</h1>
+    <table>
 
+    </table>
 </div>
 
     
