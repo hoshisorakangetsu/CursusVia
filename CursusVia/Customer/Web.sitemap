@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+	<siteMapNode url="~/Customer/" title="Customer"  description="Customer Home">
+		<siteMapNode url="~/Customer/MyCourses.aspx" title="My Courses"  description="Student Courses" icon="menu_book">
+			<siteMapNode url="~/Customer/CourseContent.aspx" title="Course Content" description="Content of the course">
+				<siteMapNode url="~/Customer/CourseChapter.aspx" title="Chapter Content" description="Content of a chapter" />	
+				<siteMapNode url="~/Customer/CourseQuiz.aspx" title="Chapter Quiz" description="Quiz of a chapter" />
+			</siteMapNode>
+		</siteMapNode>
+		<siteMapNode url="~/Customer/Support.aspx" title="Support"  description="" icon="menu_book" />
+		<siteMapNode url="~/Customer/Student.aspx" title="Student"  description="" icon="menu_book" />
+	</siteMapNode>
+</siteMap>

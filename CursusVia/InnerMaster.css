@@ -1,0 +1,85 @@
+﻿:root {
+    --surface-highest: #f1f1f3;
+}
+
+body {
+    background: var(--surface-highest);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.main {
+    background: #fff;
+    border-radius: 1rem;
+    overflow: auto;
+}
+
+.navContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.sideNav {
+    position: sticky;
+    top: 1rem;
+    height: fit-content;
+}
+
+.sideNavItem {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+    padding: .5em !important;
+    gap: .5em;
+    font-size: 1.25em;
+    border-radius: .5em;
+}
+
+.sideNavItem:hover, .sideNavItem:focus, .active {
+    background: var(--primary-color) !important;
+    color: var(--text-on-primary) !important;
+}
+
+.profileCard {
+    padding: .5rem;
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: .5em;
+    gap: .25em;
+    margin-bottom: 1rem;
+}
+
+.profileAbbr {
+    font-size: large;
+    font-weight: 500;
+    color: var(--text-on-primary);
+    background: var(--primary-color);
+    padding: .5em;
+    aspect-ratio: 1/1;
+    border-radius: .5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.names {
+    display: flex;
+    flex-direction: column;
+    gap: .1em;
+    justify-content: center;
+}
+
+.names .username {
+    font-weight: 500;
+    font-size: 1.15em;
+}
+
+.names .email {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: .85em;
+}

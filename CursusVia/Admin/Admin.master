@@ -1,5 +1,39 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="CursusVia.Admin.Admin" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href='<%= ResolveUrl("~/InnerMaster.css") %>' />
+    <asp:ContentPlaceHolder ID="AdminMasterHead" runat="server">
+    </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
+        <div class="sideNav">
+            <div class="profileCard">
+                <div class="profileAbbr">HY</div>
+                <div class="names">
+                    <div class="username">hyue</div>
+                    <div class="email">hyue@gmail.com</div>
+                </div>
+            </div>
+            <div class="navContainer">
+                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1" OnItemDataBound="Repeater1_ItemDataBound">
+                    <ItemTemplate>
+                        <asp:HyperLink CssClass='sideNavItem' ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("url") %>'>
+                            <!-- for some reason no matter how, even if Eval("[icon]") is placed before title, it always get the data of Eval("title") first, so in markup the order needs to be exactly like this, and gonna hack it with css -->
+                                <%# Eval("title") %>
+                                <span class="material-symbols-outlined">
+                                    <%# Eval("[icon]") %>
+                                </span>
+                        </asp:HyperLink>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+            <asp:SiteMapDataSource runat="server" ID="SiteMapDataSource1" SiteMapProvider="adminSitemap" ShowStartingNode="false"></asp:SiteMapDataSource>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="AdminMasterBody" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+
 </asp:Content>
