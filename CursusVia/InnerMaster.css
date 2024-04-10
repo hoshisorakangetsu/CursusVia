@@ -11,12 +11,14 @@ body {
     grid-template-columns: 2fr 8fr;
     gap: 1rem;
     margin: 1rem;
+    min-height: calc(100vh - 1rem);
 }
 
 .main {
     background: #fff;
     border-radius: 1rem;
     overflow: auto;
+    height: 100%;
 }
 
 .navContainer {
