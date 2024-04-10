@@ -43,17 +43,15 @@ CREATE TABLE [dbo].[ChapterQuiz]
     [quiz_title] NVARCHAR(50) NOT NULL
 )
 
-CREATE TABLE [dbo].[Companies]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [name] NVARCHAR(50) NOT NULL, 
-    [address] NVARCHAR(50) NOT NULL, 
-    [postcode] NCHAR(5) NOT NULL, 
-    [state] NVARCHAR(50) NOT NULL, 
-    [country] NVARCHAR(50) NOT NULL
-)
-
-
+CREATE TABLE [dbo].[Companies] (
+    [id]       INT           IDENTITY (1, 1) NOT NULL,
+    [name]     NVARCHAR (50) NOT NULL,
+    [address]  NVARCHAR (50) NOT NULL,
+    [postcode] NVARCHAR (15) NOT NULL,
+    [state]    NVARCHAR (50) NOT NULL,
+    [country]  NVARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
 
 CREATE TABLE [dbo].[QuizQuestions]
 (
