@@ -1,0 +1,138 @@
+﻿body {
+}
+
+.topField {
+    display:flex;
+    gap: 1.5em;
+    width:auto;
+    padding: 1em;
+}
+.searchIcon {
+    all: unset;
+    margin: .25em 0 0 .5em;
+    padding-right: 1em;
+    color: rgba(0, 0, 0, .4);
+}
+
+.input {
+    all: unset;
+    border: none;
+    width: 18em;
+}
+
+/*this dk still got function boh*/
+.input:active {
+    border:none;
+}
+
+.search {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    padding: .1em;
+    display: flex;
+    width: 25em;
+}
+
+.space {
+    margin-left: .6em;
+}
+
+.filterLine {
+    width: 18em;
+}
+
+.filterHeader {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    padding: 1em;
+}
+
+.filterText {
+    font-weight: bold;
+    font-size: x-large;
+    margin-top: .2em;
+}
+
+.filterStatus {
+    padding: 0 1em 0 1em;
+}
+
+.statusText {
+    font-weight: bold;
+    font-size: large;
+}
+
+.radioBtn {
+    padding-top: .5em;
+}
+
+.dateText {
+    font-weight: bold;
+    font-size: large;
+    padding-bottom: .5em;
+}
+
+.filterDate {
+    padding-left: 1em;
+    padding-top: 1em;
+}
+
+.dateInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: auto;
+    padding-right: 1em;
+    margin-top: .5em;
+}
+
+.dateInputField {
+    border-radius: .25em;
+    border: solid 2px;
+    border-color: var(--text-on-surface);
+}
+
+.content {
+    display: flex;
+    flex-direction:row;
+}
+
+.request {
+    margin: 1em;
+    border: solid 2px;
+    border-color: rgba(0, 0, 0, .4);
+    display: flex;
+    flex-direction: row;
+}
+
+.requestContentArea {
+    border-left: solid 2px;
+    border-color: rgba(0, 0, 0, .4);
+}
+
+.requestBtn {
+    width: 35em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.Btn {
+    all: unset; /* reset styles first */
+    border-radius: .25em;
+    padding: .5em .75em;
+    text-align: center;
+}
+
+.requestContent {
+    border-right: solid 2px;
+    border-color: rgba(0, 0, 0, .4);
+    padding: 0.5em 1em 0 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
