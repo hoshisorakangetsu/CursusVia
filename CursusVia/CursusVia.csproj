@@ -67,6 +67,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AccountStyle.css" />
+    <Content Include="Admin\AdminAccount.aspx" />
+    <Content Include="Admin\PayoutRequest.aspx" />
+    <Content Include="Admin\SupportRequest.aspx" />
+    <Content Include="Admin\WithdrawalRequest.aspx" />
     <Content Include="App_Data\CreateDB.sql" />
     <Content Include="App_Data\CursusVia.mdf" />
     <Content Include="App_Data\CursusVia_log.ldf">
@@ -74,8 +79,10 @@
     </Content>
     <Content Include="CourseCategory.aspx" />
     <Content Include="Courses.aspx" />
+    <Content Include="Customer\Cart.aspx" />
     <Content Include="Customer\DeleteStudent.aspx" />
     <Content Include="Customer\DeleteStudent.css" />
+    <Content Include="Customer\Payment.aspx" />
     <Content Include="Customer\Student.aspx" />
     <Content Include="general.css" />
     <Content Include="Home.css" />
@@ -113,6 +120,41 @@
     <Compile Include="Admin\Admin.master.designer.cs">
       <DependentUpon>Admin.master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminAccount.aspx.cs">
+      <DependentUpon>AdminAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminAccount.aspx.designer.cs">
+      <DependentUpon>AdminAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PayoutRequest.aspx.cs">
+      <DependentUpon>PayoutRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PayoutRequest.aspx.designer.cs">
+      <DependentUpon>PayoutRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SupportRequest.aspx.cs">
+      <DependentUpon>SupportRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SupportRequest.aspx.designer.cs">
+      <DependentUpon>SupportRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\WithdrawalRequest.aspx.cs">
+      <DependentUpon>WithdrawalRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\WithdrawalRequest.aspx.designer.cs">
+      <DependentUpon>WithdrawalRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer\Customer.master.cs">
       <DependentUpon>Customer.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,6 +189,13 @@
     </Compile>
     <Compile Include="Customer\DeleteStudent.aspx.designer.cs">
       <DependentUpon>DeleteStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\Student.aspx.cs">
       <DependentUpon>Student.aspx</DependentUpon>
