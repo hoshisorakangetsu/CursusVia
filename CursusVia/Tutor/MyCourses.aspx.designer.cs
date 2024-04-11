@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CursusVia.Customer
+namespace CursusVia.Tutor
 {
 
 
@@ -33,31 +33,13 @@ namespace CursusVia.Customer
         protected global::System.Web.UI.WebControls.Button SearchButton;
 
         /// <summary>
-        /// CourseCategoryFilter control.
+        /// CreateCourse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CourseCategoryFilter;
-
-        /// <summary>
-        /// SortBy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList SortBy;
-
-        /// <summary>
-        /// UploadedBy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UploadedBy;
+        protected global::System.Web.UI.WebControls.HyperLink CreateCourse;
 
         /// <summary>
         /// ViewDetails control.
@@ -69,6 +51,15 @@ namespace CursusVia.Customer
         protected global::System.Web.UI.WebControls.HyperLink ViewDetails;
 
         /// <summary>
+        /// AddToCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink AddToCart;
+
+        /// <summary>
         /// ViewDetails2 control.
         /// </summary>
         /// <remarks>
@@ -78,6 +69,15 @@ namespace CursusVia.Customer
         protected global::System.Web.UI.WebControls.HyperLink ViewDetails2;
 
         /// <summary>
+        /// AddToCart2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink AddToCart2;
+
+        /// <summary>
         /// ViewDetails3 control.
         /// </summary>
         /// <remarks>
@@ -85,5 +85,14 @@ namespace CursusVia.Customer
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink ViewDetails3;
+
+        /// <summary>
+        /// AddToCart3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink AddToCart3;
     }
 }

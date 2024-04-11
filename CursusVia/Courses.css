@@ -1,0 +1,183 @@
+﻿.coursesMain {
+    margin: 1rem;
+}
+
+.coursesSearch {
+    margin-top: 1rem;
+}
+
+.searchAlwaysShown {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.searchBox {
+    display: flex;
+    gap: .5em;
+    align-items: center;
+    border: 1px solid var(--outline);
+    padding: .5em;
+    border-radius: .5em;
+    transition: .25s;
+    width: 60%;
+}
+
+.searchBox .searchIcon {
+    color: var(--outline);
+    transition: .25s;
+}
+
+.searchBox .searchTextBox {
+    align-self: stretch;
+    width: 100%;
+    outline: none;
+}
+
+.searchBox .searchBtn {
+    padding: .25em .75em;
+}
+
+.searchBox:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 16px var(--primary-shadow);
+}
+
+.searchBox:focus-within .searchIcon {
+    color: var(--primary-color);
+}
+
+.rightControl {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: 1em;
+}
+
+.rightControl > .btnPrimary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem !important;
+}
+
+.advancedFilter {
+    aspect-ratio: 1/1;
+}
+
+.filterCategory {
+    border: 1px solid var(--outline);
+    padding: 0 .5em;
+    border-radius: .5em;
+}
+
+.searchExpandable {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: .25s;
+    overflow: hidden;
+}
+
+.searchExpandable.expanded {
+    grid-template-rows: 1fr;
+}
+
+.advancedFilterCourseControl {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-top: .5em;
+    overflow: hidden;
+}
+
+.priceRange {
+    display: flex;
+    gap: .25em;
+    border: 1px solid var(--outline);
+    padding: .35em;
+    border-radius: .5em;
+    transition: .25s;
+}
+
+.priceField {
+    display: flex;
+    align-items: center;
+    gap: .1em;
+}
+
+.priceBox {
+    padding: .15em;
+    border: 1px solid var(--outline);
+    border-radius: .35em;
+    width: 10ch;
+}
+
+.priceRange:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 16px var(--primary-shadow);
+}
+
+.sortBy, .uploadedBy {
+    height: 100%;
+}
+
+.coursesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.courseCard {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    border: 1px solid var(--outline);
+    border-radius: .5rem;
+    max-width: 30%;
+}
+
+.courseCard img {
+    aspect-ratio: 21/9;
+    object-fit: cover;
+    border-radius: .5em;
+}
+
+.courseName, .coursePrice {
+    font-size: large;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.tutorName, .enrolled {
+    font-size: small;
+    color: var(--outline);
+    margin-top: .4rem;
+}
+
+.rating {
+    font-size: small;
+    margin-top: .4rem;
+}
+
+.actions {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.actions > .btnPrimary {
+    flex-grow: 1;
+    padding: .5rem !important;
+    text-align: center;
+}
+
+.addToCartBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem !important;
+}
+
+.addToCartBtn > span {
+    font-size: 1rem;
+}
