@@ -38,7 +38,7 @@
             <span class="surfaceText reply">Replies</span>
         </div>
         <div>
-            <textarea id="TextArea1" cols="70" rows="7" placeholder="Your Reply" class="inputArea"></textarea>
+            <textarea id="TextArea1" cols="120" rows="10" placeholder="Your Reply" class="inputArea"></textarea>
         </div>
         <div class="replyBtn">
             <asp:Button ID="btnReply" runat="server" Text="Reply" CssClass="btnPrimary btn" />

@@ -4,7 +4,8 @@
     gap: 2em;
     width:auto;
     padding: 1em;
-    margin-left: 9em;
+    margin-left: 8em;
+    align-items:center; 
 }
 .searchIcon {
     all: unset;
@@ -22,6 +23,27 @@
 /*this dk still got function boh*/
 .input:active {
     border:none;
+}
+
+.newRequestText {
+    font-size: 1.15em !important
+}
+
+.newBtn {
+    all: unset; /* reset styles first */
+    background-color: var(--primary-color) !important;
+    border-radius: .25em;
+    padding: .5em .75em !important;
+    text-align:center;
+}
+
+.newBtn:hover {
+    cursor:pointer;
+}
+
+.newBtn:visited {
+    text-decoration: none;
+    color: var(--text-on-primary) !important;
 }
 
 .search {

@@ -15,13 +15,13 @@ namespace CursusVia.Customer
     {
 
         /// <summary>
-        /// btnNew control.
+        /// newRequestLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNew;
+        protected global::System.Web.UI.WebControls.HyperLink newRequestLink;
 
         /// <summary>
         /// btnSearch control.
@@ -84,25 +84,25 @@ namespace CursusVia.Customer
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewDetails;
+        protected global::System.Web.UI.WebControls.HyperLink btnViewDetails;
 
         /// <summary>
-        /// btnUpdateRequest control.
+        /// HyperLink1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateRequest;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
 
         /// <summary>
-        /// btnDeleteRequest control.
+        /// HyperLink2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeleteRequest;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
 
         /// <summary>
         /// btnViewDetails1 control.

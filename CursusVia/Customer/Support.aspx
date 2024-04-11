@@ -4,8 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
     <div>
-        <div class="topField">
-            <asp:Button ID="btnNew" runat="server" Text="New Request" CssClass="btnPrimary btn"/>
+        <div class="topField"> 
+            <asp:HyperLink ID="newRequestLink" runat="server" class="btnPrimary newBtn newRequestText" NavigateUrl='NewRequest.aspx'>   
+                New Request
+            </asp:HyperLink>
             <div class="search">
                 <span class="material-symbols-outlined searchIcon">search</span>
                 <input id="Text1" type="text" placeholder="Search Request" class="input"/>
@@ -54,9 +56,15 @@
                         <p class="surfaceText"><b>Status: Processing</b></p>
                     </div>
                     <div class="requestBtn">
-                        <asp:Button ID="btnViewDetails" runat="server" Text="View Request" CssClass="btnPrimary Btn"/>
-                        <asp:Button ID="btnUpdateRequest" runat="server" Text="Update Request" CssClass="btnPrimary Btn"/>
-                        <asp:Button ID="btnDeleteRequest" runat="server" Text="Delete Request" CssClass="btnPrimary Btn"/>
+                        <asp:HyperLink ID="btnViewDetails" runat="server" class="btnPrimary newBtn" NavigateUrl='ViewRequest.aspx'>   
+                            View Request
+                        </asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink1" runat="server" class="btnPrimary newBtn" NavigateUrl='EditSupport.aspx'>   
+                            Update Request
+                        </asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='DeleteRequest.aspx'>   
+                            Delete Request
+                        </asp:HyperLink>
                     </div>
                 </div>
                 <div class="request">
@@ -75,7 +83,7 @@
                         <p class="surfaceText"><b>Status: Completed</b></p>
                     </div>
                     <div class="requestBtn">
-                        <asp:Button ID="btnViewDetails1" runat="server" Text="View Details" CssClass="btnPrimary Btn"/>
+                        <asp:Button ID="btnViewDetails1" runat="server" Text="View Request" CssClass="btnPrimary Btn"/>
                         <asp:Button ID="btnUpdateRequest2" runat="server" Text="Update Request" CssClass="btnPrimary Btn"/>
                         <asp:Button ID="btnDeleteRequest3" runat="server" Text="Delete Request" CssClass="btnPrimary Btn"/>
                     </div>
