@@ -45,7 +45,7 @@ label {
     padding: 10px;
     border: 3px solid #ccc;
     border-radius: 15px;
-    /*transition: border-color 0.3s, box-shadow 0.3s;*/
+    
     background-image: url('namelogo.png');
     background-size: 30px;
     background-position: 10px 10px;
@@ -67,7 +67,7 @@ label {
     padding: 10px;
     border: 3px solid #ccc;
     border-radius: 15px;
-    /*transition: border-color 0.3s, box-shadow 0.3s;*/
+   
     background-image: url('passwordlogo.png');
     background-size: 30px;
     background-position: 10px 10px;

@@ -31,6 +31,15 @@
                          </div>
                          </td>
             </tr>
+             <tr>
+     <td>
+          <div class="input-grp">
+              <label for="TextBox1">Confirmed Password</label>
+         <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+           
+              </div>
+              </td>
+ </tr>
            
             <tr>
                 <td>
