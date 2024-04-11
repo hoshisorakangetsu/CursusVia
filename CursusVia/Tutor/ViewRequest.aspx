@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/Customer.master" AutoEventWireup="true" CodeBehind="ViewRequest.aspx.cs" Inherits="CursusVia.Customer.ViewRequest" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="CustomerMasterHead" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tutor/TutorMaster.master" AutoEventWireup="true" CodeBehind="ViewRequest.aspx.cs" Inherits="CursusVia.Tutor.ViewRequest" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="TutorMasterHead" runat="server">
     <link href="ViewRequest.css" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
     <div class="backBtn">
         <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='Support.aspx'>   
             <span class="material-symbols-outlined backIcon">arrow_back</span>
@@ -63,7 +63,7 @@
         </div>
         <div class="contentContainer">
             <div class="requestTitle">
-                <h1 class="surfaceText">Student Name</h1>
+                <h1 class="surfaceText">Tutor Name</h1>
                 <p class="surfaceText requestTime">Replies on: 4/9/2024 15:00</p>
             </div>
             <div>

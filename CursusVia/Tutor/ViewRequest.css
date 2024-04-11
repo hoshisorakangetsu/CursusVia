@@ -48,13 +48,13 @@
     gap: .5em;
     margin-top: .3em;
     margin-bottom: -.3em;
-    margin-left:auto;
-    margin-right:0;
+    margin-left: auto;
+    margin-right: 0;
 }
 
 a.editBtn:visited {
     text-decoration: none;
-    color: var(--text-on-primary)!important;
+    color: var(--text-on-primary) !important;
 }
 
 a.editBtn:hover {
@@ -62,7 +62,7 @@ a.editBtn:hover {
 }
 
 .editIcon {
-    font-size: 22px!important;
+    font-size: 22px !important;
 }
 
 .reply {

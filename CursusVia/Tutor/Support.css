@@ -1,12 +1,13 @@
 ﻿.topField {
-    display:flex;
+    display: flex;
     justify-content: flex-start;
     gap: 2em;
-    width:auto;
+    width: auto;
     padding: 1em;
     margin-left: 8em;
-    align-items:center; 
+    align-items: center;
 }
+
 .searchIcon {
     all: unset;
     margin: .25em 0 0 .5em;
@@ -22,12 +23,12 @@
 
 /*this dk still got function boh*/
 .input:active {
-    border:none;
+    border: none;
 }
 
 .dateTitle {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     margin-top: .5em;
 }
 
@@ -40,11 +41,11 @@
     background-color: var(--primary-color) !important;
     border-radius: .25em;
     padding: .5em .75em !important;
-    text-align:center;
+    text-align: center;
 }
 
 .newBtn:hover {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .newBtn:visited {
@@ -156,5 +157,5 @@
     padding: 0.5em 1em 0 1.5em;
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
 }

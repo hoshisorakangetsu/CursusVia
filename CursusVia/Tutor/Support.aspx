@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/Customer.master" AutoEventWireup="true" CodeBehind="Support.aspx.cs" Inherits="CursusVia.Customer.Support" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="CustomerMasterHead" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tutor/TutorMaster.master" AutoEventWireup="true" CodeBehind="Support.aspx.cs" Inherits="CursusVia.Tutor.Support" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="TutorMasterHead" runat="server">
     <link href="Support.css" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
     <div>
         <div class="topField"> 
             <asp:HyperLink ID="newRequestLink" runat="server" class="btnPrimary newBtn newRequestText" NavigateUrl='NewRequest.aspx'>   

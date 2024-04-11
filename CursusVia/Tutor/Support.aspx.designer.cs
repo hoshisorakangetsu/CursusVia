@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CursusVia.Customer
+namespace CursusVia.Tutor
 {
 
 
