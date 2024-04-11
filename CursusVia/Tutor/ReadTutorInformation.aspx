@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.master" AutoEventWireup="true" CodeBehind="ReadTutorInformation.aspx.cs" Inherits="CursusVia.Tutor.ReadTutorInformation" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tutor/TutorMaster.master" AutoEventWireup="true" CodeBehind="ReadTutorInformation.aspx.cs" Inherits="CursusVia.Tutor.ReadTutorInformation" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="TutorMasterHead" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
     <asp:GridView ID="GridView1" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="10" CellSpacing="5" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" Width="500px" Height="500px">
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
@@ -28,7 +28,7 @@
         <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
         <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
         <asp:BoundField DataField="balance" HeaderText="balance" SortExpression="balance" />
-        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
+        <asp:CommandField ShowEditButton="True" />
     </Fields>
     <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
     <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/.Master" AutoEventWireup="true" CodeBehind="TutorMaster.master.cs" Inherits="CursusVia.Tutor.TutorMaster" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="TutorMaster.master.cs" Inherits="CursusVia.Tutor.TutorMaster" %>
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href='<%= ResolveUrl("~/InnerMaster.css") %>' />
