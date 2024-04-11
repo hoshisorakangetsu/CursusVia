@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="DeleteStudent.aspx.cs" Inherits="CursusVia.Customer.DeleteStudent" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/Customer.master" AutoEventWireup="true" CodeBehind="DeleteStudent.aspx.cs" Inherits="CursusVia.Customer.DeleteStudent" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="CustomerMasterHead" runat="server">
     <link href="DeleteStudent.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
     <div>
         <table class="table1">
             <tr>

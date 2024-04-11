@@ -67,8 +67,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\CreateDB.sql" />
+    <Content Include="App_Data\CursusVia.mdf" />
+    <Content Include="App_Data\CursusVia_log.ldf">
+      <DependentUpon>CursusVia.mdf</DependentUpon>
+    </Content>
     <Content Include="CourseCategory.aspx" />
     <Content Include="Courses.aspx" />
+    <Content Include="Customer\DeleteStudent.aspx" />
+    <Content Include="Customer\DeleteStudent.css" />
     <Content Include="Customer\Student.aspx" />
     <Content Include="general.css" />
     <Content Include="Home.css" />
@@ -91,7 +98,10 @@
     <Content Include="res\web_dev_course.png" />
     <Content Include="res\women_with_pen.png" />
     <Content Include="res\x-social-media-white-icon.png" />
+    <Content Include="Tutor\ReadTutorInformation.aspx" />
+    <Content Include="Tutor\readTutorInformation.css" />
     <Content Include="Tutor\Tutor.aspx" />
+    <Content Include="Tutor\UpdatePasswordTutor.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
   </ItemGroup>
@@ -131,6 +141,13 @@
     <Compile Include="Courses.aspx.designer.cs">
       <DependentUpon>Courses.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Customer\DeleteStudent.aspx.cs">
+      <DependentUpon>DeleteStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\DeleteStudent.aspx.designer.cs">
+      <DependentUpon>DeleteStudent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer\Student.aspx.cs">
       <DependentUpon>Student.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -146,6 +163,13 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Tutor\ReadTutorInformation.aspx.cs">
+      <DependentUpon>ReadTutorInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\ReadTutorInformation.aspx.designer.cs">
+      <DependentUpon>ReadTutorInformation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tutor\Tutor.aspx.cs">
       <DependentUpon>Tutor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,6 +183,13 @@
     </Compile>
     <Compile Include="Tutor\TutorMaster.master.designer.cs">
       <DependentUpon>TutorMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\UpdatePasswordTutor.aspx.cs">
+      <DependentUpon>UpdatePasswordTutor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\UpdatePasswordTutor.aspx.designer.cs">
+      <DependentUpon>UpdatePasswordTutor.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
