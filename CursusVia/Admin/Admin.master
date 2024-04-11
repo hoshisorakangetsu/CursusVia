@@ -14,6 +14,7 @@
                 <div class="names">
                     <div class="username">hyue</div>
                     <div class="email">hyue@gmail.com</div>
+                                        <asp:HyperLink ID="hLUpdate" runat="server" NavigateUrl="~/Admin/UpdateAdminAccount.aspx"> Update Admin</asp:HyperLink>
                 </div>
             </div>
             <div class="navContainer">

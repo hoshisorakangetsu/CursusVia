@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="AdminMasterHead" runat="server">
       <link href="AccountStyle.css" rel="stylesheet" />
    
-    rel="stylesheet">
+  
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminMasterBody" runat="server">
@@ -36,5 +36,8 @@
             </div>
    
           </asp:Panel>
+
+   
+   
    
 </asp:Content>

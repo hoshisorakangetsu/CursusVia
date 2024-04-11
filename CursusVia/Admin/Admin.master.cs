@@ -27,5 +27,9 @@ namespace CursusVia.Admin
             }
         }
 
+        protected void lbUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

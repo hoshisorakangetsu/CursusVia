@@ -1,5 +1,7 @@
 ﻿
 /* AccountStyle.css */
+
+/*Account Login Pannel*/
 .login-container {
     display: flex;
     flex-direction: column;
@@ -102,10 +104,10 @@
        
         color: #29354C;
     }
+/*End of Account Login Pannel*/
+/***********************************************/
 
-
-
-
+/*Account register panel*/
 
 .Register-container {
     display: flex;
@@ -222,3 +224,34 @@
     .lbtnLogin:hover {
         color: #29354C;
     }
+/*End of Account register panel*/
+/***********************************************/
+
+/*Account Upate Panel*/
+
+.Update-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: auto;
+    padding: 30px;
+    background: #e6e6e6;
+    border-radius: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #29354C;
+    box-sizing: border-box;
+    padding-bottom: 100px;
+}
+.lblUpdateAcc {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #29354C;
+    text-align: center;
+    width: 100%;
+}
