@@ -29,6 +29,7 @@ a:visited {
     --text-on-primary: #FFFFFF;
     --text-on-surface: #29354C;
     --bg-surface: rgba(41, 53, 76, 0.07);
+    --surface-variant: #DEE3ED;
     --outline: rgba(0, 0, 0, 0.4);
     --primary-shadow: rgba(232, 98, 98, 0.25);
 }
@@ -96,6 +97,12 @@ a:visited {
 .genericInputField > select:focus {
     border-color: var(--primary-color);
     box-shadow: 0 2px 16px var(--primary-shadow);
+}
+
+.backControl {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .topBanner {

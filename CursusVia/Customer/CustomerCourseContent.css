@@ -1,0 +1,62 @@
+﻿.customerCourseContentMain {
+    margin: .5rem 1rem;
+}
+
+.overlay {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hero .tutorCard {
+    color: #000;
+    width: 25%;
+}
+
+.courseOverview {
+    margin-bottom: 2rem
+}
+
+.courseOverview h1 {
+    margin-bottom: 1rem;
+}
+
+.giveARating h1 {
+    margin-bottom: 1rem;
+}
+
+.giveRatingContainer {
+    border: 1px solid var(--outline);
+    border-radius: .5rem;
+    padding: .5rem;
+}
+
+.giveRatingContainer p {
+    font-size: 1.5em;
+}
+
+.ratingControl {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.ratingRBL {
+    display: flex;
+    flex-grow: 1;
+}
+
+.ratingRBL span {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.ratingRBL label {
+    display: none;
+}
+
+.giveRatingContainer .btnPrimary {
+    padding: .5em 1.5em;
+}
+
