@@ -5,30 +5,33 @@
     width: 600px;
     height: 600px;
 }
+
 th {
     background-color: rgba(131, 146, 156,0.2);
 }
+
 .layer-1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:100px;
+    margin-top: 100px;
 }
+
 label {
     color: rgb(98, 110, 130);
     font-weight: bold;
     display: block;
-    margin-left: 30px;
     margin-bottom:30px;
+    margin-left: 30px;
 }
 
-label:after {
+    label:after {
         content: ": "
     }
+
 .form-control {
-    background-color:transparent;
-    
-    margin-left:30px;
+    background-color: transparent;
+    margin-left: 30px;
 }
 
 .input-grp input:focus {
@@ -53,17 +56,33 @@ label:after {
     border: 3px solid #ccc;
     border-radius: 15px;
     transition: border-color 0.3s, box-shadow 0.3s;
-    background-image: url('passwordlogo.png');
-    background-size:30px;
+    background-image: url('namelogo.png');
+    background-size: 30px;
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
 }
-.pwicon {
+
+.accicon {
     all: unset;
-    margin: .50em .2em .2em .7em;
+    margin: .50em 0 0 .7em;
     color: black;
 }
-#button1{
-    margin-left:30px;
+.input-grp2 input {
+    width: 320px;
+    height: 40px;
+    font-size: 16px;
+    color: #555;
+    padding: 10px;
+    border: 3px solid #ccc;
+    border-radius: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-image: url('passwordlogo.png');
+    background-size: 30px;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+}
+#button1 {
+    margin-left: 30px;
 }
