@@ -36,7 +36,7 @@
          <div class="input-grp3" >
              <asp:CheckBox ID="CheckBox1" runat="server" /> 
         
-             <label for="CheckBox1" >I agree to the terms and conditions</label>
+             <p>I agree to the terms and conditions</p>
         </div>
               </td>
  </tr>
