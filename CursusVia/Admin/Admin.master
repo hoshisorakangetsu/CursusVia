@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href='<%= ResolveUrl("~/InnerMaster.css") %>' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <asp:ContentPlaceHolder ID="AdminMasterHead" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
@@ -13,6 +14,7 @@
                 <div class="names">
                     <div class="username">hyue</div>
                     <div class="email">hyue@gmail.com</div>
+                                        <asp:HyperLink ID="hLUpdate" runat="server" NavigateUrl="~/Admin/UpdateAdminAccount.aspx"> Update Admin</asp:HyperLink>
                 </div>
             </div>
             <div class="navContainer">

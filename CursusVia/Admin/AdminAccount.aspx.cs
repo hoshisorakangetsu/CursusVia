@@ -13,5 +13,19 @@ namespace CursusVia.Admin
         {
 
         }
+
+        protected void lbtnShowRegister_Click(object sender, EventArgs e)
+        {
+            // Toggle visibility of the registration panel
+            pnlRegister.Visible = !pnlRegister.Visible;
+            pnlLogin.Visible = false;
+        }
+
+        protected void lbtnShowLogin_Click(object sender, EventArgs e)
+        {
+            // Toggle visibility of the Logoin panel
+            pnlLogin.Visible = !pnlLogin.Visible;
+            pnlRegister.Visible = false;
+        }
     }
 }

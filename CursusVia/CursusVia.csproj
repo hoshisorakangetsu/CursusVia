@@ -84,6 +84,10 @@
     <Content Include="Customer\DeleteStudent.css" />
     <Content Include="Customer\Payment.aspx" />
     <Content Include="Customer\Student.aspx" />
+    <Content Include="Customer\UpdateStudentDetails.aspx" />
+    <Content Include="Customer\UpdateStudentDetails.css" />
+    <Content Include="Customer\UpdateStudentPassword.aspx" />
+    <Content Include="Customer\UpdateStudentPassword.css" />
     <Content Include="general.css" />
     <Content Include="Home.css" />
     <Content Include="HomeCourseCategoryScroller.js" />
@@ -108,6 +112,9 @@
     <Content Include="Tutor\ReadTutorInformation.aspx" />
     <Content Include="Tutor\readTutorInformation.css" />
     <Content Include="Tutor\Tutor.aspx" />
+    <Content Include="Tutor\UpdateDetailsTutor.aspx" />
+    <Content Include="Tutor\UpdateDetailsTutor.css" />
+    <Content Include="Tutor\UpdatePassword.css" />
     <Content Include="Tutor\UpdatePasswordTutor.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
@@ -204,6 +211,20 @@
     <Compile Include="Customer\Student.aspx.designer.cs">
       <DependentUpon>Student.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Customer\UpdateStudentDetails.aspx.cs">
+      <DependentUpon>UpdateStudentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\UpdateStudentDetails.aspx.designer.cs">
+      <DependentUpon>UpdateStudentDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\UpdateStudentPassword.aspx.cs">
+      <DependentUpon>UpdateStudentPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\UpdateStudentPassword.aspx.designer.cs">
+      <DependentUpon>UpdateStudentPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -232,6 +253,13 @@
     </Compile>
     <Compile Include="Tutor\TutorMaster.master.designer.cs">
       <DependentUpon>TutorMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\UpdateDetailsTutor.aspx.cs">
+      <DependentUpon>UpdateDetailsTutor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\UpdateDetailsTutor.aspx.designer.cs">
+      <DependentUpon>UpdateDetailsTutor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tutor\UpdatePasswordTutor.aspx.cs">
       <DependentUpon>UpdatePasswordTutor.aspx</DependentUpon>

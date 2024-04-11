@@ -24,6 +24,15 @@ namespace CursusVia.Admin
         protected global::System.Web.UI.WebControls.ContentPlaceHolder AdminMasterHead;
 
         /// <summary>
+        /// hLUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hLUpdate;
+
+        /// <summary>
         /// Repeater1 control.
         /// </summary>
         /// <remarks>

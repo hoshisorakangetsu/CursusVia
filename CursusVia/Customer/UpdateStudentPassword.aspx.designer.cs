@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CursusVia.Tutor
+namespace CursusVia.Customer
 {
 
 
-	public partial class UpdatePasswordTutor
+	public partial class UpdateStudentPassword
 	{
 
 		/// <summary>

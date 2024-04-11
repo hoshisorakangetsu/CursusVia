@@ -1,5 +1,7 @@
 ﻿
 /* AccountStyle.css */
+
+/*Account Login Pannel*/
 .login-container {
     display: flex;
     flex-direction: column;
@@ -27,7 +29,7 @@
     text-align: center;
     width: 100%; 
 }
-.lblLogin {
+.lblLogin{
     font-weight: bold;
     font-size: 22px;
     margin-bottom: 15px;
@@ -39,8 +41,8 @@
 
 .txtUsername, .txtPassword {
     width: 100%;
-    padding: 10px; 
-    margin-bottom: 15px; 
+    padding: 10px;
+    margin-bottom: 15px;
     border: 1px solid #29354C;
     border-radius: 5px;
     box-sizing: border-box;
@@ -102,3 +104,154 @@
        
         color: #29354C;
     }
+/*End of Account Login Pannel*/
+/***********************************************/
+
+/*Account register panel*/
+
+.Register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: auto;
+    padding: 30px;
+    background: #e6e6e6;
+    border-radius: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #29354C;
+    box-sizing: border-box;
+    padding-bottom: 100px;
+}
+
+.lblRegister {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #29354C;
+    text-align: center;
+    width: 100%;
+}
+.txtEmail {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #29354C;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.txtPass {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #29354C;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.txtPass {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #29354C;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.txtVerify {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #29354C;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.btnSubmit {
+    width: 35%;
+    padding: 10px;
+    background-color: #E86262;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    position: absolute;
+    bottom: 60px;
+    left: 30px;
+}
+    .btnSubmit:hover {
+        background-color: #29354C;
+        color: white;
+    }
+
+.btnCancel {
+    width: 35%;
+    padding: 10px;
+    background-color: #29354C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    position: absolute;
+    bottom: 60px;
+    right: 30px;
+}
+.btnCancel:hover {
+    background-color: #E86262;
+    color: white;
+}
+.lbtnLogin {
+    color: #E86262;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    position: absolute;
+}
+
+    .lbtnLogin:hover {
+        color: #29354C;
+    }
+/*End of Account register panel*/
+/***********************************************/
+
+/*Account Upate Panel*/
+
+.Update-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: auto;
+    padding: 30px;
+    background: #e6e6e6;
+    border-radius: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #29354C;
+    box-sizing: border-box;
+    padding-bottom: 100px;
+}
+.lblUpdateAcc {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #29354C;
+    text-align: center;
+    width: 100%;
+}

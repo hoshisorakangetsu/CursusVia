@@ -34,16 +34,17 @@
         <tr>
      <td>
          <div class="input-grp3" >
-             <asp:CheckBox ID="CheckBox1" runat="server" />
-             <p >I agree to the terms and conditions</p>
+             <asp:CheckBox ID="CheckBox1" runat="server" /> 
+        
+             <p>I agree to the terms and conditions</p>
         </div>
               </td>
  </tr>
         <tr>
             <td>
-                  <div id="button1">
-                <asp:Button ID="Button1" runat="server" Text="Update" cssClass="btnPrimary btn"/>
-                  </div>
+                 
+                <asp:Button ID="Button1" runat="server" Text="Update" cssClass="Button1"/>
+                  
             </td>
         </tr>
     

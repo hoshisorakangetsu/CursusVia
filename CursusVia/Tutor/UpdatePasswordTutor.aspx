@@ -31,12 +31,21 @@
                          </div>
                          </td>
             </tr>
+             <tr>
+     <td>
+          <div class="input-grp">
+              <label for="TextBox1">Confirmed Password</label>
+         <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+           
+              </div>
+              </td>
+ </tr>
            
             <tr>
                 <td>
-                    <div id="button1">
-                    <asp:Button ID="Button1" runat="server" Text="Update" cssClass="btnPrimary btn"/>
-                        </div>
+                    <!--<div id="button1">-->
+                    <asp:Button ID="Button1" runat="server" Text="Update" cssClass="Button1"/>
+                     <!--   </div>-->
                 </td>
             </tr>
         

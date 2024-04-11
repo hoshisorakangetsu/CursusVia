@@ -1,0 +1,105 @@
+﻿/* AccountStyle.css */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: auto;
+    padding: 30px;
+    background: #e6e6e6;
+    border-radius: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #29354C;
+    box-sizing: border-box;
+    padding-bottom: 100px;
+}
+
+/* Styling for the labels above the input fields */
+.lblhavAcc {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #29354C;
+    text-align: center;
+    width: 100%;
+}
+
+.lblLogin {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #29354C;
+    text-align: center;
+    width: 100%;
+}
+
+
+.txtUsername, .txtPassword {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #29354C;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+
+.btnLogin {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #29354C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+    .btnLogin:hover {
+        background-color: #E86262;
+        color: white;
+    }
+
+
+
+.lbtnForgetPass {
+    position: absolute;
+    bottom: 80px;
+    right: 16px;
+    font-size: 12px;
+}
+
+    .lbtnForgetPass:hover {
+        color: #E86262;
+    }
+
+.cbRememberMe {
+    position: absolute;
+    bottom: 80px;
+    left: 16px;
+    font-size: 12px;
+}
+
+
+
+
+.lbtnRegister {
+    color: #E86262;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    position: absolute;
+}
+
+    .lbtnRegister:hover {
+        color: #29354C;
+    }
