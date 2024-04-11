@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode url="~/Admin/" title="Admin"  description="">
-    <siteMapNode url="~/Admin/Vacancy.aspx" title="Vacancy"  description="" icon="menu_book" />
-  </siteMapNode>
+	<siteMapNode url="~/Admin/" title="Admin"  description="">
+		<siteMapNode url="~/Admin/AdminAccount.aspx" title="Account"  description="" icon="admin_panel_settings" />
+		<siteMapNode url="~/Admin/SupportRequest.aspx" title="Support Request"  description="" icon="support_agent" />
+		<siteMapNode url="~/Admin/WithdrawalRequest.aspx" title="Withdrawal Request"  description="" icon="Payments" />
+		<siteMapNode url="~/Admin/PayoutRequest.aspx" title="Payout Order"  description="" icon="local_atm" />
+		<siteMapNode url="~/Admin/Vacancy.aspx" title="Vacancy"  description="" icon="work" />
+		<siteMapNode url="~/Tutor/Tutor.aspx" title="Tutors"  description="" icon="cast_for_education" />
+		<!-- the file pass is to be updated after the course folder created -->
+		<siteMapNode url="Courses.aspx" title="Course"  description="" icon="menu_book" />
+		<siteMapNode url="~/Customer/Studnet.aspx" title="Student"  description="" icon="school" />
+	</siteMapNode>
 </siteMap>
