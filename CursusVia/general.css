@@ -192,9 +192,9 @@ a.popout::after {
     padding: .5em !important;
 }
 
-    .cart:hover {
-        color: var(--primary-color) !important; /*just change the color , as it was black */
-    }
+.cart:hover {
+    color: var(--primary-color) !important; /*just change the color , as it was black */
+}
 
 .headerRightControlsNotLoggedIn {
     display: flex;

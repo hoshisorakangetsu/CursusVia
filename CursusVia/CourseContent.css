@@ -1,0 +1,103 @@
+﻿.courseContentMain {
+    margin: 1rem;
+}
+
+.hero {
+    margin: 1rem 0;
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.hero > img {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    padding: 1rem;
+}
+
+.overlay .courseName {
+    margin-top: 2rem;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.overlay .courseDesc {
+    margin-top: .5rem;
+    font-size: large;
+}
+
+.overlay .rating {
+    margin-top: 2.5rem;
+    font-weight: 700;
+    font-size: .85em;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.actions .btnPrimary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5em 3em !important;
+}
+
+.actions .btnOutlinePrimary {
+    padding: .2rem !important;
+}
+
+.courseContent {
+    display: grid;
+    grid-template-columns: 7.5fr 2.5fr;
+    gap: 1rem;
+}
+
+.tutorCard {
+    border: 1px solid var(--outline);
+    background: var(--bg-surface);
+    border-radius: 1rem;
+    height: fit-content;
+}
+
+.tutorCardTopPart {
+    border-radius: inherit;
+    border: inherit;
+    background: #fff;
+    padding: .75rem;
+}
+
+.tutorCardHeading {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: .5rem;
+}
+
+.certification {
+    color: var(--outline);
+    margin-top: .25rem;
+}
+
+.courseNum {
+    color: var(--outline);
+    font-size: small;
+}
+
+.tutorCardRating {
+    display: flex;
+    justify-content: space-between;
+    margin: .25rem .5rem;
+}
