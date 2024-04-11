@@ -3,6 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminMasterBody" runat="server">
 
-    <h2> Payout Page</h2>
+    <h2> Payout Page </h2>
 
 </asp:Content>
