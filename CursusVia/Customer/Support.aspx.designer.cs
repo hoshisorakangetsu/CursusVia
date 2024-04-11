@@ -69,13 +69,13 @@ namespace CursusVia.Customer
         protected global::System.Web.UI.WebControls.TextBox startDate;
 
         /// <summary>
-        /// endDate control.
+        /// EndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox endDate;
+        protected global::System.Web.UI.WebControls.TextBox EndDate;
 
         /// <summary>
         /// btnViewDetails control.

@@ -11,7 +11,6 @@
             <div class="search">
                 <span class="material-symbols-outlined searchIcon">search</span>
                 <input id="Text1" type="text" placeholder="Search Request" class="input"/>
-                <div class="space"></div>
                 <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btnPrimary btn" />
             </div>
         </div>
@@ -33,9 +32,17 @@
                 <div class="filterDate">
                     <span class="surfaceText dateText">DATE</span>
                     <div class="dateInput">
-                        <asp:TextBox ID="startDate" runat="server" placeholder="Start Date" type="date" CssClass="dateInputField"></asp:TextBox>
-                        <span class="surfaceText"><b>~</b></span>
-                        <asp:TextBox ID="endDate" runat="server" placeholder="End Date" type="date" CssClass="dateInputField"></asp:TextBox>
+                        <div class="width-min">
+                            <span class="surfaceText">Start Date</span>
+                            <asp:TextBox ID="startDate" runat="server" placeholder="Start Date" type="date" CssClass="dateInputField"></asp:TextBox>
+                        </div>
+                        <div>
+                            <span class="surfaceText"><b>~</b></span>
+                        </div>
+                        <div class="width-min">
+                            <span class="surfaceText">End Date</span>
+                            <asp:TextBox ID="EndDate" runat="server" placeholder="End Date" type="date" CssClass="dateInputField"></asp:TextBox>
+                        </div>
                     </div>
                 </div>
             </div>

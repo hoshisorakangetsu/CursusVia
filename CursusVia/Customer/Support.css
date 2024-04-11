@@ -25,6 +25,12 @@
     border:none;
 }
 
+.dateTitle {
+    display: flex;
+    justify-content:space-between;
+    margin-top: .5em;
+}
+
 .newRequestText {
     font-size: 1.15em !important
 }
@@ -54,11 +60,6 @@
     display: flex;
     width: 25em;
 }
-
-.space {
-    margin-left: .6em;
-}
-
 
 .filterHeader {
     display: flex;
@@ -99,11 +100,14 @@
 
 .dateInput {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    width: auto;
+    align-items: center;
     padding-right: 1em;
     margin-top: .5em;
+}
+
+.width-min {
+    width: min-content;
 }
 
 .dateInputField {

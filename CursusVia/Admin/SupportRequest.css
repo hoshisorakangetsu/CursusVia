@@ -1,0 +1,51 @@
+﻿.search {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    padding: .1em;
+    display: flex;
+    width: 25em;
+}
+
+.searchIcon {
+    all: unset;
+    margin: .25em 0 0 .5em;
+    padding-right: 1em;
+    color: rgba(0, 0, 0, .4);
+}
+
+.input {
+    all: unset;
+    border: none;
+    width: 18em;
+}
+
+.headerContainer {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    margin: 2em;
+    padding: 1em;
+}
+
+.dateTitle {
+    margin-bottom: 1em;
+}
+
+.dateInput {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:1em;
+    max-width:fit-content;
+}
+
+.width-min {
+    width: min-content;
+}
+
+.dateInputField {
+    border-radius: .25em;
+    border: solid 2px;
+    border-color: var(--text-on-surface);
+}
