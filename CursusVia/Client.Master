@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title>CursusVia | <%: Page.Title %></title>
+    <title>CursusVia | Shapes Your Skills <%: Page.Title %></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" href="general.css" />
