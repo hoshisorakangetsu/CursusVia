@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="content">
-            <div class="filterLine">
+            <div>
                 <div class="filterHeader">
                     <span class="surfaceText filterText">FILTER</span>
                     <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btnPrimary btn"/>
@@ -54,7 +54,7 @@
                         <p class="surfaceText"><b>Status: Processing</b></p>
                     </div>
                     <div class="requestBtn">
-                        <asp:Button ID="btnViewDetails" runat="server" Text="View Details" CssClass="btnPrimary Btn"/>
+                        <asp:Button ID="btnViewDetails" runat="server" Text="View Request" CssClass="btnPrimary Btn"/>
                         <asp:Button ID="btnUpdateRequest" runat="server" Text="Update Request" CssClass="btnPrimary Btn"/>
                         <asp:Button ID="btnDeleteRequest" runat="server" Text="Delete Request" CssClass="btnPrimary Btn"/>
                     </div>

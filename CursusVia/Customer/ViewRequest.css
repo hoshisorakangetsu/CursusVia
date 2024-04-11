@@ -1,0 +1,15 @@
+﻿.backIcon {
+    color: var(--text-on-surface);
+}
+
+.backBtn {
+    all: unset;
+    background-color: white;
+    color: var(--text-on-surface);
+    border-radius: .25em;
+    border-color: white;
+}
+
+.backSelfBtn {
+    border-color: black;
+}

@@ -1,11 +1,10 @@
-﻿body {
-}
-
-.topField {
+﻿.topField {
     display:flex;
-    gap: 1.5em;
+    justify-content: flex-start;
+    gap: 2em;
     width:auto;
     padding: 1em;
+    margin-left: 9em;
 }
 .searchIcon {
     all: unset;
@@ -38,9 +37,6 @@
     margin-left: .6em;
 }
 
-.filterLine {
-    width: 18em;
-}
 
 .filterHeader {
     display: flex;
@@ -82,7 +78,7 @@
 .dateInput {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: auto;
     padding-right: 1em;
     margin-top: .5em;
@@ -96,7 +92,7 @@
 
 .content {
     display: grid;
-    grid-template-columns: 3fr 7fr;
+    grid-template-columns: 1.5fr 8.5fr;
 }
 
 .request {
