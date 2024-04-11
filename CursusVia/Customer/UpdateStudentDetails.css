@@ -34,18 +34,8 @@ label {
     margin-left: 30px;
 }
 
-.input-grp input:focus {
-    border-color: #007bff;
-    border-width: 2px;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
-}
 
-    .input-grp input:focus + label,
-    .input-grp input:not(:placeholder-shown) + label {
-        top: -10px;
-        font-size: 12px;
-        color: #007bff;
-    }
+    
 
 .input-grp input {
     width: 320px;
@@ -55,7 +45,7 @@ label {
     padding: 10px;
     border: 3px solid #ccc;
     border-radius: 15px;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    /*transition: border-color 0.3s, box-shadow 0.3s;*/
     background-image: url('namelogo.png');
     background-size: 30px;
     background-position: 10px 10px;
@@ -77,7 +67,7 @@ label {
     padding: 10px;
     border: 3px solid #ccc;
     border-radius: 15px;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    /*transition: border-color 0.3s, box-shadow 0.3s;*/
     background-image: url('passwordlogo.png');
     background-size: 30px;
     background-position: 10px 10px;
@@ -90,7 +80,34 @@ label {
 }
 .input-grp3 {
     margin-left:30px;
+    margin-top:10px;
+}
+.input-grp4 {
+    margin-left: 40px;
 }
 .input-grp3 CheckBox {
     margin-bottom: 0px ;
+}
+.Button1 {
+    margin-left: 30px;
+    background-color: #29354C;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+}
+
+    .Button1:hover {
+        background-color: #E86262;
+        color: white;
+        transform: translateY(-10%);
+    }
+
+.input-grp input:hover {
+    transform: translateY(-3%);
+}
+.input-grp2 input:hover {
+    transform: translateY(-3%);
 }

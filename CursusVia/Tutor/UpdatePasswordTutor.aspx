@@ -34,9 +34,9 @@
            
             <tr>
                 <td>
-                    <div id="button1">
-                    <asp:Button ID="Button1" runat="server" Text="Update" cssClass="btnPrimary btn"/>
-                        </div>
+                    <!--<div id="button1">-->
+                    <asp:Button ID="Button1" runat="server" Text="Update" cssClass="Button1"/>
+                     <!--   </div>-->
                 </td>
             </tr>
         
