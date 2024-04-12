@@ -21,6 +21,7 @@
             <p class="contentDesc">Content Description</p>
             <div class="fileResources">
                 <div class="fileObject">file1.js</div>
+                <div class="fileObject">file2.js</div>
             </div>
         </div>
         <div class="navigateCourse">

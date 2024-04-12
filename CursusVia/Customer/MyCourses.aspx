@@ -61,7 +61,7 @@
                 <p class="courseName">Course Name</p>
                 <p class="tutorName">Tutor Name</p>
                 <div class="actions">
-                    <asp:HyperLink ID="ViewDetails" runat="server" CssClass="btn btnPrimary" NavigateUrl="~/CourseContent.aspx">Start Learning</asp:HyperLink>
+                    <asp:HyperLink ID="ViewDetails" runat="server" CssClass="btn btnPrimary" NavigateUrl="~/Customer/CourseContent.aspx">Start Learning</asp:HyperLink>
                 </div>
             </div>
             <div class="courseCard">

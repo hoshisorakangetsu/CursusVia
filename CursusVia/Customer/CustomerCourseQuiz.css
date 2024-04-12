@@ -1,0 +1,81 @@
+﻿.courseQuizMain {
+    margin: .5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.navigateCourse {
+    margin-top: 1rem;
+}
+
+.question {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: .3rem;
+    border: 1px solid var(--outline);
+    display: flex;
+    flex-direction: column;
+}
+
+.questionDesc {
+    margin-top: .4rem;
+}
+
+.questionAnswerSection {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.questionAnswer {
+    border: 1px solid var(--outline);
+    border-radius: .35rem;
+    display: flex;
+    position: relative;
+}
+
+.questionAnswer input[type=checkbox] {
+    display: none;
+}
+
+.questionAnswer label {
+    display: block;
+    padding: 1rem;
+    width: 100%;
+}
+
+.questionAnswer:has(:checked) {
+    border-color: #17449C;
+    color: #17449C;
+}
+
+.questionAnswer.correctAnswer {
+    border-color: #179C17;
+    color: #179C17;
+}
+
+.questionAnswer.wrongAnswer {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.questionAnswer.correctAnswer::after {
+    content: "\e86c";
+    font-family: "Material Symbols Outlined";
+    font-size: 1.5rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.questionAnswer.wrongAnswer::after {
+    content: "\e5c9";
+    font-family: "Material Symbols Outlined";
+    font-size: 1.5rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+

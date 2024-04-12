@@ -19,10 +19,6 @@ a {
     padding: 0em !important; /* i rlly hate writing !important everywhere but it is what it is, curse .net framework's customizability */
 }
 
-a:visited {
-    color: inherit;
-}
-
 :root {
     --primary-color: #E86262;
     --secondary-color: #29354C;
