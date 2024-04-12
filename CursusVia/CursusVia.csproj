@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -67,6 +70,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Accordian.css" />
+    <Content Include="AccordianInit.js" />
     <Content Include="Admin\AccountStyle.css" />
     <Content Include="Admin\AdminAccount.aspx" />
     <Content Include="Admin\DeleteVacancy.aspx" />
@@ -94,6 +99,7 @@
     <Content Include="Admin\ViewVacancy.aspx" />
     <Content Include="Admin\ViewVacancy.css" />
     <Content Include="Admin\WithdrawalRequest.aspx" />
+    <Content Include="Admin\Vacancy.aspx" />
     <Content Include="App_Data\CreateDB.sql" />
     <Content Include="App_Data\CursusVia.mdf" />
     <Content Include="App_Data\CursusVia_log.ldf">
@@ -102,19 +108,35 @@
     <Content Include="Courses.aspx" />
     <Content Include="Customer\ApplyVacancy.aspx" />
     <Content Include="Customer\ApplyVacancy.css" />
+    <Content Include="BrowseCourseCard.css" />
+    <Content Include="CourseContent.aspx" />
+    <Content Include="CourseContent.css" />
+    <Content Include="Courses.aspx" />
+    <Content Include="Courses.css" />
+    <Content Include="Courses.js" />
     <Content Include="Customer\Cart.aspx" />
+    <Content Include="Customer\ChapterContent.aspx" />
+    <Content Include="Customer\CustomerChapterContent.css" />
+    <Content Include="Customer\CustomerCourseContent.css" />
+    <Content Include="Customer\CustomerCourseQuiz.css" />
     <Content Include="Customer\DeleteStudent.aspx" />
     <Content Include="Customer\DeleteStudent.css" />
     <Content Include="Customer\LoginStudent.aspx" />
     <Content Include="Customer\Payment.aspx" />
     <Content Include="Customer\ReadStudentInfo.aspx" />
     <Content Include="Customer\ReadStudentInfo.css" />
+    <Content Include="Customer\CourseContent.aspx" />
+    <Content Include="Customer\CourseQuiz.aspx" />
+    <Content Include="Customer\DeleteStudent.aspx" />
+    <Content Include="Customer\DeleteStudent.css" />
+    <Content Include="FileUploadGeneric.css" />
+    <Content Include="InnerMaster.css" />
+    <Content Include="Customer\MyCourses.aspx" />
     <Content Include="Customer\Student.aspx" />
     <Content Include="Customer\UpdateStudentDetails.aspx" />
     <Content Include="Customer\UpdateStudentDetails.css" />
     <Content Include="Customer\UpdateStudentPassword.aspx" />
     <Content Include="Customer\UpdateStudentPassword.css" />
-    <Content Include="Customer\CourseChapter.aspx" />
     <Content Include="Customer\CourseContent.aspx" />
     <Content Include="Customer\CourseQuiz.aspx" />
     <Content Include="Customer\DeleteRequest.aspx" />
@@ -141,6 +163,9 @@
     <Content Include="Customer\ViewRequest.css" />
     <Content Include="Customer\ViewVacancy.aspx" />
     <Content Include="Customer\ViewVacancy.css" />
+    <Content Include="Customer\Student.css" />
+    <Content Include="Customer\Support.aspx" />
+    <Content Include="Customer\Support.css" />
     <Content Include="general.css" />
     <Content Include="Home.css" />
     <Content Include="HomeCourseCategoryScroller.js" />
@@ -171,6 +196,12 @@
     <Content Include="Tutor\EditSupport.css" />
     <Content Include="Tutor\NewRequest.aspx" />
     <Content Include="Tutor\NewRequest.css" />
+    <Content Include="Tutor\CourseDetail.aspx" />
+    <Content Include="Tutor\CreateCourse.aspx" />
+    <Content Include="Tutor\CreateCourseContent.aspx" />
+    <Content Include="Tutor\CreateUpdateCourse.css" />
+    <Content Include="Tutor\CreateUpdateCourseContent.css" />
+    <Content Include="Tutor\MyCourses.aspx" />
     <Content Include="Tutor\ReadTutorInformation.aspx" />
     <Content Include="Tutor\readTutorInformation.css" />
     <Content Include="Tutor\ReplySupport.aspx" />
@@ -178,12 +209,17 @@
     <Content Include="Tutor\Support.aspx" />
     <Content Include="Tutor\Support.css" />
     <Content Include="Tutor\Tutor.aspx" />
+    <Content Include="Tutor\TutorCourseDetail.css" />
+    <Content Include="Tutor\UpdateQuiz.css" />
+    <Content Include="Tutor\UpdateCourse.aspx" />
+    <Content Include="Tutor\UpdateCourseContent.aspx" />
     <Content Include="Tutor\UpdateDetailsTutor.aspx" />
     <Content Include="Tutor\UpdateDetailsTutor.css" />
     <Content Include="Tutor\UpdatePassword.css" />
     <Content Include="Tutor\UpdatePasswordTutor.aspx" />
     <Content Include="Tutor\ViewRequest.aspx" />
     <Content Include="Tutor\ViewRequest.css" />
+    <Content Include="Tutor\UpdateQuiz.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
   </ItemGroup>
@@ -300,12 +336,19 @@
     <Compile Include="Customer\Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\CourseChapter.aspx.cs">
-      <DependentUpon>CourseChapter.aspx</DependentUpon>
+    <Compile Include="Admin\Vacancy.aspx.cs">
+      <DependentUpon>Vacancy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\CourseChapter.aspx.designer.cs">
-      <DependentUpon>CourseChapter.aspx</DependentUpon>
+    <Compile Include="Admin\Vacancy.aspx.designer.cs">
+      <DependentUpon>Vacancy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\ChapterContent.aspx.cs">
+      <DependentUpon>ChapterContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\ChapterContent.aspx.designer.cs">
+      <DependentUpon>ChapterContent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\CourseContent.aspx.cs">
       <DependentUpon>CourseContent.aspx</DependentUpon>
@@ -334,6 +377,13 @@
     </Compile>
     <Compile Include="Client.Master.designer.cs">
       <DependentUpon>Client.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CourseContent.aspx.cs">
+      <DependentUpon>CourseContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CourseContent.aspx.designer.cs">
+      <DependentUpon>CourseContent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Courses.aspx.cs">
       <DependentUpon>Courses.aspx</DependentUpon>
@@ -504,6 +554,34 @@
     <Compile Include="Tutor\NewRequest.aspx.designer.cs">
       <DependentUpon>NewRequest.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Tutor\CourseDetail.aspx.cs">
+      <DependentUpon>CourseDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\CourseDetail.aspx.designer.cs">
+      <DependentUpon>CourseDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\CreateCourse.aspx.cs">
+      <DependentUpon>CreateCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\CreateCourse.aspx.designer.cs">
+      <DependentUpon>CreateCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\CreateCourseContent.aspx.cs">
+      <DependentUpon>CreateCourseContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\CreateCourseContent.aspx.designer.cs">
+      <DependentUpon>CreateCourseContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\MyCourses.aspx.cs">
+      <DependentUpon>MyCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\MyCourses.aspx.designer.cs">
+      <DependentUpon>MyCourses.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tutor\ReadTutorInformation.aspx.cs">
       <DependentUpon>ReadTutorInformation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -539,6 +617,20 @@
     <Compile Include="Tutor\TutorMaster.master.designer.cs">
       <DependentUpon>TutorMaster.master</DependentUpon>
     </Compile>
+    <Compile Include="Tutor\UpdateCourse.aspx.cs">
+      <DependentUpon>UpdateCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\UpdateCourse.aspx.designer.cs">
+      <DependentUpon>UpdateCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\UpdateCourseContent.aspx.cs">
+      <DependentUpon>UpdateCourseContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\UpdateCourseContent.aspx.designer.cs">
+      <DependentUpon>UpdateCourseContent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tutor\UpdateDetailsTutor.aspx.cs">
       <DependentUpon>UpdateDetailsTutor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -560,6 +652,13 @@
     <Compile Include="Tutor\ViewRequest.aspx.designer.cs">
       <DependentUpon>ViewRequest.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Tutor\UpdateQuiz.aspx.cs">
+      <DependentUpon>UpdateQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\UpdateQuiz.aspx.designer.cs">
+      <DependentUpon>UpdateQuiz.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Client.Master" />
@@ -567,8 +666,11 @@
     <Content Include="Admin\Admin.master" />
     <Content Include="Admin\Web.sitemap" />
     <Content Include="Customer\Web.sitemap" />
-    <None Include="packages.config" />
     <Content Include="Tutor\TutorMaster.master" />
+    <Content Include="Tutor\TutorMaster.master" />
+    <Content Include="Customer\Web.sitemap" />
+    <Content Include="Admin\Web.sitemap" />
+    <None Include="packages.config" />
     <Content Include="Tutor\Web.sitemap" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
