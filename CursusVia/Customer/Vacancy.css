@@ -1,0 +1,104 @@
+﻿.topField {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2em;
+    width: auto;
+    padding: 2em;
+    margin-left: 5em;
+    align-items: center;
+}
+
+.searchIcon {
+    all: unset;
+    margin: .25em 0 0 .5em;
+    padding-right: 1em;
+    color: rgba(0, 0, 0, .4);
+}
+
+.input {
+    all: unset;
+    border: none;
+    width: 18em;
+}
+
+.newRequestText {
+    font-size: 1.15em !important
+}
+
+.newBtn {
+    all: unset; /* reset styles first */
+    background-color: var(--primary-color) !important;
+    border-radius: .25em;
+    padding: .5em .75em !important;
+    text-align: center;
+}
+
+.newBtn:hover {
+    cursor: pointer;
+}
+
+.newBtn:visited {
+    text-decoration: none;
+    color: var(--text-on-primary) !important;
+}
+
+.search {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    padding: .1em;
+    display: flex;
+    width: 25em;
+}
+
+.table {
+    padding: 0 7em;
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td {
+    text-align: center;
+    color: var(--text-on-surface);
+}
+
+table.rounded-corners {
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: .25em;
+    border: 2px solid;
+    border-color: rgba(0, 0, 0, .6);
+}
+
+    /* Apply a border to the right of all but the last column */
+    table.rounded-corners th:not(:last-child),
+    table.rounded-corners td:not(:last-child) {
+        border-right: 2px solid;
+        border-color: rgba(0, 0, 0, .6);
+    }
+
+    /* Apply a border to the bottom of all but the last row */
+    table.rounded-corners > thead > tr:not(:last-child) > th,
+    table.rounded-corners > thead > tr:not(:last-child) > td,
+    table.rounded-corners > tbody > tr:not(:last-child) > th,
+    table.rounded-corners > tbody > tr:not(:last-child) > td,
+    table.rounded-corners > tfoot > tr:not(:last-child) > th,
+    table.rounded-corners > tfoot > tr:not(:last-child) > td,
+    table.rounded-corners > tr:not(:last-child) > td,
+    table.rounded-corners > tr:not(:last-child) > th,
+    table.rounded-corners > thead:not(:last-child),
+    table.rounded-corners > tbody:not(:last-child),
+    table.rounded-corners > tfoot:not(:last-child) {
+        border-bottom: 2px solid;
+        border-color: rgba(0, 0, 0, .6);
+    }
+
+th {
+height: 2em;
+}
+
+td {
+height: 3em;
+}

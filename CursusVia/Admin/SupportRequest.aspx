@@ -17,7 +17,7 @@
                     <asp:ListItem>Completed</asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <div class="">
+            <div>
                 <div class="dateSection">
                     <span class="surfaceText inputName"><b>Date</b></span>
                     <asp:Button ID="btnToday" runat="server" Text="Today" CssClass="btnPrimary Btn"/>
