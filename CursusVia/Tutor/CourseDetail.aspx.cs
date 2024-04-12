@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CursusVia.Customer
+namespace CursusVia.Tutor
 {
-    public partial class CourseChapter : System.Web.UI.Page
+    public partial class CourseDetail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

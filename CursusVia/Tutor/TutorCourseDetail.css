@@ -1,0 +1,36 @@
+﻿.tutorCourseContentMain {
+    margin: .5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.action {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.updateCourseBtn {
+    display: flex;
+    padding: .5rem 1rem !important;
+}
+
+.updateIcon {
+    font-size: inherit !important;
+}
+
+.courseOverviewHeading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.newItemControls {
+    display: flex;
+    gap: .25rem;
+}
+
+.newItemControls .btn {
+    border-radius: .5em;
+    padding: .25rem .5rem !important;
+}
