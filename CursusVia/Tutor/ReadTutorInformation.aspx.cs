@@ -13,40 +13,5 @@ namespace CursusVia.Tutor
 		{
 
 		}
-		protected void Page_PreRender(object sender, EventArgs e)
-		{
-			if(GridView1.SelectedRow ==null)
-			{
-				DetailsView1.Visible = false;
-			}
-			else
-			{
-				DetailsView1.Visible=true;
-			}
-		}
-
-		protected void DetailsView1_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
-		{
-			//rebind the data to table so that can refresh when perform update
-			GridView1.DataBind();
-			//-1 so that no row is selected
-			GridView1.SelectRow(-1);
-		}
-
-		protected void DetailsView1_ItemDeleted(object sender, DetailsViewDeletedEventArgs e)
-		{
-			//rebind the data to table so that can refresh when perform update
-			GridView1.DataBind();
-			//-1 so that no row is selected
-			GridView1.SelectRow(-1);
-		}
-
-		protected void DetailsView1_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
-		{
-			//rebind the data to table so that can refresh when perform update
-			GridView1.DataBind();
-			//-1 so that no row is selected
-			GridView1.SelectRow(-1);
-		}
 	}
 }
