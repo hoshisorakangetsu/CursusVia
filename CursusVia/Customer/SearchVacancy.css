@@ -1,0 +1,147 @@
+﻿.backIcon {
+    color: var(--text-on-surface);
+}
+
+.backText {
+    font-size: 1.25em;
+    display: flex;
+    justify-content: left;
+    color: var(--text-on-surface) !important;
+    gap: .5em;
+}
+
+.backBtn {
+    padding: 2em 2em 0 2em;
+}
+
+.headerContainer {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    margin: 1em 2em 2em;
+    padding: 1em 1em 0 1em;
+}
+
+.search {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    padding: .1em;
+    display: flex;
+    width: fit-content;
+}
+
+.searchIcon {
+    all: unset;
+    margin-left: .65em;
+    padding-right: 1em;
+    color: rgba(0, 0, 0, .4);
+    margin-top:.28em;
+}
+
+.input {
+    all: unset;
+    border: none;
+    width: 15em;
+    height: 2.2em;
+    color: var(--text-on-surface);
+}
+
+.inputName {
+    font-size: 1.5em;
+}
+
+.inputField {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    color: var(--text-on-surface);
+    padding: .5em;
+    font-size: 1.05em;
+    width: 15em;
+}
+
+.jobTypeSection {
+    display: grid;
+}
+
+.searchSection {
+    display: flex;
+    gap:15em;
+    padding-bottom:1em;
+}
+
+.rm{
+    font-size:1.35em;
+    color: var(--text-on-surface);
+}
+
+.salaryInput {
+    display:flex;
+    gap:.4em;
+    align-items:center;
+}
+
+.btnSection {
+    display: flex;
+    gap: 2em;
+    padding-bottom: 1em;
+    width:54em;
+    justify-content:end;
+}
+
+.jobSection {
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+.jobContainer {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    margin: 0 2em 2em 2em;
+    padding: 1.15em;
+    width: fit-content;
+}
+
+.jobDetails {
+    display:grid;
+    padding: 1em 0;
+}
+
+.jobDetailsText {
+    font-size:1.25em;
+    margin-bottom:.5em;
+}
+
+h2 {
+    font-size: 1.75em;
+    margin-bottom:.2em;
+}
+
+.jobCompanyText {
+    font-size: 1.35em;
+}
+
+.newBtn {
+    all: unset; /* reset styles first */
+    background-color: var(--primary-color) !important;
+    border-radius: .25em;
+    padding: .5em .75em !important;
+    text-align: center;
+}
+
+.newBtn:hover {
+    cursor: pointer;
+}
+
+.newBtn:visited {
+    text-decoration: none;
+    color: var(--text-on-primary) !important;
+}
+
+.btnViewDetails {
+    text-align:center;
+}
+

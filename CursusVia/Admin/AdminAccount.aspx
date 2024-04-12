@@ -1,15 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="AdminAccount.aspx.cs" Inherits="CursusVia.Admin.AdminAccount" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="AdminMasterHead" runat="server">
       <link href="AccountStyle.css" rel="stylesheet" />
+    <link href="EditSupport.css" rel="stylesheet" />
    
   
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminMasterBody" runat="server">
 
-    <h2> Admin Account</h2>
+    <h2>Admin Account</h2>
+     
     <asp:Panel ID="pnlLogin" runat="server" Visible="true">
-        <h2> Login</h2>
+         <h3>Login</h3>
     <div id="loginContainer" runat="server" class="login-container">
         <asp:Label ID="lblhavAcc" runat="server" Text="Have an account?" CssClass="lblhavAcc"></asp:Label>
         <asp:Label ID="lblLogin" runat="server" Text="Login" CssClass="lblLogin" ></asp:Label> 
@@ -21,8 +23,15 @@
         <asp:LinkButton runat="server" ID="lbtnShowRegister" Text="Register" OnClick="lbtnShowRegister_Click" CssClass="lbtnRegister" />
 </div>
     </asp:Panel>
+   
      <asp:Panel ID="pnlRegister" runat="server" Visible="false">
-        <h2>Register</h2>
+         <h3>Register</h3>
+         <div class="backBtn">
+            <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='AdminAccount.aspx'>   
+        <span class="material-symbols-outlined backIcon">arrow_back</span>
+        Back
+            </asp:HyperLink>
+        </div>
         <div id="RegisterContainer" runat="server" class="Register-container">
         <asp:Label ID="lblRegister" runat="server" Text="Register Admin" CssClass="lblRegister" ></asp:Label>
         <asp:TextBox ID="txtEmail" runat="server" CssClass="txtEmail" PlaceHolder="📧Email"></asp:TextBox>

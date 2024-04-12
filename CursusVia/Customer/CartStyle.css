@@ -1,9 +1,14 @@
 ﻿
 h2 {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 10px;
     position: relative;
-    left: 15px;
+    top: -3px;
 }
-
 .cart-item {
     display: flex;
     width: 50%;
