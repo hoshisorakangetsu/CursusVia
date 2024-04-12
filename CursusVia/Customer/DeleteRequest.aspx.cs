@@ -13,5 +13,10 @@ namespace CursusVia.Customer
         {
 
         }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Support.aspx");
+        }
     }
 }

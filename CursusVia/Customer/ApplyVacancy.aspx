@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="applyBtn">
-                <asp:Button ID="btnApply" runat="server" Text="Apply Now" CssClass="btnPrimary btn"/>
+                <asp:Button ID="btnApply" runat="server" Text="Apply Now" CssClass="btnPrimary btn" OnClick="btnApply_Click"/>
             </div>
         </div>
      </div>
