@@ -2,3 +2,11 @@
     margin-left:350px;
     margin-top:50px;
 }
+#formatbttn{
+    position:relative;
+    left:300px;
+    /*
+    display:flex;
+    justify-content:space-evenly;
+    */
+}

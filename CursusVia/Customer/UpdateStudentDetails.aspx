@@ -4,31 +4,28 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
         <div class="layer-1">
-<div class="background-1">
-    <table id="t1">
+            
+    <table style="border: solid 2px black;" id="t1">
         <tr>
-            <th>
+            <td>
                <span class="material-symbols-outlined accicon ">manage_accounts</span>
 
-                Update Personal Details</th>
+                Update Personal Details</td>
         </tr>
      
         <tr>
             <td>
-                <div class="input-grp">
-                     <label for="TextBox3">Name</label>
-                <asp:TextBox ID="TextBox3" runat="server" cssClass="form-control" ></asp:TextBox>
-                       
-                    </div>
+                <div style="margin-left:30px;" class="input-grp">
+                <asp:TextBox ID="TextBox3" runat="server" cssClass="input-grp" Placeholder=" Name" Height="30px" Width="70%"></asp:TextBox>
+                   </div>
                      </td>
         </tr>
         <tr>
             <td>
-                 <div class="input-grp2">
-                     <label for="TextBox1">Email</label>
-                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" ></asp:TextBox>
-                  
-                     </div>
+               <div style="margin-left:30px;" class="input-grp2">
+                <asp:TextBox ID="TextBox1" runat="server" cssClass="inputBox" Placeholder=" Email" Height="30px" Width="70%" ></asp:TextBox>
+                  </div>
+                     
                      </td>
         </tr>
         <tr>
@@ -42,13 +39,13 @@
  </tr>
         <tr>
             <td>
-                 
-                <asp:Button ID="Button1" runat="server" Text="Update" cssClass="Button1"/>
+                
+               &nbsp; &nbsp;<asp:Button ID="Button1" runat="server" Text="Update" cssClass="btnPrimary btn"/>
                   
             </td>
         </tr>
     
         </table>
 </div>
-    </div>
+    
 </asp:Content>

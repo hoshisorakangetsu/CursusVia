@@ -3,6 +3,12 @@
     <link href="UpdateDetailsTutor.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
+    <div class="backbtn">
+    <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='ReadTutorInformation.aspx'>   
+<span class="material-symbols-outlined backIcon">arrow_back</span>
+Back
+    </asp:HyperLink>
+        </div>
     <div class="layer-1">
 <div class="background-1">
     <table id="t1">
@@ -46,7 +52,7 @@
         <tr>
             <td>
                   
-                <asp:Button ID="Button1" runat="server" Text="Update" cssClass="Button1"/>
+                <asp:Button ID="Button1" runat="server" Text="Update" CssClass="btnPrimary btn"/>
                   
             </td>
         </tr>

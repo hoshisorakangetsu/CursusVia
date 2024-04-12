@@ -17,7 +17,7 @@
                 <td>
                     <div class="input-grp">
                          <label for="TextBox3">Old Password</label>
-                    <asp:TextBox ID="TextBox3" runat="server" cssClass="form-control" TextMode="Password"></></asp:TextBox>
+                    <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" TextMode="Password" Placeholder="🔑"></></asp:TextBox>
                            
                         </div>
                          </td>
@@ -44,7 +44,7 @@
             <tr>
                 <td>
                     <!--<div id="button1">-->
-                    <asp:Button ID="Button1" runat="server" Text="Update" cssClass="Button1"/>
+                    <asp:Button ID="Button1" runat="server" Text="Update" CssClass="Button1"/>
                      <!--   </div>-->
                 </td>
             </tr>
