@@ -1,0 +1,55 @@
+﻿.backIcon {
+    color: var(--text-on-surface);
+}
+
+.backText {
+    font-size: 1.25em;
+    display: flex;
+    justify-content: left;
+    color: var(--text-on-surface) !important;
+    gap: .5em;
+}
+
+.backBtn {
+    padding: 2em 2em 0 2em;
+}
+
+.inputText {
+    font-size: 1.55em;
+}
+
+.header {
+    text-align: center;
+}
+
+.contentContainer {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    margin: 1em 2em 1em 2em;
+    padding: 1em;
+}
+
+.updateBtn {
+    margin-top: .5em;
+    display: flex;
+    justify-content: center;
+}
+
+.inputArea {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    font-family: "Inter", sans-serif !important;
+}
+
+.editReplyDisplay {
+    display: grid;
+    max-width: fit-content;
+    padding-top: .5em;
+}
+
+.editRequestContent {
+    display: grid;
+    justify-content: center;
+}

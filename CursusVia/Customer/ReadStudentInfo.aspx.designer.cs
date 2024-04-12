@@ -7,48 +7,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CursusVia.Tutor
+namespace CursusVia.Customer
 {
 
 
-	public partial class UpdateDetailsTutor
+	public partial class ReadStudentInfo
 	{
 
 		/// <summary>
-		/// backLink control.
+		/// SqlDataSource1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink backLink;
+		protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
 		/// <summary>
-		/// TextBox3 control.
+		/// DetailsView1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox3;
-
-		/// <summary>
-		/// TextBox1 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox1;
-
-		/// <summary>
-		/// DropDownList1 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+		protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
 
 		/// <summary>
 		/// Button1 control.
