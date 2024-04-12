@@ -1,2 +1,104 @@
-﻿body {
+﻿.backIcon {
+    color: var(--text-on-surface);
+}
+
+.backText {
+    font-size: 1.25em;
+    display: flex;
+    justify-content: left;
+    color: var(--text-on-surface) !important;
+    gap: .5em;
+}
+
+.backBtn {
+    padding: 2em 2em 0 2em;
+}
+
+.mainBody {
+    margin: 1em 2em 2em;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:5em;
+}
+
+.contentContainer {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    padding: 1em 1em 0 1em;
+}
+
+.searchSection {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    padding-bottom: 1.5em;
+}
+
+.inputName {
+    font-size: 1.5em;
+}
+
+.search {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    padding: .1em;
+    display: flex;
+    width: fit-content;
+}
+
+.txtAreaInput {
+    all: unset;
+    border: none;
+    color: var(--text-on-surface);
+}
+
+.input {
+    all: unset;
+    border: none;
+    width: 15em;
+    height: 2.2em;
+    color: var(--text-on-surface);
+}
+
+.inputField {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    color: var(--text-on-surface);
+    padding: .5em;
+    font-size: 1.05em;
+    width: 15em;
+}
+
+.jobTypeSection {
+    display: grid;
+}
+
+.headerContainer{
+    font-size:1.25em;
+}
+
+.rm {
+    font-size: 1.35em;
+    color: var(--text-on-surface);
+}
+
+.salaryInput {
+    display: flex;
+    gap: .4em;
+    align-items: center;
+}
+
+.btnCreate {
+    text-align:center;
+}
+
+.Btn {
+    all: unset;
+    padding: .5em .75em;
+    border-radius: .25em;
+    cursor: pointer;
+    min-width: 5em;
+    text-align: center;
 }
