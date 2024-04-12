@@ -1,0 +1,111 @@
+﻿
+h2 {
+    position: relative;
+    left: 15px;
+}
+
+.cart-item {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: -3px;
+    left: 12px;
+}
+
+.course-image img {
+    width: 120px; 
+    height: auto;
+    border-radius: 5px;
+}
+
+.course-info {
+    flex-grow: 1;
+    padding: 0 15px; 
+}
+
+.lblcourserating {
+    color: #29354C;
+    font-weight: bold;
+}
+
+
+.lblStar {
+    color: #E86262;
+  
+}
+
+.lblPrice {
+    font-weight: bold;
+    color: limegreen;
+    margin-top: -40px;
+    font-size: 22px;
+    position: relative;
+    top: -18px;
+    left: 180px;
+}
+
+
+
+.btnSelect {
+    border-radius: 4px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    text-align: center;
+    min-width: 100px;
+    box-sizing: border-box;
+    width: 25px;
+    position: relative;
+    right: 5px;
+}
+.btnRemove {
+    border-radius: 4px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    text-align: center;
+    min-width: 100px;
+    box-sizing: border-box;
+    width: 25px;
+}
+
+    .btnSelect {
+    background-color: #29354C;
+    color: white;
+}
+
+.btnRemove {
+    background-color: #E86262;
+    color: white;
+}
+
+.btnSelect:hover {
+    background-color: #E86262;
+}
+
+.btnRemove:hover {
+    background-color: #29354C;
+}
+
+.lblItemNo {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #E86262;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    left: 20px;
+    top: -10px;
+}
