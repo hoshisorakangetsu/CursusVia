@@ -8,8 +8,9 @@ html, body, *:not(span) {
     font-family: "Inter", sans-serif !important; /* have to use !important to force override the styles :sadge: */
 }
 
-input, select {
+input, select, textarea {
     outline: none;
+    transition: .25s;
 }
 
 /* basic css resets to make life easier */
@@ -37,6 +38,10 @@ a {
 
 .items-center {
     align-items: center;
+}
+
+.margin-0 {
+    margin: 0;
 }
 
 .btn {
@@ -81,16 +86,18 @@ a {
 }
 
 .genericInputField > input,
-.genericInputField > select {
+.genericInputField > select,
+.genericInputField > textarea {
     border: 1px solid var(--outline);
     padding: .35em;
     border-radius: .5em;
-    width: 100%;
+/*    width: 100%;*/
     flex-grow: 1;
 }
 
 .genericInputField > input:focus,
-.genericInputField > select:focus {
+.genericInputField > select:focus,
+.genericInputField > textarea:focus {
     border-color: var(--primary-color);
     box-shadow: 0 2px 16px var(--primary-shadow);
 }

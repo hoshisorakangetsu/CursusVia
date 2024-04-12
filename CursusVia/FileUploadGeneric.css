@@ -1,0 +1,29 @@
+﻿.uploadFileContainer {
+    border: 2px dashed var(--outline);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.uploadFile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem 0;
+}
+
+.uploadFileEnter {
+    border: 2px dashed var(--primary-color);
+    color: var(--primary-color);
+}
+
+.uploadIcon {
+    font-size: 5rem !important;
+}
+
+.filePreview {
+    width: 100%;
+    object-fit: contain;
+}

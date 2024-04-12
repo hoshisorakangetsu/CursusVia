@@ -1,0 +1,15 @@
+﻿.createUpdateCourseMain {
+    margin: .5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.fields {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.uploadFileContainer {
+    margin-top: 1rem;
+}
