@@ -28,7 +28,7 @@
                     <textarea id="TextArea" cols="120" rows="10" class="inputArea" placeholder="Request Content"></textarea>
                 </div>
                  <div class="updateBtn">
-                     <asp:Button ID="btnReply" runat="server" Text="Create" CssClass="btnPrimary btn" />
+                     <asp:Button ID="btnCreate" runat="server" Text="Create" CssClass="btnPrimary btn" OnClick="btnCreate_Click" />
                  </div>
             </div>
         </div>

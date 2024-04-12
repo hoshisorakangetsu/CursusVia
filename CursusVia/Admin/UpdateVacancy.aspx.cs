@@ -13,5 +13,10 @@ namespace CursusVia.Admin
         {
 
         }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewVacancy.aspx");
+        }
     }
 }

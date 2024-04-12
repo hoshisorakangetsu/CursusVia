@@ -34,7 +34,7 @@
                     <asp:ListItem>Completed</asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <asp:Button ID="Button1" runat="server" Text="Update" CssClass="btnPrimary updateBtn"/>
+            <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btnPrimary updateBtn" OnClick="btnUpdate_Click"/>
 
         </div>
     </div>

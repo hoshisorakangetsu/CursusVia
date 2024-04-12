@@ -41,7 +41,7 @@
             <textarea id="TextArea1" cols="120" rows="10" placeholder="Your Reply" class="inputArea"></textarea>
         </div>
         <div class="replyBtn">
-            <asp:Button ID="btnReply" runat="server" Text="Reply" CssClass="btnPrimary btn" />
+            <asp:Button ID="btnReply" runat="server" Text="Reply" CssClass="btnPrimary btn" OnClick="btnReply_Click" />
         </div>
     </div>
 </asp:Content>

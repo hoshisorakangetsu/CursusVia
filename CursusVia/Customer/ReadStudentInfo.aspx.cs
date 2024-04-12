@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CursusVia.Tutor
+namespace CursusVia.Customer
 {
-	public partial class ReadTutorInformation : System.Web.UI.Page
+	public partial class ReadStudentInfo : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -16,7 +16,7 @@ namespace CursusVia.Tutor
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-			Response.Redirect("UpdateDetailsTutor.aspx");
+			Response.Redirect("UpdateStudentDetails.aspx");
         }
     }
 }

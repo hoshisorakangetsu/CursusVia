@@ -30,7 +30,7 @@
                     </textarea>
                 </div>
                  <div class="updateBtn">
-                     <asp:Button ID="btnReply" runat="server" Text="Update" CssClass="btnPrimary btn" />
+                     <asp:Button ID="btnEdit" runat="server" Text="Update" CssClass="btnPrimary btn" OnClick="btnEdit_Click" />
                  </div>
             </div>
         </div>

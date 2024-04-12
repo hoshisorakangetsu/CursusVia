@@ -73,7 +73,7 @@
             </p>
         </div>
         <div class="cancelBtn">
-            <asp:Button ID="btnDelete" runat="server" Text="Confirm" CssClass="btnPrimary btn" />
+            <asp:Button ID="btnDelete" runat="server" Text="Confirm" CssClass="btnPrimary btn" OnClick="btnDelete_Click" />
             <asp:HyperLink ID="cancelLink" runat="server" class="btnPrimary newBtn" NavigateUrl='Support.aspx'>Cancel</asp:HyperLink>
         </div>
     </div>

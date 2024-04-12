@@ -13,5 +13,10 @@ namespace CursusVia.Customer
         {
 
         }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewRequest.aspx");
+        }
     }
 }

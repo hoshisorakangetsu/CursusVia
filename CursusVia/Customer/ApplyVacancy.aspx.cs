@@ -13,5 +13,10 @@ namespace CursusVia.Customer
         {
 
         }
+
+        protected void btnApply_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Vacancy.aspx");
+        }
     }
 }

@@ -1,2 +1,76 @@
-﻿body {
+﻿.backIcon {
+    color: var(--text-on-surface);
+}
+
+.backText {
+    font-size: 1.25em;
+    display: flex;
+    justify-content: left;
+    color: var(--text-on-surface) !important;
+    gap: .5em;
+}
+
+.backBtn {
+    padding: 2em 2em 0 2em;
+}
+
+.contentContainer {
+    padding: 1em 2.2em;
+}
+
+h1 {
+    font-size: 3.5em;
+}
+
+.companyName {
+    font-size: 2em;
+}
+
+.jobBasicInfo {
+    padding: 1em 0;
+}
+
+.jobInfo {
+    padding-top:1em;
+}
+
+.jobBtn {
+    display: flex;
+    gap: 1em;
+    justify-content:center;
+    padding: 1em 0;
+}
+
+.displayFlex {
+    display: flex;
+    gap: .5em;
+    margin-bottom: .5em;
+    font-size: 1.35em;
+    align-items: center;
+}
+
+.newBtn {
+    all: unset; /* reset styles first */
+    background-color: var(--primary-color) !important;
+    border-radius: .25em;
+    padding: .5em .75em !important;
+    text-align: center;
+    min-width: 5em;
+}
+
+.newBtn:hover {
+    cursor: pointer;
+}
+
+.newBtn:visited {
+    text-decoration: none;
+    color: var(--text-on-primary) !important;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+.description {
+    font-size: 1.25em;
 }
