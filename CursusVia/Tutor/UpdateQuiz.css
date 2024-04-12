@@ -1,0 +1,81 @@
+﻿.updateQuizMain {
+    margin: .5rem 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.newQuestionField {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    margin-top: 1rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 1px solid var(--outline);
+}
+
+.newQuestionField textarea, input[type=text] {
+    border: 1px solid var(--outline);
+    border-radius: .35rem;
+    padding: .5rem;
+    flex-grow: 1;
+}
+
+.newQuestionField textarea:focus, input[type=text]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 16px var(--primary-shadow);
+}
+
+.question {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: .3rem;
+    border: 1px solid var(--outline);
+    display: flex;
+    flex-direction: column;
+}
+
+.questionDesc {
+    margin-top: .4rem;
+
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.questionDesc:hover {
+    color: var(--primary-color);
+}
+
+.questionDesc span {
+    font-size: inherit;
+}
+
+.questionAnswerSection {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.questionAnswer {
+    border: 1px solid var(--outline);
+    border-radius: .35rem;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.questionAnswer label {
+    display: block;
+    padding: 1rem;
+}
+
+.newAnswerField {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+

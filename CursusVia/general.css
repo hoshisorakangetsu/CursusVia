@@ -48,6 +48,7 @@ a {
     all: unset; /* reset styles first */
     border-radius: .25em;
     padding: .5em .75em;
+    text-align: center;
     cursor: pointer;
 }
 
