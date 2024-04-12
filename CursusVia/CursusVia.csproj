@@ -77,12 +77,14 @@
     <Content Include="App_Data\CursusVia_log.ldf">
       <DependentUpon>CursusVia.mdf</DependentUpon>
     </Content>
-    <Content Include="CourseCategory.aspx" />
     <Content Include="Courses.aspx" />
     <Content Include="Customer\Cart.aspx" />
     <Content Include="Customer\DeleteStudent.aspx" />
     <Content Include="Customer\DeleteStudent.css" />
+    <Content Include="Customer\LoginStudent.aspx" />
     <Content Include="Customer\Payment.aspx" />
+    <Content Include="Customer\ReadStudentInfo.aspx" />
+    <Content Include="Customer\ReadStudentInfo.css" />
     <Content Include="Customer\Student.aspx" />
     <Content Include="Customer\UpdateStudentDetails.aspx" />
     <Content Include="Customer\UpdateStudentDetails.css" />
@@ -176,13 +178,6 @@
     <Compile Include="Client.Master.designer.cs">
       <DependentUpon>Client.Master</DependentUpon>
     </Compile>
-    <Compile Include="CourseCategory.aspx.cs">
-      <DependentUpon>CourseCategory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CourseCategory.aspx.designer.cs">
-      <DependentUpon>CourseCategory.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Courses.aspx.cs">
       <DependentUpon>Courses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -197,12 +192,26 @@
     <Compile Include="Customer\DeleteStudent.aspx.designer.cs">
       <DependentUpon>DeleteStudent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Customer\LoginStudent.aspx.cs">
+      <DependentUpon>LoginStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\LoginStudent.aspx.designer.cs">
+      <DependentUpon>LoginStudent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Customer\Payment.aspx.designer.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\ReadStudentInfo.aspx.cs">
+      <DependentUpon>ReadStudentInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\ReadStudentInfo.aspx.designer.cs">
+      <DependentUpon>ReadStudentInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\Student.aspx.cs">
       <DependentUpon>Student.aspx</DependentUpon>

@@ -1,20 +1,16 @@
 ﻿#t1 {
-    border: 2px, solid, black;
-    background-color: rgba(177, 194, 204, 0.2);
-    border-radius: 25px;
+    background-color: #e6e6e6;
+    border-radius: 16px;
     width: 600px;
     height: 600px;
 }
 
-th {
-    background-color: rgba(131, 146, 156,0.2);
-}
+
 
 .layer-1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
 }
 
 label {
@@ -25,12 +21,10 @@ label {
     margin-left: 30px;
 }
 
-    label:after {
-        content: ": "
-    }
+    
 
 .form-control {
-    background-color: transparent;
+    background-color: white;
     margin-left: 30px;
 }
 

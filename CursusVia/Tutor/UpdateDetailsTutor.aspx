@@ -9,9 +9,9 @@
 Back
     </asp:HyperLink>
         </div>
-    <div class="layer-1">
-<div class="background-1">
-    <table id="t1">
+        <div class="layer-1">
+         
+ <table style="border: solid 2px black;" id="t1">
         <tr>
             <th>
                <span class="material-symbols-outlined accicon ">manage_accounts</span>
@@ -22,8 +22,8 @@ Back
         <tr>
             <td>
                 <div class="input-grp">
-                     <label for="TextBox3">Name</label>
-                <asp:TextBox ID="TextBox3" runat="server" cssClass="form-control" ></asp:TextBox>
+                     
+                <asp:TextBox ID="TextBox3" runat="server" cssClass="form-control" Placeholder="Name"  Width="70%" Height="30px"></asp:TextBox>
                        
                     </div>
                      </td>
@@ -31,17 +31,17 @@ Back
         <tr>
             <td>
                  <div class="input-grp2">
-                     <label for="TextBox1">Email</label>
-                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" ></asp:TextBox>
+                     
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Placeholder="Email" Width="70%" Height="30px"></asp:TextBox>
                   
                      </div>
                      </td>
         </tr>
         <tr>
      <td>
-         <div class="input-grp" >
-            <label for="DropDownList1">Qualifications</label>
-            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
+         <div class="input-grp" style="margin-left:30px;">
+            <label for="DropDownList1" style="margin-bottom:10px;">Qualifications:</label>
+            <asp:DropDownList ID="DropDownList1" runat="server" >
                 <asp:ListItem Value="phd">PHD</asp:ListItem>
                 <asp:ListItem Value="master">Master</asp:ListItem>
                 <asp:ListItem Value="degree">Degree</asp:ListItem>
@@ -52,7 +52,7 @@ Back
         <tr>
             <td>
                   
-                <asp:Button ID="Button1" runat="server" Text="Update" CssClass="btnPrimary btn"/>
+             &nbsp;&nbsp;&nbsp;   <asp:Button ID="Button1" runat="server" Text="Update" CssClass="btnPrimary btn"/>
                   
             </td>
         </tr>

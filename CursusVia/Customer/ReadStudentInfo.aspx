@@ -17,7 +17,7 @@
         </Fields>
         <FooterStyle BackColor="#5E6C82" Font-Bold="True" ForeColor="White" />
         <FooterTemplate>
-            @CursusVia2024&nbsp; <a style="color:blue; float:right;" href="#">terms & conditions</a>
+            @CursusVia2024&nbsp; 
         </FooterTemplate>
         <HeaderStyle BackColor="#5E6C82" Font-Bold="True" ForeColor="White" />
         <HeaderTemplate>
@@ -27,4 +27,7 @@
         <RowStyle BackColor="#EFF3FB" />
     </asp:DetailsView>
         </div>
+      <div id="formatbttn">
+   &nbsp; &nbsp; <asp:Button ID="Button1" runat="server" Text="Update Details" CssClass="btnPrimary btn" OnClick="Button1_Click" />
+          </div>
 </asp:Content>
