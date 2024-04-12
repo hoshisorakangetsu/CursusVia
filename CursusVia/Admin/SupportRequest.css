@@ -35,7 +35,6 @@
 .dateInput {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     gap:1em;
     max-width:fit-content;
 }
@@ -48,4 +47,120 @@
     border-radius: .25em;
     border: solid 2px;
     border-color: var(--text-on-surface);
+}
+
+.statusSection {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.filterSection {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    padding: .5em 0 .5em 0;
+}
+
+.dateSection {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: .5em;
+    align-content:center;
+}
+
+.Btn {
+    all:unset;
+    cursor:pointer;
+    padding:.5em .75em;
+    border-radius:.25em;
+    max-height:1.5em;
+    margin-top:1em;
+}
+
+.inputField {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    color: var(--text-on-surface);
+    padding: .5em;
+    font-size:1.05em;
+    min-width:11em;
+}
+
+.inputName {
+    font-size:1.5em;
+    margin-top:1em;
+}
+
+.contentHeader {
+    padding-left:1.5em;
+}
+
+.newBtn {
+    all: unset; /* reset styles first */
+    background-color: var(--primary-color) !important;
+    border-radius: .25em;
+    padding: .5em .75em !important;
+    text-align: center;
+}
+
+.newBtn:hover {
+    cursor: pointer;
+}
+
+.newBtn:visited {
+    text-decoration: none;
+    color: var(--text-on-primary) !important;
+}
+
+.table {
+    padding: 1em 4em;
+}
+
+table {
+    width:100%;
+}
+
+table, th, td {
+    text-align: center;
+    color: var(--text-on-surface);
+}
+
+table.rounded-corners {
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: .25em;
+    border: 2px solid;
+    border-color: rgba(0, 0, 0, .6);
+}
+
+/* Apply a border to the right of all but the last column */
+table.rounded-corners th:not(:last-child),
+table.rounded-corners td:not(:last-child) {
+    border-right: 2px solid;
+    border-color: rgba(0, 0, 0, .6);
+}
+
+/* Apply a border to the bottom of all but the last row */
+table.rounded-corners > thead > tr:not(:last-child) > th,
+table.rounded-corners > thead > tr:not(:last-child) > td,
+table.rounded-corners > tbody > tr:not(:last-child) > th,
+table.rounded-corners > tbody > tr:not(:last-child) > td,
+table.rounded-corners > tfoot > tr:not(:last-child) > th,
+table.rounded-corners > tfoot > tr:not(:last-child) > td,
+table.rounded-corners > tr:not(:last-child) > td,
+table.rounded-corners > tr:not(:last-child) > th,
+table.rounded-corners > thead:not(:last-child),
+table.rounded-corners > tbody:not(:last-child),
+table.rounded-corners > tfoot:not(:last-child) {
+    border-bottom: 2px solid;
+    border-color: rgba(0, 0, 0, .6);
+}
+
+th {
+    height:2em;
+}
+
+td {
+    height: 3em;
 }

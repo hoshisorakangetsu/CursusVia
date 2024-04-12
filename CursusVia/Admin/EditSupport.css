@@ -14,13 +14,12 @@
     padding: 2em 2em 0 2em;
 }
 
-.replies {
+.inputText {
     font-size: 1.55em;
 }
 
-.repliesHeader {
-    padding-top: 1.5em;
-    padding-left: 2em;
+.header {
+    text-align: center;
 }
 
 .contentContainer {
@@ -31,21 +30,10 @@
     padding: 1em;
 }
 
-.requestTitle {
+.updateBtn {
+    margin-top: .5em;
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-bottom: 1em;
-}
-
-.reply {
-    font-size: 1.15em;
-}
-
-.replyDisplay {
-    display: grid;
-    grid-template-rows: 2fr 7.5fr 2fr;
-    max-width: fit-content;
+    justify-content: center;
 }
 
 .inputArea {
@@ -55,7 +43,13 @@
     font-family: "Inter", sans-serif !important;
 }
 
-.replyBtn {
-    display: flex;
+.editReplyDisplay {
+    display: grid;
+    max-width: fit-content;
+    padding-top:.5em;
+}
+
+.editRequestContent {
+    display: grid;
     justify-content: center;
 }

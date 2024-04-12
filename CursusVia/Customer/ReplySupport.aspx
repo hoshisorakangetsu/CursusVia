@@ -15,7 +15,7 @@
     <div class="contentContainer">
         <div class="requestTitle">
             <h1 class="surfaceText">Admin ID</h1>
-            <p class="surfaceText requestTime">Replies on: 4/9/2024 12:00</p>
+            <p class="surfaceText">Replies on: 4/9/2024 12:00</p>
         </div>
         <div>
             <p class="surfaceText">

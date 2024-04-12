@@ -37,6 +37,9 @@
                             <asp:TextBox ID="startDate" runat="server" placeholder="Start Date" type="date" CssClass="dateInputField"></asp:TextBox>
                         </div>
                         <div>
+                            <div>
+                                <br />
+                            </div>
                             <span class="surfaceText"><b>~</b></span>
                         </div>
                         <div class="width-min">
@@ -50,7 +53,7 @@
                 <div class="request">
                     <div class="requestContent">
                         <h1 class="surfaceText">Title</h1>
-                        <p class="surfaceText">
+                        <p class="surfaceText margin-top">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget ex vitae sem tincidunt venenatis posuere eget elit. 
                             Etiam vel sagittis dui. Integer aliquet sapien a tellus tristique, eu tristique eros tincidunt. 
                             Cras bibendum metus eu quam fermentum, ut eleifend nunc elementum. Nulla sodales erat quis massa pulvinar, non volutpat orci finibus. 
@@ -60,7 +63,7 @@
                             Duis sagittis ante eget ligula mattis auctor. Vivamus vel sem dolor. Cras euismod tortor vitae nisl feugiat vestibulum. 
                             Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                         </p>
-                        <p class="surfaceText"><b>Status: Processing</b></p>
+                        <p class="surfaceText margin-top"><b>Status: Processing</b></p>
                     </div>
                     <div class="requestBtn">
                         <asp:HyperLink ID="btnViewDetails" runat="server" class="btnPrimary newBtn" NavigateUrl='ViewRequest.aspx'>   
@@ -77,7 +80,7 @@
                 <div class="request">
                     <div class="requestContent">
                         <h1 class="surfaceText">Title</h1>
-                        <p class="surfaceText">
+                        <p class="surfaceText margin-top">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget ex vitae sem tincidunt venenatis posuere eget elit. 
                             Etiam vel sagittis dui. Integer aliquet sapien a tellus tristique, eu tristique eros tincidunt. 
                             Cras bibendum metus eu quam fermentum, ut eleifend nunc elementum. Nulla sodales erat quis massa pulvinar, non volutpat orci finibus. 
@@ -87,7 +90,7 @@
                             Duis sagittis ante eget ligula mattis auctor. Vivamus vel sem dolor. Cras euismod tortor vitae nisl feugiat vestibulum. 
                             Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                         </p>
-                        <p class="surfaceText"><b>Status: Completed</b></p>
+                        <p class="surfaceText margin-top"><b>Status: Completed</b></p>
                     </div>
                     <div class="requestBtn">
                         <asp:Button ID="btnViewDetails1" runat="server" Text="View Request" CssClass="btnPrimary Btn"/>

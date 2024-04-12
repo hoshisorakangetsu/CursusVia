@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tutor/TutorMaster.master" AutoEventWireup="true" CodeBehind="ReplySupport.aspx.cs" Inherits="CursusVia.Tutor.ReplySupport" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="TutorMasterHead" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="ReplySupport.aspx.cs" Inherits="CursusVia.Admin.ReplySupport" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="AdminMasterHead" runat="server">
     <link href="ReplySupport.css" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="AdminMasterBody" runat="server">
     <div class="backBtn">
         <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='ViewRequest.aspx'>   
             <span class="material-symbols-outlined backIcon">arrow_back</span>
@@ -10,12 +10,12 @@
         </asp:HyperLink>
     </div>
     <div class="repliesHeader">
-        <span class="surfaceText replies">Replies</span>
+        <span class="surfaceText replies">Support Request</span>
     </div>
     <div class="contentContainer">
         <div class="requestTitle">
-            <h1 class="surfaceText">Admin ID</h1>
-            <p class="surfaceText">Replies on: 4/9/2024 12:00</p>
+            <h1 class="surfaceText">Student/Tutor Name</h1>
+            <p class="surfaceText">Posted on: 4/9/2024 09:00</p>
         </div>
         <div>
             <p class="surfaceText">

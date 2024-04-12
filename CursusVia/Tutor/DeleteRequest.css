@@ -25,11 +25,8 @@
 .requestTitle {
     display: flex;
     justify-content: space-between;
-    margin-top: -1em;
-}
-
-.requestTime {
-    margin-top: 2.4em;
+    align-items: baseline;
+    padding-bottom: 1em;
 }
 
 .reply {
@@ -55,17 +52,18 @@
     text-align: center;
 }
 
-    .newBtn:hover {
-        cursor: pointer;
-    }
+.newBtn:hover {
+    cursor: pointer;
+}
 
-    .newBtn:visited {
-        text-decoration: none;
-        color: var(--text-on-primary) !important;
-    }
+.newBtn:visited {
+    text-decoration: none;
+    color: var(--text-on-primary) !important;
+}
 
 .cancelBtn {
     display: flex;
     gap: 1em;
     justify-content: center;
+    padding-top: 1em;
 }

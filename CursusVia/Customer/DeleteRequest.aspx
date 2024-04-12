@@ -12,7 +12,7 @@
     <div class="contentContainer">
         <div class="requestTitle">
             <h1 class="surfaceText">Title</h1>
-            <p class="surfaceText requestTime">Posted on: 4/9/2024 09:00</p>
+            <p class="surfaceText">Posted on: 4/9/2024 09:00</p>
         </div>
         <div>
             <p class="surfaceText">
@@ -33,7 +33,7 @@
     <div class="contentContainer">
         <div class="requestTitle">
             <h1 class="surfaceText">Admin ID</h1>
-            <p class="surfaceText requestTime">Replies on: 4/9/2024 12:00</p>
+            <p class="surfaceText">Replies on: 4/9/2024 12:00</p>
         </div>
         <div>
             <p class="surfaceText">
@@ -51,7 +51,7 @@
     <div class="contentContainer">
         <div class="requestTitle">
             <h1 class="surfaceText">Student Name</h1>
-            <p class="surfaceText requestTime">Replies on: 4/9/2024 15:00</p>
+            <p class="surfaceText">Replies on: 4/9/2024 15:00</p>
         </div>
         <div>
             <p class="surfaceText">
