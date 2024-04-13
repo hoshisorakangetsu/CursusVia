@@ -1,10 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="CourseContent.aspx.cs" Inherits="CursusVia.CourseContent" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="CourseContent.css" rel="stylesheet" />
     <link href="Accordian.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="courseContentMain">
+        <div class="backControl">
+            <span class="material-symbols-outlined">arrow_back
+            </span>
+            Browse Courses
+        </div>
         <div class="hero">
             <img src="https://placehold.co/600x400" alt="Course Image" />
             <div class="overlay">
@@ -31,8 +37,7 @@
                             <h2>Chapter 1</h2>
                             <div class="rightSide">
                                 <p class="itemCount">2 Items</p>
-                                <span class="material-symbols-outlined chevron">
-                                expand_more
+                                <span class="material-symbols-outlined chevron">expand_more
                                 </span>
                             </div>
                         </div>
@@ -50,8 +55,7 @@
                             <h2>Chapter 2</h2>
                             <div class="rightSide">
                                 <p class="itemCount">2 Items</p>
-                                <span class="material-symbols-outlined chevron">
-                                expand_more
+                                <span class="material-symbols-outlined chevron">expand_more
                                 </span>
                             </div>
                         </div>
@@ -68,8 +72,7 @@
             <div class="tutorCard">
                 <div class="tutorCardTopPart">
                     <div class="tutorCardHeading">
-                        <span class="material-symbols-outlined">
-                        for_you
+                        <span class="material-symbols-outlined">for_you
                         </span>
                         Tutor
                     </div>
@@ -84,5 +87,6 @@
             </div>
         </div>
     </div>
+    <script src='<%= ResolveUrl("~/BackControlInit.js") %>' defer></script>
     <script src="AccordianInit.js" defer></script>
 </asp:Content>

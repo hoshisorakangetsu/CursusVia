@@ -105,6 +105,7 @@
     <Content Include="App_Data\CursusVia_log.ldf">
       <DependentUpon>CursusVia.mdf</DependentUpon>
     </Content>
+    <Content Include="BackControlInit.js" />
     <Content Include="Courses.aspx" />
     <Content Include="Customer\ApplyVacancy.aspx" />
     <Content Include="Customer\ApplyVacancy.css" />
@@ -145,7 +146,6 @@
     <Content Include="Customer\DeleteStudent.css" />
     <Content Include="Customer\EditSupport.aspx" />
     <Content Include="Customer\EditSupport.css" />
-    <Content Include="Customer\MyCourses.aspx" />
     <Content Include="Customer\NewRequest.aspx" />
     <Content Include="Customer\NewRequest.css" />
     <Content Include="Customer\ReplySupport.aspx" />
@@ -171,6 +171,7 @@
     <Content Include="HomeCourseCategoryScroller.js" />
     <Content Include="InnerMaster.css" />
     <Content Include="Modal.css" />
+    <Content Include="ModalGeneral.js" />
     <Content Include="res\cursusvia_logo.svg" />
     <Content Include="res\digital_marketing_course.png" />
     <Content Include="res\facebook-logo-png-white.png" />

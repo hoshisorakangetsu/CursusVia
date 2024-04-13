@@ -53,6 +53,7 @@
         </div>
         <asp:Button ID="submitForm" CssClass="btn btnPrimary" Text="Create Course" runat="server" />
     </div>
+    <script src='<%= ResolveUrl("~/BackControlInit.js") %>' defer></script>
     <!-- since cannot extract out to a common file d, might as well just embed the logic here -->
     <script defer>
         const dropZone = document.querySelector("#dropZone");
