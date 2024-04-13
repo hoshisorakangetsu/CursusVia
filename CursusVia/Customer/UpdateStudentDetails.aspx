@@ -3,12 +3,12 @@
     <link href="UpdateStudentDetails.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
-      <div class="backbtn">
-        <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='ReadStudentInfo.aspx'>   
-<span class="material-symbols-outlined backIcon">arrow_back</span>
-Back
-    </asp:HyperLink>
-          </div>
+     <div class="backbtn" style="padding: 2em 2em 0 2em;">
+  <asp:HyperLink ID="HyperLink1" runat="server" class="backText" NavigateUrl='Student.aspx'>   
+  <span class="material-symbols-outlined backIcon" style="font-size: 1.25em; display: flex; justify-content: left; color: var(--text-on-surface) !important; gap: .5em;">arrow_back</span>
+  Back
+  </asp:HyperLink>
+   </div>
         <div class="layer-1">
             
     <table style="border: solid 2px black;" id="t1">
@@ -22,14 +22,14 @@ Back
         <tr>
             <td>
                 <div style="margin-left:30px;" class="input-grp">
-                <asp:TextBox ID="TextBox3" runat="server" cssClass="input-grp" Placeholder=" Name" Height="30px" Width="70%"></asp:TextBox>
+                <asp:TextBox ID="TextBox3" runat="server" CssClass="input-grp" Placeholder=" Name" Height="30px" Width="70%"></asp:TextBox>
                    </div>
                      </td>
         </tr>
         <tr>
             <td>
                <div style="margin-left:30px;" class="input-grp2">
-                <asp:TextBox ID="TextBox1" runat="server" cssClass="inputBox" Placeholder=" Email" Height="30px" Width="70%" ></asp:TextBox>
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="input-grp" Placeholder=" Email" Height="30px" Width="70%" ></asp:TextBox>
                   </div>
                      
                      </td>

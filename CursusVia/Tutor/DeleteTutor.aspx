@@ -4,6 +4,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
      <div>
+           <div class="backbtn" style="padding: 2em 2em 0 2em;">
+   <asp:HyperLink ID="HyperLink1" runat="server" class="backText" NavigateUrl='Tutor.aspx'>   
+   <span class="material-symbols-outlined backIcon" style="font-size: 1.25em; display: flex; justify-content: left; color: var(--text-on-surface) !important; gap: .5em;">arrow_back</span>
+   Back
+   </asp:HyperLink>
+    </div>
      <table class="table1">
          <tr>
              <th>

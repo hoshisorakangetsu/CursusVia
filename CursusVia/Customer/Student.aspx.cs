@@ -13,5 +13,26 @@ namespace CursusVia.Customer
         {
 
         }
-    }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ReadStudentInfo.aspx");
+        }
+
+		protected void Button2_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("UpdateStudentDetails.aspx");
+		}
+
+		protected void Button3_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("UpdateStudentPassword.aspx");
+
+		}
+
+		protected void Button4_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("DeleteStudent.aspx");
+		}
+	}
 }

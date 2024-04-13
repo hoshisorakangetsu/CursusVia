@@ -58,3 +58,14 @@
     
     color: black;
 }
+.backText {
+    font-size: 1.25em;
+    display: flex;
+    justify-content: left;
+    color: var(--text-on-surface) !important;
+    gap: .5em;
+}
+
+.backbtn {
+    padding: 2em 2em 0 2em;
+}

@@ -1,10 +1,29 @@
-﻿/*
-#layer1{
-    background-color:bisque;
-    width:1300px;
-    height:650px;
-    position:absolute;
-    left:25%;
-    top:20%;
+﻿
+
+.profileicon {
+    all: unset;
+    margin: .50em 0 0 .7em;
+    color: black;
+
 }
-*/
+.container {
+    border: 2px solid black;
+    position: relative;
+    left: 30px;
+    
+}
+.bttnformat {
+    position: relative;
+    left: 5px;
+    top: 25px;
+}
+.containerStudent {
+    border: 2px solid black;
+    position: relative;
+    left: 30px;
+    width: 60%;
+    padding: 30px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    border-radius: 10px;
+}
