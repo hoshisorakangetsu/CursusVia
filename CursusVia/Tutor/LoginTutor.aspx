@@ -5,7 +5,7 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-            <h2 style="margin-top:20px;margin-left:20px;">Admin Account</h2>
+            <h2 style="margin-top:20px;margin-left:20px;">Tutor Account</h2>
      
     <asp:Panel ID="pnlLogin" runat="server" Visible="true">
          <h3 style="margin-top:20px;margin-left:20px;">Login</h3>
@@ -30,7 +30,7 @@
             </asp:HyperLink>
         </div>
         <div id="RegisterContainer" runat="server" class="Register-container">
-        <asp:Label ID="lblRegister" runat="server" Text="Register Admin" CssClass="lblRegister" ></asp:Label>
+        <asp:Label ID="lblRegister" runat="server" Text="Register Tutor" CssClass="lblRegister" ></asp:Label>
         <asp:TextBox ID="txtEmail" runat="server" CssClass="txtEmail" PlaceHolder="📧Email"></asp:TextBox>
         <asp:TextBox ID="txtPass" runat="server" TextMode="Password" CssClass="txtPass" Placeholder="🔑 Password" />
         <asp:TextBox ID="txtConfirmPass" runat="server" TextMode="Password" CssClass="txtPass" Placeholder="🔒 Confirm password" />
