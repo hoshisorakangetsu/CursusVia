@@ -26,11 +26,12 @@ namespace CursusVia.Tutor
 			pnlLogin.Visible = false;
 		}
 
-		protected void lbtnForgetPass_Click(object sender, EventArgs e)
+		protected void btnLogin_Click(object sender, EventArgs e)
 		{
-			pnlForgetPw.Visible = !pnlForgetPw.Visible;
-			pnlLogin.Visible = false;
-			pnlRegister.Visible = false;
+
+			// Redirect the user to the AdminHome  page
+			Response.Redirect("~/Admin/SupportRequest.aspx");
+
 		}
 	}
 }

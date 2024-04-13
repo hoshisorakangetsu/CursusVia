@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/Customer.master" AutoEventWireup="true" CodeBehind="LoginStudent.aspx.cs" Inherits="CursusVia.Customer.LoginStudent" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="CustomerMasterHead" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="LoginStudent.aspx.cs" Inherits="CursusVia.Customer.LoginStudent" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="LoginStudent.css" rel="stylesheet" />
     <link href="LoginStudent2" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
            <h2>Student Account</h2>
      
     <asp:Panel ID="pnlLogin" runat="server" Visible="true">
