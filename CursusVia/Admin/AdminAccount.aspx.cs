@@ -28,5 +28,12 @@ namespace CursusVia.Admin
             pnlLogin.Visible = !pnlLogin.Visible;
             pnlRegister.Visible = false;
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            // Redirect the user to the AdminHome  page
+            Response.Redirect("~/Admin/SupportRequest.aspx");
+
+        }
     }
 }

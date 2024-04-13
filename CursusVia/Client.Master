@@ -21,7 +21,7 @@
                 <asp:SiteMapDataSource runat="server" ID="SiteMapDataSource1"></asp:SiteMapDataSource>
             </div>
             <div class="headerRight">
-                <a href="#" class="cart">
+                <a href="\Customer\Cart.aspx" class="cart">
                     <span class="material-symbols-outlined">shopping_bag</span>
                 </a>
                 <div class="headerRightControlsNotLoggedIn">

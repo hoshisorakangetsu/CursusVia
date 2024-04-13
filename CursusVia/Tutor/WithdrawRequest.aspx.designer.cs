@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CursusVia.Customer
+namespace CursusVia.Tutor
 {
 
 
-    public partial class Payment
+    public partial class WithdrawRequest
     {
 
         /// <summary>
@@ -24,58 +24,58 @@ namespace CursusVia.Customer
         protected global::System.Web.UI.WebControls.Label lblWithdrawalDetail;
 
         /// <summary>
-        /// lblPaymentID control.
+        /// lblRequestID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPaymentID;
+        protected global::System.Web.UI.WebControls.Label lblRequestID;
 
         /// <summary>
-        /// litPaymentID control.
+        /// litRequestID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litPaymentID;
+        protected global::System.Web.UI.WebControls.Literal litRequestID;
 
         /// <summary>
-        /// lbPayMethod control.
+        /// lblBankName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPayMethod;
+        protected global::System.Web.UI.WebControls.Label lblBankName;
 
         /// <summary>
-        /// ddlPaymentmethods control.
+        /// ddlBankName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPaymentmethods;
+        protected global::System.Web.UI.WebControls.DropDownList ddlBankName;
 
         /// <summary>
-        /// lblCardNo control.
+        /// lblAccNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCardNo;
+        protected global::System.Web.UI.WebControls.Label lblAccNo;
 
         /// <summary>
-        /// txtCardNo control.
+        /// txtAccNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCardNo;
+        protected global::System.Web.UI.WebControls.TextBox txtAccNo;
 
         /// <summary>
         /// lblAccHName control.
@@ -96,22 +96,22 @@ namespace CursusVia.Customer
         protected global::System.Web.UI.WebControls.TextBox txtAccHName;
 
         /// <summary>
-        /// lblCvs control.
+        /// lblWithdrawAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCvs;
+        protected global::System.Web.UI.WebControls.Label lblWithdrawAmount;
 
         /// <summary>
-        /// txtCvs control.
+        /// txtWithdrawAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCvs;
+        protected global::System.Web.UI.WebControls.TextBox txtWithdrawAmount;
 
         /// <summary>
         /// litPaymentInfo control.

@@ -1,0 +1,44 @@
+﻿body {
+}
+.withdrawal-request {
+    background-color: #fff; 
+    border: 1px solid #ccc; 
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px; 
+    margin: auto;
+}
+
+.withdrawal-details label {
+    display: block;
+    color: #003366; 
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.withdrawal-details .aspNetDisabled {
+    color: #ff6600; 
+    font-weight: bold;
+}
+
+.update-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6600; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.back-link {
+    display: block;
+    margin-bottom: 20px;
+    color: #003366;
+    text-decoration: none;
+}
+
+    .back-link:hover {
+        text-decoration: underline;
+    }

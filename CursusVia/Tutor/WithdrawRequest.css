@@ -1,0 +1,130 @@
+﻿body {
+}
+
+.modal-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #29354C;
+}
+
+.modal {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-content {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+
+.detail-item {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.litRequestID {
+    position: relative;
+    right: -440px;
+}
+
+.modal-content select,
+.modal-content input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    margin: 20px auto;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: box-shadow 0.3s ease;
+}
+
+    .modal-content input[type="text"]:focus {
+        box-shadow: 0 0 7px red;
+    }
+
+.modal-footer {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 10%;
+}
+
+.btnSubmit, .btnCancel {
+    padding: 15px 30px;
+    background-color: #E86262;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .btnSubmit:hover {
+        background-color: #29354C;
+        color: #ffffff;
+    }
+
+.btnCancel {
+    padding: 10px 20px;
+    background-color: #29354C;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .btnCancel:hover {
+        background-color: #E86262;
+        color: #ffffff;
+    }
+
+.ddlPaymentmethods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.acceptedPayments {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    position: relative;
+    left: -10px;
+    top: -20px;
+}
+
+.payment-logo {
+    display: inline-block;
+    height: 30px;
+    width: auto;
+}

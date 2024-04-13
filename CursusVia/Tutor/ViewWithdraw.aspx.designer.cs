@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CursusVia.Customer
+namespace CursusVia.Tutor
 {
 
 
-    public partial class Payment
+    public partial class ViewWithdraw
     {
 
         /// <summary>
@@ -24,94 +24,58 @@ namespace CursusVia.Customer
         protected global::System.Web.UI.WebControls.Label lblWithdrawalDetail;
 
         /// <summary>
-        /// lblPaymentID control.
+        /// lblWithdrawalID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPaymentID;
+        protected global::System.Web.UI.WebControls.Label lblWithdrawalID;
 
         /// <summary>
-        /// litPaymentID control.
+        /// litWithdrawalID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litPaymentID;
+        protected global::System.Web.UI.WebControls.Literal litWithdrawalID;
 
         /// <summary>
-        /// lbPayMethod control.
+        /// lblWithdrawalAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPayMethod;
+        protected global::System.Web.UI.WebControls.Label lblWithdrawalAmount;
 
         /// <summary>
-        /// ddlPaymentmethods control.
+        /// litAvaiBalance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPaymentmethods;
+        protected global::System.Web.UI.WebControls.Literal litAvaiBalance;
 
         /// <summary>
-        /// lblCardNo control.
+        /// lblStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCardNo;
+        protected global::System.Web.UI.WebControls.Label lblStatus;
 
         /// <summary>
-        /// txtCardNo control.
+        /// litStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCardNo;
-
-        /// <summary>
-        /// lblAccHName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAccHName;
-
-        /// <summary>
-        /// txtAccHName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAccHName;
-
-        /// <summary>
-        /// lblCvs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCvs;
-
-        /// <summary>
-        /// txtCvs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCvs;
+        protected global::System.Web.UI.WebControls.Literal litStatus;
 
         /// <summary>
         /// litPaymentInfo control.
@@ -123,21 +87,21 @@ namespace CursusVia.Customer
         protected global::System.Web.UI.WebControls.Literal litPaymentInfo;
 
         /// <summary>
-        /// btnSubmit control.
+        /// btnWithdrawal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button btnWithdrawal;
 
         /// <summary>
-        /// btnCancel control.
+        /// btnCanWithdrawal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button btnCanWithdrawal;
     }
 }

@@ -4,8 +4,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <h2>Shopping Cart</h2>
+     <h2>Shopping Cart</h2>
+   
     <asp:Label ID="lblItemNo" runat="server" Text="Cart Item Number" CssClass="lblItemNo"></asp:Label>
  <div class="cart-item">
     <div class="course-image">

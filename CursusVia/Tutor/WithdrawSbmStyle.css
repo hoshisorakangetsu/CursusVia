@@ -1,0 +1,73 @@
+﻿h2 {
+    color: #29354C;
+}
+.balance-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    margin-top: 50px;
+}
+
+.balance-text {
+    display: flex; 
+    align-items: center; 
+}
+
+.lblBalance, .litBalance {
+    font-size: 16px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+.litBalance {
+    color: green;
+}
+.lblBalance {
+    color: #29354C;
+}
+
+
+.balance-button {
+    padding: 10px 20px;
+    background-color: #E86262;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .balance-button:hover {
+        background-color: #29354C;
+        color: #ffffff;
+    }
+.withdrawal-notice {
+    color: red;
+    font-size: small;
+    text-align: left;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.Status-text {
+    display: flex;
+    align-items: center;
+}
+
+.lbRequestID, .litID {
+    font-size: 16px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.litID {
+    color:chocolate;
+}
+
+.litStatus {
+    padding: 10px 20px;
+    color:green;
+    font-weight:bold;
+}

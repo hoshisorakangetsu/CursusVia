@@ -13,7 +13,7 @@
          <asp:TextBox ID="txtPass" runat="server" TextMode="Password" CssClass="txtPass" Placeholder="🔑 Password" />
        <asp:TextBox ID="txtConfirmPass" runat="server" TextMode="Password" CssClass="txtPass" Placeholder="🔒 Confirm password" />
          <asp:TextBox ID="txtVerify" runat="server" CssClass="txtVerify" Placeholder="🔐 Verification key word"/>
-        <asp:Button ID="btnSubmit" runat="server" Text="Update" CssClass="btnSubmit"/>
+          <asp:Button ID="btnSubmit" runat="server" Text="Update" CssClass="btnSubmit" OnClick="btnSubmit_Click" />
           <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btnCancel"/>
       </div>
 

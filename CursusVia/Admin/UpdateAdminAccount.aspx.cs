@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace CursusVia.Admin
 {
@@ -13,5 +14,15 @@ namespace CursusVia.Admin
         {
 
         }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+          
+            //Response.Redirect("~/Admin/UpdateConfirmation.aspx");
+            Response.Redirect("~/Admin/UpdateConfirmation.aspx");
+
+        }
+
+
     }
 }

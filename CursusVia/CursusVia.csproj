@@ -75,17 +75,15 @@
     <Content Include="Admin\AccountStyle.css" />
     <Content Include="Admin\AdminAccount.aspx" />
     <Content Include="Admin\DeleteVacancy.aspx" />
+    <Content Include="Admin\AdminHomePage.aspx" />
     <Content Include="Admin\DeleteVacancy.css" />
     <Content Include="Admin\EditSupport.aspx" />
     <Content Include="Admin\EditSupport.css" />
     <Content Include="Admin\NewVacancy.aspx" />
-    <Content Include="Admin\NewVacancy.css" />
+    <Content Include="Admin\AdminAccount.aspx" />
     <Content Include="Admin\PayoutRequest.aspx" />
     <Content Include="Admin\ReplySupport.aspx" />
     <Content Include="Admin\ReplySupport.css" />
-    <Content Include="Admin\SupportRequest.aspx" />
-    <Content Include="Admin\AdminAccount.aspx" />
-    <Content Include="Admin\PayoutRequest.aspx" />
     <Content Include="Admin\SupportRequest.aspx" />
     <Content Include="Admin\SupportRequest.css" />
     <Content Include="Admin\UpdateRequest.aspx" />
@@ -100,13 +98,33 @@
     <Content Include="Admin\ViewVacancy.css" />
     <Content Include="Admin\WithdrawalRequest.aspx" />
     <Content Include="Admin\Vacancy.aspx" />
+    <Content Include="Admin\UpdateAdminAccount.aspx" />
+    <Content Include="Admin\UpdateConfirmation.aspx" />
+    <Content Include="Admin\UpdateRequest.aspx" />
+    <Content Include="Admin\UpdateVacancy.aspx" />
+    <Content Include="Admin\ViewRequest.aspx" />
+    <Content Include="Admin\ViewRequest.css" />
+    <Content Include="Admin\ViewWithdrawRequest.aspx" />
+    <Content Include="Admin\ViewWithdrawRequest.css" />
+    <Content Include="Admin\WithdrawalRequest.aspx" />
+    <Content Include="Customer\Payment.css" />
+    <Content Include="Customer\PaymentConfirm.aspx" />
+    <Content Include="SuccessfulMessage.css" />
+    <Content Include="SuccsessfulMessage.aspx" />
+    <Content Include="Tutor\ViewWithdraw.aspx" />
+    <Content Include="Tutor\ViewWithdraw.css" />
+    <Content Include="Tutor\WithdrawalSubmission.aspx" />
+    <Content Include="Tutor\WithdrawRequest.aspx" />
+    <Content Include="Tutor\WithdrawRequest.css" />
+    <Content Include="Tutor\WithdrawRequestConfirm.aspx" />
+    <Content Include="Tutor\WithdrawRequestStatus.aspx" />
+    <Content Include="Tutor\WithdrawSbmStyle.css" />
     <Content Include="App_Data\CreateDB.sql" />
     <Content Include="App_Data\CursusVia.mdf" />
     <Content Include="App_Data\CursusVia_log.ldf">
       <DependentUpon>CursusVia.mdf</DependentUpon>
     </Content>
     <Content Include="BackControlInit.js" />
-    <Content Include="Courses.aspx" />
     <Content Include="Customer\ApplyVacancy.aspx" />
     <Content Include="Customer\ApplyVacancy.css" />
     <Content Include="BrowseCourseCard.css" />
@@ -120,6 +138,7 @@
     <Content Include="Customer\CustomerChapterContent.css" />
     <Content Include="Customer\CustomerCourseContent.css" />
     <Content Include="Customer\CustomerCourseQuiz.css" />
+    <Content Include="Customer\CartStyle.css" />
     <Content Include="Customer\DeleteStudent.aspx" />
     <Content Include="Customer\DeleteStudent.css" />
     <Content Include="Customer\LoginStudent.aspx" />
@@ -247,6 +266,13 @@
     <Compile Include="Admin\DeleteVacancy.aspx.designer.cs">
       <DependentUpon>DeleteVacancy.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminHomePage.aspx.cs">
+      <DependentUpon>AdminHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminHomePage.aspx.designer.cs">
+      <DependentUpon>AdminHomePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EditSupport.aspx.cs">
       <DependentUpon>EditSupport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -281,6 +307,20 @@
     </Compile>
     <Compile Include="Admin\SupportRequest.aspx.designer.cs">
       <DependentUpon>SupportRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdateAdminAccount.aspx.cs">
+      <DependentUpon>UpdateAdminAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UpdateAdminAccount.aspx.designer.cs">
+      <DependentUpon>UpdateAdminAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdateConfirmation.aspx.cs">
+      <DependentUpon>UpdateConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UpdateConfirmation.aspx.designer.cs">
+      <DependentUpon>UpdateConfirmation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UpdateRequest.aspx.cs">
       <DependentUpon>UpdateRequest.aspx</DependentUpon>
@@ -317,6 +357,13 @@
     <Compile Include="Admin\ViewVacancy.aspx.designer.cs">
       <DependentUpon>ViewVacancy.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ViewWithdrawRequest.aspx.cs">
+      <DependentUpon>ViewWithdrawRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ViewWithdrawRequest.aspx.designer.cs">
+      <DependentUpon>ViewWithdrawRequest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\WithdrawalRequest.aspx.cs">
       <DependentUpon>WithdrawalRequest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -330,6 +377,34 @@
     </Compile>
     <Compile Include="Customer\ApplyVacancy.aspx.designer.cs">
       <DependentUpon>ApplyVacancy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\PaymentConfirm.aspx.cs">
+      <DependentUpon>PaymentConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\PaymentConfirm.aspx.designer.cs">
+      <DependentUpon>PaymentConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SuccsessfulMessage.aspx.cs">
+      <DependentUpon>SuccsessfulMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SuccsessfulMessage.aspx.designer.cs">
+      <DependentUpon>SuccsessfulMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\ViewWithdraw.aspx.cs">
+      <DependentUpon>ViewWithdraw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\ViewWithdraw.aspx.designer.cs">
+      <DependentUpon>ViewWithdraw.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\WithdrawalSubmission.aspx.cs">
+      <DependentUpon>WithdrawalSubmission.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\WithdrawalSubmission.aspx.designer.cs">
+      <DependentUpon>WithdrawalSubmission.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
@@ -660,6 +735,27 @@
     </Compile>
     <Compile Include="Tutor\UpdateQuiz.aspx.designer.cs">
       <DependentUpon>UpdateQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\WithdrawRequest.aspx.cs">
+      <DependentUpon>WithdrawRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\WithdrawRequest.aspx.designer.cs">
+      <DependentUpon>WithdrawRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\WithdrawRequestConfirm.aspx.cs">
+      <DependentUpon>WithdrawRequestConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\WithdrawRequestConfirm.aspx.designer.cs">
+      <DependentUpon>WithdrawRequestConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\WithdrawRequestStatus.aspx.cs">
+      <DependentUpon>WithdrawRequestStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\WithdrawRequestStatus.aspx.designer.cs">
+      <DependentUpon>WithdrawRequestStatus.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
