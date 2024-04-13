@@ -19,6 +19,7 @@ namespace CursusVia.Customer
 			// Toggle visibility of the Logoin panel
 			pnlLogin.Visible = !pnlLogin.Visible;
 			pnlRegister.Visible = false;
+			
 		}
 
 		protected void lbtnShowRegister_Click(object sender, EventArgs e)
@@ -32,6 +33,11 @@ namespace CursusVia.Customer
 			pnlForgetPw.Visible = !pnlForgetPw.Visible;
 			pnlLogin.Visible = false;
 			pnlRegister.Visible = false;
+		}
+
+		protected void btnLogin_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("Student.aspx");
 		}
 	}
 }

@@ -30,7 +30,7 @@ namespace CursusVia.Tutor
 		{
 
 			// Redirect the user to the AdminHome  page
-			Response.Redirect("~/Admin/SupportRequest.aspx");
+			Response.Redirect("Tutor.aspx");
 
 		}
 	}
