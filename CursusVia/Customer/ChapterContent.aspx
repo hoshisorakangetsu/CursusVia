@@ -31,16 +31,16 @@
                     <div class="accordianActivator">
                         <h2>Chapter 1</h2>
                         <div class="rightSide">
-                            <p class="itemCount">2 Items</p>
+                            <p class="itemCount">1 Items</p>
                             <span class="material-symbols-outlined chevron">expand_more
                             </span>
                         </div>
                     </div>
                     <div class="accordianContentWrapper">
                         <div class="accordianContent">
-                            <div class="contentRow">
+                            <asp:HyperLink ID="GoToContent" runat="server" CssClass="contentRow" NavigateUrl="~/Customer/ChapterContent.aspx">
                                 Content 1
-                            </div>
+                            </asp:HyperLink>
                         </div>
                     </div>
                 </div>

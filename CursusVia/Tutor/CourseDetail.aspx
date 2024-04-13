@@ -57,7 +57,7 @@
                     </div>
                     <div class="accordianContentWrapper">
                         <div class="accordianContent">
-                            <asp:HyperLink class="contentRow" NavigateUrl="~/Tutor/UpdateCourseContent.aspx" runat="server">
+                            <asp:HyperLink CssClass="contentRow" NavigateUrl="~/Tutor/UpdateCourseContent.aspx" runat="server">
                                 Content 1
                                 <span class="updateIcon material-symbols-outlined">edit
                                 </span>

@@ -8,8 +8,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
     <div class="customerCourseContentMain">
         <div class="backControl">
-            <span class="material-symbols-outlined">
-            arrow_back
+            <span class="material-symbols-outlined">arrow_back
             </span>
             All Courses
         </div>
@@ -53,9 +52,9 @@
                     </div>
                     <div class="accordianContentWrapper">
                         <div class="accordianContent">
-                            <div class="contentRow">
+                            <asp:HyperLink ID="GoToContent" runat="server" CssClass="contentRow" NavigateUrl="~/Customer/CourseContent.aspx">
                                 Content 1
-                            </div>
+                            </asp:HyperLink>
                         </div>
                     </div>
                 </div>

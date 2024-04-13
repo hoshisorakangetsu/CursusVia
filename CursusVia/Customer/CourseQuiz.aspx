@@ -50,10 +50,10 @@
                         </div>
                     </div>
                     <div class="accordianContentWrapper">
-                        <div class="accordianContent">
-                            <div class="contentRow">
+                        <div class="accordianContent">                        
+                            <asp:HyperLink ID="GoToContent" runat="server" CssClass="contentRow" NavigateUrl="~/Customer/CourseContent.aspx">
                                 Content 1
-                            </div>
+                            </asp:HyperLink>
                         </div>
                     </div>
                 </div>
