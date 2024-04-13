@@ -25,7 +25,7 @@
                     <asp:Button ID="SearchButton" runat="server" Text="Search" CssClass="btn btnPrimary searchBtn" />
                 </div>
                 <div class="rightControl">
-                    <asp:HyperLink ID="CreateCourse" runat="server" CssClass="btn btnPrimary">New Course</asp:HyperLink>
+                    <asp:HyperLink ID="CreateCourse" runat="server" CssClass="btn btnPrimary" NavigateUrl="~/Tutor/CreateCourse.aspx">New Course</asp:HyperLink>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                 <p class="rating">Rating 4.9/5.0 (10)</p>
                 <p class="coursePrice">RM 888</p>
                 <div class="actions">
-                    <asp:HyperLink ID="ViewDetails" runat="server" CssClass="btn btnPrimary" NavigateUrl="~/CourseContent.aspx">View Details</asp:HyperLink>
+                    <asp:HyperLink ID="ViewDetails" runat="server" CssClass="btn btnPrimary" NavigateUrl="~/Tutor/CourseDetail.aspx">View Details</asp:HyperLink>
                     <asp:HyperLink ID="AddToCart" runat="server" CssClass="btnOutlinePrimary addToCartBtn">
                         <span class="material-symbols-outlined">
                         delete
