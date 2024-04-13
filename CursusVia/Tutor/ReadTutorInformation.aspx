@@ -9,7 +9,7 @@
 Back
 </asp:HyperLink>
  </div>
-    <div id="container" >
+    <div id="container" style="margin-left:200px;" >
     <asp:DetailsView ID="DetailsView1" runat="server" Height="500px" Width="700px" AutoGenerateRows="False" CellPadding="6" DataKeyNames="id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" >
         <AlternatingRowStyle BackColor="White" />
         <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
@@ -39,7 +39,7 @@ Back
     <div style="margin-top:100px;">
         </div>
         </div>
-    <div id="formatbttn">
+    <div id="formatbttn" style="margin-top:10px; position:relative; top:10px;">
       
     <asp:Button ID="Button1" runat="server" Text="Update Information" CssClass="btnPrimary btn" OnClick="Button1_Click"/>
         </div>
