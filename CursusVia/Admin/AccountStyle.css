@@ -1,18 +1,11 @@
 ﻿
 /* AccountStyle.css */
 /*Account Login Pannel*/
-h2 {
-    display: flex;
-    width: 50%;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    margin-bottom: 10px;
+/*h2 { padding: 20px;
     position: relative;
-    top: -3px;
 }
-
-h3 {
+*/
+/*h3 {
     display: flex;
     width: 50%;
     align-items: center;
@@ -23,7 +16,7 @@ h3 {
     top: -6px;
     left: 12px;
 }
-
+*/
 .login-container {
     display: flex;
     flex-direction: column;
