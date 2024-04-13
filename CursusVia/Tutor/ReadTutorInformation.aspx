@@ -39,9 +39,9 @@ Back
     <div style="margin-top:100px;">
         </div>
         </div>
-    <div id="formatbttn" style="margin-top:10px; position:relative; top:10px;">
-      
-    <asp:Button ID="Button1" runat="server" Text="Update Information" CssClass="btnPrimary btn" OnClick="Button1_Click"/>
+
+    <div style="float:left; margin:50px;  ">
+    <asp:Button ID="Button1" runat="server" Text="Update Information" CssClass="btnPrimary btn"  OnClick="Button1_Click"/>
         </div>
         
 </asp:Content>
