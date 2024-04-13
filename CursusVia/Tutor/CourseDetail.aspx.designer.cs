@@ -24,15 +24,6 @@ namespace CursusVia.Tutor
         protected global::System.Web.UI.WebControls.HyperLink UpdateCourse;
 
         /// <summary>
-        /// NewChapterBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NewChapterBtn;
-
-        /// <summary>
         /// NewChapterContent control.
         /// </summary>
         /// <remarks>
@@ -67,5 +58,32 @@ namespace CursusVia.Tutor
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink NewChapterQuiz2;
+
+        /// <summary>
+        /// ChapterModalMode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField ChapterModalMode;
+
+        /// <summary>
+        /// ChapterTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ChapterTitle;
+
+        /// <summary>
+        /// ChapterModalBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ChapterModalBtn;
     }
 }

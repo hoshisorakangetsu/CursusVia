@@ -170,6 +170,7 @@
     <Content Include="Home.css" />
     <Content Include="HomeCourseCategoryScroller.js" />
     <Content Include="InnerMaster.css" />
+    <Content Include="Modal.css" />
     <Content Include="res\cursusvia_logo.svg" />
     <Content Include="res\digital_marketing_course.png" />
     <Content Include="res\facebook-logo-png-white.png" />

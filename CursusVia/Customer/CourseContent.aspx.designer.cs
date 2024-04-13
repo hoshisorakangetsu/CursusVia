@@ -11,7 +11,7 @@ namespace CursusVia.Customer
 {
 
 
-    public partial class ChapterContent
+    public partial class CourseContent
     {
 
         /// <summary>

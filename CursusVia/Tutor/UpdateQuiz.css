@@ -4,6 +4,10 @@
     position: relative;
 }
 
+.editIcon {
+    font-size: inherit !important;
+}
+
 .newQuestionField {
     display: flex;
     flex-direction: column;
@@ -73,9 +77,52 @@
     padding: 1rem;
 }
 
+.answerDesc {
+    cursor: pointer;
+}
+
+.answerDesc:hover {
+    color: var(--primary-color);
+}
+
 .newAnswerField {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
 }
 
+#quizQuestionFieldModal {
+    width: 70%;
+}
+
+.quizQuestionField {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quizQuestionField textarea {
+    border: 1px solid var(--outline);
+    border-radius: .35rem;
+    padding: .5rem;
+    flex-grow: 1;
+    max-height: 50vh;
+}
+
+.quizQuestionField textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 16px var(--primary-shadow);
+}
+
+#quizAnswerFieldModal {
+    width: 70%;
+}
+
+.quizAnswerField {
+    display: flex;
+    gap: 1rem;
+}
+
+.quizAnswerField input[type=text] {
+    flex-grow: 1;
+}

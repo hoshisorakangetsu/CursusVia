@@ -65,5 +65,6 @@
             </div>
         </div>
     </div>
+    <script src='<%= ResolveUrl("~/BackControlInit.js") %>' defer></script>
     <script src='<%= ResolveUrl("~/AccordianInit.js") %>' defer></script>
 </asp:Content>

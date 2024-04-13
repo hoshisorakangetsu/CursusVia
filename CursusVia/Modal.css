@@ -1,0 +1,63 @@
+﻿.modalContainer {
+    z-index: 999;
+    position: fixed;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    background: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    display: none;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.modal {
+    position: relative;
+    background: #fff;
+    padding: 3rem;
+    border-radius: 1rem;
+    cursor: auto;
+}
+
+.modal .closeModal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    cursor: pointer;
+}
+
+.closeModal:hover {
+    color: var(--primary-color);
+}
+
+.modalContainer.appear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    animation: modalAppear .5s;
+}
+
+.modalContainer.closing {
+    animation: modalClose .5s forwards;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalClose {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

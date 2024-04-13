@@ -67,6 +67,12 @@
 }
 
 .accordianContent .contentRow {
-    padding: .5rem;
+    display: block;
+    padding: .5rem !important;
+    transition: .25s;
+}
+
+.accordianContent .contentRow:hover {
+    color: var(--primary-color);
 }
 
