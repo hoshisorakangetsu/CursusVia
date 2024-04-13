@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode url="~/Tutor/" title="Tutor"  description="">
-    <siteMapNode url="~/Tutor/Tutor.aspx" title="Tutor"  description="" icon="menu_book" />
-	  <siteMapNode url="~/Tutor/WithdrawalSubmission.aspx" title="Balance"  description="" icon="payments" />
+	<siteMapNode url="~/Tutor/" title="Tutor"  description="">
+		<siteMapNode url="~/Tutor/MyCourses.aspx" title="My Courses"  description="" icon="menu_book">
+			<siteMapNode url="~/Tutor/CreateCourse.aspx" title="Create Course"  description="">
+				
+			</siteMapNode>
+		</siteMapNode>
+		<siteMapNode url="~/Tutor/WithdrawalSubmission.aspx" title="Balance"  description="" icon="payments" />
 		<siteMapNode url="~/Tutor/WithdrawRequestStatus.aspx" title="Withdraw Requests"  description="" icon="price_change" />
-	  
-	  
-  </siteMapNode>
+		<siteMapNode url="~/Tutor/Support.aspx" title="Support" icon="support_agent" />
+		<siteMapNode url="~/Tutor/Tutor.aspx" title="Profile" icon="person" />
+	</siteMapNode>
 </siteMap>

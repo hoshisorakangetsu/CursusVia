@@ -7,8 +7,8 @@
       <siteMapNode url="~/CourseCategory.aspx?category=mobile_app" title="Mobile Application"  description="" />
       <siteMapNode url="~/CourseCategory.aspx?category=digital_marketing" title="Digital Marketing"  description="" />
     </siteMapNode>
-    <siteMapNode url="" title="Become Partner"  description="" />
-    <siteMapNode url="" title="Pricing"  description="" />
-    <siteMapNode url="" title="Support"  description="" />
+    <siteMapNode url="~/Tutor/LoginTutor.aspx" title="Teaching Center"  description="" />
+    <siteMapNode url="~/Customer/LoginStudent.aspx" title="Learning Center"  description="" />
+    <siteMapNode url="~/Admin/AdminAccount.aspx" title="Admin Login"  description="" />
   </siteMapNode>
 </siteMap>

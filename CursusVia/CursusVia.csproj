@@ -81,6 +81,7 @@
     <Content Include="Admin\EditSupport.css" />
     <Content Include="Admin\NewVacancy.aspx" />
     <Content Include="Admin\AdminAccount.aspx" />
+    <Content Include="Admin\NewVacancy.css" />
     <Content Include="Admin\PayoutRequest.aspx" />
     <Content Include="Admin\ReplySupport.aspx" />
     <Content Include="Admin\ReplySupport.css" />
@@ -88,7 +89,6 @@
     <Content Include="Admin\SupportRequest.css" />
     <Content Include="Admin\UpdateRequest.aspx" />
     <Content Include="Admin\UpdateRequest.css" />
-    <Content Include="Admin\UpdateVacancy.aspx" />
     <Content Include="Admin\UpdateVacancy.css" />
     <Content Include="Admin\Vacancy.aspx" />
     <Content Include="Admin\Vacancy.css" />
@@ -97,20 +97,31 @@
     <Content Include="Admin\ViewVacancy.aspx" />
     <Content Include="Admin\ViewVacancy.css" />
     <Content Include="Admin\WithdrawalRequest.aspx" />
-    <Content Include="Admin\Vacancy.aspx" />
     <Content Include="Admin\UpdateAdminAccount.aspx" />
     <Content Include="Admin\UpdateConfirmation.aspx" />
-    <Content Include="Admin\UpdateRequest.aspx" />
     <Content Include="Admin\UpdateVacancy.aspx" />
-    <Content Include="Admin\ViewRequest.aspx" />
     <Content Include="Admin\ViewRequest.css" />
     <Content Include="Admin\ViewWithdrawRequest.aspx" />
     <Content Include="Admin\ViewWithdrawRequest.css" />
-    <Content Include="Admin\WithdrawalRequest.aspx" />
+    <Content Include="Customer\emailIcon.png" />
+    <Content Include="Customer\emailIcon2.png" />
+    <Content Include="Customer\ForgetPassword.aspx" />
+    <Content Include="Customer\LoginStudent.css" />
+    <Content Include="Customer\LoginStudent2.css" />
+    <Content Include="Customer\namelogo.png" />
+    <Content Include="Customer\passwordlogo.png" />
     <Content Include="Customer\Payment.css" />
     <Content Include="Customer\PaymentConfirm.aspx" />
     <Content Include="SuccessfulMessage.css" />
     <Content Include="SuccsessfulMessage.aspx" />
+    <Content Include="Tutor\emailIcon.png" />
+    <Content Include="Tutor\LoginTutor.aspx" />
+    <Content Include="Tutor\LoginTutor.css" />
+    <Content Include="Tutor\LoginTutor2.css" />
+    <Content Include="Tutor\namelogo.png" />
+    <Content Include="Tutor\passwordlogo.png" />
+    <Content Include="Tutor\TutorRatings.aspx" />
+    <Content Include="Tutor\TutorRatings.css" />
     <Content Include="Tutor\ViewWithdraw.aspx" />
     <Content Include="Tutor\ViewWithdraw.css" />
     <Content Include="Tutor\WithdrawalSubmission.aspx" />
@@ -378,6 +389,13 @@
     <Compile Include="Customer\ApplyVacancy.aspx.designer.cs">
       <DependentUpon>ApplyVacancy.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Customer\ForgetPassword.aspx.cs">
+      <DependentUpon>ForgetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\ForgetPassword.aspx.designer.cs">
+      <DependentUpon>ForgetPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer\PaymentConfirm.aspx.cs">
       <DependentUpon>PaymentConfirm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -391,6 +409,20 @@
     </Compile>
     <Compile Include="SuccsessfulMessage.aspx.designer.cs">
       <DependentUpon>SuccsessfulMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\LoginTutor.aspx.cs">
+      <DependentUpon>LoginTutor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\LoginTutor.aspx.designer.cs">
+      <DependentUpon>LoginTutor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\TutorRatings.aspx.cs">
+      <DependentUpon>TutorRatings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\TutorRatings.aspx.designer.cs">
+      <DependentUpon>TutorRatings.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tutor\ViewWithdraw.aspx.cs">
       <DependentUpon>ViewWithdraw.aspx</DependentUpon>
@@ -412,13 +444,6 @@
     </Compile>
     <Compile Include="Customer\Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Vacancy.aspx.cs">
-      <DependentUpon>Vacancy.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Vacancy.aspx.designer.cs">
-      <DependentUpon>Vacancy.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\ChapterContent.aspx.cs">
       <DependentUpon>ChapterContent.aspx</DependentUpon>
@@ -765,9 +790,6 @@
     <Content Include="Admin\Web.sitemap" />
     <Content Include="Customer\Web.sitemap" />
     <Content Include="Tutor\TutorMaster.master" />
-    <Content Include="Tutor\TutorMaster.master" />
-    <Content Include="Customer\Web.sitemap" />
-    <Content Include="Admin\Web.sitemap" />
     <None Include="packages.config" />
     <Content Include="Tutor\Web.sitemap" />
     <None Include="Web.Debug.config">

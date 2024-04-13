@@ -20,7 +20,7 @@
                 <p class="rating">Rating: 4.9/5.0 (10)</p>
                 <div class="actions">
                     <asp:HyperLink ID="Enroll" runat="server" CssClass="btn btnPrimary">Enroll</asp:HyperLink>
-                    <asp:HyperLink ID="AddToCart" runat="server" CssClass="btnOutlinePrimary">
+                    <asp:HyperLink ID="AddToCart" runat="server" CssClass="btnOutlinePrimary" NavigateUrl="~/Customer/Cart.aspx">
                         <span class="material-symbols-outlined">
                         add_shopping_cart
                         </span>
