@@ -24,6 +24,15 @@ namespace CursusVia.Customer
         protected global::System.Web.UI.WebControls.HyperLink GoToContent;
 
         /// <summary>
+        /// GoToQuiz control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink GoToQuiz;
+
+        /// <summary>
         /// CourseRating control.
         /// </summary>
         /// <remarks>

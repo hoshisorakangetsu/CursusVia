@@ -56,6 +56,11 @@
                                 Content 1
                             </asp:HyperLink>
                         </div>
+                        <div class="accordianContent">
+                            <asp:HyperLink ID="GoToQuiz" runat="server" CssClass="contentRow" NavigateUrl="~/Customer/CourseQuiz.aspx">
+                                Content 1
+                            </asp:HyperLink>
+                        </div>
                     </div>
                 </div>
                 <!-- replace with repeater when coding backend -->
