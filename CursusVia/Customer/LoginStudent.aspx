@@ -4,10 +4,10 @@
     <link href="LoginStudent2" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-           <h2 style="margin-top:20px;margin-left:20px;">Student Account</h2>
+           <h2 style="margin: 1rem; margin-bottom: .5rem;">Student Account</h2>
      
     <asp:Panel ID="pnlLogin" runat="server" Visible="true">
-         <h3 style="margin-top:20px;margin-left:20px;">Login</h3>
+         <h3 style="margin-left: 1rem;">Login</h3>
     <div id="loginContainer" runat="server" class="login-container">
         <asp:Label ID="lblhavAcc" runat="server" Text="Have an account?" CssClass="lblhavAcc"></asp:Label>
         <asp:Label ID="lblLogin" runat="server" Text="Login" CssClass="lblLogin" ></asp:Label> 
