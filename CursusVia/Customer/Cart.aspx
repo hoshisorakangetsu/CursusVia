@@ -25,6 +25,7 @@
         <asp:Button ID="btnSelect" runat="server" Text="Select" CssClass="btnSelect" />
         <asp:Button ID="btnRemove" runat="server" Text="Remove" CssClass="btnRemove" />
 </div>
+    
     <asp:Repeater ID="cartRepeater" runat="server">
     <ItemTemplate>
         <div class="cart-item">
@@ -44,4 +45,5 @@
         </div>
     </ItemTemplate>
 </asp:Repeater>
+    <asp:Button ID="btnCheckout" runat="server" Text="Checkout" CssClass="btnCheckout" OnClick="btnCheckout_Click"></asp:Button>
 </asp:Content>

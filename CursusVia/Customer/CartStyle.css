@@ -128,3 +128,28 @@ h3 {
     left: 20px;
     top: -10px;
 }
+
+.btnCheckout {
+    display:flex;
+   margin-left: 10px;
+    background-color: green;
+    color: white; 
+    padding: 5px 15px; 
+    border-radius: 5px; 
+    font-size: 18px; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease-in-out; 
+}
+
+    .btnCheckout:hover {
+        background-color: #45a049;
+    }
+    .btnCheckout:active
+{
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px);
+}

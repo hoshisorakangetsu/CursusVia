@@ -44,7 +44,7 @@
     </div>
 </div>
 <div>
-    <h2 class="surfaceText contentHeader">Support Request List</h2>
+    <h2 class="surfaceText contentHeader">Withdrawal Request List</h2>
 </div>
     <div class="table">
     <table class="rounded-corners">
@@ -70,7 +70,7 @@
             <td>Pending</td>
             <td>
                 <!--need to replace with btn and Grid-->
-                <asp:HyperLink ID="HyperLink1" runat="server" class="btnPrimary newBtn" NavigateUrl='ViewRequest.aspx'>View</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" class="btnPrimary newBtn" NavigateUrl='ViewWithdrawRequest.aspx'>View</asp:HyperLink>
                 <asp:HyperLink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='UpdateRequest.aspx'>Update</asp:HyperLink>
             </td>
         </tr>
