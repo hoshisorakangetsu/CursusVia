@@ -54,7 +54,7 @@
          </tr>
           <tr>
           <td>
-              <asp:Button ID="Button2" runat="server" Text="Delete Now" CssClass="btnPrimary btn" />
+              <asp:Button ID="Button2" runat="server" Text="Logout Now" CssClass="btnPrimary btn" />
 
           </td>
           </tr>
