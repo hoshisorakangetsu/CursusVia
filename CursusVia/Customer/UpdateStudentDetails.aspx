@@ -28,10 +28,9 @@
         </tr>
         <tr>
             <td>
-               <div style="margin-left:30px;" class="input-grp2">
-                <asp:TextBox ID="TextBox1" runat="server" CssClass="input-grp" Placeholder=" Email" Height="30px" Width="70%" ></asp:TextBox>
+               <div style="margin-left:30px;" class="input-grp2" >
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="input-grp2" Placeholder=" Email" Height="30px" Width="70%" ></asp:TextBox>
                   </div>
-                     
                      </td>
         </tr>
         <tr>
