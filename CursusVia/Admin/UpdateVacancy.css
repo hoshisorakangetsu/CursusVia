@@ -16,9 +16,6 @@
 
 .mainBody {
     margin: 1em 2em 2em;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 5em;
 }
 
 .contentContainer {
@@ -26,12 +23,15 @@
     border-color: rgba(0, 0, 0, .4);
     border-radius: .25em;
     padding: 1em 1em 0 1em;
+    margin-bottom: 1em;
+    width: fit-content;
 }
 
 .searchSection {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
+    display: flex;
+    gap: 3em;
     padding-bottom: 1.5em;
+    justify-content: space-between;
 }
 
 .inputName {
@@ -56,7 +56,6 @@
 .input {
     all: unset;
     border: none;
-    width: 15em;
     height: 2.2em;
     color: var(--text-on-surface);
 }
