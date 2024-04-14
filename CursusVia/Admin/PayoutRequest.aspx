@@ -17,9 +17,9 @@
             <span class="surfaceText inputName"><b>Status</b></span>
             <asp:DropDownList ID="ddlStatus" runat="server" CssClass="inputField">
                 <asp:ListItem>Pendding</asp:ListItem>
-                <asp:ListItem>Approved</asp:ListItem>
                 <asp:ListItem>To Pay</asp:ListItem>
-                <asp:ListItem>Completed</asp:ListItem>
+                <asp:ListItem>Paid</asp:ListItem>
+                <asp:ListItem>Rejected</asp:ListItem>
             </asp:DropDownList>
         </div>
         <div class="">
@@ -73,8 +73,8 @@
             <td>Pending</td>
             <td>
                 <!--need to replace with btn and Grid-->
-                <asp:HyperLink ID="HyperLink1" runat="server" class="btnPrimary newBtn" NavigateUrl='ViewRequest.aspx'>View</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='UpdateRequest.aspx'>Update</asp:HyperLink>
+               <asp:HyperLink ID="HyperLink1" runat="server" class="btnPrimary newBtn" NavigateUrl='ViewWithdrawRequest.aspx'>View</asp:HyperLink>
+               <asp:HyperLink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='WithdrawStatusUpdate.aspx'>Update</asp:HyperLink>
             </td>
         </tr>
     </table>

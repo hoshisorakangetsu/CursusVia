@@ -74,6 +74,7 @@
     <Content Include="AccordianInit.js" />
     <Content Include="Admin\AccountStyle.css" />
     <Content Include="Admin\AdminAccount.aspx" />
+    <Content Include="Admin\AdminForgetPassword.aspx" />
     <Content Include="Admin\DeleteVacancy.aspx" />
     <Content Include="Admin\AdminHomePage.aspx" />
     <Content Include="Admin\DeleteVacancy.css" />
@@ -87,6 +88,7 @@
     <Content Include="Admin\ReplySupport.css" />
     <Content Include="Admin\SupportRequest.aspx" />
     <Content Include="Admin\SupportRequest.css" />
+    <Content Include="Admin\UpdateAdminAccountConfirmation.aspx" />
     <Content Include="Admin\UpdateRequest.aspx" />
     <Content Include="Admin\UpdateRequest.css" />
     <Content Include="Admin\UpdateVacancy.css" />
@@ -103,6 +105,8 @@
     <Content Include="Admin\ViewRequest.css" />
     <Content Include="Admin\ViewWithdrawRequest.aspx" />
     <Content Include="Admin\ViewWithdrawRequest.css" />
+    <Content Include="Admin\WithdrawStatusUpdate.aspx" />
+    <Content Include="Admin\WithdrawUpdate.css" />
     <Content Include="Customer\emailIcon.png" />
     <Content Include="Customer\emailIcon2.png" />
     <Content Include="Customer\ForgetPassword.aspx" />
@@ -270,6 +274,13 @@
     <Compile Include="Admin\AdminAccount.aspx.designer.cs">
       <DependentUpon>AdminAccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminForgetPassword.aspx.cs">
+      <DependentUpon>AdminForgetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminForgetPassword.aspx.designer.cs">
+      <DependentUpon>AdminForgetPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\DeleteVacancy.aspx.cs">
       <DependentUpon>DeleteVacancy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -326,6 +337,13 @@
     <Compile Include="Admin\UpdateAdminAccount.aspx.designer.cs">
       <DependentUpon>UpdateAdminAccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\UpdateAdminAccountConfirmation.aspx.cs">
+      <DependentUpon>UpdateAdminAccountConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UpdateAdminAccountConfirmation.aspx.designer.cs">
+      <DependentUpon>UpdateAdminAccountConfirmation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\UpdateConfirmation.aspx.cs">
       <DependentUpon>UpdateConfirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -381,6 +399,13 @@
     </Compile>
     <Compile Include="Admin\WithdrawalRequest.aspx.designer.cs">
       <DependentUpon>WithdrawalRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\WithdrawStatusUpdate.aspx.cs">
+      <DependentUpon>WithdrawStatusUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\WithdrawStatusUpdate.aspx.designer.cs">
+      <DependentUpon>WithdrawStatusUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\ApplyVacancy.aspx.cs">
       <DependentUpon>ApplyVacancy.aspx</DependentUpon>

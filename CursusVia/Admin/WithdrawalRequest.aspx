@@ -71,7 +71,7 @@
             <td>
                 <!--need to replace with btn and Grid-->
                 <asp:HyperLink ID="HyperLink1" runat="server" class="btnPrimary newBtn" NavigateUrl='ViewWithdrawRequest.aspx'>View</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='UpdateRequest.aspx'>Update</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='WithdrawStatusUpdate.aspx'>Update</asp:HyperLink>
             </td>
         </tr>
     </table>

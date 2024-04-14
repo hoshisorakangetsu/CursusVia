@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="SuccsessfulMessage.aspx.cs" Inherits="CursusVia.Customer.SuccsessfulMessage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="SuccessfulMessage.css" rel="stylesheet"  />
+    <link href="SuccessfulMessage.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- This can be use for the pop messages -->

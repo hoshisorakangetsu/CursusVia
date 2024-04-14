@@ -13,5 +13,17 @@ namespace CursusVia.Admin
         {
 
         }
+
+
+        protected void btnWithdrawal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/admin/WithdrawStatusUpdate.aspx");
+        }
+
+        protected void btnCanWithdrawal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/admin/WithdrawalRequest.aspx");
+
+        }
     }
 }
