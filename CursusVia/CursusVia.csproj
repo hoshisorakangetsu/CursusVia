@@ -107,6 +107,8 @@
     <Content Include="Admin\ViewWithdrawRequest.css" />
     <Content Include="Admin\WithdrawStatusUpdate.aspx" />
     <Content Include="Admin\WithdrawUpdate.css" />
+    <Content Include="Customer\displaySuccessfulDeleteAccountMsg.aspx" />
+    <Content Include="Customer\displaySuccessfulLogoutMessage.aspx" />
     <Content Include="Customer\emailIcon.png" />
     <Content Include="Customer\emailIcon2.png" />
     <Content Include="Customer\ForgetPassword.aspx" />
@@ -118,10 +120,12 @@
     <Content Include="Customer\PaymentConfirm.aspx" />
     <Content Include="SuccessfulMessage.css" />
     <Content Include="SuccsessfulMessage.aspx" />
+    <Content Include="Tutor\deleteMsg.aspx" />
     <Content Include="Tutor\emailIcon.png" />
     <Content Include="Tutor\LoginTutor.aspx" />
     <Content Include="Tutor\LoginTutor.css" />
     <Content Include="Tutor\LoginTutor2.css" />
+    <Content Include="Tutor\LogoutMsg.aspx" />
     <Content Include="Tutor\namelogo.png" />
     <Content Include="Tutor\passwordlogo.png" />
     <Content Include="Tutor\TutorRatings.aspx" />
@@ -414,6 +418,20 @@
     <Compile Include="Customer\ApplyVacancy.aspx.designer.cs">
       <DependentUpon>ApplyVacancy.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Customer\displaySuccessfulDeleteAccountMsg.aspx.cs">
+      <DependentUpon>displaySuccessfulDeleteAccountMsg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\displaySuccessfulDeleteAccountMsg.aspx.designer.cs">
+      <DependentUpon>displaySuccessfulDeleteAccountMsg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\displaySuccessfulLogoutMessage.aspx.cs">
+      <DependentUpon>displaySuccessfulLogoutMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\displaySuccessfulLogoutMessage.aspx.designer.cs">
+      <DependentUpon>displaySuccessfulLogoutMessage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer\ForgetPassword.aspx.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -435,12 +453,26 @@
     <Compile Include="SuccsessfulMessage.aspx.designer.cs">
       <DependentUpon>SuccsessfulMessage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Tutor\deleteMsg.aspx.cs">
+      <DependentUpon>deleteMsg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\deleteMsg.aspx.designer.cs">
+      <DependentUpon>deleteMsg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tutor\LoginTutor.aspx.cs">
       <DependentUpon>LoginTutor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Tutor\LoginTutor.aspx.designer.cs">
       <DependentUpon>LoginTutor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\LogoutMsg.aspx.cs">
+      <DependentUpon>LogoutMsg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\LogoutMsg.aspx.designer.cs">
+      <DependentUpon>LogoutMsg.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tutor\TutorRatings.aspx.cs">
       <DependentUpon>TutorRatings.aspx</DependentUpon>
