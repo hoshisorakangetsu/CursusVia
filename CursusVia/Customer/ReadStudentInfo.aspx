@@ -14,6 +14,9 @@
 
     <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" CellPadding="6" DataKeyNames="id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Height="500px" Width="700px">
         <AlternatingRowStyle BackColor="White" />
+         <emptydatarowstyle backcolor="LightBlue"
+          forecolor="Red"/>
+         <emptydatatemplate> No Data Found.  </emptydatatemplate> 
         <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
         <EditRowStyle BackColor="#2461BF" />
         <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
