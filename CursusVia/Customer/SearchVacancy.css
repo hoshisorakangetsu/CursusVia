@@ -93,13 +93,14 @@
 .jobSection {
     display:flex;
     flex-wrap:wrap;
+    padding: 0 2em;
+    gap:3em;
 }
 
 .jobContainer {
     border: solid;
     border-color: rgba(0, 0, 0, .4);
     border-radius: .25em;
-    margin: 0 2em 2em 2em;
     padding: 1.15em;
     width: fit-content;
 }
