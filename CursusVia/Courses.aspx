@@ -109,11 +109,12 @@
                 <p class="coursePrice">RM 888</p>
                 <div class="actions">
                     <asp:HyperLink ID="ViewDetails3" runat="server" CssClass="btn btnPrimary">View Details</asp:HyperLink>
-                    <asp:HyperLink ID="AddToCart3" runat="server" CssClass="btnOutlinePrimary addToCartBtn">
-                        <span class="material-symbols-outlined">
-                        add_shopping_cart
-                        </span>
-                    </asp:HyperLink>
+                    <asp:HyperLink ID="AddToCart3" runat="server" CssClass="btnOutlinePrimary addToCartBtn" NavigateUrl="~/customer/Cart.aspx">
+    <span class="material-symbols-outlined">
+    add_shopping_cart
+    </span>
+</asp:HyperLink>
+
                 </div>
             </div>
         </div>
