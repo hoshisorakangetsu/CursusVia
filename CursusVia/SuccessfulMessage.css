@@ -21,12 +21,12 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.material-symbols-outlined {
-    color: green;
-    font-size: 150px;
-    display: inline-block;
-    padding: 50px;
-}
+    .modal .material-symbols-outlined {
+        font-size: 150px;
+        display: inline-block;
+        padding: 50px;
+        color: darkgreen;
+    }
 
 .buttons {
     display: flex;

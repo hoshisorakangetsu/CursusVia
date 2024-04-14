@@ -35,5 +35,22 @@ namespace CursusVia.Admin
             Response.Redirect("~/Admin/SupportRequest.aspx");
 
         }
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            // Redirect the user to the AdminHome  page
+            Response.Redirect("/Admin/RegisterConfirmation.aspx");
+
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin/AdminAccount.aspx");
+ 
+
+        }
+
+
+
+
     }
 }

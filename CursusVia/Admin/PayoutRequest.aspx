@@ -16,7 +16,7 @@
         <div class="statusSection">
             <span class="surfaceText inputName"><b>Status</b></span>
             <asp:DropDownList ID="ddlStatus" runat="server" CssClass="inputField">
-                <asp:ListItem>Pendding</asp:ListItem>
+                <asp:ListItem>Pending</asp:ListItem>
                 <asp:ListItem>To Pay</asp:ListItem>
                 <asp:ListItem>Paid</asp:ListItem>
                 <asp:ListItem>Rejected</asp:ListItem>

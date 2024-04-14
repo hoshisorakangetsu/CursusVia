@@ -16,7 +16,7 @@ namespace CursusVia.Admin
 
         protected void btnExit_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Admin/AdminAccount.aspx");
+            Response.Redirect("~/Admin/WithdrawalRequest.aspx");
 
         }
     }

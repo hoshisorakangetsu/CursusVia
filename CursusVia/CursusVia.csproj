@@ -84,6 +84,7 @@
     <Content Include="Admin\AdminAccount.aspx" />
     <Content Include="Admin\NewVacancy.css" />
     <Content Include="Admin\PayoutRequest.aspx" />
+    <Content Include="Admin\RegisterConfirmation.aspx" />
     <Content Include="Admin\ReplySupport.aspx" />
     <Content Include="Admin\ReplySupport.css" />
     <Content Include="Admin\SupportRequest.aspx" />
@@ -319,6 +320,13 @@
     </Compile>
     <Compile Include="Admin\PayoutRequest.aspx.designer.cs">
       <DependentUpon>PayoutRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\RegisterConfirmation.aspx.cs">
+      <DependentUpon>RegisterConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\RegisterConfirmation.aspx.designer.cs">
+      <DependentUpon>RegisterConfirmation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ReplySupport.aspx.cs">
       <DependentUpon>ReplySupport.aspx</DependentUpon>
