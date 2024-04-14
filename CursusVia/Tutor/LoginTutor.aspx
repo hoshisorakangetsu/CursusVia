@@ -22,10 +22,10 @@
     </asp:Panel>
    
      <asp:Panel ID="pnlRegister" runat="server" Visible="false">
-         <h3>Register</h3>
+         <h3 style="margin-left:20px;">Register</h3>
          <div class="backBtn">
             <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='LoginTutor.aspx'>   
-        <span class="material-symbols-outlined backIcon">arrow_back</span>
+        <span class="material-symbols-outlined backIcon"style="font-size: 1.25em; display: flex; justify-content: left; color: var(--text-on-surface) !important; gap: .5em;">arrow_back</span>
         Back
             </asp:HyperLink>
         </div>
