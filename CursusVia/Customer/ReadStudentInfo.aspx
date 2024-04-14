@@ -16,10 +16,7 @@
         <AlternatingRowStyle BackColor="White" />
          <emptydatarowstyle backcolor="#2461BF"
           forecolor="Red"/>
-         <emptydatatemplate>  <asp:image id="NoDataImage"
-            imageurl="~/images/Image.jpg"
-            alternatetext="No Image" 
-            runat="server"/>No Data Found.  </emptydatatemplate> 
+         <emptydatatemplate> No Data Found.  </emptydatatemplate> 
         <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
         <EditRowStyle BackColor="#2461BF" />
         <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
