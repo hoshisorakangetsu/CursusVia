@@ -79,7 +79,7 @@
                 <p class="coursePrice">RM 888</p>
                 <div class="actions">
                     <asp:HyperLink ID="ViewDetails" runat="server" CssClass="btn btnPrimary" NavigateUrl="~/CourseContent.aspx">View Details</asp:HyperLink>
-                    <asp:HyperLink ID="AddToCart" runat="server" CssClass="btnOutlinePrimary addToCartBtn">
+                    <asp:HyperLink ID="AddToCart" runat="server" CssClass="btnOutlinePrimary" NavigateUrl="~/customer/Cart.aspx">
                         <span class="material-symbols-outlined">
                         add_shopping_cart
                         </span>
@@ -94,7 +94,7 @@
                 <p class="coursePrice">RM 888</p>
                 <div class="actions">
                     <asp:HyperLink ID="ViewDetails2" runat="server" CssClass="btn btnPrimary">View Details</asp:HyperLink>
-                    <asp:HyperLink ID="AddToCart2" runat="server" CssClass="btnOutlinePrimary addToCartBtn">
+                    <asp:HyperLink ID="AddToCart2" runat="server" CssClass="btnOutlinePrimary" NavigateUrl="~/customer/Cart.aspx">
                         <span class="material-symbols-outlined">
                         add_shopping_cart
                         </span>
@@ -110,10 +110,10 @@
                 <div class="actions">
                     <asp:HyperLink ID="ViewDetails3" runat="server" CssClass="btn btnPrimary">View Details</asp:HyperLink>
                     <asp:HyperLink ID="AddToCart3" runat="server" CssClass="btnOutlinePrimary addToCartBtn" NavigateUrl="~/customer/Cart.aspx">
-    <span class="material-symbols-outlined">
-    add_shopping_cart
-    </span>
-</asp:HyperLink>
+                    <span class="material-symbols-outlined">
+                     add_shopping_cart
+                    </span>
+                    </asp:HyperLink>
 
                 </div>
             </div>
