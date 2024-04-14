@@ -11,6 +11,9 @@ Back
  </div>
     <div id="container" style="margin-left:200px;" >
     <asp:DetailsView ID="DetailsView1" runat="server" Height="500px" Width="700px" AutoGenerateRows="False" CellPadding="6" DataKeyNames="id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" >
+         <emptydatarowstyle backcolor="#2461BF"
+  forecolor="Red"/>
+ <emptydatatemplate> No Data Found.  </emptydatatemplate> 
         <AlternatingRowStyle BackColor="White" />
         <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
         <EditRowStyle BackColor="#2461BF" />
