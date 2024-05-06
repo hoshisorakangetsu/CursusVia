@@ -22,14 +22,14 @@
         <tr>
             <td>
                 <div style="margin-left:30px;" class="input-grp">
-                <asp:TextBox ID="TextBox3" runat="server" CssClass="input-grp" Placeholder=" Name" Height="30px" Width="70%"></asp:TextBox>
+                <asp:TextBox ID="txtName" runat="server" CssClass="input-grp" Placeholder=" Name" Height="30px" Width="70%"></asp:TextBox>
                    </div>
                      </td>
         </tr>
         <tr>
             <td>
                <div style="margin-left:30px;" class="input-grp2" >
-                <asp:TextBox ID="TextBox1" runat="server" CssClass="input-grp2" Placeholder=" Email" Height="30px" Width="70%" ></asp:TextBox>
+                <asp:TextBox ID="txtEmail" runat="server" CssClass="input-grp2" Placeholder=" Email" Height="30px" Width="70%" ></asp:TextBox>
                   </div>
                      </td>
         </tr>
@@ -38,14 +38,16 @@
          <div class="input-grp3" >
              <asp:CheckBox ID="CheckBox1" runat="server" /> 
         
-             <p>I agree to the terms and conditions</p>
+             <p>I agree to the terms and conditions
+             </p>
+             <asp:Label ID="lblMsg" runat="server" Text="Label"></asp:Label>
         </div>
               </td>
  </tr>
         <tr>
             <td>
                 
-               &nbsp; &nbsp;<asp:Button ID="Button1" runat="server" Text="Update" cssClass="btnPrimary btn"/>
+               &nbsp; &nbsp;<asp:Button ID="Button1" runat="server" Text="Update" cssClass="btnPrimary btn" OnClick="Button1_Click"/>
                   
             </td>
         </tr>

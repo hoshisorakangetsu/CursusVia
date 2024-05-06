@@ -11,7 +11,7 @@ namespace CursusVia.Customer
 {
 
 
-	public partial class UpdateStudentDetails
+	public partial class ForgotPassword
 	{
 
 		/// <summary>
@@ -24,13 +24,22 @@ namespace CursusVia.Customer
 		protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
 
 		/// <summary>
-		/// txtName control.
+		/// Div1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtName;
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+
+		/// <summary>
+		/// Label1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label1;
 
 		/// <summary>
 		/// txtEmail control.
@@ -42,13 +51,22 @@ namespace CursusVia.Customer
 		protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
 		/// <summary>
-		/// CheckBox1 control.
+		/// Button1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+		protected global::System.Web.UI.WebControls.Button Button1;
+
+		/// <summary>
+		/// Button2 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button Button2;
 
 		/// <summary>
 		/// lblMsg control.
@@ -58,14 +76,5 @@ namespace CursusVia.Customer
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Label lblMsg;
-
-		/// <summary>
-		/// Button1 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button Button1;
 	}
 }

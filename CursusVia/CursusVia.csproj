@@ -120,13 +120,14 @@
     <Content Include="Customer\displaySuccessfulLogoutMessage.aspx" />
     <Content Include="Customer\emailIcon.png" />
     <Content Include="Customer\emailIcon2.png" />
-    <Content Include="Customer\ForgetPassword.aspx" />
+    <Content Include="Customer\ForgotPassword.aspx" />
     <Content Include="Customer\LoginStudent.css" />
     <Content Include="Customer\LoginStudent2.css" />
     <Content Include="Customer\namelogo.png" />
     <Content Include="Customer\passwordlogo.png" />
     <Content Include="Customer\Payment.css" />
     <Content Include="Customer\PaymentConfirm.aspx" />
+    <Content Include="Customer\RegisterStudent.aspx" />
     <Content Include="SuccessfulMessage.css" />
     <Content Include="SuccsessfulMessage.aspx" />
     <Content Include="Tutor\deleteMsg.aspx" />
@@ -448,12 +449,12 @@
     <Compile Include="Customer\displaySuccessfulLogoutMessage.aspx.designer.cs">
       <DependentUpon>displaySuccessfulLogoutMessage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\ForgetPassword.aspx.cs">
-      <DependentUpon>ForgetPassword.aspx</DependentUpon>
+    <Compile Include="Customer\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\ForgetPassword.aspx.designer.cs">
-      <DependentUpon>ForgetPassword.aspx</DependentUpon>
+    <Compile Include="Customer\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\PaymentConfirm.aspx.cs">
       <DependentUpon>PaymentConfirm.aspx</DependentUpon>
@@ -461,6 +462,13 @@
     </Compile>
     <Compile Include="Customer\PaymentConfirm.aspx.designer.cs">
       <DependentUpon>PaymentConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\RegisterStudent.aspx.cs">
+      <DependentUpon>RegisterStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\RegisterStudent.aspx.designer.cs">
+      <DependentUpon>RegisterStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="SuccsessfulMessage.aspx.cs">
       <DependentUpon>SuccsessfulMessage.aspx</DependentUpon>

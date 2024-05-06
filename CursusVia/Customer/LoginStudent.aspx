@@ -13,13 +13,14 @@
         <asp:Label ID="lblLogin" runat="server" Text="Login" CssClass="lblLogin" ></asp:Label> 
         <asp:TextBox ID="txtUsername" runat="server" CssClass="txtUsername" PlaceHolder="👤 Username / Email"></asp:TextBox>
         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="txtPassword" Placeholder="🔒 Password" />
-        <asp:Button ID="btnLogin" runat="server" CssClass="btnLogin" Text="Login" OnClick="btnLogin_Click"/>
-       <!-- <asp:LinkButton runat="server" ID="lbtnForgetPass" CssClass="lbtnForgetPass" OnClick="lbtnForgetPass_Click">Forget password?</asp:LinkButton>-->
+        <asp:Button ID="btnLogin" runat="server" CssClass="btnLogin" Text="Login" OnClick="btnLogin_Click" />
+        <asp:LinkButton runat="server" ID="lbtnForgetPass" CssClass="lbtnForgetPass" >Forget password?</asp:LinkButton>
         <asp:CheckBox runat="server" ID="cbRememberMe" Text="Remember me" CssClass="cbRememberMe"></asp:CheckBox>
-        <asp:LinkButton runat="server" ID="lbtnShowRegister" Text="Register" OnClick="lbtnShowRegister_Click" CssClass="lbtnRegister" />
+        <asp:LinkButton runat="server" ID="lbtnShowRegister" Text="Register"  CssClass="lbtnRegister" />
+          <asp:Label ID="lblMessage" runat="server"/>
 </div>
     </asp:Panel>
-   
+   <%-- 
      <asp:Panel ID="pnlRegister" runat="server" Visible="false">
          <h3 style="margin-left:20px;">Register</h3>
          <div class="backBtn">
@@ -42,7 +43,7 @@
    
           </asp:Panel>
 
-    <asp:Panel ID="pnlForgetPw" runat="server" Visible="false">
+    <asp:Panel ID="pnlForgetPw" runat="server" Visible="true">
      <h3>Forget Password</h3>
      <div class="backBtn">
         <asp:HyperLink ID="HyperLink1" runat="server" class="backText" NavigateUrl='LoginStudent.aspx'>   
@@ -62,6 +63,6 @@
    
       </asp:Panel>
 
-   
+   --%>
 
 </asp:Content>
