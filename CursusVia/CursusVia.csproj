@@ -116,6 +116,7 @@
     <Content Include="Admin\ViewWithdrawRequest.css" />
     <Content Include="Admin\WithdrawStatusUpdate.aspx" />
     <Content Include="Admin\WithdrawUpdate.css" />
+    <Content Include="Controls\FileUploadWithPreview.ascx" />
     <Content Include="Customer\displaySuccessfulDeleteAccountMsg.aspx" />
     <Content Include="Customer\displaySuccessfulLogoutMessage.aspx" />
     <Content Include="Customer\emailIcon.png" />
@@ -127,6 +128,7 @@
     <Content Include="Customer\passwordlogo.png" />
     <Content Include="Customer\Payment.css" />
     <Content Include="Customer\PaymentConfirm.aspx" />
+    <Content Include="InputWithValidator.js" />
     <Content Include="SuccessfulMessage.css" />
     <Content Include="SuccsessfulMessage.aspx" />
     <Content Include="Tutor\deleteMsg.aspx" />
@@ -426,6 +428,13 @@
     </Compile>
     <Compile Include="Admin\WithdrawStatusUpdate.aspx.designer.cs">
       <DependentUpon>WithdrawStatusUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FileUploadWithPreview.ascx.cs">
+      <DependentUpon>FileUploadWithPreview.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FileUploadWithPreview.ascx.designer.cs">
+      <DependentUpon>FileUploadWithPreview.ascx</DependentUpon>
     </Compile>
     <Compile Include="Customer\ApplyVacancy.aspx.cs">
       <DependentUpon>ApplyVacancy.aspx</DependentUpon>
