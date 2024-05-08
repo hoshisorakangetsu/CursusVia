@@ -855,6 +855,7 @@
     <Compile Include="Tutor\WithdrawRequestStatus.aspx.designer.cs">
       <DependentUpon>WithdrawRequestStatus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Client.Master" />
