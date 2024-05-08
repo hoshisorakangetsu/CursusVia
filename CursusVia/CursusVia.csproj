@@ -116,6 +116,8 @@
     <Content Include="Admin\ViewWithdrawRequest.css" />
     <Content Include="Admin\WithdrawStatusUpdate.aspx" />
     <Content Include="Admin\WithdrawUpdate.css" />
+    <Content Include="Cart.aspx" />
+    <Content Include="CartStyle.css" />
     <Content Include="Controls\FileUploadWithPreview.ascx" />
     <Content Include="Customer\displaySuccessfulDeleteAccountMsg.aspx" />
     <Content Include="Customer\displaySuccessfulLogoutMessage.aspx" />
@@ -163,12 +165,10 @@
     <Content Include="Courses.aspx" />
     <Content Include="Courses.css" />
     <Content Include="Courses.js" />
-    <Content Include="Customer\Cart.aspx" />
     <Content Include="Customer\ChapterContent.aspx" />
     <Content Include="Customer\CustomerChapterContent.css" />
     <Content Include="Customer\CustomerCourseContent.css" />
     <Content Include="Customer\CustomerCourseQuiz.css" />
-    <Content Include="Customer\CartStyle.css" />
     <Content Include="Customer\DeleteStudent.aspx" />
     <Content Include="Customer\DeleteStudent.css" />
     <Content Include="Customer\LoginStudent.aspx" />
@@ -429,6 +429,13 @@
     <Compile Include="Admin\WithdrawStatusUpdate.aspx.designer.cs">
       <DependentUpon>WithdrawStatusUpdate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\FileUploadWithPreview.ascx.cs">
       <DependentUpon>FileUploadWithPreview.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -519,13 +526,6 @@
     </Compile>
     <Compile Include="Tutor\WithdrawalSubmission.aspx.designer.cs">
       <DependentUpon>WithdrawalSubmission.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\Cart.aspx.cs">
-      <DependentUpon>Cart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer\Cart.aspx.designer.cs">
-      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\ChapterContent.aspx.cs">
       <DependentUpon>ChapterContent.aspx</DependentUpon>
