@@ -40,7 +40,7 @@
             <div class="order-summary">
                 <h3>Order Summary</h3>
                 <p>Item(s) total: $XX.XX</p>
-                <p>Shipping: $XX.XX</p>
+                <p>Tax: $XX.XX</p>
                 <p>Total: $XX.XX</p>
                 <asp:Button ID="Button1" runat="server" Text="Checkout" CssClass="Button"/>
             </div>

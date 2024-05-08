@@ -25,6 +25,10 @@ namespace CursusVia
             new { Id = 1, Image="PNG", Name = "Course 1", Description = "xxxx", Price = 15.00},
             new { Id = 2, Image="PNG", Name = "Course 1 2",Description = "xxxx", Price = 30.00},
             new { Id = 3, Image="PNG", Name = "Course 1 3", Description ="xxxx", Price =25.00},
+            new { Id = 4, Image="PNG",  Name = "Course 1", Description ="xxxx", Price=15.00},
+            new { Id = 1, Image="PNG", Name = "Course 1", Description = "xxxx", Price = 15.00},
+            new { Id = 2, Image="PNG", Name = "Course 1 2",Description = "xxxx", Price = 30.00},
+            new { Id = 3, Image="PNG", Name = "Course 1 3", Description ="xxxx", Price =25.00},
             new { Id = 4, Image="PNG",  Name = "Course 1", Description ="xxxx", Price=15.00}
         };
             CartRepeater.DataSource = cartItems;
