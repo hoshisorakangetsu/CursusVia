@@ -5,18 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CursusVia.Customer
+namespace CursusVia.Controls
 {
-    public partial class Cart : System.Web.UI.Page
+    public partial class FileUploadWithPreview : System.Web.UI.UserControl
     {
+        public bool IsRequired { get; set; }
+        public FileUpload MediaFileUpload { get { return _MediaFileUpload; } }
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnCheckout_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Customer/Payment.aspx");
 
         }
     }

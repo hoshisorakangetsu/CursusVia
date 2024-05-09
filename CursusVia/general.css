@@ -127,6 +127,17 @@ a {
     box-shadow: 0 2px 16px var(--primary-shadow);
 }
 
+.validationError * {
+    color: var(--primary-color);
+}
+
+.validationError > input,
+.validationError > select,
+.validationError > textarea,
+.validationError .uploadFileContainer {
+    border-color: var(--primary-color);
+}
+
 .backControl {
     display: flex;
     align-items: center;

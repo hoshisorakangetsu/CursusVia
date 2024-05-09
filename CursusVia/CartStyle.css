@@ -1,0 +1,120 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Adjust width as necessary */
+    max-width: 1600px; /* Maximum width to prevent too wide layouts on large screens */
+}
+
+.cart-container {
+    background-color: #ceb8b8;
+    flex: 3; /* Takes 3 parts of the space */
+    padding: 20px;
+    margin-right: 20px; /* Space between cart and summary */
+    margin-left: 20px; /* Space between cart and summary */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.order-summary {
+    background-color: #ceb8b8;
+    flex: 1; /* Takes 1 part of the space, smaller than cart container */
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Aligns items in a column */
+    justify-content: space-around; /* Even spacing of content */
+}
+.order-summary h3 {
+        margin-top: 0;
+    }
+
+
+
+
+.cart-header {
+    background-color: #E86262;
+     /* Dark grey background for header */
+    color: white; /* White text color */
+    margin-bottom: 10px; /* Space below the cart header */
+    padding: 8px; /* Padding inside the header */
+    font-weight: bold; /* Make header text bold */
+   
+}
+
+.item-header, .cart-row {
+    display: flex;
+    justify-content: space-between; /* Space out the contents evenly */
+    align-items: center; /* Align items vertically in the center */
+    background-color: #98979799; /* Light background for rows and header */
+    margin-bottom: 2px; /* Space between rows */
+}
+
+.item-header {
+    padding: 12px 14px; /* Padding for header, matching cell padding */
+    font-weight: bold; /* Make header text bold */
+    background-color: #29354C;
+    color:aliceblue;
+}
+
+.cart-row {
+    padding: 32px 20px; /* Consistent padding for each row */
+}
+
+.cart-column, .cart-cell {
+    flex: 1; /* Flex property to allow each column to grow equally */
+    display: flex;
+    align-items: center; /* Vertical alignment to center */
+    padding: 0 10px; /* Left and right padding inside each column/cell */
+}
+
+/* Checkbox column needs less space */
+.item-header .cart-column:first-child,
+.cart-row .cart-cell:first-child {
+    flex: 0 0 50px; /* Narrower width, fixed size */
+    justify-content: center; /* Center content horizontally */
+    text-align: center; /* Center text alignment */
+}
+
+/* Center align the action buttons */
+.item-header .cart-column:last-child,
+.cart-row .cart-cell:last-child {
+    justify-content: center; /* Center button horizontally */
+    text-align: center; /* Center text alignment */
+    flex: 0 0 100px; /* Give more space to the action column */
+}
+
+.cart-row:hover {
+    background-color: #e1e1e1; /* Slightly darker background on hover */
+}
+
+button {
+    padding: 5px 15px; /* Padding inside buttons */
+    cursor: pointer; /* Cursor pointer to indicate clickable */
+    border: none; /* Remove default border */
+    background-color: #5c5c5c; /* Dark grey background for buttons */
+    color: white; /* White text for buttons */
+    border-radius: 5px; /* Rounded corners for buttons */
+}
+
+.Button {
+    padding: 10px 10px;
+    background-color: #E86262; /* Green background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /* Cursor to pointer to indicate it's clickable */
+    font-size: 16px; /* Larger text for better readability */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+    .Button:hover {
+        background-color: #45a049; /* Slightly darker green on hover */
+    }
