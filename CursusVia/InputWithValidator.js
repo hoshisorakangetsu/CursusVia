@@ -2,12 +2,20 @@
 const observer = new MutationObserver(mutations => {
     mutations.forEach(mutationRecord => {
         console.log(mutationRecord, mutationRecord.target.style.visibility);
-        if (mutationRecord.target.style.visibility === 'visible')
-            mutationRecord.target.parentElement.classList.add('validationError')
-    });    
+        const target = mutationRecord.target;
+        const targetParent = target.parentElement;
+        if (target.style.visibility === 'visible')
+            targetParent.classList.add('validationError')
+        else if (
+            target.style.visibility !== 'visible' &&
+            targetParent.classList.contains
+                ('validationError')
+        )
+            targetParent.classList.remove('validationError')
+    });
 });
 
 const targets = document.querySelectorAll('.validationMessage');
 targets.forEach(target => {
-    observer.observe(target, { attributes : true, attributeFilter : ['style'] });
+    observer.observe(target, { attributes: true, attributeFilter: ['style'] });
 })
