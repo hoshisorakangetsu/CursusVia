@@ -1,5 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="FileUploadWithPreview.ascx.cs" Inherits="CursusVia.Controls.FileUploadWithPreview" %>
 
+<link href='<%= ResolveUrl("~/FileUploadGeneric.css") %>' rel="stylesheet" />
+
 <div class="inputWithValidator">
     <div class="uploadFileContainer" id="dropZone">
         <asp:FileUpload ID="_MediaFileUpload" runat="server" Style="display: none;" />
