@@ -50,5 +50,5 @@
         <asp:Button ID="submitForm" CssClass="btn btnPrimary" Text="Create Course" runat="server" OnClick="submitForm_Click" />
     </div>
     <script src='<%= ResolveUrl("~/BackControlInit.js") %>' defer></script>
-    <script src='<%= ResolveUrl("~/InputWithValidator.js") %>'></script>
+    <script src='<%= ResolveUrl("~/InputWithValidator.js") %>' defer></script>
 </asp:Content>
