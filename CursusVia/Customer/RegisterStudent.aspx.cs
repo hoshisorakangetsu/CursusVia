@@ -23,71 +23,71 @@ namespace CursusVia.Customer
 
 		protected void btnSubmit_Click(object sender, EventArgs e)
 		{
-			try
+			if (Page.IsValid)
 			{
-				string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-				using (SqlConnection con = new SqlConnection(CS))
+				try
 				{
-					string sql = "INSERT INTO Students (email, password, name)" + "VALUES (@email,@password,@name)  ";
-					SqlCommand cmd = new SqlCommand(sql, con);
-
-
-
-					cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
-					cmd.Parameters.AddWithValue("@password", Encrypt(txtPass.Text.Trim()));
-					cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
-
-					con.Open();
-					cmd.ExecuteNonQuery();
-					con.Close();
-
-
-
-					lblMessage.Text = "You have registered succussfully";
-					lblMessage.ForeColor = System.Drawing.Color.Green;
-
-
-				}
-			}
-
-			catch (Exception)
-			{
-
-				lblMessage.Text = "You have not registered";
-				lblMessage.ForeColor = System.Drawing.Color.Red;
-
-			}
-
-
-
-
-		}
-
-		private string Encrypt(string clearText)
-		{
-			string EncryptionKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
-			byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
-			using (Aes encryptor = Aes.Create())
-			{
-				Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
-				encryptor.Key = pdb.GetBytes(32);
-				encryptor.IV = pdb.GetBytes(16);
-				using (MemoryStream ms = new MemoryStream())
-				{
-					using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+					string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+					using (SqlConnection con = new SqlConnection(CS))
 					{
-						cs.Write(clearBytes, 0, clearBytes.Length);
-						cs.Close();
+						string sql = "INSERT INTO Students (email, password, name)" + "VALUES (@email,@password,@name)  ";
+						SqlCommand cmd = new SqlCommand(sql, con);
+						cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
+						cmd.Parameters.AddWithValue("@password", getHash(txtPass.Text.Trim()));
+						cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
+
+						con.Open();
+						int count=cmd.ExecuteNonQuery();
+						con.Close();
+
+						if (count > 0)
+						{
+
+							lblMessage.Text = "You have registered succussfully";
+							lblMessage.ForeColor = System.Drawing.Color.Green;
+
+						}
 					}
-					clearText = Convert.ToBase64String(ms.ToArray());
 				}
+
+				catch (Exception)
+				{
+					if (!Page.IsValid)
+					{
+						lblMessage.Text = "Validation failed. Please correct the errors.";
+						lblMessage.ForeColor = System.Drawing.Color.Red;
+					}
+					else
+					{
+						lblMessage.Text = "You have not registered";
+						lblMessage.ForeColor = System.Drawing.Color.Red;
+					}
+
+				}
+
 			}
-			return clearText;
+
+
 		}
-	}
-}
-	
-		/*
+
+		public static string getHash(string oriPassword)
+		{
+			//convert password from string > binary
+			byte[] binPassoword = Encoding.Default.GetBytes(oriPassword);
+
+			//create hashing function
+			SHA256 sha = SHA256.Create();
+
+			//calculate hash value based on password that 
+			//has been converted to binary
+			byte[] binHash = sha.ComputeHash(binPassoword);
+
+			//convert binaryHash > string
+			string strHash = Convert.ToBase64String(binHash);
+
+			return strHash;
+		}
+
 		protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
 		{
 			string email = args.Value;
@@ -98,7 +98,7 @@ namespace CursusVia.Customer
 
 			SqlCommand cmd = new SqlCommand(sql, con);
 
-			cmd.Parameters.AddWithValue("@email",email);
+			cmd.Parameters.AddWithValue("@email", email);
 
 			con.Open();
 			int count = (int)cmd.ExecuteScalar();
@@ -111,6 +111,17 @@ namespace CursusVia.Customer
 			}
 			con.Close();
 		}
-		*/
+
+		protected void btnCancel_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("RegisterStudent.aspx");
+		}
+
+		
+	}
+
+
+
 	
-//}
+	
+}

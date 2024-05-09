@@ -24,7 +24,7 @@
              <td>
                  <div class="input-grp">
                      
-                 <asp:TextBox ID="TextBox3" runat="server" cssClass="form-control" TextMode="Password" Placeholder="Old Password" Height="30px" Width="70%"></asp:TextBox>
+                 <asp:TextBox ID="txtOldPassword" runat="server" cssClass="form-control" TextMode="Password" Placeholder="Old Password" Height="30px" Width="70%"></asp:TextBox>
                         
                      </div>
                       </td>
@@ -43,7 +43,8 @@
           <div class="input-grp">
              
          <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" TextMode="Password" Placeholder="Confirmed New Password" Height="30px" Width="70%" ></asp:TextBox>
-           
+              <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+              <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator"></asp:CompareValidator>
               </div>
               </td>
  </tr>
@@ -51,7 +52,7 @@
          <tr>
              <td>
                  
-               &nbsp;&nbsp;  <asp:Button ID="Button1" runat="server" Text="Update" CssClass="btnPrimary btn"/>
+               &nbsp;&nbsp;  <asp:Button ID="Button1" runat="server" Text="Update" CssClass="btnPrimary btn" OnClick="Button1_Click"/>
                  
              </td>
          </tr>

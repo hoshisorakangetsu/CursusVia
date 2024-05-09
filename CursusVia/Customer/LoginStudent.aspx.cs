@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using System.Security.Cryptography;
 using System.Text;
 using System.IO;
+using System.Web.Security;
 
 namespace CursusVia.Customer
 {
@@ -17,7 +18,7 @@ namespace CursusVia.Customer
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			Session["Username"] = txtUsername.Text;
+			
 
 		}
 		/*
@@ -45,23 +46,26 @@ namespace CursusVia.Customer
 		*/
 		protected void btnLogin_Click(object sender, EventArgs e)
 		{
+			/*
+			string email = txtUsername.Text;
+			string password = txtPassword.Text;
+			bool rememberMe = cbRememberMe.Checked;
+			string hash = getHash(password);
+
 			//Response.Redirect("Student.aspx");
 			string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 			using (SqlConnection con = new SqlConnection(CS))
 			{
-				string sql = "Select COUNT(*) from Students where Email=@Email and Password=@Password";
+				string sql = "Select COUNT(*) from Students where email=@Email and password=@Password";
 				SqlCommand cmd = new SqlCommand(sql, con);
 				cmd.Parameters.AddWithValue("@Email", txtUsername.Text.Trim());
-				cmd.Parameters.AddWithValue("@Password", Decrypt(txtPassword.Text.Trim()));
+				cmd.Parameters.AddWithValue("@Password", getHash(txtPassword.Text.Trim()));
 				con.Open();
 
-				int Username = (Int32)cmd.ExecuteScalar();
-				if (Username == 1)
+				int matched = (Int32)cmd.ExecuteScalar();
+				if (matched == 1)
 				{
-					Session["Username"] = txtUsername.Text;
-					Response.Redirect("Student.aspx");
-					Session.RemoveAll();
-
+					
 				}
 				
 				else
@@ -70,30 +74,93 @@ namespace CursusVia.Customer
 					lblMessage.Text = "Invalid username and password";
 				}
 				
-			}
-		}
-		public string Decrypt(string clearText)
-		{
-			string EncryptionKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
-			byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
-			using (Aes encryptor = Aes.Create())
+			}*/
+			string username = txtUsername.Text;
+			string password = txtPassword.Text;
+			bool rememberMe=cbRememberMe.Checked;
+
+			string authenticatedUserId = AuthenticateUser(txtUsername.Text, txtPassword.Text)
+
+
+
+;			if (authenticatedUserId != "0") {
+
+				//FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, cbRememberMe.Checked);
+				/*
 			{
-				Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
-				encryptor.Key = pdb.GetBytes(32);
-				encryptor.IV = pdb.GetBytes(16);
-				using (MemoryStream ms = new MemoryStream())
-				{
-					using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
-					{
-						cs.Write(clearBytes, 0, clearBytes.Length);
-						cs.Close();
-					}
-					clearText = Convert.ToBase64String(ms.ToArray());
+					Response.Cookies["authCookie"]["email"] = txtUsername.Text;
+					Response.Cookies["authCookie"]["password"] = txtPassword.Text;
+				
 				}
+				*/
+			
+
+			//	FormsAuthentication.RedirectFromLoginPage(txtUsername.Text,cbRememberMe.Checked);
+				
+				FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
+					1,
+				authenticatedUserId,
+				DateTime.Now,
+				DateTime.Now.AddMinutes(30),
+				rememberMe,
+				"Customer"
+			 );
+				string encTicket = FormsAuthentication.Encrypt(ticket);
+				HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+				if (rememberMe)
+				{
+					authCookie.Expires = DateTime.Now.AddYears(1); // Example: Cookie expires in 1 year
+				}
+
+				Response.Cookies.Add(authCookie);
+
+				//Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+				//string userData = authTicket.UserData;
+				//FormsIdentity identity=(FormsIdentity)ctx.User.Identity;
+				//string[] username = identity.Ticket.UserData.Split(',');
+				Response.Redirect("Student.aspx");
 			}
-			return clearText;
+			else
+			{
+				lblMessage.ForeColor = System.Drawing.Color.Red;
+				lblMessage.Text = "Invalid username and password";
+			}
+
 		}
+		private string AuthenticateUser(string email,string password)
+		{
+			string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+			using (SqlConnection con = new SqlConnection(CS))
+			{
+				string sql = "Select id from Students where email=@Email and password=@Password";
+				SqlCommand cmd = new SqlCommand(sql, con);
+				cmd.Parameters.AddWithValue("@Email", txtUsername.Text.Trim());
+				cmd.Parameters.AddWithValue("@Password", getHash(txtPassword.Text.Trim()));
+				con.Open();
+				int matched = Convert.ToInt32(cmd.ExecuteScalar());
+				return matched.ToString();
+			}
+		}
+			public static string getHash(string oriPassword)
+		{
+			//convert password from string > binary
+			byte[] binPassoword = Encoding.Default.GetBytes(oriPassword);
+
+			//create hashing function
+			SHA256 sha = SHA256.Create();
+
+			//calculate hash value based on password that 
+			//has been converted to binary
+			byte[] binHash = sha.ComputeHash(binPassoword);
+
+			//convert binaryHash > string
+			string strHash = Convert.ToBase64String(binHash);
+
+			return strHash;
+		}
+		
+
 	}
 
-		
-	}
+
+}

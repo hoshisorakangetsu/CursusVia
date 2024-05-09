@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="RegisterStudent.aspx.cs" Inherits="CursusVia.Customer.RegisterStudent" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeFile="RegisterStudent.aspx.cs" Inherits="CursusVia.Customer.RegisterStudent" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="LoginStudent.css" rel="stylesheet" />
     <link href="LoginStudent2" rel="stylesheet" />
@@ -15,6 +15,7 @@
     <div id="RegisterContainer" runat="server" class="Register-container">
     <asp:Label ID="lblRegister" runat="server" Text="Register Student" CssClass="lblRegister" ></asp:Label>
     <asp:TextBox ID="txtEmail" runat="server" CssClass="txtEmail" PlaceHolder="📧Email"/>
+        <asp:CustomValidator ID="CustomValidator1" runat="server" OnServerValidate="CustomValidator1_ServerValidate" ErrorMessage="This email have been registered" ControlToValidate="txtEmail" Display="Dynamic"></asp:CustomValidator>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter your email" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
            <asp:RegularExpressionValidator ID="revEmail" ControlToValidate="txtEmail" CssClass="text-danger" runat="server" ErrorMessage="Enter valid email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator> 
     <asp:TextBox ID="txtPass" runat="server" TextMode="Password" CssClass="txtPass" Placeholder="🔑 Password" />
@@ -22,15 +23,16 @@
    <asp:TextBox ID="txtConfirmPass" runat="server" TextMode="Password" CssClass="txtPass" Placeholder="🔒 Confirm password" />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter the password again" ControlToValidate="txtConfirmPass"></asp:RequiredFieldValidator>
         <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Password does not match" ControlToCompare="txtPass" ControlToValidate="txtConfirmPass"></asp:CompareValidator>
-      <asp:TextBox ID="txtName" runat="server"  CssClass="txtEmail" Placeholder="Enter Name :" />
+      <asp:TextBox ID="txtName" runat="server"  CssClass="txtEmail" Placeholder="👤Enter Name :" />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please enter the password again" ControlToValidate="txtConfirmPass"></asp:RequiredFieldValidator>
 
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btnSubmit" OnClick="btnSubmit_Click"/>
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btnCancel"/>
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btnCancel" OnClick="btnCancel_Click"/>
         <asp:LinkButton runat="server" ID="lbtnLogin" Text="Login"  CssClass="lbtnLogin" />
 
         </div>
    
       </asp:Panel>
-
-</asp:Content>
+    </asp:Content>
+  

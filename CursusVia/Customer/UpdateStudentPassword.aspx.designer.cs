@@ -24,13 +24,13 @@ namespace CursusVia.Customer
 		protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
 
 		/// <summary>
-		/// TextBox3 control.
+		/// txtOldPassword control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox3;
+		protected global::System.Web.UI.WebControls.TextBox txtOldPassword;
 
 		/// <summary>
 		/// TextBox1 control.
@@ -49,6 +49,24 @@ namespace CursusVia.Customer
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox TextBox2;
+
+		/// <summary>
+		/// RequiredFieldValidator1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+		/// <summary>
+		/// CompareValidator1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
 
 		/// <summary>
 		/// Button1 control.

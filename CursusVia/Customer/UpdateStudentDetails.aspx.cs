@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Mail;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -16,9 +17,14 @@ namespace CursusVia.Customer
 		{
 			if (!Page.IsPostBack)
 			{
-				string email = Session["username"].ToString();
-				if (Session["username"] != null)
+				//string email = Session["username"].ToString();
+				//if (Session["username"] != null)
+				if(User.Identity.IsAuthenticated)
 				{
+					HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+					string encryptedTicket = authCookie.Value;
+					FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(encryptedTicket);
+					string email = authTicket.UserData;
 					string sql = "SELECT email,name from Students WHERE email=@email";
 					string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
@@ -54,7 +60,10 @@ namespace CursusVia.Customer
 
 		protected void Button1_Click(object sender, EventArgs e)
 		{
-			string email = Session["username"].ToString();
+			HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+			string encryptedTicket = authCookie.Value;
+			FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(encryptedTicket);
+			string email = authTicket.UserData;         //string email = Session["username"].ToString();
 			string name = txtName.Text;
 			//string updatedEmail = "";
 			//string updatedName = "";
