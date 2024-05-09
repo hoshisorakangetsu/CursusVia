@@ -138,6 +138,10 @@ a {
     border-color: var(--primary-color);
 }
 
+.validationMessage {
+    font-size: .85em;
+}
+
 .backControl {
     display: flex;
     align-items: center;
