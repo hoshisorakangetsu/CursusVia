@@ -13,3 +13,7 @@
 .backbtn {
     padding: 2em 2em 0 2em;
 }
+.column-header:after {
+    padding-left: 20px;
+    content: '\00a0\00a0\00a0';
+}

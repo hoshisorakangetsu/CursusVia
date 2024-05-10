@@ -24,7 +24,8 @@ namespace CursusVia.Customer
 				HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
 				string encryptedTicket = authCookie.Value;
 				FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(encryptedTicket);
-				string email = authTicket.UserData;
+				string id = authTicket.Name;
+
 			}
 			}
 	}

@@ -30,11 +30,12 @@ namespace CursusVia.Customer
 					string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 					using (SqlConnection con = new SqlConnection(CS))
 					{
-						string sql = "INSERT INTO Students (email, password, name)" + "VALUES (@email,@password,@name)  ";
+						string sql = "INSERT INTO Students (email, password, name, quesId, answer)" + "VALUES (@email,@password,@name, @quesId, @answer)  ";
 						SqlCommand cmd = new SqlCommand(sql, con);
 						cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
 						cmd.Parameters.AddWithValue("@password", getHash(txtPass.Text.Trim()));
 						cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
+						cmd.Parameters.AddWithValue("@quesId", ddlQues.SelectedValue);
 
 						con.Open();
 						int count=cmd.ExecuteNonQuery();

@@ -24,13 +24,13 @@ namespace CursusVia.Customer
 					HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
 					string encryptedTicket = authCookie.Value;
 					FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(encryptedTicket);
-					string email = authTicket.UserData;
-					string sql = "SELECT email,name from Students WHERE email=@email";
+					string id = authTicket.Name;
+					string sql = "SELECT email,name from Students WHERE id=@id";
 					string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
 					SqlConnection con = new SqlConnection(cs);
 					SqlCommand cmd = new SqlCommand(sql, con);
-					cmd.Parameters.AddWithValue("@email", email);
+					cmd.Parameters.AddWithValue("@id", id);
 					con.Open();
 					SqlDataReader dr = cmd.ExecuteReader();
 					
@@ -63,12 +63,12 @@ namespace CursusVia.Customer
 			HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
 			string encryptedTicket = authCookie.Value;
 			FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(encryptedTicket);
-			string email = authTicket.UserData;         //string email = Session["username"].ToString();
+			string id = authTicket.Name;         //string email = Session["username"].ToString();
 			string name = txtName.Text;
 			//string updatedEmail = "";
 			//string updatedName = "";
-
-			string sql = "UPDATE Students SET name = @Name,email=@Email  WHERE email=@Email ";
+			string email = txtEmail.Text;
+			string sql = "UPDATE Students SET name = @Name,email=@Email  WHERE id=@id ";
 			string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
 
@@ -76,10 +76,12 @@ namespace CursusVia.Customer
 			SqlCommand cmd = new SqlCommand(sql, con);
 			cmd.Parameters.AddWithValue("@Name", name);
 			cmd.Parameters.AddWithValue("@Email", email);
+			cmd.Parameters.AddWithValue("@id", id);
+
 			con.Open();
 			cmd.ExecuteNonQuery();
 			con.Close();
-			if (!string.IsNullOrEmpty(email))
+			if (!string.IsNullOrEmpty(id))
 			{
 				MailMessage msg = new MailMessage();
 				msg.From = new MailAddress("yongyk-pp21@student.tarc.edu.my");
