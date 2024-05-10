@@ -27,7 +27,7 @@
  <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Password does not match" ControlToCompare="txtPass" ControlToValidate="txtConfirmPass"></asp:CompareValidator>
     <asp:TextBox ID="txtName" runat="server"  CssClass="txtEmail" Placeholder="👤Enter Name :" />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please enter your name" ControlToValidate="txtName"></asp:RequiredFieldValidator>
-        <asp:DropDownList ID="ddlQualification" runat="server">
+        <asp:DropDownList ID="ddlQualification" runat="server" CssClass="txtPass">
             <asp:ListItem>Degree</asp:ListItem>
             <asp:ListItem>PHD</asp:ListItem>
             <asp:ListItem>Master</asp:ListItem>
