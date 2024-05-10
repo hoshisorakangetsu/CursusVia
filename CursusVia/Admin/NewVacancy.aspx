@@ -14,60 +14,70 @@
             <span class="surfaceText headerContainer">Job Information</span>
             <div class="contentContainer">
                 <div class="searchSection">
-                    <div>
-                        <span class="surfaceText inputName"><b>Job Title</b></span>
+                    <div class="genericInputField">
+                        <asp:Label runat="server" AssociatedControlID="txtSearch" CssClass="surfaceText inputName"><b>Job Title</b></asp:Label>
                         <div class="search">
-                            <input id="txtSearch" type="text" placeholder="Job Title" class="input"/>
+                            <asp:TextBox ID="txtSearch" placeholder="Job Title" runat="server" CssClass="input"></asp:TextBox>
                         </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter the job title" ControlToValidate="txtSearch" CssClass="validationMessage"></asp:RequiredFieldValidator>
                     </div>
-                    <div class="jobTypeSection">
-                        <span class="surfaceText inputName"><b>Job Type</b></span>
-                        <asp:DropDownList ID="ddlJobType" runat="server" CssClass="inputField">
-                            <asp:ListItem>Full Time</asp:ListItem>
-                            <asp:ListItem>Part Time</asp:ListItem>
-                        </asp:DropDownList>
+                    <div class="genericInputField">
+                        <div class="jobTypeSection">
+                            <asp:Label runat="server" CssClass="surfaceText inputName"><b>Job Type</b></asp:Label>
+                            <asp:DropDownList ID="ddlJobType" runat="server" CssClass="inputField">
+                                <asp:ListItem>Full Time</asp:ListItem>
+                                <asp:ListItem>Part Time</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
                     </div>
                 </div>
                 <div class="searchSection">
-                    <div>
-                        <span class="surfaceText inputName"><b>Minimum Salary (Monthly)</b></span>
+                    <div class="genericInputField">
+                        <asp:Label runat="server" CssClass="surfaceText inputName"><b>Minimum Salary (Monthly)</b></asp:Label>
                         <div class="salaryInput">
                             <span class="rm">RM</span>
                             <div class="search">
-                                <input id="txtMinSalary" type="text" class="input"/>
+                                <asp:TextBox ID="txtMinSalary" type="number" placeholder="1500.00" runat="server" CssClass="input"></asp:TextBox>
                             </div>
                         </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtMinSalary" ErrorMessage="Please enter a minimum salary" CssClass="validationMessage"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtMinSalary" ValidationExpression="^\d+(,\d{1,2})?$" ErrorMessage="Please enter the correct format for salary" CssClass="validationMessage"></asp:RegularExpressionValidator>
                     </div>
-                    <div>
-                        <span class="surfaceText inputName"><b>Maximum Salary (Monthly)</b></span>
+                    <div class="genericInputField">
+                        <asp:Label runat="server" class="surfaceText inputName"><b>Maximum Salary (Monthly)</b></asp:Label>
                         <div class="salaryInput">
                             <span class="rm">RM</span>
                             <div class="search">
-                                <input id="txtMaxSalary" type="text" class="input"/>
-                            </div>
-                        </div>             
+                                <asp:TextBox ID="txtMaxSalary" type="number" placeholder="10000.00" runat="server" CssClass="input"></asp:TextBox>
+                            </div>                            
+                        </div> 
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtMaxSalary" ErrorMessage="Please enter a maximum salary" CssClass="validationMessage"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtMaxSalary" ValidationExpression="^\d+(,\d{1,2})?$" ErrorMessage="Please enter the correct format for salary" CssClass="validationMessage"></asp:RegularExpressionValidator>
                     </div>
                 </div>
                 <div class="searchSection">
-                    <div>
-                        <span class="surfaceText inputName"><b>Role & Department</b></span>
+                    <div class="genericInputField">
+                        <asp:Label runat="server" class="surfaceText inputName"><b>Role & Department</b></asp:Label>
                         <div class="search">
-                            <input id="txtRoleDepartment" type="text" placeholder="Role (Department)" class="input"/>
+                            <asp:TextBox ID="txtRoleDepartment" placeholder="Role (Department)" runat="server" CssClass="input"></asp:TextBox>
                         </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtRoleDepartment" ErrorMessage="Please enter the role for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="searchSection">
-                    <div>
-                        <span class="surfaceText inputName"><b>Job Requirements</b></span>
+                    <div class="genericInputField">
+                        <asp:Label runat="server" class="surfaceText inputName"><b>Job Requirements</b></asp:Label>
                         <div class="search">
-                            <textarea id="TextArea1" cols="40" rows="5" class="txtAreaInput" placeholder="Job Requirements"></textarea>
+                            <asp:TextBox ID="txtJobReq" runat="server" placeholder="Job Requirements" Columns="40" Rows="5" TextMode="MultiLine" CssClass="txtAreaInput"></asp:TextBox>
                         </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtJobReq" ErrorMessage="Please enter the job requirements for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
                     </div>
-                    <div>
-                        <span class="surfaceText inputName"><b>Job Description</b></span>
+                    <div class="genericInputField">
+                        <asp:Label runat="server" class="surfaceText inputName"><b>Job Description</b></asp:Label>
                         <div class="search">
-                            <textarea id="TextArea" cols="40" rows="5" class="txtAreaInput" placeholder="Job Description"></textarea>
+                            <asp:TextBox ID="txtJobDescr" runat="server" placeholder="Job Description" Columns="40" Rows="5" TextMode="MultiLine" CssClass="txtAreaInput"></asp:TextBox>
                         </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtJobDescr" ErrorMessage="Please enter the job description for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
                     </div>
                 </div>
             </div>
@@ -76,45 +86,52 @@
             <span class="surfaceText headerContainer">Company Information</span>
             <div class="contentContainer">
                 <div class="searchSection">
-                    <div>
-                        <span class="surfaceText inputName"><b>Company Name</b></span>
+                    <div class="genericInputField">
+                        <asp:Label runat="server" class="surfaceText inputName"><b>Company Name</b></asp:Label>
                         <div class="search">
-                            <input id="txtCompanyName" type="text" placeholder="Company Name" class="input"/>
+                            <asp:TextBox ID="txtCompanyName" placeholder="Company Name" runat="server" CssClass="input"></asp:TextBox>
                         </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtCompanyName" ErrorMessage="Please enter the company name for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
                     </div>
-                    <div>
-                        <span class="surfaceText inputName"><b>HR Email</b></span>
+                    <div class="genericInputField">
+                        <asp:Label runat="server" class="surfaceText inputName"><b>HR Email</b></asp:Label>
                         <div class="search">
-                            <input id="txtWorkingArea" type="text" placeholder="HR Email" class="input"/>
+                            <asp:TextBox ID="txtHRemail" placeholder="HR Email" runat="server" CssClass="input"></asp:TextBox>
                         </div>
-                    </div>
-                </div>
-                <div class="searchSection">
-                    <div>
-                        <span class="surfaceText inputName"><b>Company Address</b></span>
-                        <div class="search">
-                            <input id="txtCompanyAddress" type="text" placeholder="Company Address" class="input"/>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="surfaceText inputName"><b>Company Postcode</b></span>
-                        <div class="search">
-                            <input id="txtCompanyPostcode" type="text" placeholder="Company Postcode" class="input"/>
-                        </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtHRemail" ErrorMessage="Please enter the HR email for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtHRemail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ErrorMessage="Please enter the correct format for email" CssClass="validationMessage"></asp:RegularExpressionValidator>
                     </div>
                 </div>
                 <div class="searchSection">
-                    <div>
-                        <span class="surfaceText inputName"><b>Company State</b></span>
+                    <div class="genericInputField">
+                        <asp:Label runat="server" class="surfaceText inputName"><b>Company Address</b></asp:Label>
                         <div class="search">
-                            <input id="txtCompanyState" type="text" placeholder="Company State" class="input"/>
+                            <asp:TextBox ID="txtCompanyAddress" placeholder="Company Address" runat="server" CssClass="input"></asp:TextBox>
                         </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtCompanyAddress" ErrorMessage="Please enter the company address for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
                     </div>
-                    <div>
-                        <span class="surfaceText inputName"><b>Company Country</b></span>
+                    <div class="genericInputField">
+                        <asp:Label runat="server" class="surfaceText inputName"><b>Company Postcode</b></asp:Label>
                         <div class="search">
-                            <input id="txtCompanyCountry" type="text" placeholder="Company Country" class="input"/>
+                            <asp:TextBox ID="txtCompanyPostcode" placeholder="Company Postcode" runat="server" CssClass="input"></asp:TextBox>
                         </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtCompanyPostcode" ErrorMessage="Please enter the company postcode for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="searchSection">
+                    <div class="genericInputField">
+                        <asp:Label runat="server" class="surfaceText inputName"><b>Company State</b></asp:Label>
+                        <div class="search">
+                            <asp:TextBox ID="txtCompanyState" placeholder="Company State" runat="server" CssClass="input"></asp:TextBox>
+                        </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtCompanyState" ErrorMessage="Please enter the company state for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
+                    </div>
+                    <div class="genericInputField">
+                        <asp:Label runat="server" class="surfaceText inputName"><b>Company Country</b></asp:Label>
+                        <div class="search">
+                            <asp:TextBox ID="txtCompanyCountry" placeholder="Company Country" runat="server" CssClass="input"></asp:TextBox>
+                        </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtCompanyCountry" ErrorMessage="Please enter the company country for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
                     </div>
                 </div>
             </div>
@@ -123,4 +140,5 @@
     <div class="btnCreate">
         <asp:Button ID="btnCreate" runat="server" Text="Create" CssClass="btnPrimary Btn" OnClick="btnCreate_Click"/>
     </div>
+    <script src='<%= ResolveUrl("~/InputWithValidator.js") %>' defer></script>
 </asp:Content>

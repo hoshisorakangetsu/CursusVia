@@ -148,6 +148,7 @@
     <Content Include="Tutor\LogoutMsg.aspx" />
     <Content Include="Tutor\namelogo.png" />
     <Content Include="Tutor\passwordlogo.png" />
+    <Content Include="Tutor\RegisterTutor.aspx" />
     <Content Include="Tutor\TutorRatings.aspx" />
     <Content Include="Tutor\TutorRatings.css" />
     <Content Include="Tutor\ViewWithdraw.aspx" />
@@ -529,6 +530,13 @@
     </Compile>
     <Compile Include="Tutor\LogoutMsg.aspx.designer.cs">
       <DependentUpon>LogoutMsg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\RegisterTutor.aspx.cs">
+      <DependentUpon>RegisterTutor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\RegisterTutor.aspx.designer.cs">
+      <DependentUpon>RegisterTutor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tutor\TutorRatings.aspx.cs">
       <DependentUpon>TutorRatings.aspx</DependentUpon>
