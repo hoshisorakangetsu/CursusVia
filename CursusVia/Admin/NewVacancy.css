@@ -32,7 +32,6 @@
     display: flex;
     gap:3em;
     padding-bottom: 1.5em;
-    justify-content:space-between;
 }
 
 .inputName {
@@ -59,6 +58,7 @@
     border: none;
     height: 2.2em;
     color: var(--text-on-surface);
+    padding: .35em;
 }
 
 .inputField {
@@ -66,9 +66,10 @@
     border-color: rgba(0, 0, 0, .4);
     border-radius: .25em;
     color: var(--text-on-surface);
-    padding: .5em;
+    padding: .35em;
     font-size: 1.05em;
     width:15em;
+    height: 3.25em;
 }
 
 .jobTypeSection {
@@ -101,4 +102,9 @@
     cursor: pointer;
     min-width: 5em;
     text-align: center;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 2px 16px var(--primary-shadow);
 }
