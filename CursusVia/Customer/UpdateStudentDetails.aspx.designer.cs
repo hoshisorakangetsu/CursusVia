@@ -33,13 +33,31 @@ namespace CursusVia.Customer
 		protected global::System.Web.UI.WebControls.TextBox txtName;
 
 		/// <summary>
-		/// txtEmail control.
+		/// RequiredFieldValidator1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtEmail;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+		/// <summary>
+		/// CustomValidator1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+
+		/// <summary>
+		/// lblEmail control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblEmail;
 
 		/// <summary>
 		/// CheckBox1 control.
