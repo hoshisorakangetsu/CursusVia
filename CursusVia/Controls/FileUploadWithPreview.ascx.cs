@@ -12,6 +12,7 @@ namespace CursusVia.Controls
         public bool IsRequired { get; set; }
         public FileUpload MediaFileUpload { get { return _MediaFileUpload; } }
         public string Src { get; set; }
+        public string FileType { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
 

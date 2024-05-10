@@ -19,7 +19,8 @@
     <IISExpressSSLPort>44383</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
+    <IISExpressUseClassicPipelineMode>
+    </IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -122,6 +123,7 @@
     <Content Include="Cart.aspx" />
     <Content Include="CartStyle.css" />
     <Content Include="Controls\FileUploadWithPreview.ascx" />
+    <Content Include="Controls\MultiFileUpload.ascx" />
     <Content Include="CursusVia.mdf" />
     <Content Include="Customer\displaySuccessfulDeleteAccountMsg.aspx" />
     <Content Include="Customer\displaySuccessfulLogoutMessage.aspx" />
@@ -450,6 +452,13 @@
     </Compile>
     <Compile Include="Controls\FileUploadWithPreview.ascx.designer.cs">
       <DependentUpon>FileUploadWithPreview.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MultiFileUpload.ascx.cs">
+      <DependentUpon>MultiFileUpload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\MultiFileUpload.ascx.designer.cs">
+      <DependentUpon>MultiFileUpload.ascx</DependentUpon>
     </Compile>
     <Compile Include="Customer\ApplyVacancy.aspx.cs">
       <DependentUpon>ApplyVacancy.aspx</DependentUpon>
