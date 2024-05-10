@@ -19,7 +19,8 @@
     <IISExpressSSLPort>44383</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
+    <IISExpressUseClassicPipelineMode>
+    </IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -123,7 +124,6 @@
     <Content Include="CartStyle.css" />
     <Content Include="Controls\FileUploadWithPreview.ascx" />
     <Content Include="Controls\MultiFileUpload.ascx" />
-    <Content Include="CursusVia.mdf" />
     <Content Include="Customer\displaySuccessfulDeleteAccountMsg.aspx" />
     <Content Include="Customer\displaySuccessfulLogoutMessage.aspx" />
     <Content Include="Customer\emailIcon.png" />
@@ -136,7 +136,6 @@
     <Content Include="Customer\Payment.css" />
     <Content Include="Customer\PaymentConfirm.aspx" />
     <Content Include="Customer\resetPassword.aspx" />
-    <Content Include="Customer\updatePassword.aspx" />
     <Content Include="InputWithValidator.js" />
     <Content Include="Customer\RegisterStudent.aspx" />
     <Content Include="Global.asax" />
@@ -509,13 +508,6 @@
     </Compile>
     <Compile Include="Customer\resetPassword.aspx.designer.cs">
       <DependentUpon>resetPassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\updatePassword.aspx.cs">
-      <DependentUpon>updatePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer\updatePassword.aspx.designer.cs">
-      <DependentUpon>updatePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
