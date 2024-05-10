@@ -1,60 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
+using System.Data.SqlClient;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using static CursusVia.Util;
 
 namespace CursusVia.Admin
 {
-    public partial class AdminAccount : System.Web.UI.Page
+    public partial class AdminAccount : Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void lbtnShowRegister_Click(object sender, EventArgs e)
-        {
-
-            // Toggle visibility of the registration panel
-            pnlRegister.Visible = !pnlRegister.Visible;
-            pnlLogin.Visible = false;
-
-
-        }
-
-        protected void lbtnShowLogin_Click(object sender, EventArgs e)
-        {
-            // Toggle visibility of the Logoin panel
-            pnlLogin.Visible = !pnlLogin.Visible;
-            pnlRegister.Visible = false;
-        }
-
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            // Redirect the user to the AdminHome  page
-            Response.Redirect("~/Admin/SupportRequest.aspx");
+            string usernameOrEmail = txtUsername.Text;
+            string password = txtPassword.Text;
+            string hashedPassword = SecurityHelper.HashPassword(password); //hash the password  for security purposes
 
+            string connectionString = Global.CS; // connection string stored globally
+            string sql = "SELECT password FROM Admins WHERE username = @username OR email = @username";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@username", usernameOrEmail);
+                var dbHashedPassword = cmd.ExecuteScalar() as string;
+
+                if (dbHashedPassword != null && dbHashedPassword == hashedPassword)
+                {
+                    Session["LoggedIn"] = true;
+                    Session["Username"] = usernameOrEmail;
+                    lblStatus.Text = "Login successful!";
+                    lblStatus.CssClass = "success";
+                    Response.Redirect("/Admin/WithdrawalRequest.aspx"); // Redirect to dashboard if login is successful
+                }
+                else
+                {
+                    lblStatus.Text = "Invalid username or password.";
+                    lblStatus.CssClass = "error";
+                    lblStatus.Visible = true;
+                }
+            }
         }
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-
-
-            Response.Redirect("/Admin/RegisterConfirmation.aspx");
-
-        }
-
-        protected void btnCancel_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Admin/AdminAccount.aspx");
- 
-
-        }
-
-
-
-
     }
 }

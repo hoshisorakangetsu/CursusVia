@@ -17,12 +17,21 @@
     left: 12px;
 }
 */
+
+#back-button {
+    display: flex;
+    justify-content: flex-start; 
+    margin-top: 10px;
+    margin-top:20px;
+    margin-left:10px;
+   
+}
 .login-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 300px;
+    width: 500px;
     height: auto;
     padding: 30px;
     background: #e6e6e6;
@@ -37,7 +46,7 @@
 }
 
 /* Styling for the labels above the input fields */
-.lblhavAcc{
+    .lblhavAcc{
     font-size: 16px;
     margin-bottom: 15px; 
     color: #29354C;
@@ -127,7 +136,7 @@
 
 /*Account register panel*/
 
-.Register-container {
+.register-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -237,6 +246,7 @@
     text-align: center;
     font-size: 18px;
     position: absolute;
+    cursor: pointer;
 }
 
 .lbtnLogin:hover {
@@ -276,7 +286,7 @@
 
 
 
-.errorVal {
+.error {
     display: flex;
     width: 100%; 
     text-align: left; 
@@ -289,3 +299,13 @@
 
 
 /*End of Account Upate Panel*/
+
+material-symbols-outlined backIcon {
+    display: flex;
+    width: 100%;
+    text-align: left;
+    color: red;
+    font-size: 0.8rem;
+    margin-top: -1px;
+    margin-bottom: 25px;
+}

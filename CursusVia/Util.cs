@@ -4,12 +4,15 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 
 namespace CursusVia
 {
     public class Util
     {
+
         public static int UploadFile(HttpPostedFile file, HttpServerUtility server)
         {
             Int32 uploadedId;
@@ -64,6 +67,20 @@ namespace CursusVia
                     response.End();
                 }
 
+            }
+        }
+
+
+        public static class SecurityHelper
+        {
+            public static string HashPassword(string password)
+            {
+                using (var provider = new SHA256Managed())
+                {
+                    byte[] inputBytes = Encoding.UTF8.GetBytes(password);
+                    byte[] hashedBytes = provider.ComputeHash(inputBytes);
+                    return BitConverter.ToString(hashedBytes).Replace("-", "");
+                }
             }
         }
     }
