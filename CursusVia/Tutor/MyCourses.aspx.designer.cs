@@ -42,57 +42,21 @@ namespace CursusVia.Tutor
         protected global::System.Web.UI.WebControls.HyperLink CreateCourse;
 
         /// <summary>
-        /// ViewDetails control.
+        /// CourseRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ViewDetails;
+        protected global::System.Web.UI.WebControls.Repeater CourseRepeater;
 
         /// <summary>
-        /// AddToCart control.
+        /// CourseRepeaterSqlDS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink AddToCart;
-
-        /// <summary>
-        /// ViewDetails2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ViewDetails2;
-
-        /// <summary>
-        /// AddToCart2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink AddToCart2;
-
-        /// <summary>
-        /// ViewDetails3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ViewDetails3;
-
-        /// <summary>
-        /// AddToCart3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink AddToCart3;
+        protected global::System.Web.UI.WebControls.SqlDataSource CourseRepeaterSqlDS;
     }
 }

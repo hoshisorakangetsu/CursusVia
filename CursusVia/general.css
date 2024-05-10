@@ -68,6 +68,10 @@ a {
     margin: 0;
 }
 
+.w-full {
+    width: 100%;
+}
+
 .btn {
     all: unset; /* reset styles first */
     border-radius: .25em;

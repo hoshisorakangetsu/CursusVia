@@ -5,13 +5,14 @@
 <div class="inputWithValidator">
     <div class="uploadFileContainer" id="dropZone">
         <asp:FileUpload ID="_MediaFileUpload" runat="server" Style="display: none;" />
-        <div class="uploadFile" id="uploadFileHint">
+        <% // wtf cannot have space between style property and value %>
+        <div class="uploadFile" id="uploadFileHint" style=<%= String.IsNullOrEmpty(Src) ? "display:block;" : "display:none;" %>>
             <span class="uploadIcon material-symbols-outlined">add_photo_alternate
             </span>
             <h3>Drop Files or Click to Browse</h3>
         </div>
         <!-- will be populated by js once got file -->
-        <img src="#" alt="File Preview" id="filePreview" class="filePreview" style="display: none;" />
+        <img src=<%= String.IsNullOrEmpty(Src) ? "#" : Src %> alt="File Preview" id="filePreview" class="filePreview" style=<%= String.IsNullOrEmpty(Src) ? "display:none;" : "display:block;" %> />
     </div>
     <% if (IsRequired)
         {  %>

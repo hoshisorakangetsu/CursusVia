@@ -21,7 +21,15 @@ namespace CursusVia.Customer
 
 		protected void Button2_Click(object sender, EventArgs e)
 		{
-			Response.Redirect("displaySuccessfulLogoutMessage.aspx");
+			if (User.Identity.IsAuthenticated)
+			{
+				FormsAuthentication.SignOut();
+				Response.Redirect("displaySuccessfulLogoutMessage.aspx");
+			}
+			else
+			{
+				Response.Redirect("LoginStudent.aspx");
+			}
 		}
 
 		protected void Button1_Click(object sender, EventArgs e)
