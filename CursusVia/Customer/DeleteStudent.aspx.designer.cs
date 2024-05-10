@@ -24,21 +24,21 @@ namespace CursusVia.Customer
 		protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
 
 		/// <summary>
-		/// Button1 control.
+		/// btnDelete control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button Button1;
+		protected global::System.Web.UI.WebControls.Button btnDelete;
 
 		/// <summary>
-		/// Button2 control.
+		/// btnLogout control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button Button2;
+		protected global::System.Web.UI.WebControls.Button btnLogout;
 	}
 }

@@ -33,7 +33,7 @@
            </tr>
             <tr>
                 <td>
-                    <asp:Button ID="Button1" runat="server" Text="Delete Now" CssClass="btnPrimary btn" OnClick="Button1_Click" />
+                    <asp:Button ID="btnDelete" runat="server" Text="Delete Now" CssClass="btnPrimary btn" OnClick="Button1_Click" />
 
                 </td>
             </tr>
@@ -56,7 +56,7 @@
             </tr>
              <tr>
              <td>
-                 <asp:Button ID="Button2" runat="server" Text="Logout Now" CssClass="btnPrimary btn" OnClick="Button2_Click" />
+                 <asp:Button ID="btnLogout" runat="server" Text="Logout Now" CssClass="btnPrimary btn" OnClick="Button2_Click" />
 
              </td>
              </tr>

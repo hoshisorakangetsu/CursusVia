@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="Vacancy.aspx.cs" Inherits="CursusVia.Admin.Vacancy" %>
+﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="Vacancy.aspx.cs" Inherits="CursusVia.Admin.Vacancy" %>
 <asp:Content ID="headerContent" ContentPlaceHolderID="AdminMasterHead" runat="server">
     <link href="Vacancy.css" rel="stylesheet" />
 </asp:Content>

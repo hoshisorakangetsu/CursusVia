@@ -19,7 +19,7 @@
     <IISExpressSSLPort>44383</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -53,6 +53,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MSCaptcha">
+      <HintPath>..\..\Users\yong\Downloads\MSCaptcha\MSCaptcha.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -119,11 +122,12 @@
     <Content Include="Cart.aspx" />
     <Content Include="CartStyle.css" />
     <Content Include="Controls\FileUploadWithPreview.ascx" />
+    <Content Include="CursusVia.mdf" />
     <Content Include="Customer\displaySuccessfulDeleteAccountMsg.aspx" />
     <Content Include="Customer\displaySuccessfulLogoutMessage.aspx" />
     <Content Include="Customer\emailIcon.png" />
     <Content Include="Customer\emailIcon2.png" />
-    <Content Include="Customer\ForgetPassword.aspx" />
+    <Content Include="Customer\ForgotPassword.aspx" />
     <Content Include="Customer\LoginStudent.css" />
     <Content Include="Customer\LoginStudent2.css" />
     <Content Include="Customer\namelogo.png" />
@@ -131,6 +135,9 @@
     <Content Include="Customer\Payment.css" />
     <Content Include="Customer\PaymentConfirm.aspx" />
     <Content Include="InputWithValidator.js" />
+    <Content Include="Customer\RegisterStudent.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="LoginGeneric.aspx" />
     <Content Include="SuccessfulMessage.css" />
     <Content Include="SuccsessfulMessage.aspx" />
     <Content Include="Tutor\deleteMsg.aspx" />
@@ -141,6 +148,7 @@
     <Content Include="Tutor\LogoutMsg.aspx" />
     <Content Include="Tutor\namelogo.png" />
     <Content Include="Tutor\passwordlogo.png" />
+    <Content Include="Tutor\RegisterTutor.aspx" />
     <Content Include="Tutor\TutorRatings.aspx" />
     <Content Include="Tutor\TutorRatings.css" />
     <Content Include="Tutor\ViewWithdraw.aspx" />
@@ -464,12 +472,12 @@
     <Compile Include="Customer\displaySuccessfulLogoutMessage.aspx.designer.cs">
       <DependentUpon>displaySuccessfulLogoutMessage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\ForgetPassword.aspx.cs">
-      <DependentUpon>ForgetPassword.aspx</DependentUpon>
+    <Compile Include="Customer\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\ForgetPassword.aspx.designer.cs">
-      <DependentUpon>ForgetPassword.aspx</DependentUpon>
+    <Compile Include="Customer\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\PaymentConfirm.aspx.cs">
       <DependentUpon>PaymentConfirm.aspx</DependentUpon>
@@ -477,6 +485,23 @@
     </Compile>
     <Compile Include="Customer\PaymentConfirm.aspx.designer.cs">
       <DependentUpon>PaymentConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\RegisterStudent.aspx.cs">
+      <DependentUpon>RegisterStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\RegisterStudent.aspx.designer.cs">
+      <DependentUpon>RegisterStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LoginGeneric.aspx.cs">
+      <DependentUpon>LoginGeneric.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginGeneric.aspx.designer.cs">
+      <DependentUpon>LoginGeneric.aspx</DependentUpon>
     </Compile>
     <Compile Include="SuccsessfulMessage.aspx.cs">
       <DependentUpon>SuccsessfulMessage.aspx</DependentUpon>
@@ -505,6 +530,13 @@
     </Compile>
     <Compile Include="Tutor\LogoutMsg.aspx.designer.cs">
       <DependentUpon>LogoutMsg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\RegisterTutor.aspx.cs">
+      <DependentUpon>RegisterTutor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\RegisterTutor.aspx.designer.cs">
+      <DependentUpon>RegisterTutor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tutor\TutorRatings.aspx.cs">
       <DependentUpon>TutorRatings.aspx</DependentUpon>

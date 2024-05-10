@@ -15,15 +15,22 @@ namespace CursusVia
             Int32 uploadedId;
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Files(FilePath, OriFileName) VALUES(@filepath, @orifilename); SELECT SCOPE_IDENTITY()", con);
-                string a = "./files/" + System.Guid.NewGuid().ToString("N") + "." + file.FileName.Split('.').Last();
-                file.SaveAs(server.MapPath(a));
+                Directory.CreateDirectory(server.MapPath("~/files/"));
+                SqlCommand cmd = new SqlCommand("INSERT INTO FileResources(file_path, file_name) VALUES(@filepath, @orifilename); SELECT SCOPE_IDENTITY()", con);
+                string filePath = "~/files/" + System.Guid.NewGuid().ToString("N") + "." + file.FileName.Split('.').Last();
+                file.SaveAs(server.MapPath(filePath));
                 con.Open();
 
-                cmd.Parameters.AddWithValue("@filepath", a);
+                cmd.Parameters.AddWithValue("@filepath", filePath);
                 cmd.Parameters.AddWithValue("@orifilename", file.FileName);
 
-                uploadedId = Convert.ToInt32(cmd.ExecuteScalar());
+                try
+                {
+                    uploadedId = Convert.ToInt32(cmd.ExecuteScalar());
+                } catch (Exception)
+                {
+                    uploadedId = 0;
+                }
 
             }            
             return uploadedId;
@@ -34,7 +41,7 @@ namespace CursusVia
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Files WHERE id=@id", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM FileResources WHERE id=@id", con);
                 cmd.Parameters.AddWithValue("@id", fileId);
                 con.Open();
                 SqlDataReader dr = cmd.ExecuteReader();

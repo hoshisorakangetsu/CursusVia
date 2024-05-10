@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -14,24 +19,76 @@ namespace CursusVia.Tutor
 
 		}
 
-        protected void lbtnShowLogin_Click(object sender, EventArgs e)
-        {
-			pnlLogin.Visible = !pnlLogin.Visible;
-			pnlRegister.Visible = false;
-		}
-
-		protected void lbtnShowRegister_Click(object sender, EventArgs e)
-		{
-			pnlRegister.Visible = !pnlRegister.Visible;
-			pnlLogin.Visible = false;
-		}
+       
 
 		protected void btnLogin_Click(object sender, EventArgs e)
 		{
+			string username = txtUsername.Text;
+			string password = txtPassword.Text;
+			bool rememberMe = cbRememberMe.Checked;
 
-			// Redirect the user to the AdminHome  page
-			Response.Redirect("Tutor.aspx");
+			string authenticatedUserId = AuthenticateUser(txtUsername.Text, txtPassword.Text)
 
+
+
+;			 if (authenticatedUserId != "0")
+			{
+				// Redirect the user to the AdminHome  page
+				Response.Redirect("Tutor.aspx");
+				FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
+					1,
+				authenticatedUserId,
+				DateTime.Now,
+				DateTime.Now.AddMinutes(30),
+				rememberMe,
+				"Tutor"
+			 );
+				string encTicket = FormsAuthentication.Encrypt(ticket);
+				HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+				if (rememberMe)
+				{
+					authCookie.Expires = DateTime.Now.AddYears(1); // Example: Cookie expires in 1 year
+				}
+
+				Response.Cookies.Add(authCookie);
+				Response.Redirect("Tutor.aspx");
+			}
+			else
+			{
+				lblMessage.ForeColor = System.Drawing.Color.Red;
+				lblMessage.Text = "Invalid username and password";
+			}
+		}
+		private string AuthenticateUser(string email, string password)
+		{
+			string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+			using (SqlConnection con = new SqlConnection(CS))
+			{
+				string sql = "Select id from Tutors where email=@Email and password=@Password";
+				SqlCommand cmd = new SqlCommand(sql, con);
+				cmd.Parameters.AddWithValue("@Email", txtUsername.Text.Trim());
+				cmd.Parameters.AddWithValue("@Password", getHash(txtPassword.Text.Trim()));
+				con.Open();
+				int matched = Convert.ToInt32(cmd.ExecuteScalar());
+				return matched.ToString();
+			}
+		}
+		public static string getHash(string oriPassword)
+		{
+			//convert password from string > binary
+			byte[] binPassoword = Encoding.Default.GetBytes(oriPassword);
+
+			//create hashing function
+			SHA256 sha = SHA256.Create();
+
+			//calculate hash value based on password that 
+			//has been converted to binary
+			byte[] binHash = sha.ComputeHash(binPassoword);
+
+			//convert binaryHash > string
+			string strHash = Convert.ToBase64String(binHash);
+
+			return strHash;
 		}
 	}
 }

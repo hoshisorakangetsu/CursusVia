@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CursusVia.Customer
+namespace CursusVia
 {
 
 
-	public partial class ForgetPassword
+	public partial class LoginGeneric
 	{
 	}
 }
