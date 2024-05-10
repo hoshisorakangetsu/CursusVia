@@ -15,15 +15,22 @@ namespace CursusVia
             Int32 uploadedId;
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
+                Directory.CreateDirectory(server.MapPath("~/files/"));
                 SqlCommand cmd = new SqlCommand("INSERT INTO Files(FilePath, OriFileName) VALUES(@filepath, @orifilename); SELECT SCOPE_IDENTITY()", con);
-                string a = "./files/" + System.Guid.NewGuid().ToString("N") + "." + file.FileName.Split('.').Last();
-                file.SaveAs(server.MapPath(a));
+                string filePath = "~/files/" + System.Guid.NewGuid().ToString("N") + "." + file.FileName.Split('.').Last();
+                file.SaveAs(server.MapPath(filePath));
                 con.Open();
 
-                cmd.Parameters.AddWithValue("@filepath", a);
+                cmd.Parameters.AddWithValue("@filepath", filePath);
                 cmd.Parameters.AddWithValue("@orifilename", file.FileName);
 
-                uploadedId = Convert.ToInt32(cmd.ExecuteScalar());
+                try
+                {
+                    uploadedId = Convert.ToInt32(cmd.ExecuteScalar());
+                } catch (Exception)
+                {
+                    uploadedId = 0;
+                }
 
             }            
             return uploadedId;
