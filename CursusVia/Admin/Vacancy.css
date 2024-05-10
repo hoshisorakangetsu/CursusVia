@@ -89,13 +89,14 @@ table, th, td {
     color: var(--text-on-surface);
 }
 
-table.rounded-corners {
-    border-spacing: 0;
-    border-collapse: separate;
-    border-radius: .25em;
-    border: 2px solid;
-    border-color: rgba(0, 0, 0, .6);
-}
+    table.rounded-corners {
+        border-spacing: 0;
+        border-collapse: separate;
+        border-radius: .25em;
+        -moz-border-radius: .25em;
+        border: 2px solid;
+        border-color: rgba(0, 0, 0, .6);
+    }
 
     /* Apply a border to the right of all but the last column */
     table.rounded-corners th:not(:last-child),

@@ -70,6 +70,8 @@ namespace CursusVia.Admin
             {
                 Response.Write("<script>alert('Job does not inserted successfully');window.location = 'Vacancy.aspx';</script>");
             }
+
+            con.Close();
         }
     }
 }
