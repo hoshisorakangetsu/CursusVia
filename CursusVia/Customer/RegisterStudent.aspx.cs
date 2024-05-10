@@ -35,7 +35,6 @@ namespace CursusVia.Customer
 						cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
 						cmd.Parameters.AddWithValue("@password", getHash(txtPass.Text.Trim()));
 						cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
-						cmd.Parameters.AddWithValue("@quesId", ddlQues.SelectedValue);
 
 						con.Open();
 						int count=cmd.ExecuteNonQuery();
