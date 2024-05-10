@@ -13,24 +13,27 @@
             </span>
             All Courses
         </div>
-        <div class="hero">
-            <img src="https://placehold.co/600x400" alt="Course Image" />
-            <div class="overlay">
-                <div>
-                    <p>Tutor Name</p>
-                    <p class="courseName">Course Name</p>
-                    <p class="courseDesc">This course is a course</p>
+        <asp:FormView runat="server" ID="CourseDetailHeroView" DataSourceID="CourseDetailHeroDS" DefaultMode="ReadOnly" CssClass="w-full">
+            <ItemTemplate>
+                <div class="hero">
+                    <img src='<%# Eval("courseImgPath").ToString().Substring(1) %>' alt="Course Image" />
+                    <div class="overlay">
+                        <div>
+                            <p><%# Eval("tutorName") %></p>
+                            <p class="courseName"><%# Eval("title") %></p>
+                            <p class="courseDesc"><%# Eval("description") %></p>
+                        </div>
+                        <div class="action">
+                            <asp:HyperLink ID="UpdateCourse" runat="server" CssClass="updateCourseBtn btn btnPrimary" NavigateUrl='<%# "~/Tutor/UpdateCourse.aspx?id=" + Eval("id") %>'>
+                                    <span class="updateIcon material-symbols-outlined">edit</span>
+                                    Edit
+                            </asp:HyperLink>
+                        </div>
+                    </div>
                 </div>
-                <div class="action">
-                    <asp:HyperLink ID="UpdateCourse" runat="server" CssClass="updateCourseBtn btn btnPrimary">
-                        <span class="updateIcon material-symbols-outlined">
-                        edit
-                        </span>
-                        Edit
-                    </asp:HyperLink>
-                </div>
-            </div>
-        </div>
+            </ItemTemplate>
+        </asp:FormView>
+        <asp:SqlDataSource runat="server" ID="CourseDetailHeroDS"></asp:SqlDataSource>
         <div class="courseOverview">
             <div class="courseOverviewHeading">
                 <h1>Course Overview</h1>

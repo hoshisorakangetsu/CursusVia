@@ -138,7 +138,7 @@
 }
 
 .courseCard img {
-    aspect-ratio: 21/9;
+    aspect-ratio: 16/9;
     object-fit: cover;
     border-radius: .5em;
 }

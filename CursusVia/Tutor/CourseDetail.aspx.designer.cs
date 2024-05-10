@@ -15,13 +15,22 @@ namespace CursusVia.Tutor
     {
 
         /// <summary>
-        /// UpdateCourse control.
+        /// CourseDetailHeroView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink UpdateCourse;
+        protected global::System.Web.UI.WebControls.FormView CourseDetailHeroView;
+
+        /// <summary>
+        /// CourseDetailHeroDS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource CourseDetailHeroDS;
 
         /// <summary>
         /// NewChapterContent control.

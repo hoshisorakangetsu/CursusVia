@@ -29,7 +29,10 @@ namespace CursusVia.Tutor
                 int fileId = Util.UploadFile(CourseImgUploadWithPreview.MediaFileUpload.PostedFile, Server);
                 // should actually handle upload file error here
                 if (fileId == 0) { return; }
-                string cmd = "INSERT INTO [dbo].[Courses] ([title], [description], [price], [cover_pic_res_id], [tutor_id], [category]) VALUES (@Title, @Description, @Price, @CoverPicResId, @TutorId, @Category)";
+                string cmd = @"
+                    INSERT INTO [Courses] ([title], [description], [price], [cover_pic_res_id], [tutor_id], [category]) 
+                    VALUES (@Title, @Description, @Price, @CoverPicResId, @TutorId, @Category0)
+                ";
                 SqlCommand command = new SqlCommand(cmd, con);
                 command.Parameters.AddWithValue("@Title", CourseTitle.Text);
                 command.Parameters.AddWithValue("@Description", Description.Text);
