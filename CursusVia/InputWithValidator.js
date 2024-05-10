@@ -8,8 +8,9 @@ const observer = new MutationObserver(mutations => {
             targetParent.classList.add('validationError')
         else if (
             target.style.visibility !== 'visible' &&
-            targetParent.classList.contains
-                ('validationError')
+            targetParent.classList.contains('validationError') &&
+            targetParent
+                .querySelectorAll('.validationMessage')?.every(vm => vm.style.visibility !== 'visible')
         )
             targetParent.classList.remove('validationError')
     });
