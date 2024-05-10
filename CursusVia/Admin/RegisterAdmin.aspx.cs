@@ -21,15 +21,18 @@ namespace CursusVia.Admin
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            // Retrieve email entered by the user through validator
             string email = args.Value;
             string sql = "SELECT COUNT(*) FROM Admins WHERE Email = @email";
+            SqlConnection con = null;
+            SqlCommand cmd = null;
 
-            using (SqlConnection con = new SqlConnection(cs))
+            try
             {
-                con.Open();
-                SqlCommand cmd = new SqlCommand(sql, con);
+                con = new SqlConnection(cs);
+                cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@email", email);
+
+                con.Open();
                 int count = (int)cmd.ExecuteScalar();
 
                 if (count > 0)
@@ -38,47 +41,73 @@ namespace CursusVia.Admin
                     args.IsValid = false;
                 }
             }
+            catch (Exception ex)
+            {
+                lblStatus.Text = "Registration failed: " + ex.Message;
+                lblStatus.Visible = true;
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Dispose();
+                if (con != null)
+                {
+                    con.Close();
+                    con.Dispose();
+                }
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (Page.IsValid) // Server-side validation passed
             {
-                string verificationKey = "1996"; // This t for admin account only 
+                string verificationKey = "1996"; // This should ideally be stored securely
                 if (txtVerify.Text == verificationKey)
                 {
                     string username = txtUsername.Text;
-                    string password = SecurityHelper.HashPassword(txtPass.Text); // Ensure SecurityHelper is safely hashing the password
+                    string password = SecurityHelper.HashPassword(txtPass.Text); //hashing the password
                     string email = txtEmail.Text;
                     string sql = "INSERT INTO Admins (username, password, email) VALUES (@Username, @Password, @Email)";
 
-                    using (SqlConnection con = new SqlConnection(cs))
+                    SqlConnection con = null;
+                    SqlCommand cmd = null;
+
+                    try
                     {
-                        SqlCommand cmd = new SqlCommand(sql, con);
+                        con = new SqlConnection(cs);
+                        cmd = new SqlCommand(sql, con);
                         cmd.Parameters.AddWithValue("@Username", username);
                         cmd.Parameters.AddWithValue("@Password", password);
                         cmd.Parameters.AddWithValue("@Email", email);
 
-                        try
-                        {
-                            con.Open();
-                            int count = (int)cmd.ExecuteNonQuery();
+                        con.Open();
+                        int count = (int)cmd.ExecuteNonQuery();
 
-                            if (count > 0)
-                            {
-                                // Redirect on success
-                                Response.Redirect("/Admin/RegisterConfirmation.aspx");
-                            }
-                            else
-                            {
-                                lblStatus.Text = "Registration failed. No rows were inserted.";
-                                lblStatus.Visible = true;
-                            }
-                        }
-                        catch (Exception ex)
+                        if (count > 0)
                         {
-                            lblStatus.Text = "Registration failed: " + ex.Message;
+                            // Redirect on success
+                            Response.Redirect("/Admin/RegisterConfirmation.aspx");
+                        }
+                        else
+                        {
+                            lblStatus.Text = "Registration failed. No rows were inserted.";
                             lblStatus.Visible = true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        lblStatus.Text = "Registration failed: " + ex.Message;
+                        lblStatus.Visible = true;
+                    }
+                    finally
+                    {
+                        if (cmd != null)
+                            cmd.Dispose();
+                        if (con != null)
+                        {
+                            con.Close();
+                            con.Dispose();
                         }
                     }
                 }
@@ -92,11 +121,8 @@ namespace CursusVia.Admin
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-
             // Redirect to the same page
             Response.Redirect(Request.Url.AbsoluteUri);
-           
         }
-
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.UI;
 using static CursusVia.Util;
@@ -12,25 +13,44 @@ namespace CursusVia.Admin
         {
             string usernameOrEmail = txtUsername.Text;
             string password = txtPassword.Text;
-            string hashedPassword = SecurityHelper.HashPassword(password); //hash the password  for security purposes
+            string hashedPassword = SecurityHelper.HashPassword(password); // Ensure password is hashed for security
 
-            string connectionString = Global.CS; // connection string stored globally
-            string sql = "SELECT password FROM Admins WHERE username = @username OR email = @username";
+            string connectionString = Global.CS; // Global connection string
+            string sql = "SELECT password, id FROM Admins WHERE username = @Username OR email = @Username";
 
-            using (SqlConnection con = new SqlConnection(connectionString))
+            SqlConnection con = null;
+            SqlCommand cmd = null;
+            SqlDataReader reader = null;
+
+            try
             {
+                con = new SqlConnection(connectionString);
                 con.Open();
-                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@username", usernameOrEmail);
-                var dbHashedPassword = cmd.ExecuteScalar() as string;
 
-                if (dbHashedPassword != null && dbHashedPassword == hashedPassword)
+                reader = cmd.ExecuteReader(); // Execute reader here after command setup
+
+                if (reader.Read())
                 {
-                    Session["LoggedIn"] = true;
-                    Session["Username"] = usernameOrEmail;
-                    lblStatus.Text = "Login successful!";
-                    lblStatus.CssClass = "success";
-                    Response.Redirect("/Admin/WithdrawalRequest.aspx"); // Redirect to dashboard if login is successful
+                    string dbHashedPassword = reader["password"].ToString();
+                    int adminId = Convert.ToInt32(reader["id"]); // Retrieve the admin ID
+
+                    if (dbHashedPassword != null && dbHashedPassword == hashedPassword)
+                    {
+                        Session["LoggedIn"] = true;
+                        Session["Username"] = usernameOrEmail;
+                        Session["AdminID"] = adminId;  // Storing the AdminID in the session
+                        lblStatus.Text = "Login successful!";
+                        lblStatus.CssClass = "success";
+                        Response.Redirect("/Admin/WithdrawalRequest.aspx"); // Redirect to admin dashboard if login is successful
+                    }
+                    else
+                    {
+                        lblStatus.Text = "Invalid username or password.";
+                        lblStatus.CssClass = "error";
+                        lblStatus.Visible = true;
+                    }
                 }
                 else
                 {
@@ -39,6 +59,27 @@ namespace CursusVia.Admin
                     lblStatus.Visible = true;
                 }
             }
+            catch (Exception ex)
+            {
+                lblStatus.Text = "Error during login: " + ex.Message;
+                lblStatus.CssClass = "error";
+                lblStatus.Visible = true;
+            }
+            finally
+            {
+                // Ensure resources are properly cleaned up
+                if (reader != null)
+                    reader.Close();
+                if (cmd != null)
+                    cmd.Dispose();
+                if (con != null)
+                {
+                    con.Close();
+                    con.Dispose();
+                }
+            }
         }
+
+
     }
 }

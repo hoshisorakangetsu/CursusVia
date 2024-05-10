@@ -309,3 +309,31 @@ material-symbols-outlined backIcon {
     margin-top: -1px;
     margin-bottom: 25px;
 }
+
+/* General styles for the status message */
+.statusMessage {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff; 
+    text-align: center;
+    display: block; 
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    /* Specific styles for error messages */
+    .statusMessage.error {
+        background-color: #d9534f; 
+    }
+
+    /* Specific styles for success messages */
+    .statusMessage.success {
+        background-color: #5cb85c; 
+    }
+
+    /* Styles for general informational messages */
+    .statusMessage.info {
+        background-color: #5bc0de; 
+    }

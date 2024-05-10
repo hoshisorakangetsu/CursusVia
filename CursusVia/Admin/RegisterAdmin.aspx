@@ -4,7 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <h2>Register</h2>
+   <h2 style="margin: 1rem; margin-bottom: .5rem;">Register</h2>
          <div class="backBtn">
             <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='AdminAccount.aspx'>   
 <div id="back-button">
