@@ -37,10 +37,33 @@ CREATE TABLE [dbo].[Answers]
     [answer_content] NVARCHAR(MAX) NOT NULL
 )
 
+CREATE TABLE [dbo].[Courses]
+(
+	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [title] NVARCHAR(50) NOT NULL, 
+    [description] NVARCHAR(MAX) NOT NULL, 
+    [category] NVARCHAR(20) NOT NULL,
+    [price] FLOAT NOT NULL, 
+    [cover_pic_res_id] INT NOT NULL, 
+    [tutor_id] INT NOT NULL, 
+    CONSTRAINT [FK_Course_FileResources] FOREIGN KEY ([cover_pic_res_id]) REFERENCES [FileResources]([id]), 
+    CONSTRAINT [FK_Course_Tutors] FOREIGN KEY ([tutor_id]) REFERENCES [Tutors]([id]) 
+)
+
+CREATE TABLE [dbo].[Chapters]
+(
+	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [title] NVARCHAR(50) NOT NULL, 
+    [course_id] INT NOT NULL, 
+    CONSTRAINT [FK_Chapters_Courses] FOREIGN KEY ([course_id]) REFERENCES [Courses]([id])
+)
+
 CREATE TABLE [dbo].[ChapterQuiz]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [quiz_title] NVARCHAR(50) NOT NULL
+    [quiz_title] NVARCHAR(50) NOT NULL,
+    [chapter_id] INT NOT NULL, 
+    CONSTRAINT [FK_ChapterQuiz_Chapters] FOREIGN KEY ([chapter_id]) REFERENCES [Chapters]([id])
 )
 
 CREATE TABLE [dbo].[Companies] (
@@ -70,27 +93,6 @@ CREATE TABLE [dbo].[QuizAnswers]
     CONSTRAINT [FK_QuizAnswers_Answers] FOREIGN KEY ([answer_id]) REFERENCES [Answers]([id]), 
     CONSTRAINT [FK_QuizAnswers_QuizQuestions] FOREIGN KEY ([question_id]) REFERENCES [QuizQuestions]([id]), 
     PRIMARY KEY ([question_id], [answer_id])
-)
-
-CREATE TABLE [dbo].[Courses]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [title] NVARCHAR(50) NOT NULL, 
-    [description] NVARCHAR(MAX) NOT NULL, 
-    [category] NVARCHAR(20) NOT NULL,
-    [price] FLOAT NOT NULL, 
-    [cover_pic_res_id] INT NOT NULL, 
-    [tutor_id] INT NOT NULL, 
-    CONSTRAINT [FK_Course_FileResources] FOREIGN KEY ([cover_pic_res_id]) REFERENCES [FileResources]([id]), 
-    CONSTRAINT [FK_Course_Tutors] FOREIGN KEY ([tutor_id]) REFERENCES [Tutors]([id]) 
-)
-
-CREATE TABLE [dbo].[Chapters]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [title] NVARCHAR(50) NOT NULL, 
-    [course_id] INT NOT NULL, 
-    CONSTRAINT [FK_Chapters_Courses] FOREIGN KEY ([course_id]) REFERENCES [Courses]([id])
 )
 
 CREATE TABLE [dbo].[ChapterContents]
