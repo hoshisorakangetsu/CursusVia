@@ -5,18 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CursusVia.Admin
+namespace CursusVia.Controls
 {
-    public partial class Vacancy : System.Web.UI.Page
+    public partial class MultiFileUpload : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }

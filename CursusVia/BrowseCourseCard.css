@@ -2,3 +2,7 @@
 .actions {
     gap: .5rem;
 }
+
+.secondaryAction {
+    padding: 0 .25em !important;
+}

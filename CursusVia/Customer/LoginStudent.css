@@ -142,7 +142,7 @@ h3 {
     width: 300px;
     height: auto;
     padding: 30px;
-    background: #e6e6e6;
+    background: #e6e6e;
     border-radius: 16px;
     position: absolute;
     top: 50%;
@@ -151,6 +151,7 @@ h3 {
     border: 1px solid #29354C;
     box-sizing: border-box;
     padding-bottom: 100px;
+    padding-top:20px;
 }
 
 .lblRegister {

@@ -3,6 +3,7 @@
     <link href="ViewVacancy.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminMasterBody" runat="server">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Vacancies.job_title, Companies.name, Companies.address, Companies.postcode, Companies.state, Companies.country, Vacancies.min_salary, Vacancies.max_salary, Vacancies.type, Vacancies.role, Vacancies.job_requirement, Vacancies.job_description FROM Companies INNER JOIN Vacancies ON Companies.id = Vacancies.company_id"></asp:SqlDataSource>
     <div class="backBtn">
         <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='Vacancy.aspx'>   
             <span class="material-symbols-outlined backIcon">arrow_back</span>
@@ -10,6 +11,22 @@
         </asp:HyperLink>
     </div>
     <div class="contentContainer">
+        <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataSourceID="SqlDataSource1">
+            <Fields>
+                <asp:BoundField DataField="job_title" HeaderText="job_title" SortExpression="job_title" />
+                <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                <asp:BoundField DataField="address" HeaderText="address" SortExpression="address" />
+                <asp:BoundField DataField="postcode" HeaderText="postcode" SortExpression="postcode" />
+                <asp:BoundField DataField="state" HeaderText="state" SortExpression="state" />
+                <asp:BoundField DataField="country" HeaderText="country" SortExpression="country" />
+                <asp:BoundField DataField="min_salary" HeaderText="min_salary" SortExpression="min_salary" />
+                <asp:BoundField DataField="max_salary" HeaderText="max_salary" SortExpression="max_salary" />
+                <asp:BoundField DataField="type" HeaderText="type" SortExpression="type" />
+                <asp:BoundField DataField="role" HeaderText="role" SortExpression="role" />
+                <asp:BoundField DataField="job_requirement" HeaderText="job_requirement" SortExpression="job_requirement" />
+                <asp:BoundField DataField="job_description" HeaderText="job_description" SortExpression="job_description" />
+            </Fields>
+        </asp:DetailsView>
         <div>
             <h1 class="surfaceText">Job Title</h1>
             <span class="surfaceText companyName">Company Name</span>

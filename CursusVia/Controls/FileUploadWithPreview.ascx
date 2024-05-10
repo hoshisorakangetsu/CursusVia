@@ -5,13 +5,22 @@
 <div class="inputWithValidator">
     <div class="uploadFileContainer" id="dropZone">
         <asp:FileUpload ID="_MediaFileUpload" runat="server" Style="display: none;" />
-        <div class="uploadFile" id="uploadFileHint">
+        <% // wtf cannot have space between style property and value %>
+        <div class="uploadFile" id="uploadFileHint" style=<%= String.IsNullOrEmpty(Src) ? "display:flex;" : "display:none;" %>>
             <span class="uploadIcon material-symbols-outlined">add_photo_alternate
             </span>
             <h3>Drop Files or Click to Browse</h3>
         </div>
         <!-- will be populated by js once got file -->
-        <img src="#" alt="File Preview" id="filePreview" class="filePreview" style="display: none;" />
+        <% if (FileType == "image")
+            { %>
+            <img src=<%= String.IsNullOrEmpty(Src) ? "#" : Src %> alt="File Preview" id="filePreview" class="filePreview" style=<%= String.IsNullOrEmpty(Src) ? "display:none;" : "display:flex;" %> />
+        <%
+            } else if (FileType == "video")
+            { %>
+            <video src=<%= String.IsNullOrEmpty(Src) ? "#" : Src %> alt="File Preview" id="filePreview" class="filePreview" style=<%= String.IsNullOrEmpty(Src) ? "display:none;" : "display:flex;" %> controls />
+        <%
+            } %>
     </div>
     <% if (IsRequired)
         {  %>
@@ -55,10 +64,10 @@
 
     function uploadFile(f) {
         // handle file upload and preview here
-        if (f.length && f[0].type.includes("image")) {
-            const imgPreview = dropZone.querySelector("#filePreview")
-            imgPreview.src = URL.createObjectURL(f[0])
-            imgPreview.style.display = "block";
+        if (f.length && f[0].type.includes("<%= FileType %>")) {
+            const preview = dropZone.querySelector("#filePreview")
+            preview.src = URL.createObjectURL(f[0])
+            preview.style.display = "block";
 
             dropZone.querySelector("#uploadFileHint").style.display = "none";
         }

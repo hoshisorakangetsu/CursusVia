@@ -35,6 +35,7 @@
 .overlay .courseDesc {
     margin-top: .5rem;
     font-size: large;
+    min-height: 4rem;
 }
 
 .overlay .rating {
@@ -46,7 +47,6 @@
 .actions {
     display: flex;
     gap: 1rem;
-    margin-top: 1rem;
 }
 
 .actions .btnPrimary {
