@@ -16,7 +16,7 @@ namespace CursusVia
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 Directory.CreateDirectory(server.MapPath("~/files/"));
-                SqlCommand cmd = new SqlCommand("INSERT INTO FileResources(FilePath, OriFileName) VALUES(@filepath, @orifilename); SELECT SCOPE_IDENTITY()", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO FileResources(file_path, file_name) VALUES(@filepath, @orifilename); SELECT SCOPE_IDENTITY()", con);
                 string filePath = "~/files/" + System.Guid.NewGuid().ToString("N") + "." + file.FileName.Split('.').Last();
                 file.SaveAs(server.MapPath(filePath));
                 con.Open();
