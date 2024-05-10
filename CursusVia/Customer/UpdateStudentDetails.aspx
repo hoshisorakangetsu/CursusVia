@@ -24,13 +24,17 @@
                 <div style="margin-left:30px;" class="input-grp">
                 <asp:TextBox ID="txtName" runat="server" CssClass="input-grp" Placeholder=" Name" Height="30px" Width="70%"></asp:TextBox>
                    </div>
+                <div>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="This field cannot leave empty" ControlToValidate="txtName" ForeColor="red"></asp:RequiredFieldValidator>
+                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="The name information must be changed" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
+                </div>
                      </td>
         </tr>
         <tr>
             <td>
                <div style="margin-left:30px;" class="input-grp2" >
               <%--  <asp:TextBox ID="txtEmail" runat="server" CssClass="input-grp2" Placeholder=" Email" Height="30px" Width="70%" ></asp:TextBox>--%>
-                   <asp:Label ID="lblEmail" runat="server" Text="" CssClass="input-grp2" ></asp:Label>
+                   <asp:Label ID="lblEmail" runat="server" Text="" CssClass="input-grp2" Height="30px" Width="70%" ></asp:Label>
                   </div>
                      </td>
         </tr>
@@ -41,7 +45,10 @@
         
              <p>I agree to the terms and conditions
              </p>
-             <asp:Label ID="lblMsg" runat="server" Text="Label"></asp:Label>
+             <div style="margin-top:10px;">
+             <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+                 <asp:Label ID="lblMsg2" runat="server" Text=""></asp:Label>
+                 </div>
         </div>
               </td>
  </tr>
