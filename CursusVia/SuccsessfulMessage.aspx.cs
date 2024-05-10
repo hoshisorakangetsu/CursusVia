@@ -16,7 +16,7 @@ namespace CursusVia.Customer
 
         protected void btnExit_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Customer/Cart.aspx");
+            Response.Redirect("Cart.aspx");
 
         }
     }

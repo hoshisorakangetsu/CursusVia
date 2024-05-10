@@ -119,6 +119,9 @@
        
         color: #29354C;
     }
+
+
+
 /*End of Account Login Pannel*/
 /***********************************************/
 
@@ -236,7 +239,7 @@
     position: absolute;
 }
 
- .lbtnLogin:hover {
+.lbtnLogin:hover {
         color: #29354C;
     }
 /*End of Account register panel*/
@@ -270,3 +273,19 @@
     text-align: center;
     width: 100%;
 }
+
+
+
+.errorVal {
+    display: flex;
+    width: 100%; 
+    text-align: left; 
+    color: red;
+    font-size: 0.8rem;
+    margin-top: -1px; 
+    margin-bottom: 25px; 
+}
+
+
+
+/*End of Account Upate Panel*/
