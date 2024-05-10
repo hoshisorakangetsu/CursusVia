@@ -16,7 +16,7 @@ namespace CursusVia
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 Directory.CreateDirectory(server.MapPath("~/files/"));
-                SqlCommand cmd = new SqlCommand("INSERT INTO Files(FilePath, OriFileName) VALUES(@filepath, @orifilename); SELECT SCOPE_IDENTITY()", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO FileResources(FilePath, OriFileName) VALUES(@filepath, @orifilename); SELECT SCOPE_IDENTITY()", con);
                 string filePath = "~/files/" + System.Guid.NewGuid().ToString("N") + "." + file.FileName.Split('.').Last();
                 file.SaveAs(server.MapPath(filePath));
                 con.Open();
@@ -41,7 +41,7 @@ namespace CursusVia
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Files WHERE id=@id", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM FileResources WHERE id=@id", con);
                 cmd.Parameters.AddWithValue("@id", fileId);
                 con.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
