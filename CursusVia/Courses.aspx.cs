@@ -19,13 +19,23 @@ namespace CursusVia
                     c.[title],
                     c.[price],
                     f.[file_path] AS courseImgPath,
-                    t.[name] AS tutorName
+                    t.[name] AS tutorName,
+                    ISNULL((
+                        SELECT AVG(rating)
+                        FROM [PurchasedCourses] pc
+                        WHERE pc.course_id = c.id AND pc.rating > 0
+                    ), 0) AS rating,
+                    ISNULL((
+                        SELECT COUNT(rating)
+                        FROM [PurchasedCourses] pc
+                        WHERE pc.course_id = c.id AND pc.rating > 0
+                    ), 0) AS ratingCount
                 FROM 
-                    [dbo].[Courses] c
+                    [Courses] c
                 INNER JOIN 
-                    [dbo].[Tutors] t ON c.[tutor_id] = t.[id]
+                    [Tutors] t ON c.[tutor_id] = t.[id]
                 INNER JOIN 
-                    [dbo].[FileResources] f ON c.[cover_pic_res_id] = f.[id];
+                    [FileResources] f ON c.[cover_pic_res_id] = f.[id];
             ";
             CourseRepeaterSqlDS.SelectCommand = finalCommand;
             CourseRepeaterSqlDS.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;

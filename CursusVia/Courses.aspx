@@ -76,11 +76,12 @@
                     <div class="courseCard">
                         <% 
                             // this comment should not be shown to the public as it concerns the internal working, so will be enclosing in server tags
-                            // Substring 1 because the upload file utils include "~", which is not understandable by client browsers %>
+                            // Substring 1 because the upload file utils include "~", which is not understandable by client browsers 
+                        %>
                         <img src='<%# Eval("courseImgPath").ToString().Substring(1) %>' alt="Placeholder" />
                         <p class="courseName"><%# Eval("title") %></p>
                         <p class="tutorName"><%# Eval("tutorName") %></p>
-                        <p class="rating">Rating 4.9/5.0 (10)</p>
+                        <p class="rating">Rating <%# Eval("rating") %>/5.0 (<%# Eval("ratingCount") %>)</p>
                         <p class="coursePrice">RM <%# Eval("price") %></p>
                         <div class="actions">
                             <asp:HyperLink ID="ViewDetails" runat="server" CssClass="btn btnPrimary" NavigateUrl='<%# "~/CourseContent.aspx?id=" + Eval("id") %>'>View Details</asp:HyperLink>
