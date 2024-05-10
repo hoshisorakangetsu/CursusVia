@@ -21,12 +21,11 @@ namespace CursusVia.Admin
             if (!Page.IsValid) { return; }
 
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            int admin = 1;
 
             SqlConnection con = new SqlConnection(cs);
 
             con.Open();
-            string selectQuery = "SELECT [id], [name], [address], [postcode], [state], [country] FROM [dbo].[Companies] WHERE [name] = @CompanyName";
+            string selectQuery = "SELECT [id], [name], [address], [postcode], [state], [area] FROM [dbo].[Companies] WHERE [name] = @CompanyName";
             SqlCommand cmd = new SqlCommand(selectQuery, con);
             cmd.Parameters.AddWithValue("@CompanyName", txtCompanyName.Text);
 
@@ -34,14 +33,14 @@ namespace CursusVia.Admin
 
             if (companyID == null) 
             {
-                string sqlCompany = "INSERT INTO [dbo].[Companies] ([name], [address], [postcode], [state], [country]) VALUES (@Name, @Address, @Postcode, @State, @Country)";
+                string sqlCompany = "INSERT INTO [dbo].[Companies] ([name], [address], [postcode], [state], [area]) VALUES (@Name, @Address, @Postcode, @State, @Area)";
                 SqlCommand insertCompany = new SqlCommand(sqlCompany, con);
 
                 insertCompany.Parameters.AddWithValue("@Name", txtCompanyName.Text);
                 insertCompany.Parameters.AddWithValue("@Address", txtCompanyAddress.Text);
                 insertCompany.Parameters.AddWithValue("@Postcode", txtCompanyPostcode.Text);
                 insertCompany.Parameters.AddWithValue("@State", txtCompanyState.Text);
-                insertCompany.Parameters.AddWithValue("@Country", txtCompanyCountry.Text);
+                insertCompany.Parameters.AddWithValue("@Area", txtCompanyArea.Text);
 
                 insertCompany.ExecuteNonQuery();
 
