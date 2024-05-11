@@ -46,7 +46,16 @@ namespace CursusVia.Tutor
 
 		protected void Button2_Click(object sender, EventArgs e)
 		{
-			
+
+			if (User.Identity.IsAuthenticated)
+			{
+				FormsAuthentication.SignOut();
+				Response.Redirect("logoutMsg.aspx");
+			}
+			else
+			{
+				Response.Redirect("LoginTutor.aspx");
+			}
 		}
 		}
 	}

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminMasterBody" runat="server">
     <div class="backBtn">
-        <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='ViewVacancy.aspx'>   
+        <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='ViewVacancy.aspx?id=<% Request.Params["id"] %>'>    
             <span class="material-symbols-outlined backIcon">arrow_back</span>
             Back
         </asp:HyperLink>
@@ -139,7 +139,7 @@
             </div>
         </div>
         <div class="btnCreate">
-            <asp:Button ID="btnCreate" runat="server" Text="Create" CssClass="btnPrimary Btn" OnClick="btnCreate_Click"/>
+            <asp:Button ID="btnCreate" runat="server" Text="Create" CssClass="btnPrimary Btn"/>
         </div>
     <script src='<%= ResolveUrl("~/InputWithValidator.js") %>' defer></script>
 </asp:Content>
