@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,17 +12,26 @@ namespace CursusVia.Tutor
 {
     public partial class CreateCourse : System.Web.UI.Page
     {
+        private string tutorId;
         protected void Page_Load(object sender, EventArgs e)
         {
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
 
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+                tutorId = authTicket.Name;
+            }
         }
 
         protected void submitForm_Click(object sender, EventArgs e)
         {
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            int tutorId = 2; // change this to get from cookie when login is done
 
             if (!Page.IsValid) { return; }
+
+            // for xb test on his machine only, remove in future
+            if (String.IsNullOrEmpty(tutorId)) { tutorId = "2"; }
 
             using (SqlConnection con = new SqlConnection(cs))
             {
