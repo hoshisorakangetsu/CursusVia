@@ -169,10 +169,7 @@ namespace CursusVia.Customer
 			return strHash;
 		}
 
-		protected void lbtnShowRegister_Click(object sender, EventArgs e)
-		{
-			Response.Redirect("RegisterStudent.aspx");
-		}
+		
 	}
 
 

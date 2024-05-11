@@ -22,7 +22,6 @@
         <asp:Button ID="btnLogin" runat="server" CssClass="btnLogin" Text="Login" OnClick="btnLogin_Click" />
         <asp:LinkButton runat="server" ID="lbtnForgetPass" CssClass="lbtnForgetPass" >Forget password?</asp:LinkButton>
         <asp:CheckBox runat="server" ID="cbRememberMe" Text="Remember me" CssClass="cbRememberMe"></asp:CheckBox>
-        <asp:LinkButton runat="server" ID="lbtnShowRegister" Text="Register"  CssClass="lbtnRegister" OnClick="lbtnShowRegister_Click" />
           <asp:Image ID="captchaImage" runat="server" Height="50px" Width="150px"  ImageUrl="~/Customer/MyCaptcha.aspx" /><br>
 <asp:TextBox ID="captchacode" runat="server" Placeholder="Enter captcha code" CssClass="txtEmail"></asp:TextBox>
   
