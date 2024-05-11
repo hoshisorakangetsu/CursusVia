@@ -14,7 +14,7 @@ Back
 <div id="Div1" runat="server" class="Register-container">
 <asp:Label ID="Label1" runat="server" Text="Reset Password Via Email" CssClass="lblRegister" ></asp:Label>
 <asp:TextBox ID="txtEmail" runat="server" CssClass="txtEmail" PlaceHolder="📧Enter your Email"></asp:TextBox>
-  
+    <asp:TextBox ID="txtName" runat="server"  CssClass="txtEmail" PlaceHolder="📧Enter your Name"></asp:TextBox>
     <asp:Button ID="Button1" runat="server" Text="Confirm" CssClass="btnSubmit" OnClick="Button1_Click" />
     <asp:Button ID="Button2" runat="server" Text="Cancel" CssClass="btnCancel" />
     
@@ -23,4 +23,5 @@ Back
     
 
     </div>
+
 </asp:Content>

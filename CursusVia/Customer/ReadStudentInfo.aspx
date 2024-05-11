@@ -17,7 +17,7 @@
   </asp:HyperLink>
    </div>
     <div id="container">
-
+     
     <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" CellPadding="7" DataKeyNames="id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Height="500px" Width="700px" cellspacing="12" >
         <RowStyle BackColor="white" />
 
@@ -41,9 +41,5 @@
              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Student&#39;s Details
         </HeaderTemplate>
         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-    </asp:DetailsView>
-        </div>
-      <div id="formatbttn" style="position:relative; margin-top:30px; left:150px;">
-   &nbsp; &nbsp; <asp:Button ID="Button1" runat="server" Text="Update Details" CssClass="btnPrimary btn" OnClick="Button1_Click" />
-          </div>
-</asp:Content>
+         </asp:DetailsView>
+        </asp:Content>
