@@ -26,49 +26,6 @@
           <asp:Label ID="lblMessage" runat="server"/>
 </div>
     </asp:Panel>
-   <%-- 
-     <asp:Panel ID="pnlRegister" runat="server" Visible="false">
-         <h3 style="margin-left:20px;">Register</h3>
-         <div class="backBtn">
-            <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='LoginStudent.aspx'>   
-        <span class="material-symbols-outlined backIcon" style="font-size: 1.25em; display: flex; justify-content: left; color: var(--text-on-surface) !important; gap: .5em; margin-top:20px;">arrow_back</span>
-        Back
-            </asp:HyperLink>
-        </div>
-        <div id="RegisterContainer" runat="server" class="Register-container">
-        <asp:Label ID="lblRegister" runat="server" Text="Register Student" CssClass="lblRegister" ></asp:Label>
-        <asp:TextBox ID="txtEmail" runat="server" CssClass="txtEmail" PlaceHolder="📧Email"></asp:TextBox>
-        <asp:TextBox ID="txtPass" runat="server" TextMode="Password" CssClass="txtPass" Placeholder="🔑 Password" />
-        <asp:TextBox ID="txtConfirmPass" runat="server" TextMode="Password" CssClass="txtPass" Placeholder="🔒 Confirm password" />
-       
-            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btnSubmit"/>
-            <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btnCancel"/>
-            <asp:LinkButton runat="server" ID="lbtnLogin" Text="Login" OnClick="lbtnShowLogin_Click" CssClass="lbtnLogin" />
-
-            </div>
-   
-          </asp:Panel>
-
-    <asp:Panel ID="pnlForgetPw" runat="server" Visible="true">
-     <h3>Forget Password</h3>
-     <div class="backBtn">
-        <asp:HyperLink ID="HyperLink1" runat="server" class="backText" NavigateUrl='LoginStudent.aspx'>   
-    <span class="material-symbols-outlined backIcon" style="font-size: 1.25em; display: flex; justify-content: left; color: var(--text-on-surface) !important; gap: .5em;">arrow_back</span>
-    Back
-        </asp:HyperLink>
-    </div>
-    <div id="Div1" runat="server" class="Register-container">
-    <asp:Label ID="Label1" runat="server" Text="Reset Password Via Email" CssClass="lblRegister" ></asp:Label>
-    <asp:TextBox ID="TextBox1" runat="server" CssClass="txtEmail" PlaceHolder="📧Enter your Email"></asp:TextBox>
-  
-        <asp:Button ID="Button1" runat="server" Text="Confirm" CssClass="btnSubmit"/>
-        <asp:Button ID="Button2" runat="server" Text="Cancel" CssClass="btnCancel"/>
-        
-
-        </div>
-   
-      </asp:Panel>
-
-   --%>
+ 
 
 </asp:Content>
