@@ -114,6 +114,15 @@ namespace CursusVia.Customer
 		protected global::System.Web.UI.WebControls.CheckBox cbRememberMe;
 
 		/// <summary>
+		/// lbtnShowRegister control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton lbtnShowRegister;
+
+		/// <summary>
 		/// captchaImage control.
 		/// </summary>
 		/// <remarks>

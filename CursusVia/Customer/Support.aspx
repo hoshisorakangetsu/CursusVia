@@ -18,7 +18,7 @@
             <div>
                 <div class="filterHeader">
                     <span class="surfaceText filterText">FILTER</span>
-                    <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btnPrimary btn"/>
+                    <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btnPrimary btn" OnClick="btnClear_Click"/>
                 </div>
                 <div class="filterStatus">
                     <span class="surfaceText statusText">STATUS</span>
@@ -61,7 +61,10 @@
                                 <p class="surfaceText margin-top">
                                     <%# Eval("description") %>
                                 </p>
-                                <p class="surfaceText margin-top"><b>Status: <%# Eval("status") %></b></p>
+                                <div>
+                                    <p class="surfaceText margin-top"><b>Status: <%# Eval("status") %></b></p>
+                                    <p class="surfaceText"><b>Posted On: <%# Eval("date_send") %></b></p>
+                                </div>
                             </div>
                             <div class="requestBtn">
                                 <asp:HyperLink ID="btnViewDetails" runat="server" class="btnPrimary newBtn" NavigateUrl='<%# "ViewRequest.aspx?id=" + Eval("id") %>'>   

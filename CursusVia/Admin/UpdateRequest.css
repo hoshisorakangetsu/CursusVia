@@ -96,3 +96,8 @@ a.editBtn:hover {
 .statusSection {
     margin-top:1em;
 }
+
+.h1 {
+    font-size: 2em;
+    font-weight: bolder;
+}
