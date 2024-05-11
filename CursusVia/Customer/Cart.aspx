@@ -22,8 +22,7 @@
                     </HeaderTemplate>
                     <ItemTemplate>
                         <div class="cart-row">
-                            <div class="cart-cell">  <asp:CheckBox ID="ItemSelector" runat="server" AutoPostBack="true" 
-                  OnCheckedChanged="ItemSelector_CheckedChanged" /></div>
+                            <div class="cart-cell">  <asp:CheckBox ID="ItemSelector" runat="server" /></div>
                             <div class="cart-cell">
     <img src='<%# ResolveUrl("~/images/" + Eval("Image")) %>' alt="Item Image" style="height: 100px;"/>
 </div>
@@ -44,7 +43,7 @@
     <p>Item(s) subtotal: <asp:Label ID="lblSubtotal" runat="server"></asp:Label></p>
     <p>Tax (7%): <asp:Label ID="lblTax" runat="server"></asp:Label></p>
     <p>Total: <asp:Label ID="lblTotal" runat="server"></asp:Label></p>
-    <asp:Button ID="Button1" runat="server" Text="Checkout" CssClass="Button" OnClick="CheckoutButton_Click" />
+    <asp:Button ID="Button1" runat="server" Text="Checkout" CssClass="Button" />
 </div>
 
         </div>

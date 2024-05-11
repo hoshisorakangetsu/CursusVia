@@ -122,8 +122,8 @@
     <Content Include="Admin\ViewWithdrawRequest.css" />
     <Content Include="Admin\WithdrawStatusUpdate.aspx" />
     <Content Include="Admin\WithdrawUpdate.css" />
-    <Content Include="Cart.aspx" />
-    <Content Include="CartStyle.css" />
+    <Content Include="Customer\Cart.aspx" />
+    <Content Include="Customer\CartStyle.css" />
     <Content Include="Controls\FileUploadWithPreview.ascx" />
     <Content Include="Controls\MultiFileUpload.ascx" />
     <Content Include="Customer\AddToCart.aspx" />
@@ -459,11 +459,11 @@
     <Compile Include="Admin\WithdrawStatusUpdate.aspx.designer.cs">
       <DependentUpon>WithdrawStatusUpdate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cart.aspx.cs">
+    <Compile Include="Customer\Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cart.aspx.designer.cs">
+    <Compile Include="Customer\Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controls\FileUploadWithPreview.ascx.cs">
