@@ -31,7 +31,6 @@
     display: flex;
     gap: 3em;
     padding-bottom: 1.5em;
-    justify-content: space-between;
 }
 
 .inputName {

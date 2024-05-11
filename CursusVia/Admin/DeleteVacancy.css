@@ -57,11 +57,20 @@ h2 {
     font-size: 1.25em;
 }
 
-.Btn {
-    all:unset;
-    padding:.5em .75em;
-    border-radius:.25em;
-    cursor:pointer;
-    min-width:5em;
-    text-align:center;
+.newBtn {
+    all: unset; /* reset styles first */
+    background-color: var(--primary-color) !important;
+    border-radius: .25em;
+    padding: .5em .75em !important;
+    text-align: center;
+    min-width: 5em;
+}
+
+.newBtn:hover {
+    cursor: pointer;
+}
+
+.newBtn:visited {
+    text-decoration: none;
+    color: var(--text-on-primary) !important;
 }
