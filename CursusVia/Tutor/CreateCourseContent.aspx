@@ -18,7 +18,7 @@
         <uc:FileUploadWithPreview runat="server" ID="FileUploadWithPreview" FileType="video" IsRequired="true" />
         <div class="fields">
             <div class="genericInputField">
-                <asp:Label AssociatedControlID="ContentTitle" runat="server">Course Title</asp:Label>
+                <asp:Label AssociatedControlID="ContentTitle" runat="server">Content Title</asp:Label>
                 <asp:TextBox ID="ContentTitle" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter a title for the course content" ControlToValidate="ContentTitle" CssClass="validationMessage" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
@@ -34,9 +34,10 @@
         </div>
 
         <label for="courseContentRes">Content Resources</label>
-        <uc:MultiFileUpload runat="server" id="MultiFileUpload" />
-        <asp:Button ID="submitForm" CssClass="btn btnPrimary" Text="Create Course" runat="server" />
+        <uc:MultiFileUpload runat="server" ID="MultiFileUpload" />
+        <asp:Button ID="submitForm" CssClass="btn btnPrimary" Text="Create Course Content" runat="server" OnClientClick="populateFileIDs()" OnClick="submitForm_Click" />
     </div>
     <script src='<%= ResolveUrl("~/BackControlInit.js") %>' defer></script>
+    <script src='<%= ResolveUrl("~/InputWithValidator.js") %>' defer></script>
 </asp:Content>
 

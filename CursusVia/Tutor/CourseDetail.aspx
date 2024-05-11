@@ -51,8 +51,9 @@
                                 </div>
                                 <div class="rightSide">
                                     <div class="newItemControls">
-                                        <asp:HyperLink ID="NewChapterContent" runat="server" CssClass="btn btnPrimary" NavigateUrl='<%# "~/Tutor/CreateCourseContent.aspx?id=" + Eval("ChapterId") %>'>New Content</asp:HyperLink>
-                                        <asp:HyperLink ID="NewChapterQuiz" runat="server" CssClass="btn btnOutlinePrimary" NavigateUrl='<%# "~/Tutor/UpdateQuiz.aspx?id=" + Eval("ChapterId") %>'>New Quiz</asp:HyperLink>
+                                        <% // save courseId for use of redirect %>
+                                        <asp:HyperLink ID="NewChapterContent" runat="server" CssClass="btn btnPrimary" NavigateUrl='<%# "~/Tutor/CreateCourseContent.aspx?chapId=" + Eval("ChapterId") + "&courseId=" + Eval("CourseId") %>'>New Content</asp:HyperLink>
+                                        <asp:HyperLink ID="NewChapterQuiz" runat="server" CssClass="btn btnOutlinePrimary" NavigateUrl='<%# "~/Tutor/UpdateQuiz.aspx?chapId=" + Eval("ChapterId") + "&courseId=" + Eval("CourseId") %>'>New Quiz</asp:HyperLink>
                                     </div>
                                     <p class="itemCount"><%# Eval("ItemCount") %> Items</p>
                                     <span class="material-symbols-outlined chevron">expand_more</span>
@@ -62,7 +63,7 @@
                                 <asp:Repeater ID="ContentRepeater" runat="server" DataSourceID="ContentDS">
                                     <ItemTemplate>
                                         <div class="accordianContent">
-                                            <asp:HyperLink CssClass="contentRow" NavigateUrl='<%# "~/Tutor/UpdateCourseContent.aspx?contentId=" + Eval("ContentId") %>' runat="server">
+                                            <asp:HyperLink CssClass="contentRow" NavigateUrl='<%# "~/Tutor/UpdateCourseContent.aspx?contentId=" + Eval("ContentId") + "&courseId=" + Eval("CourseId") %>' runat="server">
                                                 <%# Eval("ContentTitle") %>
                                                 <span class="updateIcon material-symbols-outlined">edit</span>
                                             </asp:HyperLink>
@@ -71,7 +72,7 @@
                                 </asp:Repeater>
                                 <% // store chapter id to be used by the content data source %>
                                 <asp:HiddenField ID="ChapIdForContentDS" runat="server" Value='<%# Eval("ChapterId") %>' />
-                                <asp:SqlDataSource ID="ContentDS" runat="server" SelectCommand='SELECT [id] AS ContentId, [title] as ContentTitle FROM [ChapterContents] WHERE [chapter_id] = @ChapId;' ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
+                                <asp:SqlDataSource ID="ContentDS" runat="server" SelectCommand='SELECT [id] AS ContentId, [title] AS ContentTitle, (SELECT [course_id] FROM [Chapters] ch WHERE [ch].[id] = @ChapId) AS [CourseId] FROM [ChapterContents] WHERE [chapter_id] = @ChapId ORDER BY [order];' ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
                                     <SelectParameters>
                                         <asp:ControlParameter Name="ChapId" ControlID="ChapIdForContentDS" PropertyName="Value" />
                                     </SelectParameters>

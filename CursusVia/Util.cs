@@ -81,7 +81,7 @@ namespace CursusVia
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    string path = server.MapPath((string)dr["FilePath"]);
+                    string path = server.MapPath((string)dr["file_path"]);
                     if (System.IO.File.Exists(path))
                     {
                         System.IO.File.Delete(path);

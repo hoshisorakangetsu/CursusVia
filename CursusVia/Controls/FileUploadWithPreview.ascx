@@ -24,7 +24,27 @@
     </div>
     <% if (IsRequired)
         {  %>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please select an Image" ControlToValidate="_MediaFileUpload" CssClass="requiredValidator validationMessage" Display="Dynamic"></asp:RequiredFieldValidator>
+        <% if (FileType == "image")
+            { %>
+                <asp:RequiredFieldValidator 
+                    ID="RequiredFieldValidator1" 
+                    runat="server" 
+                    ErrorMessage='Please select an image' 
+                    ControlToValidate="_MediaFileUpload" 
+                    CssClass="requiredValidator validationMessage" 
+                    Display="Dynamic"></asp:RequiredFieldValidator>
+        <%
+            } else if (FileType == "video")
+            { %>
+                <asp:RequiredFieldValidator 
+                ID="RequiredFieldValidator2" 
+                runat="server" 
+                ErrorMessage='Please select a video' 
+                ControlToValidate="_MediaFileUpload" 
+                CssClass="requiredValidator validationMessage" 
+                Display="Dynamic"></asp:RequiredFieldValidator>
+        <%
+            } %>
     <% } %>
 </div>
 
