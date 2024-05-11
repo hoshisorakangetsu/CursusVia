@@ -27,15 +27,15 @@ namespace CursusVia.Tutor
 			string password = txtPassword.Text;
 			bool rememberMe = cbRememberMe.Checked;
 
-			string authenticatedUserId = AuthenticateUser(txtUsername.Text, txtPassword.Text)
+			string authenticatedUserId = AuthenticateTutor(txtUsername.Text, txtPassword.Text)
 
 
 
 ;			 if (authenticatedUserId != "0")
 			{
 				// Redirect the user to the AdminHome  page
-				Response.Redirect("Tutor.aspx");
-				FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
+				
+				FormsAuthenticationTicket ticketTutor = new FormsAuthenticationTicket(
 					1,
 				authenticatedUserId,
 				DateTime.Now,
@@ -43,14 +43,14 @@ namespace CursusVia.Tutor
 				rememberMe,
 				"Tutor"
 			 );
-				string encTicket = FormsAuthentication.Encrypt(ticket);
-				HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+				string encTicketTutor = FormsAuthentication.Encrypt(ticketTutor);
+				HttpCookie authCookieTutor = new HttpCookie(FormsAuthentication.FormsCookieName, encTicketTutor);
 				if (rememberMe)
 				{
-					authCookie.Expires = DateTime.Now.AddYears(1); // Example: Cookie expires in 1 year
+					authCookieTutor.Expires = DateTime.Now.AddYears(1); // Example: Cookie expires in 1 year
 				}
 
-				Response.Cookies.Add(authCookie);
+				Response.Cookies.Add(authCookieTutor);
 				Response.Redirect("Tutor.aspx");
 			}
 			else
@@ -59,15 +59,15 @@ namespace CursusVia.Tutor
 				lblMessage.Text = "Invalid username and password";
 			}
 		}
-		private string AuthenticateUser(string email, string password)
+		private string AuthenticateTutor(string email, string password)
 		{
 			string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 			using (SqlConnection con = new SqlConnection(CS))
 			{
-				string sql = "Select id from Tutors where email=@Email and password=@Password";
+				string sql = "Select id from Tutors where email=@email and password=@password";
 				SqlCommand cmd = new SqlCommand(sql, con);
-				cmd.Parameters.AddWithValue("@Email", txtUsername.Text.Trim());
-				cmd.Parameters.AddWithValue("@Password", getHash(txtPassword.Text.Trim()));
+				cmd.Parameters.AddWithValue("@email", txtUsername.Text.Trim());
+				cmd.Parameters.AddWithValue("@password", getHash(txtPassword.Text.Trim()));
 				con.Open();
 				int matched = Convert.ToInt32(cmd.ExecuteScalar());
 				return matched.ToString();
