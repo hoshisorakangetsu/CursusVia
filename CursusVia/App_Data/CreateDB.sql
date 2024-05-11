@@ -72,7 +72,7 @@ CREATE TABLE [dbo].[Companies] (
     [address]  NVARCHAR (50) NOT NULL,
     [postcode] NVARCHAR (15) NOT NULL,
     [state]    NVARCHAR (50) NOT NULL,
-    [country]  NVARCHAR (50) NOT NULL,
+    [area]     NVARCHAR (50) NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC)
 );
 
