@@ -50,8 +50,8 @@ namespace CursusVia
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    string path = (string)dr["FilePath"];
-                    string oriFileName = (string)dr["OriFileName"];
+                    string path = (string)dr["file_path"];
+                    string oriFileName = (string)dr["file_name"];
                     string contentType = MimeMapping.GetMimeMapping(server.MapPath(path));
                     HttpResponse response = HttpContext.Current.Response;
                     response.ClearContent();
