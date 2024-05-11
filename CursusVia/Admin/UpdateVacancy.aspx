@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminMasterBody" runat="server">
     <div class="backBtn">
-        <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='ViewVacancy.aspx'>   
+        <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='<%="ViewVacancy.aspx?id=Request.Params["id"]" %>'>    
             <span class="material-symbols-outlined backIcon">arrow_back</span>
             Back
         </asp:HyperLink>

@@ -11,7 +11,7 @@ namespace CursusVia.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string id = Response.QueryString["id"];
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
