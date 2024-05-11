@@ -115,7 +115,7 @@
                         <div class="search">
                             <asp:TextBox ID="txtCompanyPostcode" placeholder="Company Postcode" runat="server" CssClass="input"></asp:TextBox>
                         </div>
-                        <asp:RangeValidator ID="RangeValidator1" runat="server" MaximumValue="5" MinimumValue="5" ControlToValidate="txtCompanyPostcode" ErrorMessage="Please only enter the correct postcode format" CssClass="validationMessage"></asp:RangeValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" Display="Dynamic" ControlToValidate="txtCompanyPostcode" ValidationExpression="\d{5}" ErrorMessage="Please only enter the correct postcode format" CssClass="validationMessage"></asp:RegularExpressionValidator>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" Display="Dynamic" ControlToValidate="txtCompanyPostcode" ErrorMessage="Please enter the company postcode for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
                     </div>
                 </div>
