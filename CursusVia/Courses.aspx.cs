@@ -42,21 +42,5 @@ namespace CursusVia
             CourseRepeater.DataBind();
         }
 
-
-        protected void CourseRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName == "AddToCart")
-            {
-                int courseId = Convert.ToInt32(e.CommandArgument);
-                List<int> cart = Session["Cart"] as List<int>;
-                if (cart == null)
-                {
-                    cart = new List<int>();
-                }
-                cart.Add(courseId);
-                Session["Cart"] = cart;
-            }
-        }
-
     }
 }

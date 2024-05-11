@@ -85,11 +85,11 @@
                         <p class="coursePrice">RM <%# Eval("price") %></p>
                         <div class="actions">
                             <asp:HyperLink ID="ViewDetails" runat="server" CssClass="btn btnPrimary" NavigateUrl='<%# "~/CourseContent.aspx?id=" + Eval("id") %>'>View Details</asp:HyperLink>
-                            <asp:LinkButton ID="AddToCart" runat="server" CssClass="btnOutlinePrimary" CommandName="AddToCart" CommandArgument='<%# Eval("id") %>'>
+                            <asp:HyperLink ID="AddToCart" runat="server" CssClass="btnOutlinePrimary" NavigateUrl='<%# "~/Customer/AddToCart.aspx?courseId=" + Eval("id") %>'>
                 <span class="material-symbols-outlined">
                     add_shopping_cart
                 </span>
-            </asp:LinkButton>
+            </asp:HyperLink>
                         </div>
                     </div>
                 </ItemTemplate>

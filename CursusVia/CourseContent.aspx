@@ -11,23 +11,28 @@
             </span>
             Browse Courses
         </div>
-        <div class="hero">
-            <img src="https://placehold.co/600x400" alt="Course Image" />
-            <div class="overlay">
-                <p>Tutor Name</p>
-                <p class="courseName">Course Name</p>
-                <p class="courseDesc">This course is a course</p>
-                <p class="rating">Rating: 4.9/5.0 (10)</p>
-                <div class="actions">
-                    <asp:HyperLink ID="Enroll" runat="server" CssClass="btn btnPrimary">Enroll</asp:HyperLink>
-                    <asp:HyperLink ID="AddToCart" runat="server" CssClass="btnOutlinePrimary" NavigateUrl="~/Customer/Cart.aspx">
-                        <span class="material-symbols-outlined">
-                        add_shopping_cart
-                        </span>
-                    </asp:HyperLink>
+        <asp:FormView runat="server" ID="CourseDetailHeroView" DataSourceID="CourseDetailHeroDS" DefaultMode="ReadOnly" CssClass="w-full">
+            <ItemTemplate>
+                <div class="hero">
+                    <img src='<%# Eval("courseImgPath").ToString().Substring(1) %>' alt="Course Image" />
+                    <div class="overlay">
+                        <p><%# Eval("tutorName") %></p>
+                        <p class="courseName"><%# Eval("courseName") %></p>
+                        <p class="courseDesc"><%# Eval("courseDesc") %></p>
+                        <p class="rating">Rating: <%# Eval("rating") %>/5.0 (<%# Eval("ratingCount") %>)</p>
+                        <div class="actions">
+                            <asp:HyperLink ID="Enroll" runat="server" CssClass="btn btnPrimary">Enroll</asp:HyperLink>
+                            <asp:HyperLink ID="AddToCart" runat="server" CssClass="btnOutlinePrimary" NavigateUrl='<%# "~/Customer/AddToCart.aspx?courseId=" + Eval("id") %>'>
+                                <span class="material-symbols-outlined">
+                                add_shopping_cart
+                                </span>
+                            </asp:HyperLink>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </ItemTemplate>
+        </asp:FormView>
+        <asp:SqlDataSource runat="server" ID="CourseDetailHeroDS" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"></asp:SqlDataSource>
         <div class="courseContent">
             <div class="chapterOverview">
                 <h1>Chapter Overview</h1>

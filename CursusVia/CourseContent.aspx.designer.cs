@@ -15,21 +15,21 @@ namespace CursusVia
     {
 
         /// <summary>
-        /// Enroll control.
+        /// CourseDetailHeroView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Enroll;
+        protected global::System.Web.UI.WebControls.FormView CourseDetailHeroView;
 
         /// <summary>
-        /// AddToCart control.
+        /// CourseDetailHeroDS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink AddToCart;
+        protected global::System.Web.UI.WebControls.SqlDataSource CourseDetailHeroDS;
     }
 }
