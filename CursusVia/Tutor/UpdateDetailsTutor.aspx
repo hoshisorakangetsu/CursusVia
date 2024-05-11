@@ -23,16 +23,20 @@ Back
             <td>
                 <div class="input-grp">
                      
-                <asp:TextBox ID="TextBox3" runat="server" cssClass="form-control" Placeholder="Name"  Width="70%" Height="30px"></asp:TextBox>
+                <asp:TextBox ID="txtName" runat="server" cssClass="form-control" Placeholder="Name"  Width="70%" Height="30px"></asp:TextBox>
                        
                     </div>
+                <div style="margin-left:25px;">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Cannot Leave Empty" ControlToValidate="txtName" ForeColor="red"></asp:RequiredFieldValidator>
+                </div>
                      </td>
         </tr>
         <tr>
             <td>
-                 <div class="input-grp2">
+                  <p style="margin-left:30px; margin-bottom:20px;"><b>Tutor's Email</b></p>
+                 <div class="input-grp2" style="margin-left:40px;">
                      
-                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Placeholder="Email" Width="70%" Height="30px"></asp:TextBox>
+                     <asp:Label ID="lblEmail" runat="server" Text="" ></asp:Label>
                   
                      </div>
                      </td>
@@ -40,8 +44,8 @@ Back
         <tr>
      <td>
          <div class="input-grp" style="margin-left:30px;">
-            <label for="DropDownList1" style="margin-bottom:10px;">Qualifications:</label>
-            <asp:DropDownList ID="DropDownList1" runat="server" >
+            <label for="DropDownList1" style="margin-bottom:10px; color:black;" CssClass="form-control">Qualifications:</label>
+            <asp:DropDownList ID="ddlQualification" runat="server" CssClass="txtEmail2" style=" width: 70%; padding: 10px; margin-bottom: 15px; border: 1px solid #29354C; border-radius: 5px; box-sizing: border-box;" >
                 <asp:ListItem Value="phd">PHD</asp:ListItem>
                 <asp:ListItem Value="master">Master</asp:ListItem>
                 <asp:ListItem Value="degree">Degree</asp:ListItem>
@@ -51,9 +55,14 @@ Back
  </tr>
         <tr>
             <td>
-                  
-             &nbsp;&nbsp;&nbsp;   <asp:Button ID="Button1" runat="server" Text="Update" CssClass="btnPrimary btn"/>
-                  
+                <div style="margin-left:25px;">
+                <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="At least one field must be updated" OnServerValidate="CustomValidator1_ServerValidate" ForeColor="red"></asp:CustomValidator>
+                <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+                    </div>
+                 <div style="margin-top:20px;">
+                     &nbsp;&nbsp;&nbsp;
+                <asp:Button ID="Button1" runat="server" Text="Update" CssClass="btnPrimary btn" OnClick="Button1_Click" CausesValidation ="true"/>
+                  </div>
             </td>
         </tr>
     
@@ -61,3 +70,4 @@ Back
 </div>
     
 </asp:Content>
+
