@@ -7,7 +7,7 @@
 				<siteMapNode url="~/Customer/CourseQuiz.aspx" title="Chapter Quiz" description="Quiz of a chapter" />
 			</siteMapNode>
 		</siteMapNode>
-		<siteMapNode url="~/Customer/Cart.aspx" title="My Cart"  description="" icon="shopping_bag" />
+		<siteMapNode url="Cart.aspx" title="My Cart"  description="" icon="shopping_bag" />
 		<siteMapNode url="~/Customer/Support.aspx" title="Support"  description="" icon="support_agent" />
 		<siteMapNode url="~/Customer/Vacancy.aspx" title="Vacancies"  description="" icon="work" />
 		<siteMapNode url="~/Customer/Student.aspx" title="Profile"  description="" icon="person" />
