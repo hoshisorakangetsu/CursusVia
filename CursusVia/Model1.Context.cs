@@ -15,15 +15,18 @@ namespace CursusVia
     
     public partial class CursusViaEntities2 : DbContext
     {
-        public CursusViaEntities2()
-            : base("name=CursusViaEntities2")
+ 
+        public CursusViaEntities2() : base("name=CursusViaEntities2")
         {
         }
-    
+
+        public virtual DbSet<Models.Admin> Admins { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            modelBuilder.Entity<Models.Admin>().ToTable("Admins"); 
+            base.OnModelCreating(modelBuilder);
         }
-    
+
     }
 }

@@ -115,23 +115,24 @@
                         <div class="search">
                             <asp:TextBox ID="txtCompanyPostcode" placeholder="Company Postcode" runat="server" CssClass="input"></asp:TextBox>
                         </div>
+                        <asp:RangeValidator ID="RangeValidator1" runat="server" MaximumValue="5" MinimumValue="5" ControlToValidate="txtCompanyPostcode" ErrorMessage="Please only enter the correct postcode format" CssClass="validationMessage"></asp:RangeValidator>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" Display="Dynamic" ControlToValidate="txtCompanyPostcode" ErrorMessage="Please enter the company postcode for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="searchSection">
+                    <div class="genericInputField">
+                        <asp:Label runat="server" class="surfaceText inputName"><b>Company Area</b></asp:Label>
+                        <div class="search">
+                            <asp:TextBox ID="txtCompanyArea" placeholder="Company Area" runat="server" CssClass="input"></asp:TextBox>
+                        </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" Display="Dynamic" ControlToValidate="txtCompanyArea" ErrorMessage="Please enter the company area for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
+                    </div>
                     <div class="genericInputField">
                         <asp:Label runat="server" class="surfaceText inputName"><b>Company State</b></asp:Label>
                         <div class="search">
                             <asp:TextBox ID="txtCompanyState" placeholder="Company State" runat="server" CssClass="input"></asp:TextBox>
                         </div>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" Display="Dynamic" ControlToValidate="txtCompanyState" ErrorMessage="Please enter the company state for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
-                    </div>
-                    <div class="genericInputField">
-                        <asp:Label runat="server" class="surfaceText inputName"><b>Company Country</b></asp:Label>
-                        <div class="search">
-                            <asp:TextBox ID="txtCompanyCountry" placeholder="Company Country" runat="server" CssClass="input"></asp:TextBox>
-                        </div>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" Display="Dynamic" ControlToValidate="txtCompanyCountry" ErrorMessage="Please enter the company country for the job" CssClass="validationMessage"></asp:RequiredFieldValidator>
                     </div>
                 </div>
             </div>

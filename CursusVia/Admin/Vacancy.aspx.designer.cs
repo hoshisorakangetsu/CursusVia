@@ -33,6 +33,15 @@ namespace CursusVia.Admin
         protected global::System.Web.UI.WebControls.HyperLink newRequestLink;
 
         /// <summary>
+        /// txtJobTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtJobTitle;
+
+        /// <summary>
         /// btnSearch control.
         /// </summary>
         /// <remarks>

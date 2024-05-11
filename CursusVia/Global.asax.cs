@@ -11,7 +11,11 @@ namespace CursusVia
 	public class Global : System.Web.HttpApplication
 	{
 
-		protected void Application_Start(object sender, EventArgs e)
+
+		public const string CS = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CursusVia.mdf;Integrated Security=True";
+
+
+        protected void Application_Start(object sender, EventArgs e)
 		{
 
 		}

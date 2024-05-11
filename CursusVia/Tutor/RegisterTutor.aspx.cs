@@ -71,17 +71,18 @@ namespace CursusVia.Tutor
 		{
 			if (Page.IsValid)
 			{
+
 				try
 				{
 					string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 					using (SqlConnection con = new SqlConnection(CS))
 					{
-						string sql = "INSERT INTO Tutors (email, password, name, qualifications, balance)" + "VALUES (@email,@password,@name, @qualification,null)  ";
+						string sql = "INSERT INTO Tutors (email, password, name , qualifications)" + "VALUES (@email,@password,@name, @qualifications)  ";
 						SqlCommand cmd = new SqlCommand(sql, con);
 						cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
 						cmd.Parameters.AddWithValue("@password", getHash(txtPass.Text.Trim()));
 						cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
-						cmd.Parameters.AddWithValue("@qualification", ddlQualification.Text);
+						cmd.Parameters.AddWithValue("@qualifications",ddlQualification.SelectedValue);
 						con.Open();
 						int count = cmd.ExecuteNonQuery();
 						con.Close();
@@ -91,10 +92,18 @@ namespace CursusVia.Tutor
 
 							lblMessage.Text = "You have registered succussfully";
 							lblMessage.ForeColor = System.Drawing.Color.Green;
+							string script = @"<script type='text/javascript'>
+                        setTimeout(function(){
+                            window.location.href = 'LoginTutor.aspx';
+                        }, 2000); // 2 seconds delay
+                    </script>";
 
+							ClientScript.RegisterStartupScript(this.GetType(), "redirect", script);
+							//Response.Redirect("LoginStudent.aspx");
 						}
 					}
 				}
+
 
 				catch (Exception)
 				{
@@ -107,10 +116,10 @@ namespace CursusVia.Tutor
 					{
 						lblMessage.Text = "You have not registered";
 						lblMessage.ForeColor = System.Drawing.Color.Red;
+
 					}
 
 				}
-
 			}
 
 		}
