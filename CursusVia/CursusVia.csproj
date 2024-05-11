@@ -20,7 +20,8 @@
     <IISExpressSSLPort>44383</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
+    <IISExpressUseClassicPipelineMode>
+    </IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -156,6 +157,7 @@
     </Content>
     <Content Include="SuccessfulMessage.css" />
     <Content Include="SuccsessfulMessage.aspx" />
+    <Content Include="Tutor\CreateQuiz.aspx" />
     <Content Include="Tutor\deleteMsg.aspx" />
     <Content Include="Tutor\emailIcon.png" />
     <Content Include="Tutor\LoginTutor.aspx" />
@@ -579,6 +581,13 @@
     </Compile>
     <Compile Include="Tutor\AddContentResource.ashx.cs">
       <DependentUpon>AddContentResource.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\CreateQuiz.aspx.cs">
+      <DependentUpon>CreateQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\CreateQuiz.aspx.designer.cs">
+      <DependentUpon>CreateQuiz.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tutor\deleteMsg.aspx.cs">
       <DependentUpon>deleteMsg.aspx</DependentUpon>
