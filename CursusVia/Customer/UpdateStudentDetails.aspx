@@ -24,38 +24,51 @@
                 <div style="margin-left:30px;" class="input-grp">
                 <asp:TextBox ID="txtName" runat="server" CssClass="input-grp" Placeholder=" Name" Height="30px" Width="70%"></asp:TextBox>
                    </div>
-                <div>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="This field cannot leave empty" ControlToValidate="txtName" ForeColor="red"></asp:RequiredFieldValidator>
-                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="The name information must be changed" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
-                </div>
-                     </td>
+             
+                     
+            
+             <div style="margin-left:20px;">
+     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="This field cannot leave empty" ControlToValidate="txtName" ForeColor="red"></asp:RequiredFieldValidator></div>
+                <div style="margin-left:20px;">
+     <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Update fail due to no updated information" OnServerValidate="CustomValidator1_ServerValidate" ForeColor="red"></asp:CustomValidator>
+    </div>
+                </td>
         </tr>
         <tr>
             <td>
-               <div style="margin-left:30px;" class="input-grp2" >
-              <%--  <asp:TextBox ID="txtEmail" runat="server" CssClass="input-grp2" Placeholder=" Email" Height="30px" Width="70%" ></asp:TextBox>--%>
+               <div style="margin-left:35px;" class="input-grp2" >
+                 <asp:Label ID="Label1" runat="server" Text=" Student's Email:"></asp:Label></div>
+             </td>
+            </tr>
+        <tr>
+            <td>
+                 <div style="margin-left:35px;" class="input-grp2" >
                    <asp:Label ID="lblEmail" runat="server" Text="" CssClass="input-grp2" Height="30px" Width="70%" ></asp:Label>
                   </div>
                      </td>
         </tr>
-        <tr>
-     <td>
-         <div class="input-grp3" >
-             <asp:CheckBox ID="CheckBox1" runat="server" /> 
-        
-             <p>I agree to the terms and conditions
-             </p>
-             <div style="margin-top:10px;">
+               <tr>
+                 <td>
+             <div style="margin-top:10px; margin-left:20px;">
              <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
-                 <asp:Label ID="lblMsg2" runat="server" Text=""></asp:Label>
                  </div>
-        </div>
-              </td>
- </tr>
+                 </td>
+                 </tr>
+                 <tr >
+                     <td>
+                     <div style="margin-top:10px; margin-left:20px;">
+                 <asp:Label ID="lblMsg2" runat="server" Text=""></asp:Label>    
+                         </div>
+                         </td>
+                     </tr>
+                 
+       
+             
+    
         <tr>
             <td>
-                
-               &nbsp; &nbsp;<asp:Button ID="Button1" runat="server" Text="Update" cssClass="btnPrimary btn" OnClick="Button1_Click"/>
+     
+             &nbsp; &nbsp;  &nbsp; &nbsp;<asp:Button ID="Button1" runat="server" Text="Update" cssClass="btnPrimary btn" OnClick="Button1_Click"/>
                   
             </td>
         </tr>
@@ -64,3 +77,4 @@
 </div>
     
 </asp:Content>
+

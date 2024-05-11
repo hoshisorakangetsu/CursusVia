@@ -51,6 +51,15 @@ namespace CursusVia.Customer
 		protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
 
 		/// <summary>
+		/// Label1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label1;
+
+		/// <summary>
 		/// lblEmail control.
 		/// </summary>
 		/// <remarks>
@@ -58,15 +67,6 @@ namespace CursusVia.Customer
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Label lblEmail;
-
-		/// <summary>
-		/// CheckBox1 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
 
 		/// <summary>
 		/// lblMsg control.
