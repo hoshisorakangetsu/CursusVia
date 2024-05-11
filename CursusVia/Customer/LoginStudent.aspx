@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="LoginStudent.aspx.cs" Inherits="CursusVia.Customer.LoginStudent" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="LoginStudent.css" rel="stylesheet" />
     <link href="LoginStudent2" rel="stylesheet" />
+     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
            <h2 style="margin: 1rem; margin-bottom: .5rem;">Student Account</h2>
@@ -23,12 +25,14 @@
         <asp:LinkButton runat="server" ID="lbtnForgetPass" CssClass="lbtnForgetPass" >Forget password?</asp:LinkButton>
         <asp:CheckBox runat="server" ID="cbRememberMe" Text="Remember me" CssClass="cbRememberMe"></asp:CheckBox>
         <asp:LinkButton runat="server" ID="lbtnShowRegister" Text="Register"  CssClass="lbtnRegister" OnClick="lbtnShowRegister_Click" />
+          
           <asp:Image ID="captchaImage" runat="server" Height="50px" Width="150px"  ImageUrl="~/Customer/MyCaptcha.aspx" /><br>
-<asp:TextBox ID="captchacode" runat="server" Placeholder="Enter captcha code" CssClass="txtEmail"></asp:TextBox>
-  
+        <asp:TextBox ID="captchacode" runat="server" Placeholder="Enter captcha code" CssClass="txtEmail"></asp:TextBox>
           <asp:Label ID="lblMessage" runat="server"/>
+
 </div>
     </asp:Panel>
  
 
 </asp:Content>
+

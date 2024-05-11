@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CursusVia.Customer;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -11,23 +12,41 @@ namespace CursusVia
 {
     public partial class Cart : Page
     {
+        private int studentId;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                BindCart();
+                HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+                if (authCookie != null)
+                {
+                    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
+                    if (ticket != null && !string.IsNullOrEmpty(ticket.Name))
+                    {
+                        if (int.TryParse(ticket.Name, out int parsedId))
+                        {
+                            studentId = parsedId;
+                            System.Diagnostics.Debug.WriteLine("Student ID set to: " + studentId);
+                        }
+                        else
+                        {
+                            System.Diagnostics.Debug.WriteLine("Failed to parse student ID.");
+                            Response.Redirect("LoginStudent.aspx");
+                        }
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine("Ticket is null or empty.");
+                        Response.Redirect("LoginStudent.aspx");
+                    }
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("Authentication cookie is missing.");
+                    Response.Redirect("LoginStudent.aspx");
+                }
             }
-        }
-
-        private int? GetStudentIdFromCookie()
-        {
-            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-            if (authCookie != null && !string.IsNullOrEmpty(authCookie.Value))
-            {
-                FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
-                return int.Parse(ticket.Name);  // Assuming the Name stores the student ID
-            }
-            return null;
+            BindCart();
         }
 
         private DataTable GetCartItems(int studentId)
@@ -36,8 +55,24 @@ namespace CursusVia
             string connectionString = Global.CS;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT CartItems.id, Courses.image AS Image, Courses.title AS Title, Courses.description AS Description, Courses.price AS Price FROM CartItems JOIN Courses ON CartItems.course_id = Courses.id WHERE CartItems.student_id = @StudentId";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                string sql = @"
+            SELECT
+                ci.id AS CartItemId,
+                c.title AS Title,
+                c.description AS Description,
+                c.price AS Price,
+                fr.file_path AS ImagePath
+            FROM
+                dbo.CartItems ci
+            INNER JOIN
+                dbo.Courses c ON ci.course_id = c.id
+            INNER JOIN
+                dbo.FileResources fr ON c.cover_pic_res_id = fr.id
+            WHERE
+                ci.student_id = @StudentId;
+        ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@StudentId", studentId);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
@@ -51,43 +86,43 @@ namespace CursusVia
 
         private void BindCart()
         {
-            int? studentId = GetStudentIdFromCookie();
-            if (studentId != null)
+            if (studentId > 0)  // Check if studentId is greater than 0
             {
-                DataTable cartItems = GetCartItems(studentId.Value);
+                DataTable cartItems = GetCartItems(studentId);
                 CartRepeater.DataSource = cartItems;
                 CartRepeater.DataBind();
             }
             else
             {
                 // Handle cases where the student ID is not available
-                Response.Redirect("~/Login.aspx");
-            }
-        }
-
-        protected void CartRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName == "Remove")
-            {
-                int itemId = Convert.ToInt32(e.CommandArgument);
-                RemoveItemFromCart(itemId);  //  handle item removal from DB
-                BindCart(); // Re-bind to update the UI
+                Response.Redirect("LoginStudent.aspx");
             }
         }
 
         private void RemoveItemFromCart(int itemId)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["YourConnectionString"].ConnectionString;
+            string connectionString = Global.CS;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "DELETE FROM CartItems WHERE id = @ItemId";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                string sql = "DELETE FROM CartItems WHERE id = @ItemId";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@ItemId", itemId);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
             }
+        }
+        protected void CartRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+        
+                if (e.CommandName == "Remove")
+                {
+                    int itemId = Convert.ToInt32(e.CommandArgument);
+                    RemoveItemFromCart(itemId);  // Handle item removal from DB
+                    BindCart(); // Re-bind to update the UI
+                }
+         
         }
     }
 }

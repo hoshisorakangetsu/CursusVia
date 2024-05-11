@@ -18,32 +18,10 @@ namespace CursusVia.Customer
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			
+
 
 		}
-		/*
-		protected void lbtnShowLogin_Click(object sender, EventArgs e)
-		{
-			// Toggle visibility of the Logoin panel
-			pnlLogin.Visible = !pnlLogin.Visible;
-			pnlRegister.Visible = false;
-			
-		}
-
-		protected void lbtnShowRegister_Click(object sender, EventArgs e)
-		{
-			pnlRegister.Visible = !pnlRegister.Visible;
-			pnlLogin.Visible = false;
-		}
-		
-
-		protected void lbtnForgetPass_Click(object sender, EventArgs e)
-		{
-			pnlForgetPw.Visible = !pnlForgetPw.Visible;
-			pnlLogin.Visible = false;
-			pnlRegister.Visible = false;
-		}
-		*/
+	
 		protected void btnLogin_Click(object sender, EventArgs e)
 		{
 			/*
@@ -77,13 +55,13 @@ namespace CursusVia.Customer
 			}*/
 			string username = txtUsername.Text;
 			string password = txtPassword.Text;
-			bool rememberMe=cbRememberMe.Checked;
+			bool rememberMe = cbRememberMe.Checked;
 
-			string authenticatedUserId = AuthenticateUser(txtUsername.Text, txtPassword.Text);
+			string authenticatedUserId = AuthenticateUser(txtUsername.Text, txtPassword.Text)
 
 
 
-            if (authenticatedUserId != "0" && captchacode.Text.ToLower() == Session["sessionCaptcha"].ToString())
+; if (authenticatedUserId != "0" && captchacode.Text.ToLower() == Session["sessionCaptcha"].ToString())
 			{
 
 				//FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, cbRememberMe.Checked);
@@ -134,10 +112,11 @@ namespace CursusVia.Customer
 					Response.Write("<script>alert('Captcha code incorrect. Please try again ');window.location = 'LoginStudent.aspx';</script>");
 
 				}
+
 			}
 
 		}
-		private string AuthenticateUser(string email,string password)
+		private string AuthenticateUser(string email, string password)
 		{
 			string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 			using (SqlConnection con = new SqlConnection(CS))
@@ -151,7 +130,7 @@ namespace CursusVia.Customer
 				return matched.ToString();
 			}
 		}
-			public static string getHash(string oriPassword)
+		public static string getHash(string oriPassword)
 		{
 			//convert password from string > binary
 			byte[] binPassoword = Encoding.Default.GetBytes(oriPassword);
@@ -173,6 +152,7 @@ namespace CursusVia.Customer
 		{
 			Response.Redirect("RegisterStudent.aspx");
 		}
+
 	}
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CursusVia.Tutor;
+using System;
 using System.Data.SqlClient;
 using System.Web;
 using System.Web.Security;
@@ -17,30 +18,35 @@ namespace CursusVia.Customer
                 HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
                 if (authCookie != null)
                 {
-                    try
+                    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
+                    if (ticket != null && !string.IsNullOrEmpty(ticket.UserData))
                     {
-                        FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
-                        studentId = Convert.ToInt32(authTicket.Name);
+                        // Assuming UserData field is used to store the studentId securely
+                        if (int.TryParse(ticket.UserData, out int parsedId))
+                        {
+                            studentId = parsedId;
+                            System.Diagnostics.Debug.WriteLine("Student ID parsed successfully: " + studentId);
+                        }
+                        else
+                        {
+                            System.Diagnostics.Debug.WriteLine("Failed to parse Student ID.");
+                            Response.Redirect("LoginStudent.aspx");
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        // Log error
-                        Response.Redirect("~/ErrorPage.aspx?ErrorMessage=Unable to process your request."); // Generic error message for the user
-                    }
+                 
                 }
-                else
-                {
-                    Response.Redirect("LoginStudent.aspx");
-                }
+              
             }
         }
+
+
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             string courseId = Request.Params["courseId"];
             if (!string.IsNullOrEmpty(courseId) && studentId > 0)
             {
-                string connectionString = Global.CS; // Assuming Global.CS is your connection string
+                string connectionString = Global.CS; 
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(connectionString))
@@ -55,7 +61,7 @@ namespace CursusVia.Customer
                         }
                     }
 
-                    Response.Redirect("~/Cart.aspx"); // Redirect to the cart page or a confirmation page
+                    Response.Redirect("~/Customer/Cart.aspx"); // Redirect to the cart page or a confirmation page
                 }
                 catch (SqlException sqlEx)
                 {
@@ -71,7 +77,11 @@ namespace CursusVia.Customer
             else
             {
                 Response.Write("<script>alert('Invalid course information provided. Please try again.');</script>"); // Inform the user about the invalid input
+                System.Diagnostics.Debug.WriteLine("Course ID: " + courseId); // Check the output window
+
             }
         }
+
+
     }
 }
