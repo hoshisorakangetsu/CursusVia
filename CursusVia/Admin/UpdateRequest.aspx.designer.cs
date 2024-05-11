@@ -24,6 +24,33 @@ namespace CursusVia.Admin
         protected global::System.Web.UI.WebControls.HyperLink backLink;
 
         /// <summary>
+        /// lblRequestTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRequestTitle;
+
+        /// <summary>
+        /// lblPostTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPostTime;
+
+        /// <summary>
+        /// lblDescr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescr;
+
+        /// <summary>
         /// ddlStatus control.
         /// </summary>
         /// <remarks>
@@ -42,12 +69,12 @@ namespace CursusVia.Admin
         protected global::System.Web.UI.WebControls.Button btnUpdate;
 
         /// <summary>
-        /// editLink control.
+        /// Repeater1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink editLink;
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
     }
 }

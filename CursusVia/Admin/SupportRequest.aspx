@@ -5,15 +5,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminMasterBody" runat="server">
     <div class="headerContainer">
         <div class="search">
-            <span class="material-symbols-outlined searchIcon">search</span>
-            <input id="Text1" type="text" placeholder="Search Request" class="input"/>
-            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btnPrimary btn" />
+            <span class="material-symbols-outlined searchIcon">search</span> 
+            <asp:TextBox ID="txtRequestTitle" runat="server" placeholder="Search Request" CssClass="input genericInputField"></asp:TextBox>
+            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btnPrimary btn" OnClick="btnSearch_Click" />
         </div>
         <div class="filterSection">
             <div class="statusSection">
                 <span class="surfaceText inputName"><b>Status</b></span>
                 <asp:DropDownList ID="ddlStatus" runat="server" CssClass="inputField">
-                    <asp:ListItem>Respond Needed</asp:ListItem>
+                    <asp:ListItem>Processing</asp:ListItem>
                     <asp:ListItem>Completed</asp:ListItem>
                 </asp:DropDownList>
             </div>
@@ -40,29 +40,32 @@
                 </div>
             </div>
         </div>
+        <div>
+            <asp:Button ID="btnFilter" runat="server" Text="Filter" CssClass="btnPrimary btn" OnClick="btnFilter_Click"/>
+        </div>
     </div>
     <div>
         <h2 class="surfaceText contentHeader">Support Request List</h2>
     </div>
     <div class="table">
-        <table class="rounded-corners">
-            <tr>
-                <th>ID</th>
-                <th>Request Title</th>
-                <th>Date Send</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Add more course</td>
-                <td>9/4/2024</td>
-                <td>Response Needed</td>
-                <td>
-                    <asp:HyperLink ID="HyperLink1" runat="server" class="btnPrimary newBtn" NavigateUrl='ViewRequest.aspx'>View</asp:HyperLink>
-                    <asp:HyperLink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='UpdateRequest.aspx'>Update</asp:HyperLink>
-                </td>
-            </tr>
-        </table>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [id], [title], [date_send], [status] FROM [SupportRequests]"></asp:SqlDataSource>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id"  ShowHeaderWhenEmpty="True" CssClass="rounded-corners">
+            <Columns>
+                <asp:BoundField DataField="id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                <asp:BoundField DataField="title" HeaderText="Request Title" SortExpression="title" />
+                <asp:BoundField DataField="date_send" HeaderText="Date Send" SortExpression="date_send" />
+                <asp:BoundField DataField="status" HeaderText="Status" SortExpression="status" />
+
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Hyperlink ID="HyperLink1" runat="server" class="btnPrimary newBtn" NavigateUrl='<%# "ViewRequest.aspx?id=" + Eval("id")%>'>View</asp:Hyperlink>
+                        <asp:Hyperlink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='<%# "UpdateRequest.aspx?id=" + Eval("id")%>'>Update</asp:Hyperlink>
+                    </ItemTemplate>
+                    <headertemplate>
+                      Action
+                    </headertemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
     </div>
 </asp:Content>
