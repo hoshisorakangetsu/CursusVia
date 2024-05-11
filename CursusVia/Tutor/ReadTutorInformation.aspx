@@ -17,7 +17,7 @@ Back
 </asp:HyperLink>
  </div>
     <div id="container" style="margin-left:200px;" >
-    <asp:DetailsView ID="DetailsView1" runat="server" Height="500px" Width="700px" AutoGenerateRows="False" CellPadding="6" DataKeyNames="id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" >
+    <asp:DetailsView ID="DetailsView1" runat="server" Height="500px" Width="700px" AutoGenerateRows="False" CellPadding="7" DataKeyNames="id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" CellSpacing="12" >
          <emptydatarowstyle backcolor="#2461BF"
   forecolor="Red"/>
  <emptydatatemplate> No Data Found.  </emptydatatemplate> 
@@ -27,20 +27,20 @@ Back
         <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
         
         <Fields>
-            <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-            <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
-            <asp:BoundField DataField="qualifications" HeaderText="qualifications" SortExpression="qualifications" />
-            <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
-            <asp:BoundField DataField="balance" HeaderText="balance" SortExpression="balance" />
+            <asp:BoundField DataField="id" HeaderText=" &nbsp; &nbsp; Id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+            <asp:BoundField DataField="name" HeaderText=" &nbsp; &nbsp; Name" SortExpression="name" />
+            <asp:BoundField DataField="qualifications" HeaderText=" &nbsp; &nbsp; Qualifications" SortExpression="qualifications" />
+            <asp:BoundField DataField="email" HeaderText="&nbsp; &nbsp; Email" SortExpression="email" />
+            <asp:BoundField DataField="balance" HeaderText="&nbsp; &nbsp; Balance" SortExpression="balance" />
         </Fields>
             
         <FooterStyle BackColor="#5E6C82 " Font-Bold="True" ForeColor="White" />
         <FooterTemplate>
-            @CursusVia2024&nbsp; 
+          &nbsp; &nbsp; &nbsp;  @CursusVia2024&nbsp; 
         </FooterTemplate>
         <HeaderStyle BackColor="#5E6C82" Font-Bold="True" ForeColor="White" />
         <HeaderTemplate>
-            Tutor&#39;s Information
+             &nbsp; &nbsp; &nbsp; &nbsp; Tutor&#39;s Information
         </HeaderTemplate>
         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#EFF3FB" />

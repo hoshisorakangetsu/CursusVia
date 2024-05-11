@@ -19,7 +19,7 @@
     <div id="container">
      
     <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" CellPadding="7" DataKeyNames="id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Height="500px" Width="700px" cellspacing="12" >
-        <RowStyle BackColor="white" />
+       
 
          <emptydatarowstyle backcolor="#2461BF"
           forecolor="Red"/>
