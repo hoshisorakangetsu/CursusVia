@@ -29,13 +29,13 @@
 
 .fileResources {
     display: flex;
-    gap: .5rem
+    gap: .5rem;
 }
 
 .fileObject {
     border-radius: 99999vh; /* pill shape hack */
     border: 1px solid var(--outline);
-    padding: .2rem .8rem;
+    padding: .2rem .8rem !important;
     cursor: pointer;
 }
 

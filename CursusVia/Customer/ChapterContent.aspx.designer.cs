@@ -15,12 +15,39 @@ namespace CursusVia.Customer
     {
 
         /// <summary>
-        /// GoToContent control.
+        /// ChapterContentView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink GoToContent;
+        protected global::System.Web.UI.WebControls.FormView ChapterContentView;
+
+        /// <summary>
+        /// ChapterContentDS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource ChapterContentDS;
+
+        /// <summary>
+        /// ChapterRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater ChapterRepeater;
+
+        /// <summary>
+        /// ChapterDS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource ChapterDS;
     }
 }

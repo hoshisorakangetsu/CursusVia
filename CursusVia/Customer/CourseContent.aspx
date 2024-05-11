@@ -59,7 +59,7 @@
                                 <asp:Repeater ID="ContentRepeater" runat="server" DataSourceID="ContentDS">
                                     <ItemTemplate>
                                         <div class="accordianContent">
-                                            <asp:HyperLink ID="GoToContent" runat="server" CssClass="contentRow" NavigateUrl='<%# "~/Customer/CourseContent.aspx?contentId=" + Eval("ContentId") + "&courseId=" + Eval("CourseId") %>'> 
+                                            <asp:HyperLink ID="GoToContent" runat="server" CssClass="contentRow" NavigateUrl='<%# "~/Customer/ChapterContent.aspx?contentId=" + Eval("ContentId") + "&courseId=" + Eval("CourseId") %>'> 
                                 <%# Eval("ContentTitle") %>
                                             </asp:HyperLink>
                                         </div>
@@ -81,33 +81,39 @@
             <div class="giveARating">
                 <h1>Give a Rating</h1>
                 <div class="giveRatingContainer">
-                    <p>How satisfied are you with the course?</p>
-                    <div class="ratingControl">
-                        <span>Not Satisfied</span>
-                        <div class="ratingRBL">
-                            <asp:RadioButtonList ID="CourseRating" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
-                                <asp:ListItem Value="1"></asp:ListItem>
-                                <asp:ListItem Value="2"></asp:ListItem>
-                                <asp:ListItem Value="3"></asp:ListItem>
-                                <asp:ListItem Value="4"></asp:ListItem>
-                                <asp:ListItem Value="5"></asp:ListItem>
-                            </asp:RadioButtonList>
+                    <div>
+                        <p>How satisfied are you with the course?</p>
+                        <div class="ratingControl">
+                            <span>Not Satisfied</span>
+                            <div class="ratingRBL">
+                                <asp:RadioButtonList ID="CourseRating" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                                    <asp:ListItem Value="1"></asp:ListItem>
+                                    <asp:ListItem Value="2"></asp:ListItem>
+                                    <asp:ListItem Value="3"></asp:ListItem>
+                                    <asp:ListItem Value="4"></asp:ListItem>
+                                    <asp:ListItem Value="5"></asp:ListItem>
+                                </asp:RadioButtonList>
+                            </div>
+                            <span>Very Satisfied</span>
                         </div>
-                        <span>Very Satisfied</span>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please select a course rating" CssClass="validationMessage" ControlToValidate="CourseRating" Display="Dynamic"></asp:RequiredFieldValidator>
                     </div>
-                    <p>How satisfied are you with the tutor?</p>
-                    <div class="ratingControl">
-                        <span>Not Satisfied</span>
-                        <div class="ratingRBL">
-                            <asp:RadioButtonList ID="TutorRating" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
-                                <asp:ListItem Value="1"></asp:ListItem>
-                                <asp:ListItem Value="2"></asp:ListItem>
-                                <asp:ListItem Value="3"></asp:ListItem>
-                                <asp:ListItem Value="4"></asp:ListItem>
-                                <asp:ListItem Value="5"></asp:ListItem>
-                            </asp:RadioButtonList>
+                    <div>
+                        <p>How satisfied are you with the tutor?</p>
+                        <div class="ratingControl">
+                            <span>Not Satisfied</span>
+                            <div class="ratingRBL">
+                                <asp:RadioButtonList ID="TutorRating" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                                    <asp:ListItem Value="1"></asp:ListItem>
+                                    <asp:ListItem Value="2"></asp:ListItem>
+                                    <asp:ListItem Value="3"></asp:ListItem>
+                                    <asp:ListItem Value="4"></asp:ListItem>
+                                    <asp:ListItem Value="5"></asp:ListItem>
+                                </asp:RadioButtonList>
+                            </div>
+                            <span>Very Satisfied</span>
                         </div>
-                        <span>Very Satisfied</span>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please select a tutor rating" CssClass="validationMessage" ControlToValidate="TutorRating" Display="Dynamic"></asp:RequiredFieldValidator>
                     </div>
                     <asp:Button ID="SubmitRating" Text="Submit" runat="server" CssClass="btn btnPrimary" />
                 </div>
@@ -115,4 +121,5 @@
         </div>
     <script src='<%= ResolveUrl("~/BackControlInit.js") %>' defer></script>
     <script src='<%= ResolveUrl("~/AccordianInit.js") %>' defer></script>
+    <script src='<%= ResolveUrl("~/InputWithValidator.js") %>' defer></script>
 </asp:Content>
