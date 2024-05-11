@@ -561,6 +561,9 @@
     <Compile Include="SuccsessfulMessage.aspx.designer.cs">
       <DependentUpon>SuccsessfulMessage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Tutor\AddContentResource.ashx.cs">
+      <DependentUpon>AddContentResource.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Tutor\deleteMsg.aspx.cs">
       <DependentUpon>deleteMsg.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -965,6 +968,7 @@
     </Content>
     <None Include="packages.config" />
     <Content Include="Tutor\Web.sitemap" />
+    <Content Include="Tutor\AddContentResource.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -976,6 +980,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

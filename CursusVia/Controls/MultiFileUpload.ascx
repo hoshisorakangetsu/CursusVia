@@ -51,6 +51,7 @@
     fileInputMultiFile.addEventListener("change", e => {
         // upload the files to the server here (take note file list wont be appended when the user reopens the dialog and selects another file, it is overriden)
         console.log(fileInputMultiFile.files)
+        uploadContentFile("dummy")
     });
 
     // TODO
@@ -64,6 +65,21 @@
         </span>
      </div >
      */
+        const xhr = new XMLHttpRequest();
+        xhr.addEventListener("readystatechange", () => {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                const status = xhr.status;
+                if (status === 0 || (status >= 200 && status < 400)) {
+                    // The request has been completed successfully
+                    console.log(xhr.responseText, xhr.responseXML);
+                } else {
+                    // Oh no! There has been an error with the request!
+                }
+            }
+        });
+
+        xhr.open("POST", "/Tutor/AddContentResource.ashx");
+        xhr.send();
     }
 </script>
 
