@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="cart-header">
-        <h2>Shopping Cart</h2>
+        <h2 style="margin-left: 1rem;">Shopping Cart</h2>
     </div>
     <div class="main-container">
             <!-- Shopping Cart -->
@@ -47,3 +47,5 @@
         </div>
     </div>
 </asp:Content>
+
+

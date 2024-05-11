@@ -59,7 +59,7 @@ namespace CursusVia.Customer
                             command.ExecuteNonQuery();  // ExecuteNonQuery as we are inserting
                         }
                     }
-
+                    // Redirect to the cart page
                     Response.Redirect("~/Customer/Cart.aspx");
 
                 }
@@ -71,7 +71,7 @@ namespace CursusVia.Customer
                 catch (Exception ex)
                 {
                     // Log the exception (ideally to a file or server log)
-                    Response.Redirect("~/ErrorPage.aspx?ErrorMessage=" + HttpUtility.UrlEncode("Unable to add item to cart.")); // Redirect to a generic error page
+                    Response.Write("<script>alert('Unable to add items to cart.');</script>");
                 }
             }
             else
