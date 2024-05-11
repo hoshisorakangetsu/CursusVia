@@ -115,7 +115,7 @@
                         </div>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please select a tutor rating" CssClass="validationMessage" ControlToValidate="TutorRating" Display="Dynamic"></asp:RequiredFieldValidator>
                     </div>
-                    <asp:Button ID="SubmitRating" Text="Submit" runat="server" CssClass="btn btnPrimary" />
+                    <asp:Button ID="SubmitRating" Text="Submit" runat="server" CssClass="btn btnPrimary" OnClick="SubmitRating_Click" />
                 </div>
             </div>
         </div>
