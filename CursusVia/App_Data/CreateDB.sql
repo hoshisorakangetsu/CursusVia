@@ -101,7 +101,9 @@ CREATE TABLE [dbo].[ChapterContents]
     [title] NVARCHAR(50) NOT NULL, 
     [content] NVARCHAR(MAX) NOT NULL, 
     [order] INT NOT NULL, 
+    [vid_res_id] INT NOT NULL,
     [chapter_id] INT NOT NULL, 
+    CONSTRAINT [FK_ChapterContents_FileResources] FOREIGN KEY ([vid_res_id]) REFERENCES [FileResources]([id]),
     CONSTRAINT [FK_ChapterContents_Chapters] FOREIGN KEY ([chapter_id]) REFERENCES [Chapters]([id])
 )
 
