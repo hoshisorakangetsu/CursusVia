@@ -70,6 +70,26 @@ namespace CursusVia
             }
         }
 
+        public static void DeleteFile(int fileId, HttpServerUtility server)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM FileResources WHERE id=@id", con);
+                cmd.Parameters.AddWithValue("@id", fileId);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    string path = server.MapPath((string)dr["FilePath"]);
+                    if (System.IO.File.Exists(path))
+                    {
+                        System.IO.File.Delete(path);
+                    }
+                }
+            }
+        }
+
 
         public static class SecurityHelper
         {
