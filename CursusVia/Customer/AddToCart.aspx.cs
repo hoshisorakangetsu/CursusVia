@@ -1,5 +1,5 @@
-﻿using CursusVia.Tutor;
-using System;
+﻿using System;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Web;
 using System.Web.Security;
@@ -15,30 +15,29 @@ namespace CursusVia.Customer
         {
             if (!IsPostBack)
             {
-                HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+                HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
                 if (authCookie != null)
                 {
                     FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
-                    if (ticket != null && !string.IsNullOrEmpty(ticket.UserData))
+                    if (ticket != null && !ticket.Expired)
                     {
-                        // Assuming UserData field is used to store the studentId securely
-                        if (int.TryParse(ticket.UserData, out int parsedId))
+                        if (int.TryParse(ticket.Name, out int userId))
                         {
-                            studentId = parsedId;
-                            System.Diagnostics.Debug.WriteLine("Student ID parsed successfully: " + studentId);
-                        }
-                        else
-                        {
-                            System.Diagnostics.Debug.WriteLine("Failed to parse Student ID.");
-                            Response.Redirect("LoginStudent.aspx");
+                            studentId = userId;
+                            HiddenStudentId.Value = studentId.ToString();
                         }
                     }
-                 
                 }
-              
+            }
+            else
+            {
+                if (int.TryParse(HiddenStudentId.Value, out int savedId))
+                {
+                    studentId = savedId;
+                  
+                }
             }
         }
-
 
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -46,7 +45,7 @@ namespace CursusVia.Customer
             string courseId = Request.Params["courseId"];
             if (!string.IsNullOrEmpty(courseId) && studentId > 0)
             {
-                string connectionString = Global.CS; 
+                string connectionString = Global.CS;
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(connectionString))
@@ -61,27 +60,25 @@ namespace CursusVia.Customer
                         }
                     }
 
-                    Response.Redirect("~/Customer/Cart.aspx"); // Redirect to the cart page or a confirmation page
+                    Response.Redirect("~/Customer/Cart.aspx");
+
                 }
                 catch (SqlException sqlEx)
                 {
-                    // Log the exception
-                    Response.Write("<script>alert('Database error: " + sqlEx.Message + "');</script>"); // Show a simple alert to the user
+                    // Log the exception (ideally to a file or server log)
+                    Response.Write("<script>alert('Database error: " + HttpUtility.HtmlEncode(sqlEx.Message) + "');</script>"); // Show a simple alert to the user
                 }
                 catch (Exception ex)
                 {
-                    // Log the exception
-                    Response.Redirect("~/ErrorPage.aspx?ErrorMessage=Unable to add item to cart."); // Redirect to a generic error page
+                    // Log the exception (ideally to a file or server log)
+                    Response.Redirect("~/ErrorPage.aspx?ErrorMessage=" + HttpUtility.UrlEncode("Unable to add item to cart.")); // Redirect to a generic error page
                 }
             }
             else
             {
                 Response.Write("<script>alert('Invalid course information provided. Please try again.');</script>"); // Inform the user about the invalid input
-                System.Diagnostics.Debug.WriteLine("Course ID: " + courseId); // Check the output window
-
+               
             }
         }
-
-
     }
 }

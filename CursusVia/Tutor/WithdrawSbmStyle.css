@@ -1,4 +1,13 @@
-﻿h1 {
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
     color: #29354C;
     margin-top: 10px;
     margin-right: 30px;
@@ -80,3 +89,68 @@
     font-weight: bold;
 }
 
+/* GridView custom styling */
+.withdraw-requests-grid {
+    width: 90%;
+    margin: 10px auto;
+    background-color:#E86262 ;
+    border-collapse: collapse;
+    box-shadow: 0 2px 3px #ccc;
+    font-weight:bold;
+}
+
+    .withdraw-requests-grid th {
+        background-color:#29354C;
+        color: white;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .withdraw-requests-grid td {
+        padding: 8px;
+        text-align: center;
+        border-top: 1px solid #ddd;
+    }
+
+    /* Hover effect for rows */
+    .withdraw-requests-grid tr:hover {
+        background-color: #f5f5f5;
+    }
+
+/* Styling for labels and literals within the page */
+.label, .lit {
+    display: flex;
+    text-align: center;
+    margin-right: 5px;
+}
+
+/* Styling for the notice area at the bottom of the page */
+.withdrawal-notice {
+    text-align: center;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* Button styling for a consistent and modern look */
+input[type="button"], input[type="submit"], .btnSubmit, .btnCancel {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+    input[type="button"]:hover, input[type="submit"]:hover, .btnSubmit:hover, .btnCancel:hover {
+        background-color: #45a049;
+    }
+
+/* Error and success message styling */
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}

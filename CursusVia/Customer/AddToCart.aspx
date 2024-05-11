@@ -10,6 +10,7 @@
         <div class="add-to-cart-confirmation">
             <asp:Button ID="btnAdd" runat="server" Text="Continue" CssClass="continue-button" OnClick="btnAdd_Click" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="cancel-button" NavigateUrl='<%# "~/Customer/AddToCart.aspx?courseId=" + Eval("id") %>' />
+            <asp:HiddenField ID="HiddenStudentId" runat="server" />
         </div>
     </div>
 </asp:Content>
