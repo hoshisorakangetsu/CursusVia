@@ -122,7 +122,6 @@
     <Content Include="Admin\ViewWithdrawRequest.css" />
     <Content Include="Admin\WithdrawStatusUpdate.aspx" />
     <Content Include="Admin\WithdrawUpdate.css" />
-    <Content Include="Customer\AddSuccessfullyMessage.aspx" />
     <Content Include="Customer\Cart.aspx" />
     <Content Include="Customer\CartStyle.css" />
     <Content Include="Controls\FileUploadWithPreview.ascx" />
@@ -462,13 +461,6 @@
     </Compile>
     <Compile Include="Admin\WithdrawStatusUpdate.aspx.designer.cs">
       <DependentUpon>WithdrawStatusUpdate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\AddSuccessfullyMessage.aspx.cs">
-      <DependentUpon>AddSuccessfullyMessage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer\AddSuccessfullyMessage.aspx.designer.cs">
-      <DependentUpon>AddSuccessfullyMessage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
