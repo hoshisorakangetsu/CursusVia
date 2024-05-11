@@ -10,6 +10,7 @@
     justify-content: center;
     width: 100%; /* Adjust width as necessary */
     max-width: 1600px; /* Maximum width to prevent too wide layouts on large screens */
+     border-radius: 8px;
 }
 
 .cart-container {
@@ -55,6 +56,7 @@
     align-items: center; /* Align items vertically in the center */
     background-color: #98979799; /* Light background for rows and header */
     margin-bottom: 2px; /* Space between rows */
+    border-radius: 4px;
 }
 
 .item-header {
@@ -93,6 +95,7 @@
 
 .cart-row:hover {
     background-color: #e1e1e1; /* Slightly darker background on hover */
+    transition: background-color 0.2s;
 }
 
 button {
@@ -118,3 +121,15 @@ button {
     .Button:hover {
         background-color: #45a049; /* Slightly darker green on hover */
     }
+
+.btnDelet {
+    background-color: #E86262;
+    padding: 10px 10px;
+    cursor: pointer; /* Cursor pointer to indicate clickable */
+    border-radius: 5px;
+    color:white;
+}
+
+.btnDelet:hover {
+    background-color: #29354C;
+}
