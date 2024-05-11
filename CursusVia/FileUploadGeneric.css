@@ -47,12 +47,40 @@
     padding: .5rem;
 }
 
+.fileItem .fileName {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.fileItem .iconLoading {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .fileItem .deleteIcon {
     color: var(--primary-color);
     cursor: pointer;
 }
 
-.fileItem:not(:last-child) {
+.fileItemWrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.fileItemWrapper progress {
+    align-self: center;
+    width: calc(100% - .5rem);
+    height: .2rem;
+}
+
+.fileItemWrapper:not(:last-child) {
     border-bottom: 1px solid var(--outline);
 }
 

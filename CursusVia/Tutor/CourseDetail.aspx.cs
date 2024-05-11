@@ -39,7 +39,8 @@ namespace CursusVia.Tutor
                         SELECT COUNT(*)
                         FROM [ChapterQuiz]
                         WHERE chapter_id = [c].id
-                    ), 0) AS ItemCount
+                    ), 0) AS ItemCount,
+                    [c].[course_id] AS CourseId
                 FROM [Chapters] c
                 WHERE course_id = @CourseId;
             ";

@@ -10,8 +10,13 @@ namespace CursusVia.Tutor
 
         public void ProcessRequest(HttpContext context)
         {
+            HttpPostedFile file = context.Request.Files["file"];
+
+
+            int id = Util.UploadFile(file, context.Server);
+
             context.Response.ContentType = "text/plain";
-            context.Response.Write("Hello World");
+            context.Response.Write(id);
         }
 
         public bool IsReusable
