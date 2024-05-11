@@ -13,72 +13,66 @@ namespace CursusVia.Admin
         {
             string usernameOrEmail = txtUsername.Text;
             string password = txtPassword.Text;
-            string hashedPassword = SecurityHelper.HashPassword(password); // Ensure password is hashed for security
+            string hashedPassword = SecurityHelper.HashPassword(password); // Hashing the password for security
 
-            string connectionString = Global.CS; // Global connection string
+            string connectionString = Global.CS; // Using global connection string
             string sql = "SELECT password, id FROM Admins WHERE username = @Username OR email = @Username";
 
-            SqlConnection con = null;
-            SqlCommand cmd = null;
-            SqlDataReader reader = null;
-
-            try
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
-                con = new SqlConnection(connectionString);
-                con.Open();
-                cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@username", usernameOrEmail);
-
-                reader = cmd.ExecuteReader(); // Execute reader here after command setup
-
-                if (reader.Read())
+                try
                 {
-                    string dbHashedPassword = reader["password"].ToString();
-                    int adminId = Convert.ToInt32(reader["id"]); // Retrieve the admin ID
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        cmd.Parameters.AddWithValue("@username", usernameOrEmail);
 
-                    if (dbHashedPassword != null && dbHashedPassword == hashedPassword)
-                    {
-                        Session["LoggedIn"] = true;
-                        Session["Username"] = usernameOrEmail;
-                        Session["AdminID"] = adminId;  // Storing the AdminID in the session
-                        lblStatus.Text = "Login successful!";
-                        lblStatus.CssClass = "success";
-                        Response.Redirect("/Admin/WithdrawalRequest.aspx"); // Redirect to admin dashboard if login is successful
-                    }
-                    else
-                    {
-                        lblStatus.Text = "Invalid username or password.";
-                        lblStatus.CssClass = "error";
-                        lblStatus.Visible = true;
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string dbHashedPassword = reader["password"].ToString();
+                                int adminId = Convert.ToInt32(reader["id"]); // Retrieve the admin ID
+
+                                if (dbHashedPassword == hashedPassword)
+                                {
+                                    // Create a secure cookie with admin ID and login indicator
+                                    HttpCookie authCookie = new HttpCookie("AdminAuth");
+                                    authCookie.Values["AdminID"] = adminId.ToString();
+                                    authCookie.Values["LoggedIn"] = "true";
+                                    authCookie.Expires = DateTime.Now.AddDays(1); // Set expiration for 1 day
+                                    authCookie.HttpOnly = true; // Make the cookie HttpOnly, which increases security by not making it accessible via JavaScript
+                                    Response.Cookies.Add(authCookie);
+
+                                    lblStatus.Text = "Login successful!";
+                                    lblStatus.CssClass = "success";
+                                    Response.Redirect("/Admin/WithdrawalRequest.aspx");
+                                }
+                                else
+                                {
+                                    lblStatus.Text = "Invalid username or password.";
+                                    lblStatus.CssClass = "error";
+                                    lblStatus.Visible = true;
+                                }
+                            }
+                            else
+                            {
+                                lblStatus.Text = "Invalid username or password.";
+                                lblStatus.CssClass = "error";
+                                lblStatus.Visible = true;
+                            }
+                        }
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    lblStatus.Text = "Invalid username or password.";
+                    lblStatus.Text = "Error during login: " + ex.Message;
                     lblStatus.CssClass = "error";
                     lblStatus.Visible = true;
                 }
             }
-            catch (Exception ex)
-            {
-                lblStatus.Text = "Error during login: " + ex.Message;
-                lblStatus.CssClass = "error";
-                lblStatus.Visible = true;
-            }
-            finally
-            {
-                // Ensure resources are properly cleaned up
-                if (reader != null)
-                    reader.Close();
-                if (cmd != null)
-                    cmd.Dispose();
-                if (con != null)
-                {
-                    con.Close();
-                    con.Dispose();
-                }
-            }
         }
+
 
 
     }
