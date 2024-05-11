@@ -50,6 +50,7 @@
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    position: relative;
 }
 
 .chapterField input[type=text] {
@@ -62,6 +63,12 @@
 .chapterField input[type=text]:focus {
     border-color: var(--primary-color);
     box-shadow: 0 2px 16px var(--primary-shadow);
+}
+
+.chapterField .validationMessage {
+    position: absolute;
+    top: 100%;
+    left: 0;
 }
 
 #chapterFieldModal {

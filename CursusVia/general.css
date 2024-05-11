@@ -81,7 +81,7 @@ a {
 }
 
 .btnPrimary {
-    color: var(--text-on-primary);
+    color: var(--text-on-primary) !important;
     background: var(--primary-color);
 }
 
@@ -139,7 +139,7 @@ a {
 .validationError > select,
 .validationError > textarea,
 .validationError .uploadFileContainer {
-    border-color: var(--primary-color);
+    border-color: var(--primary-color) !important;
 }
 
 .validationMessage {

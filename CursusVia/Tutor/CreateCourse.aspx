@@ -13,7 +13,7 @@
             </span>
             All Courses
         </div>
-        <uc:FileUploadWithPreview runat="server" ID="CourseImgUploadWithPreview" IsRequired="true" />
+        <uc:FileUploadWithPreview runat="server" ID="CourseImgUploadWithPreview" IsRequired="true" FileType="image" />
         <div class="fields">
             <div class="genericInputField">
                 <asp:Label AssociatedControlID="CourseTitle" runat="server">Course Title</asp:Label>

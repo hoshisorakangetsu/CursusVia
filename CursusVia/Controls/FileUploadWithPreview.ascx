@@ -24,7 +24,7 @@
     </div>
     <% if (IsRequired)
         {  %>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please select an Image" ControlToValidate="_MediaFileUpload" CssClass="requiredValidator validationMessage"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please select an Image" ControlToValidate="_MediaFileUpload" CssClass="requiredValidator validationMessage" Display="Dynamic"></asp:RequiredFieldValidator>
     <% } %>
 </div>
 

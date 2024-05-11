@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tutor/TutorMaster.master" AutoEventWireup="true" CodeBehind="UpdateCourseContent.aspx.cs" Inherits="CursusVia.Tutor.UpdateCourseContent" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TutorMasterHead" runat="server">
     <link href='<%= ResolveUrl("~/Tutor/CreateUpdateCourseContent.css") %>' rel="stylesheet" />
-    <link href='<%= ResolveUrl("~/FileUploadGeneric.css") %>' rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
     <div class="createUpdateCourseContentMain">

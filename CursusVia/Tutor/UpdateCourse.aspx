@@ -14,7 +14,7 @@
             All Courses
         </div>
         <% // no need is required because there will always be an image d, the user cannot remove the uploaded image %>
-        <uc:FileUploadWithPreview runat="server" ID="CourseImgUploadWithPreview" IsRequired="false" />
+        <uc:FileUploadWithPreview runat="server" ID="CourseImgUploadWithPreview" IsRequired="false" FileType="image" />
         <div class="fields">
             <div class="genericInputField">
                 <asp:Label AssociatedControlID="CourseTitle" runat="server">Course Title</asp:Label>

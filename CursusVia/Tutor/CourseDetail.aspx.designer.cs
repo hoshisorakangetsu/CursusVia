@@ -33,58 +33,49 @@ namespace CursusVia.Tutor
         protected global::System.Web.UI.WebControls.SqlDataSource CourseDetailHeroDS;
 
         /// <summary>
-        /// NewChapterContent control.
+        /// ChapterRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink NewChapterContent;
+        protected global::System.Web.UI.WebControls.Repeater ChapterRepeater;
 
         /// <summary>
-        /// NewChapterQuiz control.
+        /// ChapterDS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink NewChapterQuiz;
+        protected global::System.Web.UI.WebControls.SqlDataSource ChapterDS;
 
         /// <summary>
-        /// NewChapterContent2 control.
+        /// ChapterModalId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink NewChapterContent2;
+        protected global::System.Web.UI.WebControls.HiddenField ChapterModalId;
 
         /// <summary>
-        /// NewChapterQuiz2 control.
+        /// ChapterTitleTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink NewChapterQuiz2;
+        protected global::System.Web.UI.WebControls.TextBox ChapterTitleTxt;
 
         /// <summary>
-        /// ChapterModalMode control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField ChapterModalMode;
-
-        /// <summary>
-        /// ChapterTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ChapterTitle;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
         /// ChapterModalBtn control.
