@@ -15,15 +15,6 @@ namespace CursusVia.Tutor
 	{
 
 		/// <summary>
-		/// pnlRegister control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Panel pnlRegister;
-
-		/// <summary>
 		/// backLink control.
 		/// </summary>
 		/// <remarks>
@@ -105,6 +96,15 @@ namespace CursusVia.Tutor
 		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
 		/// <summary>
+		/// RegularExpressionValidator1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
+		/// <summary>
 		/// txtConfirmPass control.
 		/// </summary>
 		/// <remarks>
@@ -159,15 +159,6 @@ namespace CursusVia.Tutor
 		protected global::System.Web.UI.WebControls.DropDownList ddlQualification;
 
 		/// <summary>
-		/// lblMessage control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblMessage;
-
-		/// <summary>
 		/// btnSubmit control.
 		/// </summary>
 		/// <remarks>
@@ -177,21 +168,12 @@ namespace CursusVia.Tutor
 		protected global::System.Web.UI.WebControls.Button btnSubmit;
 
 		/// <summary>
-		/// btnCancel control.
+		/// lblMessage control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button btnCancel;
-
-		/// <summary>
-		/// lbtnLogin control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.LinkButton lbtnLogin;
+		protected global::System.Web.UI.WebControls.Label lblMessage;
 	}
 }
