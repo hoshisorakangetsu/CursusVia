@@ -138,16 +138,16 @@ CREATE TABLE [dbo].[Payments]
 )
 
 CREATE TABLE [dbo].[PurchasedCourses] (
-    [id]         INT NOT NULL IDENTITY,
-    [rating]     INT NOT NULL,
+    [id]         INT IDENTITY (1, 1) NOT NULL,
+    [rating]     INT NULL,
     [course_id]  INT NOT NULL,
     [student_id] INT NOT NULL,
-    [payment_id] INT NOT NULL, 
+    [payment_id] INT NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
     CONSTRAINT [FK_PurchasedCourses_Courses] FOREIGN KEY ([course_id]) REFERENCES [dbo].[Courses] ([id]),
-    CONSTRAINT [FK_PurchasedCourses_Students] FOREIGN KEY ([student_id]) REFERENCES [dbo].[Students] ([id]), 
-    CONSTRAINT [FK_PurchasedCourses_Payments] FOREIGN KEY ([payment_id]) REFERENCES [payments]([id])
-);
+    CONSTRAINT [FK_PurchasedCourses_Students] FOREIGN KEY ([student_id]) REFERENCES [dbo].[Students] ([id]),
+    CONSTRAINT [FK_PurchasedCourses_Payments] FOREIGN KEY ([payment_id]) REFERENCES [dbo].[Payments] ([id])
+)
 
 CREATE TABLE [dbo].[QuizRespones]
 (
