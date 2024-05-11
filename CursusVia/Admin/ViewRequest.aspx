@@ -28,9 +28,9 @@
     <div>
         <span class="surfaceText reply">Replies</span>
     </div>
-    <div class="contentContainer">
-        <asp:Repeater ID="Repeater1" runat="server">
-            <ItemTemplate>
+    <asp:Repeater ID="Repeater1" runat="server">
+        <ItemTemplate>
+            <div class="contentContainer">
                 <div class="requestTitle">
                     <h1 class="surfaceText"><%# Eval("admin_id") %></h1>
                     <p class="surfaceText">Replies on: <%# Eval("datetime") %></p>
@@ -46,9 +46,9 @@
                         Edit
                     </asp:HyperLink>
                 </div>
-            </ItemTemplate>
-        </asp:Repeater>
-    </div>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
     <div class="contentContainer">
         <div class="requestTitle">
             <h1 class="surfaceText">Student/Tutor Name</h1>
