@@ -83,7 +83,8 @@ namespace CursusVia.Customer
 
 
 
-;			if (authenticatedUserId != "0") {
+; if (authenticatedUserId != "0" && captchacode.Text.ToLower() == Session["sessionCaptcha"].ToString())
+			{
 
 				//FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, cbRememberMe.Checked);
 				/*
@@ -93,10 +94,10 @@ namespace CursusVia.Customer
 				
 				}
 				*/
-			
 
-			//	FormsAuthentication.RedirectFromLoginPage(txtUsername.Text,cbRememberMe.Checked);
-				
+
+				//	FormsAuthentication.RedirectFromLoginPage(txtUsername.Text,cbRememberMe.Checked);
+
 				FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
 					1,
 				authenticatedUserId,
@@ -122,8 +123,17 @@ namespace CursusVia.Customer
 			}
 			else
 			{
-				lblMessage.ForeColor = System.Drawing.Color.Red;
-				lblMessage.Text = "Invalid username and password";
+				if (authenticatedUserId == "0")
+				{
+					Response.Write("<script>alert('Invalid email or password');window.location = 'LoginStudent.aspx';</script>");
+
+				}
+
+				if (captchacode.Text.ToLower() != Session["sessionCaptcha"].ToString())
+				{
+					Response.Write("<script>alert('Captcha code incorrect. Please try again ');window.location = 'LoginStudent.aspx';</script>");
+
+				}
 			}
 
 		}
