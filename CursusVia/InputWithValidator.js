@@ -7,10 +7,10 @@ const observer = new MutationObserver(mutations => {
         if (target.style.display !== 'none')
             targetParent.classList.add('validationError')
         else if (
-            target.style.display !== 'none' &&
+            target.style.display === 'none' &&
             targetParent.classList.contains('validationError') &&
-            targetParent
-                .querySelectorAll('.validationMessage')?.every(vm => vm.style.display === 'none')
+            Array.from(targetParent
+                .querySelectorAll('.validationMessage')).every(vm => vm.style.display === 'none')
         )
             targetParent.classList.remove('validationError')
     });
