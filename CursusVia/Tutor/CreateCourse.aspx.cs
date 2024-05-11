@@ -41,7 +41,7 @@ namespace CursusVia.Tutor
                 if (fileId == 0) { return; }
                 string cmd = @"
                     INSERT INTO [Courses] ([title], [description], [price], [cover_pic_res_id], [tutor_id], [category]) 
-                    VALUES (@Title, @Description, @Price, @CoverPicResId, @TutorId, @Category0)
+                    VALUES (@Title, @Description, @Price, @CoverPicResId, @TutorId, @Category)
                 ";
                 SqlCommand command = new SqlCommand(cmd, con);
                 command.Parameters.AddWithValue("@Title", CourseTitle.Text);
