@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,8 +13,15 @@ namespace CursusVia.Tutor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // TODO change me to get from cookie
-            int tutorId = 2;
+            // TODO delete the = "2" part
+            string tutorId = "2";
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+                tutorId = authTicket.Name;
+            }
             string cmd = @"
                 SELECT 
                     c.[id],
@@ -43,7 +51,7 @@ namespace CursusVia.Tutor
                     c.[tutor_id] = @TutorId
             ";
             CourseRepeaterSqlDS.SelectCommand = cmd + ";";
-            CourseRepeaterSqlDS.SelectParameters.Add("TutorId", tutorId.ToString());
+            if (!Page.IsPostBack) CourseRepeaterSqlDS.SelectParameters.Add("TutorId", tutorId.ToString());
             CourseRepeaterSqlDS.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             CourseRepeater.DataBind();
 
