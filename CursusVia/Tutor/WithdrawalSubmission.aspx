@@ -4,12 +4,13 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
-    <h2>Tutor Earning</h2>
+
+     <h1 style="margin: 1rem; margin-bottom: .5rem;">Tutor Earning</h1>
 
     <div class="balance-container">
     <div class="balance-text">
         <span class="lblBalance"><asp:Label ID="lblBalance" runat="server" Text="Available Balance:"></asp:Label></span>
-        <span class="litBalance"><asp:Literal ID="litBalance" runat="server" Text="RM 1,000"></asp:Literal></span>
+        <span class="litBalance"><asp:Literal ID="litBalance" runat="server" Text=""></asp:Literal></span>
     </div>
         <asp:Button ID="btnWithdraw" runat="server" Text="Withdraw" CssClass="balance-button" OnClick="btnWithdraw_Click" />
 </div>

@@ -53,3 +53,7 @@
     display: grid;
     justify-content: center;
 }
+
+.inputContainer {
+    margin-top:0.5em;
+}

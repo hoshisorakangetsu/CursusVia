@@ -4,8 +4,6 @@
 </asp:Content>
 <asp:Content ID="bodyContent" ContentPlaceHolderID="AdminMasterBody" runat="server">
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Vacancies.id, Vacancies.job_title, Companies.name FROM Vacancies INNER JOIN Companies ON Vacancies.company_id = Companies.id"></asp:SqlDataSource>
-    
-    
     <div class="topField"> 
         <asp:HyperLink ID="newRequestLink" runat="server" class="btnPrimary newBtn newRequestText" NavigateUrl='NewVacancy.aspx'>   
             Create New Job

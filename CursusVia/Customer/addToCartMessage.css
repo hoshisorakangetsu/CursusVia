@@ -1,0 +1,19 @@
+﻿.continue-button,
+.cancel-button {
+    background-color: #29354C;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .continue-button:hover {
+        background-color: #E86262;
+    }
+
+    .cancel-button:hover {
+        
+        background-color: #E86262;
+    }

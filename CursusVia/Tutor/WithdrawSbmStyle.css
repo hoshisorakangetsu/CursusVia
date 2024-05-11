@@ -1,6 +1,9 @@
-﻿h2 {
+﻿h1 {
     color: #29354C;
+    margin-top: 10px;
+    margin-right: 30px;
 }
+
 .balance-container {
     display: flex;
     justify-content: space-between;
@@ -9,12 +12,15 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #f8f8f8;
-    margin-top: 50px;
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .balance-text {
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
+    flex: 1; /* Ensures that it takes available space pushing the button to the end */
 }
 
 .lblBalance, .litBalance {
@@ -22,13 +28,14 @@
     margin-right: 5px;
     font-weight: bold;
 }
+
 .litBalance {
     color: green;
 }
+
 .lblBalance {
     color: #29354C;
 }
-
 
 .balance-button {
     padding: 10px 20px;
@@ -37,12 +44,13 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    flex-shrink: 0; /* Prevents the button from shrinking */
 }
 
     .balance-button:hover {
         background-color: #29354C;
-        color: #ffffff;
     }
+
 .withdrawal-notice {
     color: red;
     font-size: small;
@@ -63,11 +71,12 @@
 }
 
 .litID {
-    color:chocolate;
+    color: chocolate;
 }
 
 .litStatus {
     padding: 10px 20px;
-    color:green;
-    font-weight:bold;
+    color: green;
+    font-weight: bold;
 }
+

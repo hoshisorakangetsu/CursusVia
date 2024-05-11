@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CursusVia.Customer
 {
-    public partial class VacancyWithCompany : System.Web.UI.Page
+    public partial class AddToCart : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
