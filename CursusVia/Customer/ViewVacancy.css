@@ -18,7 +18,7 @@
     padding: 1em 2.2em;
 }
 
-h1{
+.h1{
     font-size:3.5em;
 }
 
@@ -28,6 +28,10 @@ h1{
 
 .jobBasicInfo {
     padding: 1em 0;
+}
+
+.jobInfo {
+    padding-top: 1em;
 }
 
 .jobBtn {
@@ -41,14 +45,6 @@ h1{
     margin-bottom:.5em;
     font-size:1.35em;
     align-items:center;
-}
-
-.newBtn {
-    all: unset; /* reset styles first */
-    background-color: var(--primary-color) !important;
-    border-radius: .25em;
-    padding: .5em .75em !important;
-    text-align: center;
 }
 
 .newBtn:hover {
@@ -68,3 +64,11 @@ h2{
     font-size: 1.25em;
 }
 
+.newBtn {
+    all: unset; /* reset styles first */
+    background-color: var(--primary-color) !important;
+    border-radius: .25em;
+    padding: .5em .75em !important;
+    text-align: center;
+    min-width: 5em;
+}

@@ -111,8 +111,13 @@
 
 .dateInputField {
     border-radius: .25em;
-    border: solid 2px;
     border-color: var(--text-on-surface);
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    color: var(--text-on-surface);
+    padding: .35em;
+    font-size: 1.05em;
+    margin-top: .75em;
 }
 
 .content {
@@ -126,6 +131,7 @@
     border-color: rgba(0, 0, 0, .4);
     display: flex;
     flex-direction: row;
+    justify-content:space-between;
 }
 
 .requestContentArea {
@@ -134,12 +140,14 @@
 }
 
 .requestBtn {
-    width: 35em;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-left: 1em;
-    margin-right: 1em;
+    border-left: solid 2px;
+    border-color: rgba(0, 0, 0, .4);
+    max-width:fit-content;
+    gap: .5em;
+    padding: .75em;
 }
 
 .Btn {
@@ -150,8 +158,6 @@
 }
 
 .requestContent {
-    border-right: solid 2px;
-    border-color: rgba(0, 0, 0, .4);
     padding: 0.5em 1em 0 1.5em;
     display: flex;
     flex-direction: column;
@@ -160,4 +166,21 @@
 
 .margin-top {
     margin-top: .7em;
+}
+
+.filterBtn {
+    margin: 1em;
+    display: flex;
+    justify-content: end;
+}
+
+.inputField {
+    border: solid;
+    border-color: rgba(0, 0, 0, .4);
+    border-radius: .25em;
+    color: var(--text-on-surface);
+    padding: .35em;
+    font-size: 1.05em;
+    width: 100%;
+    margin-top:.5em;
 }

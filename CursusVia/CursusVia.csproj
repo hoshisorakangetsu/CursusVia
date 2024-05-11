@@ -229,7 +229,6 @@
     <Content Include="Customer\Support.css" />
     <Content Include="Customer\SearchVacancy.aspx" />
     <Content Include="Customer\SearchVacancy.css" />
-    <Content Include="Customer\SearchVacancyWithCompany.aspx" />
     <Content Include="Customer\Vacancy.aspx" />
     <Content Include="Customer\Vacancy.css" />
     <Content Include="Customer\ViewRequest.aspx" />
@@ -768,13 +767,6 @@
     </Compile>
     <Compile Include="Customer\SearchVacancy.aspx.designer.cs">
       <DependentUpon>SearchVacancy.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\SearchVacancyWithCompany.aspx.cs">
-      <DependentUpon>SearchVacancyWithCompany.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer\SearchVacancyWithCompany.aspx.designer.cs">
-      <DependentUpon>SearchVacancyWithCompany.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\Vacancy.aspx.cs">
       <DependentUpon>Vacancy.aspx</DependentUpon>
