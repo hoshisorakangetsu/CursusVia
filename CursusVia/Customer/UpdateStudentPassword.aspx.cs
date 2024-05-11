@@ -22,15 +22,19 @@ namespace CursusVia.Customer
 		SqlCommand cmd;
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			if (!User.Identity.IsAuthenticated)
+			{
+				Response.Redirect("LoginStudent.aspx");
+			}
 		}
 
 		protected void Button1_Click(object sender, EventArgs e)
 		{
-			try
-			{
 
-				if (User.Identity.IsAuthenticated)
+
+			if (User.Identity.IsAuthenticated)
+			{
+				try
 				{
 
 					HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
@@ -111,13 +115,18 @@ namespace CursusVia.Customer
 					cmd.ExecuteNonQuery();
 					con.Close();
 					*/
+
+				}
+				catch (Exception ex)
+				{
+					lblMsg3.Text = "Error update fail";
+					lblMsg3.ForeColor = System.Drawing.Color.Red;
+
 				}
 			}
-			catch (Exception ex)
+			else
 			{
-				lblMsg3.Text = "Error update fail";
-				lblMsg3.ForeColor = System.Drawing.Color.Red;
-
+				Response.Redirect("LoginStudent.aspx");
 			}
 		}
 		public static string getHash(string oriPassword)

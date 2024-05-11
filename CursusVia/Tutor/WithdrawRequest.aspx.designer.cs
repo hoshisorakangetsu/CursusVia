@@ -24,24 +24,6 @@ namespace CursusVia.Tutor
         protected global::System.Web.UI.WebControls.Label lblWithdrawalDetail;
 
         /// <summary>
-        /// lblRequestID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRequestID;
-
-        /// <summary>
-        /// litRequestID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litRequestID;
-
-        /// <summary>
         /// lblBankName control.
         /// </summary>
         /// <remarks>
@@ -58,6 +40,15 @@ namespace CursusVia.Tutor
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlBankName;
+
+        /// <summary>
+        /// rfvBankName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBankName;
 
         /// <summary>
         /// lblAccNo control.
@@ -78,6 +69,24 @@ namespace CursusVia.Tutor
         protected global::System.Web.UI.WebControls.TextBox txtAccNo;
 
         /// <summary>
+        /// rfvAccNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAccNo;
+
+        /// <summary>
+        /// revAccNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revAccNo;
+
+        /// <summary>
         /// lblAccHName control.
         /// </summary>
         /// <remarks>
@@ -96,6 +105,24 @@ namespace CursusVia.Tutor
         protected global::System.Web.UI.WebControls.TextBox txtAccHName;
 
         /// <summary>
+        /// rfvAccHName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAccHName;
+
+        /// <summary>
+        /// revAccHName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revAccHName;
+
+        /// <summary>
         /// lblWithdrawAmount control.
         /// </summary>
         /// <remarks>
@@ -112,6 +139,42 @@ namespace CursusVia.Tutor
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWithdrawAmount;
+
+        /// <summary>
+        /// rfvWithdrawAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvWithdrawAmount;
+
+        /// <summary>
+        /// revWithdrawAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revWithdrawAmount;
+
+        /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+
+        /// <summary>
+        /// lblStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStatus;
 
         /// <summary>
         /// litPaymentInfo control.

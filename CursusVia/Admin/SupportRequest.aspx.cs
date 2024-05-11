@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +14,39 @@ namespace CursusVia.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            GridView1.DataSource = SqlDataSource1;
+            GridView1.DataBind();
+        }
 
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+            string query = "SELECT[id], [title], [date_send], [status] FROM[SupportRequests] WHERE title LIKE '%" + txtRequestTitle.Text + "%'";
+
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            GridView1.DataSource=dataSet;
+            GridView1.DataBind();
+            con.Close();
+        }
+
+        protected void btnFilter_Click(object sender, EventArgs e)
+        {
+            //only done for status
+            string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+            string query = "SELECT[id], [title], [date_send], [status] FROM[SupportRequests] WHERE status = '" + ddlStatus.SelectedValue + "'";
+
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            GridView1.DataSource=dataSet;
+            GridView1.DataBind();
+            con.Close();
         }
     }
 }

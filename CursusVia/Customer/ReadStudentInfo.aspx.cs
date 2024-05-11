@@ -42,6 +42,10 @@ namespace CursusVia.Customer
 
 					}
 				}
+				else
+				{
+					Response.Redirect("LoginStudent.aspx");
+				}
 			}
 
 
