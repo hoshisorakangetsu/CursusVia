@@ -4,35 +4,36 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
     <div class="backBtn">
-        <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='ViewRequest.aspx'>   
+        <asp:HyperLink ID="backLink" runat="server" class="backText">   
             <span class="material-symbols-outlined backIcon">arrow_back</span>
             Back
         </asp:HyperLink>
     </div>
-    <div class="editRequestContent">
-        <div class="contentContainer">
-            <div>
-                <h1 class="surfaceText header">Edit Support Request</h1>
-            </div>
-            <div class="editReplyDisplay"">
-                 <div>
-                     <span class="surfaceText inputText">Title</span>
+     <div class="editRequestContent">
+         <div class="contentContainer">
+             <div>
+                 <h1 class="surfaceText header">Edit Support Request</h1>
+             </div>
+             <div class="editReplyDisplay"">
+                  <div>
+                      <span class="surfaceText inputText">Title</span>
+                  </div>
+                  <div class="genericInputField">
+                      <asp:TextBox ID="txtReqTitle" runat="server" placeholder="Request Title" Columns="120" Rows="1" TextMode="MultiLine" CssClass="inputArea"></asp:TextBox>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ControlToValidate="txtReqTitle" ErrorMessage="Please enter the request title" CssClass="validationMessage"></asp:RequiredFieldValidator>
+                  </div>
+                 <div class="inputContainer">
+                     <span class="surfaceText inputText">Description</span>
                  </div>
-                 <div>
-                     <textarea id="Text1" cols="120" rows="1" class="inputArea">Current Title</textarea>
+                 <div class="genericInputField">
+                     <asp:TextBox ID="txtReqContent" runat="server" placeholder="Request Content" Columns="120" Rows="10" TextMode="MultiLine" CssClass="inputArea"></asp:TextBox>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Display="Dynamic" ControlToValidate="txtReqContent" ErrorMessage="Please enter the request content" CssClass="validationMessage"></asp:RequiredFieldValidator>
                  </div>
-                <div>
-                    <span class="surfaceText inputText">Description</span>
-                </div>
-                <div>
-                    <textarea id="TextArea" cols="120" rows="10" class="inputArea">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget ex vitae sem tincidunt venenatis posuere eget elit. Etiam vel sagittis dui. Integer aliquet sapien a tellus tristique, eu tristique eros tincidunt. Cras bibendum metus eu quam fermentum, ut eleifend nunc elementum. Nulla sodales erat quis massa pulvinar, non volutpat orci finibus. Mauris ultrices non leo id ornare. Vivamus ipsum lacus, volutpat sit amet est eget, convallis dapibus ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer egestas nisi pulvinar, pretium tellus eu, accumsan odio. Integer ornare ex non ipsum gravida blandit. Nullam vulputate ligula ut tristique facilisis. Sed sed orci velit. Duis sagittis ante eget ligula mattis auctor. Vivamus vel sem dolor. Cras euismod tortor vitae nisl feugiat vestibulum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                    </textarea>
-                </div>
-                 <div class="updateBtn">
-                     <asp:Button ID="btnEdit" runat="server" Text="Update" CssClass="btnPrimary btn" OnClick="btnEdit_Click" />
-                 </div>
-            </div>
-        </div>
-    </div>
+                  <div class="updateBtn">
+                      <asp:Button ID="btnCreate" runat="server" Text="Update" CssClass="btnPrimary btn" OnClick="btnEdit_Click" />
+                  </div>
+             </div>
+         </div>
+     </div>
+     <script src='<%= ResolveUrl("~/InputWithValidator.js") %>' defer></script>
 </asp:Content>

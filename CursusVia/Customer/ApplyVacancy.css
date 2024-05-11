@@ -18,7 +18,7 @@
     padding: 1em 2.2em;
 }
 
-h1 {
+.h1 {
     font-size: 3.5em;
 }
 
@@ -67,6 +67,7 @@ h1 {
     width: 15em;
     height: 2.2em;
     color: var(--text-on-surface);
+    padding:.25em;
 }
 
 .search {

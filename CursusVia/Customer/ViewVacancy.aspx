@@ -11,62 +11,43 @@
     </div>
     <div class="contentContainer">
         <div>
-            <h1 class="surfaceText">Job Title</h1>
-            <span class="surfaceText companyName">Company Name</span>
+            <asp:Label ID="lblJobTitle" runat="server" Text="Label" CssClass="surfaceText h1"></asp:Label><br>
+            <asp:Label ID="lblCompanyName" runat="server" Text="Label" CssClass="surfaceText companyName"></asp:Label>
         </div>
         <div class="jobBasicInfo">
             <div class="displayFlex">
                 <span class="material-symbols-outlined">location_on</span>
-                <p>Bayan Lepas, Pulau Pinang</p>
+                <asp:Label ID="lblArea" runat="server" Text="Label"></asp:Label>
             </div>
             <div class="displayFlex">
                 <span class="material-symbols-outlined">money</span>
-                <p>RM3,000 ~ RM5,000 per month</p>
+                <asp:Label ID="lblMinSalary" runat="server" Text="Label"></asp:Label><span>~</span>
+                <asp:Label ID="lblMaxSalary" runat="server" Text="Label"></asp:Label>
             </div>
             <div class="displayFlex">
                 <span class="material-symbols-outlined">apartment</span>
-                <p>Solution Provider (Information & Communication Technology)</p>
+                <asp:Label ID="lblDepartment" runat="server" Text="Label"></asp:Label>
             </div>
             <div class="displayFlex">
                 <span class="material-symbols-outlined">schedule</span>
-                <p>Full Time</p>
+                <asp:Label ID="lblType" runat="server" Text="Label"></asp:Label>
             </div>
         </div>
         <div class="jobBtn">
-            <asp:HyperLink ID="applyNowLink" runat="server" class="btnPrimary newBtn" NavigateUrl='ApplyVacancy.aspx'>Apply Now</asp:HyperLink>
-            <asp:HyperLink ID="otherJobLink" runat="server" class="btnPrimary newBtn" NavigateUrl='SearchVacancyWithCompany.aspx'>Other Job from this Company</asp:HyperLink>
+            <asp:HyperLink ID="applyNowLink" runat="server" class="btnPrimary newBtn">Apply Now</asp:HyperLink>
+            <asp:HyperLink ID="otherJobLink" runat="server" class="btnPrimary newBtn">Other Job from this Company</asp:HyperLink>
         </div>
         <div class="jobBasicInfo">
             <h2 class="surfaceText">Job Description</h2>
-            <p class="surfaceText description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget ex vitae sem tincidunt venenatis posuere eget elit. 
-                Etiam vel sagittis dui. Integer aliquet sapien a tellus tristique, eu tristique eros tincidunt. 
-                Cras bibendum metus eu quam fermentum, ut eleifend nunc elementum. Nulla sodales erat quis massa pulvinar, non volutpat orci finibus. 
-                Mauris ultrices non leo id ornare. Vivamus ipsum lacus, volutpat sit amet est eget, convallis dapibus ligula. 
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer egestas nisi pulvinar, pretium tellus eu, accumsan odio. 
-                Integer ornare ex non ipsum gravida blandit. Nullam vulputate ligula ut tristique facilisis. Sed sed orci velit. 
-                Duis sagittis ante eget ligula mattis auctor. Vivamus vel sem dolor. Cras euismod tortor vitae nisl feugiat vestibulum. 
-                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </p>
+            <asp:Label ID="lblDescr" runat="server" Text="Label" CssClass="surfaceText description"></asp:Label>
         </div>
         <div class="jobBasicInfo">
             <h2 class="surfaceText">Job Requirements</h2>
-            <p class="surfaceText description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget ex vitae sem tincidunt venenatis posuere eget elit. 
-                Etiam vel sagittis dui. Integer aliquet sapien a tellus tristique, eu tristique eros tincidunt. 
-                Cras bibendum metus eu quam fermentum, ut eleifend nunc elementum. Nulla sodales erat quis massa pulvinar, non volutpat orci finibus. 
-                Mauris ultrices non leo id ornare. Vivamus ipsum lacus, volutpat sit amet est eget, convallis dapibus ligula. 
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer egestas nisi pulvinar, pretium tellus eu, accumsan odio. 
-                Integer ornare ex non ipsum gravida blandit. Nullam vulputate ligula ut tristique facilisis. Sed sed orci velit. 
-                Duis sagittis ante eget ligula mattis auctor. Vivamus vel sem dolor. Cras euismod tortor vitae nisl feugiat vestibulum. 
-                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </p>
+            <asp:Label ID="lblRequirement" runat="server" Text="Label" CssClass="surfaceText description"></asp:Label>
         </div>
         <div class="jobBasicInfo">
             <h2 class="surfaceText">Company Address</h2>
-            <p class="surfaceText description">
-                Address
-            </p>
+            <asp:Label ID="lblAddress" runat="server" Text="Label" CssClass="surfaceText description"></asp:Label>
         </div>
     </div>
 

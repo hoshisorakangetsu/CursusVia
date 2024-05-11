@@ -11,37 +11,40 @@
     </div>
     <div class="contentContainer">
         <div>
-            <h1 class="surfaceText">Job Title</h1>
-            <span class="surfaceText companyName">Company Name</span>
+            <asp:Label ID="lblJobTitle" runat="server" Text="Label" CssClass="surfaceText h1"></asp:Label><br>
+            <asp:Label ID="lblCompanyName" runat="server" Text="Label" CssClass="surfaceText companyName"></asp:Label>
         </div>
         <div class="jobBasicInfo">
             <div class="displayFlex">
                 <span class="material-symbols-outlined">location_on</span>
-                <p>Bayan Lepas, Pulau Pinang</p>
+                <asp:Label ID="lblArea" runat="server" Text="Label"></asp:Label>
             </div>
             <div class="displayFlex">
                 <span class="material-symbols-outlined">money</span>
-                <p>RM3,000 ~ RM5,000 per month</p>
+                <asp:Label ID="lblMinSalary" runat="server" Text="Label"></asp:Label><span>~</span>
+                <asp:Label ID="lblMaxSalary" runat="server" Text="Label"></asp:Label>
             </div>
             <div class="displayFlex">
                 <span class="material-symbols-outlined">apartment</span>
-                <p>Solution Provider (Information & Communication Technology)</p>
+                <asp:Label ID="lblDepartment" runat="server" Text="Label"></asp:Label>
             </div>
             <div class="displayFlex">
                 <span class="material-symbols-outlined">schedule</span>
-                <p>Full Time</p>
+                <asp:Label ID="lblType" runat="server" Text="Label"></asp:Label>
             </div>
         </div>
         <div class="applyContainer">
-            <h2 class="">Applying for "Job Title" at "Company Name"</h2>
-            <div class="inputField">
+            <h2 class="">Applying for "<asp:Label ID="jobtitle" runat="server" Text="Label" CssClass="surfaceText"></asp:Label>" at "<asp:Label ID="companyName" runat="server" Text="Label" CssClass="surfaceText"></asp:Label>"</h2>
+            <div class="inputField genericInputField">
                 <span class="surfaceText inputName"><b>Expected Salary (Monthly)</b></span>
                 <div class="salaryInput">
                     <span class="rm">RM</span>
                     <div class="search">
-                        <input id="txtMinSalary" type="text" class="input"/>
-                    </div>
+                        <asp:TextBox ID="txtMinSalary" runat="server" placeholder="7000.00" CssClass="input"></asp:TextBox>
+                    </div>                    
                 </div>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Display="Dynamic" ControlToValidate="txtMinSalary" ErrorMessage="Please enter your expected salary" CssClass="validationMessage"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" Display="Dynamic" ControlToValidate="txtMinSalary" ValidationExpression="^\d+(,\d{1,2})?$" ErrorMessage="Please enter the correct format for salary" CssClass="validationMessage"></asp:RegularExpressionValidator>
             </div>
             <div class="inputField">
                 <span class="surfaceText inputName"><b>Your Resume</b></span>
@@ -57,4 +60,5 @@
             </div>
         </div>
      </div>
+    <script src='<%= ResolveUrl("~/InputWithValidator.js") %>' defer></script>
 </asp:Content>

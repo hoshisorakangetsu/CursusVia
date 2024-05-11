@@ -68,89 +68,23 @@
         </div>
     </div>
     <div class="jobSection">
-        <div class="jobContainer">
-            <div>  
-                <h2 class="surfaceText">Job Title</h2>
-                <span class="surfaceText jobCompanyText">Company Name</span>
-            </div>
-            <div class="jobDetails">
-                <span class="jobDetailsText">Working Area</span>
-                <span class="jobDetailsText">Salary Range</span>
-                <span class="jobDetailsText">Role in Department</span>
-            </div>
-            <div class="btnViewDetails">
-                <asp:HyperLink ID="HyperLink1" runat="server" class="btnPrimary newBtn" NavigateUrl='ViewVacancy.aspx'>View Details</asp:HyperLink>
-            </div>
-        </div>
-        <div class="jobContainer">
-            <div>  
-                <h2 class="surfaceText">Job Title</h2>
-                <span class="surfaceText jobCompanyText">Company Name</span>
-            </div>
-            <div class="jobDetails">
-                <span class="jobDetailsText">Working Area</span>
-                <span class="jobDetailsText">Salary Range</span>
-                <span class="jobDetailsText">Role in Department</span>
-            </div>
-            <div class="btnViewDetails">
-                <asp:HyperLink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl=''>View Details</asp:HyperLink>
-            </div>
-        </div>
-        <div class="jobContainer">
-            <div>  
-                <h2 class="surfaceText">Job Title</h2>
-                <span class="surfaceText jobCompanyText">Company Name</span>
-            </div>
-            <div class="jobDetails">
-                <span class="jobDetailsText">Working Area</span>
-                <span class="jobDetailsText">Salary Range</span>
-                <span class="jobDetailsText">Role in Department</span>
-            </div>
-            <div class="btnViewDetails">
-                <asp:HyperLink ID="HyperLink3" runat="server" class="btnPrimary newBtn" NavigateUrl=''>View Details</asp:HyperLink>
-            </div>
-        </div>
-        <div class="jobContainer">
-            <div>  
-                <h2 class="surfaceText">Job Title</h2>
-                <span class="surfaceText jobCompanyText">Company Name</span>
-            </div>
-            <div class="jobDetails">
-                <span class="jobDetailsText">Working Area</span>
-                <span class="jobDetailsText">Salary Range</span>
-                <span class="jobDetailsText">Role in Department</span>
-            </div>
-            <div class="btnViewDetails">
-                <asp:HyperLink ID="HyperLink4" runat="server" class="btnPrimary newBtn" NavigateUrl=''>View Details</asp:HyperLink>
-            </div>
-        </div>
-        <div class="jobContainer">
-            <div>  
-                <h2 class="surfaceText">Job Title</h2>
-                <span class="surfaceText jobCompanyText">Company Name</span>
-            </div>
-            <div class="jobDetails">
-                <span class="jobDetailsText">Working Area</span>
-                <span class="jobDetailsText">Salary Range</span>
-                <span class="jobDetailsText">Role in Department</span>
-            </div>
-            <div class="btnViewDetails">
-                <asp:HyperLink ID="HyperLink5" runat="server" class="btnPrimary newBtn" NavigateUrl=''>View Details</asp:HyperLink>
-            </div>
-        </div>
-        <div class="jobContainer">
-            <div>  
-                <h2 class="surfaceText">Job Title</h2>
-                <span class="surfaceText jobCompanyText">Company Name</span>
-            </div>
-            <div class="jobDetails">
-                <span class="jobDetailsText">Working Area</span>
-                <span class="jobDetailsText">Salary Range</span>
-                <span class="jobDetailsText">Role in Department</span>
-            </div>
-            <div class="btnViewDetails">
-                <asp:HyperLink ID="HyperLink6" runat="server" class="btnPrimary newBtn" NavigateUrl=''>View Details</asp:HyperLink>
-            </div>
-        </div>
+        <asp:Repeater ID="Repeater1" runat="server">
+            <ItemTemplate>
+                <div class="jobContainer">
+                    <div>  
+                        <h2 class="surfaceText"><%# Eval("job_title") %></</h2> <br />
+                        <span class="surfaceText jobCompanyText"><%# Eval("name") %></span>
+                    </div>
+                    <div class="jobDetails">
+                        <span class="jobDetailsText"><%# Eval("area") %>, <%# Eval("state") %></span>
+                        <span class="jobDetailsText"><%# Eval("min_salary") %>  ~  <%# Eval("max_salary") %></span>
+                        <span class="jobDetailsText"><%# Eval("role") %></span>
+                    </div>
+                    <div class="btnViewDetails">
+                        <asp:HyperLink ID="HyperLink6" runat="server" class="btnPrimary newBtn" NavigateUrl='<%# "ViewVacancy.aspx?id="+ Eval("id") %>'>View Details</asp:HyperLink>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
     </div>
 </asp:Content>

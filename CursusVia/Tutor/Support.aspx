@@ -22,12 +22,11 @@
                 </div>
                 <div class="filterStatus">
                     <span class="surfaceText statusText">STATUS</span>
-                    <div class="radioBtn">
-                        <asp:RadioButton ID="RadioButton1" runat="server" Text="Processing" GroupName="status" />
-                    </div> 
-                    <div class="radioBtn">
-                        <asp:RadioButton ID="RadioButton2" runat="server" Text="Completed" GroupName="status" />
-                    </div> 
+                    <asp:DropDownList ID="ddlStatus" runat="server" CssClass="inputField">
+                        <asp:ListItem>None</asp:ListItem>
+                        <asp:ListItem>Procssing</asp:ListItem>
+                        <asp:ListItem>Completed</asp:ListItem>
+                    </asp:DropDownList>
                 </div>
                 <div class="filterDate">
                     <span class="surfaceText dateText">DATE</span>
@@ -39,6 +38,7 @@
                         <div>
                             <div>
                                 <br />
+                                <br />
                             </div>
                             <span class="surfaceText"><b>~</b></span>
                         </div>
@@ -48,56 +48,35 @@
                         </div>
                     </div>
                 </div>
+                <div class="filterBtn">
+                    <asp:Button ID="btnFilter" runat="server" Text="Filter" CssClass="btnPrimary btn" OnClick="btnFilter_Click" />
+                </div>
             </div>
             <div class="requestContentArea">
-                <div class="request">
-                    <div class="requestContent">
-                        <h1 class="surfaceText">Title</h1>
-                        <p class="surfaceText margin-top">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget ex vitae sem tincidunt venenatis posuere eget elit. 
-                            Etiam vel sagittis dui. Integer aliquet sapien a tellus tristique, eu tristique eros tincidunt. 
-                            Cras bibendum metus eu quam fermentum, ut eleifend nunc elementum. Nulla sodales erat quis massa pulvinar, non volutpat orci finibus. 
-                            Mauris ultrices non leo id ornare. Vivamus ipsum lacus, volutpat sit amet est eget, convallis dapibus ligula. 
-                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer egestas nisi pulvinar, pretium tellus eu, accumsan odio. 
-                            Integer ornare ex non ipsum gravida blandit. Nullam vulputate ligula ut tristique facilisis. Sed sed orci velit. 
-                            Duis sagittis ante eget ligula mattis auctor. Vivamus vel sem dolor. Cras euismod tortor vitae nisl feugiat vestibulum. 
-                            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                        </p>
-                        <p class="surfaceText margin-top"><b>Status: Processing</b></p>
-                    </div>
-                    <div class="requestBtn">
-                        <asp:HyperLink ID="btnViewDetails" runat="server" class="btnPrimary newBtn" NavigateUrl='ViewRequest.aspx'>   
-                            View Request
-                        </asp:HyperLink>
-                        <asp:HyperLink ID="HyperLink1" runat="server" class="btnPrimary newBtn" NavigateUrl='EditSupport.aspx'>   
-                            Update Request
-                        </asp:HyperLink>
-                        <asp:HyperLink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='DeleteRequest.aspx'>   
-                            Delete Request
-                        </asp:HyperLink>
-                    </div>
-                </div>
-                <div class="request">
-                    <div class="requestContent">
-                        <h1 class="surfaceText">Title</h1>
-                        <p class="surfaceText margin-top">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget ex vitae sem tincidunt venenatis posuere eget elit. 
-                            Etiam vel sagittis dui. Integer aliquet sapien a tellus tristique, eu tristique eros tincidunt. 
-                            Cras bibendum metus eu quam fermentum, ut eleifend nunc elementum. Nulla sodales erat quis massa pulvinar, non volutpat orci finibus. 
-                            Mauris ultrices non leo id ornare. Vivamus ipsum lacus, volutpat sit amet est eget, convallis dapibus ligula. 
-                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer egestas nisi pulvinar, pretium tellus eu, accumsan odio. 
-                            Integer ornare ex non ipsum gravida blandit. Nullam vulputate ligula ut tristique facilisis. Sed sed orci velit. 
-                            Duis sagittis ante eget ligula mattis auctor. Vivamus vel sem dolor. Cras euismod tortor vitae nisl feugiat vestibulum. 
-                            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                        </p>
-                        <p class="surfaceText margin-top"><b>Status: Completed</b></p>
-                    </div>
-                    <div class="requestBtn">
-                        <asp:Button ID="btnViewDetails1" runat="server" Text="View Request" CssClass="btnPrimary Btn"/>
-                        <asp:Button ID="btnUpdateRequest2" runat="server" Text="Update Request" CssClass="btnPrimary Btn"/>
-                        <asp:Button ID="btnDeleteRequest3" runat="server" Text="Delete Request" CssClass="btnPrimary Btn"/>
-                    </div>
-                    </div>
+                <asp:Repeater ID="Repeater1" runat="server" >
+                    <ItemTemplate>
+                        <div class="request">
+                            <div class="requestContent">
+                                <h1 class="surfaceText"><%# Eval("title") %></h1>
+                                <p class="surfaceText margin-top">
+                                    <%# Eval("description") %>
+                                </p>
+                                <p class="surfaceText margin-top"><b>Status: <%# Eval("status") %></b></p>
+                            </div>
+                            <div class="requestBtn">
+                                <asp:HyperLink ID="btnViewDetails" runat="server" class="btnPrimary newBtn" NavigateUrl='<%# "ViewRequest.aspx?id=" + Eval("id") %>'>   
+                                    View Request
+                                </asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink1" runat="server" class="btnPrimary newBtn" NavigateUrl='<%# "EditSupport.aspx?id="+ Eval("id") %>'>   
+                                    Update Request
+                                </asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='<%# "DeleteRequest.aspx?id="+ Eval("id") %>'>   
+                                    Delete Request
+                                </asp:HyperLink>
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
         </div>   
     </div>
