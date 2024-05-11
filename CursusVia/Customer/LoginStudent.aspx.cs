@@ -79,11 +79,11 @@ namespace CursusVia.Customer
 			string password = txtPassword.Text;
 			bool rememberMe=cbRememberMe.Checked;
 
-			string authenticatedUserId = AuthenticateUser(txtUsername.Text, txtPassword.Text)
+			string authenticatedUserId = AuthenticateUser(txtUsername.Text, txtPassword.Text);
 
 
 
-; if (authenticatedUserId != "0" && captchacode.Text.ToLower() == Session["sessionCaptcha"].ToString())
+            if (authenticatedUserId != "0" && captchacode.Text.ToLower() == Session["sessionCaptcha"].ToString())
 			{
 
 				//FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, cbRememberMe.Checked);
