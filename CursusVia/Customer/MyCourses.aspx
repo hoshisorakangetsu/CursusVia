@@ -56,30 +56,23 @@
             </div>
         </div>
         <div class="coursesList">
-            <div class="courseCard">
-                <img src="https://placehold.co/600x400" alt="Placeholder" />
-                <p class="courseName">Course Name</p>
-                <p class="tutorName">Tutor Name</p>
-                <div class="actions">
-                    <asp:HyperLink ID="ViewDetails" runat="server" CssClass="btn btnPrimary" NavigateUrl="~/Customer/CourseContent.aspx">Start Learning</asp:HyperLink>
-                </div>
-            </div>
-            <div class="courseCard">
-                <img src="https://placehold.co/600x400" alt="Placeholder" />
-                <p class="courseName">Course Name</p>
-                <p class="tutorName">Tutor Name</p>
-                <div class="actions">
-                    <asp:HyperLink ID="ViewDetails2" runat="server" CssClass="btn btnPrimary">Start Learning</asp:HyperLink>
-                </div>
-            </div>
-            <div class="courseCard">
-                <img src="https://placehold.co/600x400" alt="Placeholder" />
-                <p class="courseName">Course Name</p>
-                <p class="tutorName">Tutor Name</p>
-                <div class="actions">
-                    <asp:HyperLink ID="ViewDetails3" runat="server" CssClass="btn btnPrimary">Start Learning</asp:HyperLink>
-                </div>
-            </div>
+            <asp:Repeater runat="server" ID="CourseRepeater" DataSourceID="CourseRepeaterSqlDS">
+                <ItemTemplate>
+                    <div class="courseCard">
+                        <% 
+                            // this comment should not be shown to the public as it concerns the internal working, so will be enclosing it in server tags
+                            // Substring 1 because the upload file utils include "~", which is not understandable by client browsers 
+                        %>
+                        <img src='<%# Eval("courseImgPath").ToString().Substring(1) %>' alt="Placeholder" />
+                        <p class="courseName"><%# Eval("title") %></p>
+                        <p class="tutorName"><%# Eval("tutorName") %></p>
+                        <div class="actions">
+                            <asp:HyperLink ID="ViewDetails" runat="server" CssClass="btn btnPrimary" NavigateUrl='<%# "~/Customer/CourseContent.aspx?id=" + Eval("id") %>'>Start Learning</asp:HyperLink>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+            <asp:SqlDataSource ID="CourseRepeaterSqlDS" runat="server"></asp:SqlDataSource>
         </div>
     </div>
     <script src='<%= ResolveUrl("~/Courses.js") %>' defer></script>

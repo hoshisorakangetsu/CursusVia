@@ -14,7 +14,7 @@
     border: 1px solid var(--outline);
 }
 
-.accordianItem:not(:last-child) {
+.accordianContent:not(.accordianContent:last-of-type) {
     border-bottom: none;
 }
 

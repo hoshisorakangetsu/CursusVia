@@ -37,59 +37,59 @@
             <div class="chapterOverview">
                 <h1>Chapter Overview</h1>
                 <div class="accordianContainer">
-                    <div class="accordianItem">
-                        <div class="accordianActivator">
-                            <h2>Chapter 1</h2>
-                            <div class="rightSide">
-                                <p class="itemCount">2 Items</p>
-                                <span class="material-symbols-outlined chevron">expand_more
-                                </span>
-                            </div>
-                        </div>
-                        <div class="accordianContentWrapper">
-                            <div class="accordianContent">
-                                <div class="contentRow">
-                                    Content 1
+                    <asp:Repeater ID="ChapterRepeater" runat="server" DataSourceID="ChapterDS">
+                        <ItemTemplate>
+                            <div class="accordianItem">
+                                <div class="accordianActivator">
+                                    <h2><%# Eval("ChapterTitle") %></h2>
+                                    <div class="rightSide">
+                                        <p class="itemCount"><%# Eval("ItemCount") %> Items</p>
+                                        <span class="material-symbols-outlined chevron">expand_more</span>
+                                    </div>
+                                </div>
+                                <div class="accordianContentWrapper">
+                                    <asp:Repeater ID="ContentRepeater" runat="server" DataSourceID="ContentDS">
+                                        <ItemTemplate>
+                                            <div class="accordianContent">
+                                                <div class="contentRow">
+                                                    <%# Eval("ContentTitle") %>
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                    <% // store chapter id to be used by the content data source %>
+                                    <asp:HiddenField ID="ChapIdForContentDS" runat="server" Value='<%# Eval("ChapterId") %>' />
+                                    <asp:SqlDataSource ID="ContentDS" runat="server" SelectCommand='SELECT [title] AS ContentTitle FROM [ChapterContents] WHERE [chapter_id] = @ChapId ORDER BY [order];' ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
+                                        <SelectParameters>
+                                            <asp:ControlParameter Name="ChapId" ControlID="ChapIdForContentDS" PropertyName="Value" />
+                                        </SelectParameters>
+                                    </asp:SqlDataSource>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- replace with repeater when coding backend -->
-                    <div class="accordianItem">
-                        <div class="accordianActivator">
-                            <h2>Chapter 2</h2>
-                            <div class="rightSide">
-                                <p class="itemCount">2 Items</p>
-                                <span class="material-symbols-outlined chevron">expand_more
-                                </span>
-                            </div>
-                        </div>
-                        <div class="accordianContentWrapper">
-                            <div class="accordianContent">
-                                <div class="contentRow">
-                                    Content 1
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <asp:SqlDataSource ID="ChapterDS" runat="server" ConnectionString='<%$ ConnectionStrings:ConnectionString %>'></asp:SqlDataSource>
                 </div>
             </div>
-            <div class="tutorCard">
-                <div class="tutorCardTopPart">
-                    <div class="tutorCardHeading">
-                        <span class="material-symbols-outlined">for_you
-                        </span>
-                        Tutor
+            <asp:FormView ID="TutorView" runat="server" DataSourceID="TutorDS" CssClass="self-flex-start">
+                <ItemTemplate>
+                    <div class="tutorCard">
+                        <div class="tutorCardTopPart">
+                            <div class="tutorCardHeading">
+                                <span class="material-symbols-outlined">for_you</span> Tutor
+                            </div>
+                            <h2><%# Eval("tutorName") %></h2>
+                            <p class="certification"><%# Eval("certification") %></p>
+                            <p class="courseNum"><%# Eval("courseNum") %> Courses</p>
+                        </div>
+                        <div class="tutorCardRating">
+                            <span>Rating</span>
+                            <span><%# Eval("rating") %> / 5.0 (<%# Eval("ratingCount") %>)</span>
+                        </div>
                     </div>
-                    <h2>Tutor Name</h2>
-                    <p class="certification">Certification?</p>
-                    <p class="courseNum">5 Courses</p>
-                </div>
-                <div class="tutorCardRating">
-                    <span>Rating</span>
-                    <span>4.9/5.0 (10)</span>
-                </div>
-            </div>
+                </ItemTemplate>
+            </asp:FormView>
+            <asp:SqlDataSource ID="TutorDS" runat="server" ConnectionString='<%$ ConnectionStrings:ConnectionString %>'></asp:SqlDataSource>
         </div>
     </div>
     <script src='<%= ResolveUrl("~/BackControlInit.js") %>' defer></script>

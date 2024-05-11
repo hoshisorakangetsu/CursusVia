@@ -60,30 +60,21 @@ namespace CursusVia.Customer
         protected global::System.Web.UI.WebControls.TextBox UploadedBy;
 
         /// <summary>
-        /// ViewDetails control.
+        /// CourseRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ViewDetails;
+        protected global::System.Web.UI.WebControls.Repeater CourseRepeater;
 
         /// <summary>
-        /// ViewDetails2 control.
+        /// CourseRepeaterSqlDS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ViewDetails2;
-
-        /// <summary>
-        /// ViewDetails3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ViewDetails3;
+        protected global::System.Web.UI.WebControls.SqlDataSource CourseRepeaterSqlDS;
     }
 }

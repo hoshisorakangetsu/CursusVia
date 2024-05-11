@@ -41,6 +41,56 @@ namespace CursusVia
             CourseDetailHeroDS.SelectParameters.Clear();
             CourseDetailHeroDS.SelectParameters.Add("CourseId", courseId);
             CourseDetailHeroView.DataBind();
+
+            // for chapters repeater
+            ChapterDS.SelectCommand = @"
+                SELECT 
+                    [c].[id] AS ChapterId, 
+                    [c].[title] AS ChapterTitle,
+                    ISNULL((
+                        SELECT COUNT(*)
+                        FROM [ChapterContents]
+                        WHERE chapter_id = [c].id
+                    ), 0) + ISNULL((
+                        SELECT COUNT(*)
+                        FROM [ChapterQuiz]
+                        WHERE chapter_id = [c].id
+                    ), 0) AS ItemCount,
+                    [c].[course_id] AS CourseId
+                FROM [Chapters] c
+                WHERE course_id = @CourseId;
+            ";
+            ChapterDS.SelectParameters.Clear();
+            ChapterDS.SelectParameters.Add("CourseId", courseId);
+            ChapterRepeater.DataBind();
+
+            TutorDS.SelectCommand = @"
+                SELECT
+                    [T].[name] AS tutorName,
+                    [T].[qualifications] AS certification,
+                    ISNULL((
+                        SELECT COUNT(*)
+                        FROM [Courses] AS CO
+                        WHERE [CO].[tutor_id] = [T].[id]
+                    ), 0) AS courseNum,
+                    ISNULL((
+                        SELECT AVG([rating])
+                        FROM [TutorRatings] AS TR
+                        WHERE [TR].[tutor_id] = [T].[id]
+                    ), 0) AS rating,
+                    ISNULL((
+                        SELECT COUNT([rating])
+                        FROM [TutorRatings] TR
+                        WHERE [TR].[tutor_id] = [T].[id]
+                    ), 0) AS ratingCount
+                FROM
+                    [Tutors] T, [Courses] C
+                WHERE
+                    [C].[id] = @CourseId
+            ";
+            TutorDS.SelectParameters.Clear();
+            TutorDS.SelectParameters.Add("CourseId", courseId);
+            TutorView.DataBind();
         }
     }
 }
