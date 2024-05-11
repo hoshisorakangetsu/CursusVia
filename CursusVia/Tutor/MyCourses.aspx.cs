@@ -43,7 +43,7 @@ namespace CursusVia.Tutor
                     c.[tutor_id] = @TutorId
             ";
             CourseRepeaterSqlDS.SelectCommand = cmd + ";";
-            CourseRepeaterSqlDS.SelectParameters.Add("TutorId", tutorId.ToString());
+            if (!Page.IsPostBack) CourseRepeaterSqlDS.SelectParameters.Add("TutorId", tutorId.ToString());
             CourseRepeaterSqlDS.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             CourseRepeater.DataBind();
 
