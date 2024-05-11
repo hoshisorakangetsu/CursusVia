@@ -20,8 +20,7 @@
     <IISExpressSSLPort>44383</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode>
-    </IISExpressUseClassicPipelineMode>
+    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -135,6 +134,7 @@
     <Content Include="Customer\ForgotPassword.aspx" />
     <Content Include="Customer\LoginStudent.css" />
     <Content Include="Customer\LoginStudent2.css" />
+    <Content Include="Customer\MyCaptcha.aspx" />
     <Content Include="Customer\namelogo.png" />
     <Content Include="Customer\passwordlogo.png" />
     <Content Include="Customer\Payment.css" />
@@ -162,6 +162,7 @@
     <Content Include="Tutor\LoginTutor.css" />
     <Content Include="Tutor\LoginTutor2.css" />
     <Content Include="Tutor\LogoutMsg.aspx" />
+    <Content Include="Tutor\MyCaptcha.aspx" />
     <Content Include="Tutor\namelogo.png" />
     <Content Include="Tutor\passwordlogo.png" />
     <Content Include="Tutor\RegisterTutor.aspx" />
@@ -515,6 +516,13 @@
     <Compile Include="Customer\ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Customer\MyCaptcha.aspx.cs">
+      <DependentUpon>MyCaptcha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\MyCaptcha.aspx.designer.cs">
+      <DependentUpon>MyCaptcha.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer\PaymentConfirm.aspx.cs">
       <DependentUpon>PaymentConfirm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -592,6 +600,13 @@
     </Compile>
     <Compile Include="Tutor\LogoutMsg.aspx.designer.cs">
       <DependentUpon>LogoutMsg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor\MyCaptcha.aspx.cs">
+      <DependentUpon>MyCaptcha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutor\MyCaptcha.aspx.designer.cs">
+      <DependentUpon>MyCaptcha.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tutor\RegisterTutor.aspx.cs">
       <DependentUpon>RegisterTutor.aspx</DependentUpon>
