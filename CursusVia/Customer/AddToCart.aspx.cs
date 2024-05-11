@@ -77,7 +77,7 @@ namespace CursusVia.Customer
             else
             {
                 Response.Write("<script>alert('Invalid course information provided. Please try again.');</script>"); // Inform the user about the invalid input
-                System.Diagnostics.Debug.WriteLine("Course ID: " + courseId); // Check the output in your IDE's output window
+                System.Diagnostics.Debug.WriteLine("Course ID: " + courseId); // Check the output window
 
             }
         }
