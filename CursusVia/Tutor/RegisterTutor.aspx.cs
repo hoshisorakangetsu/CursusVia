@@ -99,7 +99,6 @@ namespace CursusVia.Tutor
                     </script>";
 
 							ClientScript.RegisterStartupScript(this.GetType(), "redirect", script);
-							//Response.Redirect("LoginStudent.aspx");
 						}
 					}
 				}
