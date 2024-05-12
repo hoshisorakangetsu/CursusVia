@@ -59,6 +59,7 @@
 .replyBtn {
     display: flex;
     justify-content: center;
+    margin-top: .35em;
 }
 
 .h1 {

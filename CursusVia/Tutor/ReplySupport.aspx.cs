@@ -16,7 +16,6 @@ namespace CursusVia.Tutor
     public partial class ReplySupport : System.Web.UI.Page
     {
         private string id;
-        private string studentId;
         private string tutorId;
         private string supportReqId;
         protected void Page_Load(object sender, EventArgs e)
@@ -61,8 +60,6 @@ namespace CursusVia.Tutor
                 con.Close();
 
                 backLink.NavigateUrl = "ViewRequest.aspx?id="+supportReqId;
-
-                Response.Write(supportReqId);
             }
         }
 
