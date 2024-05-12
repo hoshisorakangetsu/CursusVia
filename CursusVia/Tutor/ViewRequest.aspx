@@ -32,7 +32,7 @@
    </asp:Repeater>
     <div>
         <div>
-            <span class="surfaceText reply">Replies /No Replies Yet</span>
+            <span class="surfaceText reply">Replies</span>
         </div>
         <asp:Repeater ID="Repeater2" runat="server">
             <ItemTemplate>
