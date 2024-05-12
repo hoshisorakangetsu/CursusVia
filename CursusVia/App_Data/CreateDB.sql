@@ -149,17 +149,6 @@ CREATE TABLE [dbo].[PurchasedCourses] (
     CONSTRAINT [FK_PurchasedCourses_Payments] FOREIGN KEY ([payment_id]) REFERENCES [dbo].[Payments] ([id])
 )
 
-CREATE TABLE [dbo].[QuizRespones]
-(
-	[purchased_course_id] INT NOT NULL , 
-    [question_id] INT NOT NULL, 
-    [answer_id] INT NOT NULL, 
-    CONSTRAINT [FK_QuizRespones_PurchasedCourses] FOREIGN KEY ([purchased_course_id]) REFERENCES [PurchasedCourses]([id]), 
-    CONSTRAINT [FK_QuizRespones_QuizQuestions] FOREIGN KEY ([question_id]) REFERENCES [QuizQuestions]([id]), 
-    CONSTRAINT [FK_QuizRespones_Answers] FOREIGN KEY ([answer_id]) REFERENCES [Answers]([id]), 
-    PRIMARY KEY ([answer_id], [question_id], [purchased_course_id])
-)
-
 CREATE TABLE [dbo].[Vacancies] (
     [id]              INT            IDENTITY (1, 1) NOT NULL,
     [job_title]       NVARCHAR (50)  NOT NULL,
