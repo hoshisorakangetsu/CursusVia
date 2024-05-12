@@ -12,6 +12,7 @@ namespace CursusVia.Admin
 {
     public partial class ViewRequest : System.Web.UI.Page
     {
+        int row = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             string id = Request.QueryString["id"];
@@ -47,6 +48,13 @@ namespace CursusVia.Admin
             Repeater1.DataBind();
 
             con.Close();
+
+            row = dataSet.Tables[0].Rows.Count;
+
+            if (row == 0)
+            {
+                lblNoReplies.Text = "No Replies to the Request yet";
+            }
 
             replyLink.NavigateUrl = "ReplySupport.aspx?id="+id;
         }

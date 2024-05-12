@@ -32,9 +32,9 @@
     <div>
         <span class="surfaceText reply">Replies</span>
     </div>
-    <div class="contentContainer">
-        <asp:Repeater ID="Repeater1" runat="server">
-            <ItemTemplate>
+    <asp:Repeater ID="Repeater1" runat="server">
+        <ItemTemplate>
+            <div class="contentContainer">
                 <div class="requestTitle">
                     <h1 class="surfaceText"><%# Eval("admin_id") %></h1>
                     <p class="surfaceText">Replies on: <%# Eval("datetime") %></p>
@@ -45,13 +45,16 @@
                     </p>
                 </div>
                 <div class="edit">    
-                    <asp:HyperLink ID="editLink" runat="server" class="editBtn btnPrimary" NavigateUrl='EditSupport.aspx'>   
+                    <asp:HyperLink ID="editLink" runat="server" class="editBtn btnPrimary" NavigateUrl='<%# "EditSupport.aspx?id=" + Eval("id")%>'>   
                         <span class="material-symbols-outlined editIcon">edit</span>
                         Edit
                     </asp:HyperLink>
                 </div>
-            </ItemTemplate>
-        </asp:Repeater>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+    <div class="noReply">
+        <asp:Label ID="lblNoReplies" runat="server" CssClass="surfaceText h2"></asp:Label>
     </div>
     <div class="contentContainer">
         <div class="requestTitle">

@@ -101,3 +101,14 @@ a.editBtn:hover {
     font-size: 2em;
     font-weight: bolder;
 }
+
+.noReply {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.h2 {
+    font-size: 1.875rem;
+    font-weight: Bold;
+}

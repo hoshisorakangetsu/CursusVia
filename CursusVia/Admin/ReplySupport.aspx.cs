@@ -18,6 +18,7 @@ namespace CursusVia.Admin
         private string adminId;
         private string studentId;
         private string tutorId;
+        private string supportReqId;
         protected void Page_Load(object sender, EventArgs e)
         {
             id = Request.QueryString["id"];
@@ -36,7 +37,7 @@ namespace CursusVia.Admin
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
 
-            string details = "SELECT [title], [date_send], [description], [tutor_id], [student_id] FROM [SupportRequests] WHERE [id] ='" + id + "'";
+            string details = "SELECT [id], [title], [date_send], [description], [tutor_id], [student_id] FROM [SupportRequests] WHERE [id] ='" + id + "'";
 
             con.Open();
 
@@ -51,10 +52,13 @@ namespace CursusVia.Admin
                     lblDescr.Text = reader["description"].ToString();
                     studentId = reader["student_id"].ToString();
                     tutorId = reader["tutor_id"].ToString();
+                    supportReqId = reader["id"].ToString();
                 }
             }
 
             con.Close();
+
+            backLink.NavigateUrl = "ViewRequest.aspx?id="+supportReqId;
         }
 
         protected void btnReply_Click(object sender, EventArgs e)
@@ -97,7 +101,6 @@ namespace CursusVia.Admin
                 Debug.Write("fail");
             }
 
-            //Int32.TryParse;
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             SqlConnection con = new SqlConnection(cs);

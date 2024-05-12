@@ -13,6 +13,7 @@
             <div class="statusSection">
                 <span class="surfaceText inputName"><b>Status</b></span>
                 <asp:DropDownList ID="ddlStatus" runat="server" CssClass="inputField">
+                    <asp:ListItem>None</asp:ListItem>
                     <asp:ListItem>Processing</asp:ListItem>
                     <asp:ListItem>Completed</asp:ListItem>
                 </asp:DropDownList>
@@ -20,12 +21,12 @@
             <div>
                 <div class="dateSection">
                     <span class="surfaceText inputName"><b>Date</b></span>
-                    <asp:Button ID="btnToday" runat="server" Text="Today" CssClass="btnPrimary Btn"/>
+                    <asp:Button ID="btnToday" runat="server" Text="Today" CssClass="btnPrimary Btn" OnClick="btnToday_Click"/>
                 </div>
                 <div class="dateInput inputField">
                     <div class="width-min">
                         <span class="surfaceText">Start Date</span>
-                        <asp:TextBox ID="TextBox3" runat="server" placeholder="Start Date" type="date" CssClass="dateInputField"></asp:TextBox>
+                        <asp:TextBox ID="txtStart" runat="server" placeholder="Start Date" type="date" CssClass="dateInputField"></asp:TextBox>
                     </div>
                     <div>
                         <div>
@@ -35,13 +36,14 @@
                     </div>
                     <div class="width-min">
                         <span class="surfaceText">End Date</span>
-                        <asp:TextBox ID="TextBox4" runat="server" placeholder="End Date" type="date" CssClass="dateInputField"></asp:TextBox>
+                        <asp:TextBox ID="txtEnd" runat="server" placeholder="End Date" type="date" CssClass="dateInputField"></asp:TextBox>
                     </div>
                 </div>
             </div>
         </div>
-        <div>
+        <div class="filter">
             <asp:Button ID="btnFilter" runat="server" Text="Filter" CssClass="btnPrimary btn" OnClick="btnFilter_Click"/>
+            <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btnPrimary btn" OnClick="btnClear_Click"/>
         </div>
     </div>
     <div>

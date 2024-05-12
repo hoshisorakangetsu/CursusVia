@@ -48,5 +48,21 @@ namespace CursusVia.Admin
             GridView1.DataBind();
             con.Close();
         }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            GridView1.DataSource = SqlDataSource1;
+            GridView1.DataBind();
+            ddlStatus.SelectedIndex = 0;
+            txtStart.Text="";
+            txtEnd.Text="";
+        }
+
+        protected void btnToday_Click(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            txtStart.Text = dt.ToString("yyyy-MM-dd");
+            txtEnd.Text = dt.ToString("yyyy-MM-dd");
+        }
     }
 }

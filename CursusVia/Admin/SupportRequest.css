@@ -165,3 +165,8 @@ th {
 td {
     height: 3em;
 }
+
+.filter {
+    display:flex;
+    gap:1em;
+}

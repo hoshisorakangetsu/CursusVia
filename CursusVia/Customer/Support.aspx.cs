@@ -67,7 +67,6 @@ namespace CursusVia.Customer
                 isEnd = true;
             }
 
-                
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
 

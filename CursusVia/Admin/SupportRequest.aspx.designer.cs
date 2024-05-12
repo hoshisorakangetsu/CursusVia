@@ -51,22 +51,22 @@ namespace CursusVia.Admin
         protected global::System.Web.UI.WebControls.Button btnToday;
 
         /// <summary>
-        /// TextBox3 control.
+        /// txtStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtStart;
 
         /// <summary>
-        /// TextBox4 control.
+        /// txtEnd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox txtEnd;
 
         /// <summary>
         /// btnFilter control.
@@ -76,6 +76,15 @@ namespace CursusVia.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFilter;
+
+        /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
 
         /// <summary>
         /// SqlDataSource1 control.
