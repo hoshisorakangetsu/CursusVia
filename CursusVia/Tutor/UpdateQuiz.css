@@ -73,8 +73,9 @@
 }
 
 .questionAnswer label {
-    display: block;
-    padding: 1rem;
+    display: flex;
+    align-items: center;
+    padding: .75rem;
 }
 
 .answerDesc {
@@ -85,10 +86,24 @@
     color: var(--primary-color);
 }
 
+.answerRight {
+    padding: .3rem .5rem;
+}
+
 .newAnswerField {
-    display: flex;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: 7fr 1rem auto;
+    grid-template-rows: 1fr 0fr;
     margin-top: 1rem;
+    transition: .25s;
+}
+
+.newAnswerField.validationError {
+    grid-template-rows: 1fr auto;
+}
+
+.btnGrid {
+    max-width: fit-content;
 }
 
 #quizQuestionFieldModal {
@@ -121,8 +136,14 @@
 .quizAnswerField {
     display: flex;
     gap: 1rem;
+    position: relative;
 }
 
 .quizAnswerField input[type=text] {
     flex-grow: 1;
+}
+
+.quizAnswerField .validationMessage {
+    position: absolute;
+    top: 100%;
 }

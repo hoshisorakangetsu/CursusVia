@@ -57,16 +57,22 @@ namespace CursusVia.Tutor
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
-                if (chapId == "-1")
+                if (ModalType.Value == "QUIZ")
                 {
-                    affectedRows = NewChapter(newText, con);
+                    Response.Redirect("~/Tutor/CreateQuiz.aspx?chapId=" + chapId + "&courseId=" + courseId + "&quizTitle=" + newText);
                 } else
                 {
-                    affectedRows = UpdateChapter(chapId, newText, con);
+                    if (chapId == "-1")
+                    {
+                        affectedRows = NewChapter(newText, con);
+                    } else
+                    {
+                        affectedRows = UpdateChapter(chapId, newText, con);
+                    }
+                    Response.Redirect("~/Tutor/CourseDetail.aspx?id=" + courseId);
                 }
             }
 
-            Response.Redirect("~/Tutor/CourseDetail.aspx?id=" + courseId);
         }
 
         private int NewChapter(string chapTitle, SqlConnection con)
