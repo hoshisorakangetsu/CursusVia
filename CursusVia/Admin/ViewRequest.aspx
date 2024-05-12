@@ -10,7 +10,6 @@
         </asp:HyperLink>
     </div>
     <div class="contentContainer">
-
         <div class="requestTitle">
             <asp:Label ID="lblRequestTitle" runat="server" Text="Label" CssClass="surfaceText h1"></asp:Label>
             <asp:Label ID="lblPostTime" runat="server" Text="Label" CssClass="surfaceText"></asp:Label>
@@ -49,6 +48,9 @@
             </div>
         </ItemTemplate>
     </asp:Repeater>
+    <div class="noReply">
+        <asp:Label ID="lblNoReplies" runat="server" CssClass="surfaceText h2"></asp:Label>
+    </div>
     <div class="contentContainer">
         <div class="requestTitle">
             <h1 class="surfaceText">Student/Tutor Name</h1>

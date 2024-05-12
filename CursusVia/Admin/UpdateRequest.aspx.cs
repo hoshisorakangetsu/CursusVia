@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -18,6 +19,7 @@ namespace CursusVia.Admin
     {
         private string id;
         private string adminId;
+        int row;
         protected void Page_Load(object sender, EventArgs e)
         {
             id = Request.QueryString["id"];
@@ -62,12 +64,39 @@ namespace CursusVia.Admin
             Repeater1.DataSource=dataSet;
             Repeater1.DataBind();
 
+            row = dataSet.Tables[0].Rows.Count;
+
+            if (row == 0)
+            {
+                lblNoReplies.Text = "No Replies to the Request yet";
+            }
+
             con.Close();
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            Response.Redirect("SupportRequest.aspx");
+            string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+            
+            string update = "UPDATE [dbo].[SupportRequests] SET [status] = @Status WHERE [id] = @id";
+
+            con.Open();
+            SqlCommand updateReply = new SqlCommand(update, con);
+
+            updateReply.Parameters.AddWithValue("@Status", ddlStatus.SelectedValue);
+            updateReply.Parameters.AddWithValue("@id", id);
+
+            int row = updateReply.ExecuteNonQuery();
+
+            if (row > 0)
+            {
+                Response.Write("<script>alert('Status reply update successfully');window.location = 'SupportRequest.aspx';</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Status reply does not update');window.location = 'SupportRequest.aspx';</script>");
+            }
         }
     }
 }

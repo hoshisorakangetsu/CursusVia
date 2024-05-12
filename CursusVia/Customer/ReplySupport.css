@@ -45,7 +45,7 @@
 .replyDisplay {
     display: grid;
     grid-template-rows: 2fr 7.5fr 2fr;
-    max-width:fit-content;
+    max-width: fit-content;
 }
 
 .inputArea {
@@ -53,9 +53,16 @@
     border-color: rgba(0, 0, 0, .4);
     border-radius: .25em;
     font-family: "Inter", sans-serif !important;
+    padding: .35em;
 }
 
 .replyBtn {
     display: flex;
-    justify-content:center;
+    justify-content: center;
+    margin-top: .35em;
+}
+
+.h1 {
+    font-size: 2em;
+    font-weight: bolder;
 }

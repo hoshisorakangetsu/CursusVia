@@ -18,6 +18,7 @@ namespace CursusVia.Admin
         private string adminId;
         private string studentId;
         private string tutorId;
+        private string supportReqId;
         protected void Page_Load(object sender, EventArgs e)
         {
             id = Request.QueryString["id"];
@@ -36,7 +37,7 @@ namespace CursusVia.Admin
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
 
-            string details = "SELECT [title], [date_send], [description], [tutor_id], [student_id] FROM [SupportRequests] WHERE [id] ='" + id + "'";
+            string details = "SELECT [id], [title], [date_send], [description], [tutor_id], [student_id] FROM [SupportRequests] WHERE [id] ='" + id + "'";
 
             con.Open();
 
@@ -51,35 +52,21 @@ namespace CursusVia.Admin
                     lblDescr.Text = reader["description"].ToString();
                     studentId = reader["student_id"].ToString();
                     tutorId = reader["tutor_id"].ToString();
+                    supportReqId = reader["id"].ToString();
                 }
             }
 
             con.Close();
+
+            backLink.NavigateUrl = "ViewRequest.aspx?id="+supportReqId;
         }
 
         protected void btnReply_Click(object sender, EventArgs e)
         {
             if (!Page.IsValid) { return; }
 
-            int sId; int tId; int aId; int supportId;
-            bool isStudent = false;
-            if (Int32.TryParse(studentId,out sId)) 
-            { 
-                Debug.Write("sId");
-                isStudent = true;
-            }
-            else 
-            {
-                Debug.Write("fail");
-            }
-            if (Int32.TryParse(tutorId, out tId)) 
-            {
-                Debug.Write("tId");
-            }
-            else
-            {
-                Debug.Write("fail");
-            }
+            int aId; int supportId;
+
             if (Int32.TryParse(adminId, out aId)) 
             {
                 Debug.Write("aId");
@@ -97,7 +84,6 @@ namespace CursusVia.Admin
                 Debug.Write("fail");
             }
 
-            //Int32.TryParse;
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             SqlConnection con = new SqlConnection(cs);
@@ -105,22 +91,13 @@ namespace CursusVia.Admin
             con.Open();
             //string getValue = "SELECT [id], [title], [date_send], [description], [status], [tutor_id], [student_id] FROM [SupportRequests] WHERE [id] ='" + id + "'";
 
-            string selectQuery;
-            if (isStudent)
-                selectQuery = "INSERT INTO [dbo].[Replies] ([reply],[datetime],[support_req_id],[admin_id],[student_id]) VALUES (@Reply,@Datetime,@SupportReqId,@AdminId,@StudentId)";
-            else 
-                selectQuery = "INSERT INTO [dbo].[Replies] ([reply],[datetime],[support_req_id],[admin_id],[tutor_id]) VALUES (@Reply,@Datetime,@SupportReqId,@AdminId,@TutorId)";
+            string selectQuery = "INSERT INTO [dbo].[Replies] ([reply],[datetime],[support_req_id],[admin_id]) VALUES (@Reply,@Datetime,@SupportReqId,@AdminId)";
 
             SqlCommand cmd = new SqlCommand(selectQuery, con);
             cmd.Parameters.AddWithValue("@Reply", txtReply.Text);
             cmd.Parameters.AddWithValue("@Datetime", DateTime.Now); 
             cmd.Parameters.AddWithValue("@SupportReqId", supportId); // Assuming support request ID
             cmd.Parameters.AddWithValue("@AdminId", aId); // Assuming admin ID
-
-            if (isStudent)
-                cmd.Parameters.AddWithValue("@StudentId", sId); // Assuming student ID
-            else
-                cmd.Parameters.AddWithValue("@TutorId", tId); // Assuming no tutor ID (nullable)
 
             int row = cmd.ExecuteNonQuery();
 

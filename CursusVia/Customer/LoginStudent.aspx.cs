@@ -153,6 +153,10 @@ namespace CursusVia.Customer
 			Response.Redirect("RegisterStudent.aspx");
 		}
 
+		protected void lbtnForgetPass_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("ForgotPassword.aspx");
+		}
 	}
 
 
