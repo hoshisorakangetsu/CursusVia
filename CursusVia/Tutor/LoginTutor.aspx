@@ -15,10 +15,12 @@
         <asp:TextBox ID="txtUsername" runat="server" CssClass="txtUsername" PlaceHolder="👤 Username / Email"></asp:TextBox>
         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="txtPassword" Placeholder="🔒 Password" />
         <asp:Button ID="btnLogin" runat="server" CssClass="btnLogin" Text="Login" OnClick="btnLogin_Click"/>
-       <!-- <asp:LinkButton runat="server" ID="lbtnForgetPass" CssClass="lbtnForgetPass">Forget password?</asp:LinkButton>-->
+        <asp:LinkButton runat="server" ID="lbtnForgetPass" CssClass="lbtnForgetPass" OnClick="lbtnForgetPass_Click">Log in with email OTP</asp:LinkButton>
         <asp:CheckBox runat="server" ID="cbRememberMe" Text="Remember me" CssClass="cbRememberMe"></asp:CheckBox>
-        <asp:LinkButton runat="server" ID="lbtnShowRegister" Text="Register" CssClass="lbtnRegister" />
-                  <asp:Label ID="lblMessage" runat="server"/>
+        <asp:LinkButton runat="server" ID="lbtnShowRegister" Text="Register" CssClass="lbtnRegister" OnClick="lbtnShowRegister_Click" />
+                   <asp:Image ID="captchaImage" runat="server" Height="50px" Width="150px"  ImageUrl="~/Tutor/MyCaptcha.aspx" /><br>
+<asp:TextBox ID="captchacode" runat="server" Placeholder="Enter captcha code" CssClass="txtEmail"></asp:TextBox>
+        <asp:Label ID="lblMessage" runat="server"/>
 
 </div>
     </asp:Panel>

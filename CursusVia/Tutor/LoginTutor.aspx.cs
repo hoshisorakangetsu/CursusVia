@@ -27,14 +27,14 @@ namespace CursusVia.Tutor
 			string password = txtPassword.Text;
 			bool rememberMe = cbRememberMe.Checked;
 
-			string authenticatedUserId = AuthenticateTutor(txtUsername.Text, txtPassword.Text)
+			string authenticatedUserId = AuthenticateTutor(txtUsername.Text, txtPassword.Text);
 
 
 
-;			 if (authenticatedUserId != "0")
+			 if (authenticatedUserId != "0" && captchacode.Text.ToLower() == Session["sessionCaptcha"].ToString())
 			{
 				// Redirect the user to the AdminHome  page
-				
+
 				FormsAuthenticationTicket ticketTutor = new FormsAuthenticationTicket(
 					1,
 				authenticatedUserId,
@@ -55,8 +55,18 @@ namespace CursusVia.Tutor
 			}
 			else
 			{
-				lblMessage.ForeColor = System.Drawing.Color.Red;
-				lblMessage.Text = "Invalid username and password";
+				if (authenticatedUserId == "0")
+				{
+					Response.Write("<script>alert('Invalid email or password');window.location = 'LoginTutor.aspx';</script>");
+
+				}
+
+				if (captchacode.Text.ToLower() != Session["sessionCaptcha"].ToString())
+				{
+					Response.Write("<script>alert('Captcha code incorrect. Please try again ');window.location = 'LoginTutor.aspx';</script>");
+
+				}
+
 			}
 		}
 		private string AuthenticateTutor(string email, string password)
@@ -89,6 +99,15 @@ namespace CursusVia.Tutor
 			string strHash = Convert.ToBase64String(binHash);
 
 			return strHash;
+		}
+		protected void lbtnShowRegister_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("RegisterTutor.aspx");
+		}
+
+		protected void lbtnForgetPass_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("loginEmailOtp");
 		}
 	}
 }
