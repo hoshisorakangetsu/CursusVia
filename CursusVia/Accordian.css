@@ -14,7 +14,7 @@
     border: 1px solid var(--outline);
 }
 
-.accordianContent:not(.accordianContent:last-of-type) {
+.accordianItem:not(:last-of-type) {
     border-bottom: none;
 }
 
@@ -27,7 +27,7 @@
     cursor: pointer;
 }
 
-.accordianContent:not(:last-child) {
+.accordianContent a:not(a:last-of-type) {
     border-bottom: 1px solid var(--outline);
 }
 

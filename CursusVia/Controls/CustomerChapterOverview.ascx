@@ -1,5 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CustomerChapterOverview.ascx.cs" Inherits="CursusVia.Customer.CustomerChapterOverview" %>
 
+<link href='<%= ResolveUrl("~/Accordian.css") %>' rel="stylesheet" />
+
 <div class="accordianContainer">
     <asp:Repeater ID="ChapterRepeater" runat="server" DataSourceID="ChapterDS">
         <ItemTemplate>
@@ -46,3 +48,6 @@
     </asp:Repeater>
     <asp:SqlDataSource ID="ChapterDS" runat="server" ConnectionString='<%$ ConnectionStrings:ConnectionString %>'></asp:SqlDataSource>
 </div>
+
+<script src='<%= ResolveUrl("~/AccordianInit.js") %>' defer></script>
+

@@ -32,6 +32,12 @@
     border-radius: .35rem;
     display: flex;
     position: relative;
+    cursor: pointer; /* not working for some reason */
+}
+
+/* browser support is not as wide on this one */
+.questionAnswer:has(input:disabled) {
+    cursor: not-allowed;
 }
 
 .questionAnswer input[type=checkbox] {
@@ -77,5 +83,36 @@
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.loadingIcon {
+    animation: rotate 2s linear infinite; 
+}
+
+.loading.appearOverlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 

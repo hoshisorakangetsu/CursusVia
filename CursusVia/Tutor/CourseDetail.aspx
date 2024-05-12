@@ -33,8 +33,7 @@
                 </div>
             </ItemTemplate>
         </asp:FormView>
-        <asp:SqlDataSource runat="server" ID="CourseDetailHeroDS" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-></asp:SqlDataSource>
+        <asp:SqlDataSource runat="server" ID="CourseDetailHeroDS" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"></asp:SqlDataSource>
         <div class="courseOverview">
             <div class="courseOverviewHeading">
                 <h1>Course Overview</h1>
@@ -53,26 +52,40 @@
                                     <div class="newItemControls">
                                         <% // save courseId for use of redirect %>
                                         <asp:HyperLink ID="NewChapterContent" runat="server" CssClass="btn btnPrimary" NavigateUrl='<%# "~/Tutor/CreateCourseContent.aspx?chapId=" + Eval("ChapterId") + "&courseId=" + Eval("CourseId") %>'>New Content</asp:HyperLink>
-                                        <button id="NewChapterQuiz" class="btn btnOutlinePrimary"  onclick='openModalForNewQuiz(event, <%# Eval("ChapterId") %>)'>New Quiz</button>
+                                        <button id="NewChapterQuiz" class="btn btnOutlinePrimary" onclick='openModalForNewQuiz(event, <%# Eval("ChapterId") %>)'>New Quiz</button>
                                     </div>
                                     <p class="itemCount"><%# Eval("ItemCount") %> Items</p>
                                     <span class="material-symbols-outlined chevron">expand_more</span>
                                 </div>
                             </div>
                             <div class="accordianContentWrapper">
-                                <asp:Repeater ID="ContentRepeater" runat="server" DataSourceID="ContentDS">
-                                    <ItemTemplate>
-                                        <div class="accordianContent">
+                                <div class="accordianContent">
+                                    <asp:Repeater ID="ContentRepeater" runat="server" DataSourceID="ContentDS">
+                                        <ItemTemplate>
                                             <asp:HyperLink CssClass="contentRow" NavigateUrl='<%# "~/Tutor/UpdateCourseContent.aspx?contentId=" + Eval("ContentId") + "&courseId=" + Eval("CourseId") %>' runat="server">
                                                 <%# Eval("ContentTitle") %>
                                                 <span class="updateIcon material-symbols-outlined">edit</span>
                                             </asp:HyperLink>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:Repeater>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                    <% // store chapter id to be used by the content data source %>
+                                    <asp:HiddenField ID="ChapIdForContentDS" runat="server" Value='<%# Eval("ChapterId") %>' />
+                                    <asp:SqlDataSource ID="ContentDS" runat="server" SelectCommand='SELECT [id] AS ContentId, [title] AS ContentTitle, (SELECT [course_id] FROM [Chapters] ch WHERE [ch].[id] = @ChapId) AS [CourseId] FROM [ChapterContents] WHERE [chapter_id] = @ChapId ORDER BY [order];' ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
+                                        <SelectParameters>
+                                            <asp:ControlParameter Name="ChapId" ControlID="ChapIdForContentDS" PropertyName="Value" />
+                                        </SelectParameters>
+                                    </asp:SqlDataSource>
+                                    <asp:Repeater ID="QuizRepeater" runat="server" DataSourceID="QuizDS">
+                                        <ItemTemplate>
+                                            <asp:HyperLink CssClass="contentRow" NavigateUrl='<%# "~/Tutor/UpdateQuiz.aspx?quizId=" + Eval("QuizId") + "&chapterId=" + Eval("ChapterId") + "&courseId=" + Eval("CourseId") %>' runat="server">
+                                                <%# Eval("QuizTitle") %>
+                                                <span class="updateIcon material-symbols-outlined">edit</span>
+                                            </asp:HyperLink>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </div>
                                 <% // store chapter id to be used by the content data source %>
-                                <asp:HiddenField ID="ChapIdForContentDS" runat="server" Value='<%# Eval("ChapterId") %>' />
-                                <asp:SqlDataSource ID="ContentDS" runat="server" SelectCommand='SELECT [id] AS ContentId, [title] AS ContentTitle, (SELECT [course_id] FROM [Chapters] ch WHERE [ch].[id] = @ChapId) AS [CourseId] FROM [ChapterContents] WHERE [chapter_id] = @ChapId ORDER BY [order];' ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
+                                <asp:SqlDataSource ID="QuizDS" runat="server" SelectCommand='SELECT cq.[id] AS QuizId, cq.[quiz_title] AS QuizTitle, cq.[chapter_id] AS ChapterId, c.[course_id] AS CourseId FROM [ChapterQuiz] cq INNER JOIN [Chapters] c ON cq.[chapter_id] = c.[id] WHERE cq.[chapter_id] = @ChapId' ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
                                     <SelectParameters>
                                         <asp:ControlParameter Name="ChapId" ControlID="ChapIdForContentDS" PropertyName="Value" />
                                     </SelectParameters>
@@ -81,8 +94,7 @@
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
-                <asp:SqlDataSource ID="ChapterDS" runat="server" ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
-                </asp:SqlDataSource>
+                <asp:SqlDataSource ID="ChapterDS" runat="server" ConnectionString='<%$ ConnectionStrings:ConnectionString %>'></asp:SqlDataSource>
             </div>
         </div>
     </div>
