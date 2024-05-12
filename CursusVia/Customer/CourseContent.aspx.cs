@@ -54,27 +54,7 @@ namespace CursusVia.Customer
             CourseDetailHeroDS.SelectParameters.Add("CourseId", courseId);
             CourseDetailHeroView.DataBind();
 
-            // for chapters repeater
-            ChapterDS.SelectCommand = @"
-                SELECT 
-                    [c].[id] AS ChapterId, 
-                    [c].[title] AS ChapterTitle,
-                    ISNULL((
-                        SELECT COUNT(*)
-                        FROM [ChapterContents]
-                        WHERE chapter_id = [c].id
-                    ), 0) + ISNULL((
-                        SELECT COUNT(*)
-                        FROM [ChapterQuiz]
-                        WHERE chapter_id = [c].id
-                    ), 0) AS ItemCount,
-                    [c].[course_id] AS CourseId
-                FROM [Chapters] c
-                WHERE course_id = @CourseId;
-            ";
-            ChapterDS.SelectParameters.Clear();
-            ChapterDS.SelectParameters.Add("CourseId", courseId);
-            ChapterRepeater.DataBind();
+            CustomerChapterOverview.CourseId = courseId; // dk why server inline tags aren't working
 
             InitRatingSection();
         }

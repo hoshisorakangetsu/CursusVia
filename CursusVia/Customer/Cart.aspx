@@ -9,7 +9,7 @@
     <div class="main-container">
             <!-- Shopping Cart -->
             <div class="cart-container">
-                           <asp:Repeater ID="CartRepeater" runat="server" OnItemCommand="CartRepeater_ItemCommand">
+                <asp:Repeater ID="CartRepeater" runat="server" OnItemCommand="CartRepeater_ItemCommand">
                     <HeaderTemplate>
                         <div class="item-header">
                             <div class="cart-column">Select</div>
@@ -21,20 +21,19 @@
                         </div>
                     </HeaderTemplate>
                     <ItemTemplate>
-                        <div class="cart-row">
-                            <div class="cart-cell"><asp:CheckBox ID="ItemSelector" runat="server" /></div>
-                            <% 
-    // this comment should not be shown to the public as it concerns the internal working, so will be enclosing in server tags
-    // Substring 1 because the upload file utils include "~", which is not understandable by client browsers 
-%>
-                   <div class="cart-cell"> <img src='<%# Eval("ImagePath").ToString().Substring(1) %>' alt="Item Image"  width="80" height="80"/></div>
-                        <div class="cart-cell"><%# Eval("Title") %></div>
-                            <div class="cart-cell"><%# Eval("Description") %></div>
-                            <div class="cart-cell">$<%# Eval("Price") %></div>
-                            <div class="cart-cell">
-                            <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass="btnDelet" />
-                        </div>
-                    </div>
+                       <div class="cart-row">
+        <div class="cart-cell">
+<asp:CheckBox ID="ItemSelector" runat="server" />
+        </div>
+        <div class="cart-cell"><img src='<%# Eval("ImagePath").ToString().Substring(1) %>' alt="Item Image" width="80" height="80"/></div>
+        <div class="cart-cell"><asp:Label ID="lblCTitle" runat="server" Text='<%# Eval("Title") %>'></asp:Label></div>
+        <div class="cart-cell"><%# Eval("Description") %></div>
+        <div class="cart-cell">$<asp:Label ID="lblCPrice" runat="server" Text='<%# Eval("Price") %>'></asp:Label></div>
+        <div class="cart-cell">
+          <asp:Button ID="btnDeleteSelected" runat="server" Text="Delete Selected" CssClass="btnDelete" />
+
+        </div>
+    </div>
                 </ItemTemplate>
             </asp:Repeater>
         </div>

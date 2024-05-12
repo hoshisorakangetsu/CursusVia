@@ -136,6 +136,7 @@
     <Content Include="Admin\SupportRequest.aspx" />
     <Content Include="Admin\SupportRequest.css" />
     <Content Include="Admin\UpdateAdminAccountConfirmation.aspx" />
+    <Content Include="Admin\UpdatePayOrder.aspx" />
     <Content Include="Admin\UpdateRequest.aspx" />
     <Content Include="Admin\UpdateRequest.css" />
     <Content Include="Admin\UpdateVacancy.css" />
@@ -161,6 +162,7 @@
     <Content Include="Customer\AddToCart.aspx" />
     <Content Include="Customer\addToCartMessage.css" />
     <Content Include="Controls\CustomerChapterOverview.ascx" />
+    <Content Include="Customer\CourseQuizSubmit.js" />
     <Content Include="Customer\displaySuccessfulDeleteAccountMsg.aspx" />
     <Content Include="Customer\displaySuccessfulLogoutMessage.aspx" />
     <Content Include="Customer\emailIcon.png" />
@@ -439,6 +441,13 @@
     </Compile>
     <Compile Include="Admin\UpdateConfirmation.aspx.designer.cs">
       <DependentUpon>UpdateConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdatePayOrder.aspx.cs">
+      <DependentUpon>UpdatePayOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UpdatePayOrder.aspx.designer.cs">
+      <DependentUpon>UpdatePayOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UpdateRequest.aspx.cs">
       <DependentUpon>UpdateRequest.aspx</DependentUpon>

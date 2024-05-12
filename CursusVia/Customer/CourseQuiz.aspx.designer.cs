@@ -15,12 +15,30 @@ namespace CursusVia.Customer
     {
 
         /// <summary>
-        /// GoToContent control.
+        /// RptQuestions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink GoToContent;
+        protected global::System.Web.UI.WebControls.Repeater RptQuestions;
+
+        /// <summary>
+        /// QuestionDS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource QuestionDS;
+
+        /// <summary>
+        /// CustomerChapterOverviewControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CursusVia.Customer.CustomerChapterOverview CustomerChapterOverviewControl;
     }
 }

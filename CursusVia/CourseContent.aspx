@@ -48,22 +48,35 @@
                                     </div>
                                 </div>
                                 <div class="accordianContentWrapper">
-                                    <asp:Repeater ID="ContentRepeater" runat="server" DataSourceID="ContentDS">
-                                        <ItemTemplate>
-                                            <div class="accordianContent">
+                                    <div class="accordianContent">
+                                        <asp:Repeater ID="ContentRepeater" runat="server" DataSourceID="ContentDS">
+                                            <ItemTemplate>
                                                 <div class="contentRow">
                                                     <%# Eval("ContentTitle") %>
                                                 </div>
-                                            </div>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                    <% // store chapter id to be used by the content data source %>
-                                    <asp:HiddenField ID="ChapIdForContentDS" runat="server" Value='<%# Eval("ChapterId") %>' />
-                                    <asp:SqlDataSource ID="ContentDS" runat="server" SelectCommand='SELECT [title] AS ContentTitle FROM [ChapterContents] WHERE [chapter_id] = @ChapId ORDER BY [order];' ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
-                                        <SelectParameters>
-                                            <asp:ControlParameter Name="ChapId" ControlID="ChapIdForContentDS" PropertyName="Value" />
-                                        </SelectParameters>
-                                    </asp:SqlDataSource>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                        <asp:HiddenField ID="ChapIdForContentDS" runat="server" Value='<%# Eval("ChapterId") %>' />
+                                        <% // store chapter id to be used by the content data source %>
+                                        <asp:SqlDataSource ID="ContentDS" runat="server" SelectCommand='SELECT [title] AS ContentTitle FROM [ChapterContents] WHERE [chapter_id] = @ChapId ORDER BY [order];' ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
+                                            <SelectParameters>
+                                                <asp:ControlParameter Name="ChapId" ControlID="ChapIdForContentDS" PropertyName="Value" />
+                                            </SelectParameters>
+                                        </asp:SqlDataSource>
+                                        <asp:Repeater ID="QuizRepeater" runat="server" DataSourceID="QuizDS">
+                                            <ItemTemplate>
+                                                <div class="contentRow">
+                                                    <%# Eval("QuizTitle") %>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                        <% // store chapter id to be used by the content data source %>
+                                        <asp:SqlDataSource ID="QuizDS" runat="server" SelectCommand='SELECT cq.[quiz_title] AS QuizTitle FROM [ChapterQuiz] cq WHERE cq.[chapter_id] = @ChapId' ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
+                                            <SelectParameters>
+                                                <asp:ControlParameter Name="ChapId" ControlID="ChapIdForContentDS" PropertyName="Value" />
+                                            </SelectParameters>
+                                        </asp:SqlDataSource>
+                                    </div>
                                 </div>
                             </div>
                         </ItemTemplate>

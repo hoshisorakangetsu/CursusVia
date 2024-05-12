@@ -33,21 +33,12 @@ namespace CursusVia.Customer
         protected global::System.Web.UI.WebControls.SqlDataSource ChapterContentDS;
 
         /// <summary>
-        /// ChapterRepeater control.
+        /// CustomerChapterOverview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater ChapterRepeater;
-
-        /// <summary>
-        /// ChapterDS control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ChapterDS;
+        protected global::CursusVia.Customer.CustomerChapterOverview CustomerChapterOverview;
     }
 }

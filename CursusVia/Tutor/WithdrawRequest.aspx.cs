@@ -46,7 +46,7 @@ namespace CursusVia.Tutor
 
                     if (withdrawAmount < 50 || (withdrawAmount + totalPendingWithdrawals) > currentBalance)
                     {
-                        lblStatus.Text = "Withdrawal amount must be at least $50 and cannot exceed your available balance minus pending withdrawals.";
+                        lblStatus.Text = "Withdrawal amount must be at least $50 and cannot exceed your available balance minus pending withdrawals. for inquiry conact support";
                         lblStatus.CssClass = "error";
                         lblStatus.Visible = true;
                         return;
@@ -81,7 +81,7 @@ namespace CursusVia.Tutor
         {
             float totalPending = 0;
             string connectionString = Global.CS;
-            string sql = "SELECT SUM(withdraw_amount) FROM WithdrawalRequests WHERE tutor_id = @TutorId AND status = 'Pending'";
+            string sql = "SELECT SUM(withdraw_amount) FROM WithdrawalRequests WHERE tutor_id = @TutorId AND status IS NOT NULL AND status IN ('Pending', 'Approve')";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {

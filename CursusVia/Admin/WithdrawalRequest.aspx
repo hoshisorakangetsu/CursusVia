@@ -6,28 +6,30 @@
     <div class="headerContainer">
         <div class="search">
             <span class="material-symbols-outlined searchIcon">search</span>
-            <input id="Text1" type="text" placeholder="Search Request" class="input"/>
-            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btnPrimary btn" />
+           <asp:TextBox ID="txtSearch" runat="server" placeholder="Search Request" CssClass="input genericInputField"></asp:TextBox>
+<asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btnPrimary btn" OnClick="btnSearch_Click" />
         </div>
            <div class="filterSection">
         <div class="statusSection">
             <span class="surfaceText inputName"><b>Status</b></span>
             <asp:DropDownList ID="ddlStatus" runat="server" CssClass="inputField">
+                <asp:ListItem>None</asp:ListItem>
                 <asp:ListItem>Pending</asp:ListItem>
                 <asp:ListItem>Approved</asp:ListItem>
-                <asp:ListItem>To Pay</asp:ListItem>
-                <asp:ListItem>Completed</asp:ListItem>
+                <asp:ListItem>Paid</asp:ListItem>
+                <asp:ListItem Text="Reject" />
+                <asp:ListItem Text="Need addtional details" />
             </asp:DropDownList>
         </div>
         <div class="">
             <div class="dateSection">
                 <span class="surfaceText inputName"><b>Date</b></span>
-                <asp:Button ID="btnToday" runat="server" Text="Today" CssClass="btnPrimary Btn"/>
+                <asp:Button ID="btnToday" runat="server" Text="Today" CssClass="btnPrimary Btn" OnClick="btnToday_Click1" />
             </div>
             <div class="dateInput inputField">
                 <div class="width-min">
                     <span class="surfaceText">Start Date</span>
-                    <asp:TextBox ID="TextBox3" runat="server" placeholder="Start Date" type="date" CssClass="dateInputField"></asp:TextBox>
+                   <asp:TextBox ID="TextBox3" runat="server" placeholder="Start Date" Type="Date" CssClass="dateInputField"></asp:TextBox>
                 </div>
                 <div>
                     <div>
@@ -37,43 +39,39 @@
                 </div>
                 <div class="width-min">
                     <span class="surfaceText">End Date</span>
-                    <asp:TextBox ID="TextBox4" runat="server" placeholder="End Date" type="date" CssClass="dateInputField"></asp:TextBox>
+                    <asp:TextBox ID="TextBox4" runat="server" placeholder="End Date" Type="Date" CssClass="dateInputField"></asp:TextBox>          
                 </div>
             </div>
         </div>
     </div>
+      <div class="filter">
+     <asp:Button ID="btnFilter" runat="server" Text="Filter" CssClass="btnPrimary btn" OnClick="btnFilter_Click"/>
+     <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btnPrimary btn" OnClick="btnClear_Click"/>
+ </div>
 </div>
 <div>
     <h2 class="surfaceText contentHeader">Withdrawal Request List</h2>
 </div>
     <div class="table">
-    <table class="rounded-corners">
-        <tr>
-            <th>No</th>
-            <th>R_ID</th>
-            <th>Name</th>
-            <th>Req_date</th>
-            <th>Balance</th>
-             <th>Req_date</th>
-             <th>W/D Amt</th>
-             <th>Status </th>
-             <th>Action</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>0001</td>
-            <td>0101</td>
-            <td>0101</td>
-            <td>9/4/2024</td>
-            <td>RM 1000</td>
-            <td>RM 500</td>
-            <td>Pending</td>
-            <td>
-                <!--need to replace with btn and Grid-->
-                <asp:HyperLink ID="HyperLink1" runat="server" class="btnPrimary newBtn" NavigateUrl='ViewWithdrawRequest.aspx'>View</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='WithdrawStatusUpdate.aspx'>Update</asp:HyperLink>
-            </td>
-        </tr>
-    </table>
+<asp:GridView ID="gvWithdrawalRequests" runat="server"   AutoGenerateColumns="False"  CssClass="rounded-corners" ShowFooter="True">
+    <Columns>
+        <asp:BoundField DataField="id" HeaderText="ID" />
+        <asp:BoundField DataField="name" HeaderText="Name" />
+        <asp:BoundField DataField="balance" HeaderText="Balance" />
+        <asp:BoundField DataField="request_date" HeaderText="Request Date" />
+        <asp:BoundField DataField="withdraw_amount" HeaderText="Withdraw Amount" />
+        <asp:BoundField DataField="status" HeaderText="Status" />
+        <asp:TemplateField>
+            <ItemTemplate>
+               <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("id", "ViewWithdrawRequest.aspx?id={0}") %>' Text="View" CssClass="btnPrimary newBtn"></asp:HyperLink>
+                <asp:Hyperlink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='<%# "WithdrawStatusUpdate.aspx?id=" + Eval("id")%>'>Update</asp:Hyperlink>
+            </ItemTemplate>
+            <headertemplate>
+  Action
+</headertemplate>
+        </asp:TemplateField>
+
+    </Columns>
+</asp:GridView>
 </div>
 </asp:Content>
