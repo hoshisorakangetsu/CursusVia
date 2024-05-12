@@ -14,8 +14,11 @@ namespace CursusVia.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            GridView1.DataSource = SqlDataSource1;
-            GridView1.DataBind();
+            if (!IsPostBack)
+            {
+                GridView1.DataSource = SqlDataSource1;
+                GridView1.DataBind();
+            }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -35,10 +38,39 @@ namespace CursusVia.Admin
 
         protected void btnFilter_Click(object sender, EventArgs e)
         {
-            //only done for status
+            bool isStatus = false;
+            bool isStart = false;
+            bool isEnd = false;
+            string end = "";
+
+            DateTime date = Convert.ToDateTime(this.txtEnd.Text);
+            date = date.AddDays(1);
+
+            if (!ddlStatus.SelectedValue.Equals("None"))
+                isStatus = true;
+            if (txtStart.Text.Length > 0)
+                isStart = true;
+            if (txtEnd.Text.Length > 0)
+            {
+                end = date.ToString("yyyy-MM-dd");
+                isEnd = true;
+            }
+
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
-            string query = "SELECT[id], [title], [date_send], [status] FROM[SupportRequests] WHERE status = '" + ddlStatus.SelectedValue + "'";
+            string query;
+
+            //default query
+            query = "SELECT[id], [title], [date_send], [status] FROM[SupportRequests] WHERE";
+            if (isStatus)
+                query = String.Concat(query, " [status] = '" + ddlStatus.SelectedValue + "' AND");
+            if (isStart)
+                query = String.Concat(query, " [date_send] >= '" + txtStart.Text + "' AND");
+            if (isEnd)
+                query = String.Concat(query, " [date_send] <= '" + end + "' AND");
+
+            //remove the AND and space
+            query = query.Remove(query.Length - 4);
 
             con.Open();
             SqlDataAdapter adapter = new SqlDataAdapter(query, con);

@@ -18,7 +18,10 @@
             <div>
                 <div class="filterHeader">
                     <span class="surfaceText filterText">FILTER</span>
-                    <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btnPrimary btn" OnClick="btnClear_Click"/>
+                    <div>
+                        <asp:Button ID="btnFilter" runat="server" Text="Filter" CssClass="btnPrimary btn" OnClick="btnFilter_Click" />
+                        <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btnPrimary btn" OnClick="btnClear_Click"/>
+                    </div>
                 </div>
                 <div class="filterStatus">
                     <span class="surfaceText statusText">STATUS</span>
@@ -31,25 +34,18 @@
                 <div class="filterDate">
                     <span class="surfaceText dateText">DATE</span>
                     <div class="dateInput">
-                        <div class="width-min">
+                        <div class="width-max">
                             <span class="surfaceText">Start Date</span>
                             <asp:TextBox ID="startDate" runat="server" placeholder="Start Date" type="date" CssClass="dateInputField"></asp:TextBox>
                         </div>
-                        <div>
-                            <div>
-                                <br />
-                                <br />
-                            </div>
-                            <span class="surfaceText"><b>~</b></span>
+                        <div class="to">
+                            <span class="surfaceText"><b>TO</b></span>
                         </div>
-                        <div class="width-min">
+                        <div>
                             <span class="surfaceText">End Date</span>
                             <asp:TextBox ID="EndDate" runat="server" placeholder="End Date" type="date" CssClass="dateInputField"></asp:TextBox>
                         </div>
                     </div>
-                </div>
-                <div class="filterBtn">
-                    <asp:Button ID="btnFilter" runat="server" Text="Filter" CssClass="btnPrimary btn" OnClick="btnFilter_Click" />
                 </div>
             </div>
             <div class="requestContentArea">

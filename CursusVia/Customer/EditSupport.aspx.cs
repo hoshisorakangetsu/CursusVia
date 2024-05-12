@@ -19,7 +19,7 @@ namespace CursusVia.Customer
         {
             requestId = Request.QueryString["id"];
 
-                
+            backLink.NavigateUrl = "ViewRequest.aspx?id="+requestId;
 
             HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
 

@@ -74,3 +74,8 @@ h2 {
     text-decoration: none;
     color: var(--text-on-primary) !important;
 }
+
+.h1 {
+    font-size: 2em;
+    font-weight: bolder;
+}

@@ -10,7 +10,6 @@
         </asp:HyperLink>
     </div>
     <div class="contentContainer">
-
         <div class="requestTitle">
             <asp:Label ID="lblRequestTitle" runat="server" Text="Label" CssClass="surfaceText h1"></asp:Label>
             <asp:Label ID="lblPostTime" runat="server" Text="Label" CssClass="surfaceText"></asp:Label>
