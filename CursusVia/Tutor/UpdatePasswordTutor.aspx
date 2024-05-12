@@ -26,7 +26,7 @@ Back
                 <asp:TextBox ID="txtOldPassword" runat="server" cssClass="form-control" TextMode="Password" Placeholder="Old Password" Height="30px" Width="70%"></asp:TextBox>
                        </div>
                           <div style="padding-left:25px;">
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Cannot be Empty" ForeColor="red" ControlToValidate="txtNewPassword"></asp:RequiredFieldValidator>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Cannot be Empty" ForeColor="red" ControlToValidate="txtNewPassword"></asp:RequiredFieldValidator>
 
       </div>
                     
@@ -40,7 +40,9 @@ Back
                      </div>
              
                 <div style="padding-left:25px;">
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Cannot be Empty" ForeColor="red" ControlToValidate="txtNewPassword"></asp:RequiredFieldValidator>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Cannot be Empty" ForeColor="red" ControlToValidate="txtNewPassword"></asp:RequiredFieldValidator></div>
+                                <div style="padding-left:25px;">
+
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtNewPassword" ErrorMessage="Password format is invalid." ForeColor="red" ValidationExpression="^(?=.*[A-Za-z])(?=.*\d).{4,}$"></asp:RegularExpressionValidator>
 
                     </div>
@@ -54,8 +56,10 @@ Back
              </div>
         
                 <div style="padding-left:25px;">
-             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Cannot be Empty" ControlToValidate="txtConfirmPassword" ForeColor="red"></asp:RequiredFieldValidator>
-             <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="The password not matched" ControlToCompare="txtNewPassword" ControlToValidate="txtConfirmPassword"></asp:CompareValidator>
+             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Cannot be Empty" ControlToValidate="txtConfirmPassword" ForeColor="red"></asp:RequiredFieldValidator> </div>
+                        <div style="padding-left:25px;">
+
+             <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="The password not matched" ControlToCompare="txtNewPassword" ControlToValidate="txtConfirmPassword" ForeColor = "red"></asp:CompareValidator>
              </div>
 
              </td>
