@@ -161,6 +161,7 @@
     <Content Include="Customer\AddToCart.aspx" />
     <Content Include="Customer\addToCartMessage.css" />
     <Content Include="Controls\CustomerChapterOverview.ascx" />
+    <Content Include="Customer\CourseQuizSubmit.js" />
     <Content Include="Customer\displaySuccessfulDeleteAccountMsg.aspx" />
     <Content Include="Customer\displaySuccessfulLogoutMessage.aspx" />
     <Content Include="Customer\emailIcon.png" />
