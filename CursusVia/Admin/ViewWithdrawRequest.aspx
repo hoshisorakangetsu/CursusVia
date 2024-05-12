@@ -44,8 +44,8 @@
         <div class="modal-footer">
             <asp:Literal ID="litPaymentInfo" runat="server" Text="The Data Reteraive form the tutor database"></asp:Literal>
             <div class="buttons">
-                <asp:Button ID="btnWithdrawal" runat="server" Text="Update" CssClass="btnWithdrawal" OnClick="btnWithdrawal_Click" />
-                <asp:Button ID="btnCanWithdrawal" runat="server" Text="Cancel" CssClass="btnCanWithdrawal" OnClick="btnCanWithdrawal_Click" />
+                
+                <asp:Button ID="btnCanWithdrawal" runat="server" Text="Back" CssClass="btnCanWithdrawal" OnClick="btnCanWithdrawal_Click" />
             </div>
         </div>
     </div>

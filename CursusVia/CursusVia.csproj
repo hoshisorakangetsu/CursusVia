@@ -104,6 +104,7 @@
     <Content Include="Admin\SupportRequest.aspx" />
     <Content Include="Admin\SupportRequest.css" />
     <Content Include="Admin\UpdateAdminAccountConfirmation.aspx" />
+    <Content Include="Admin\UpdatePayOrder.aspx" />
     <Content Include="Admin\UpdateRequest.aspx" />
     <Content Include="Admin\UpdateRequest.css" />
     <Content Include="Admin\UpdateVacancy.css" />
@@ -405,6 +406,13 @@
     </Compile>
     <Compile Include="Admin\UpdateConfirmation.aspx.designer.cs">
       <DependentUpon>UpdateConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdatePayOrder.aspx.cs">
+      <DependentUpon>UpdatePayOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UpdatePayOrder.aspx.designer.cs">
+      <DependentUpon>UpdatePayOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UpdateRequest.aspx.cs">
       <DependentUpon>UpdateRequest.aspx</DependentUpon>

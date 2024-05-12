@@ -40,8 +40,8 @@ namespace CursusVia.Admin
                                     HttpCookie authCookie = new HttpCookie("AdminAuth");
                                     authCookie.Values["AdminID"] = adminId.ToString();
                                     authCookie.Values["LoggedIn"] = "true";
-                                    authCookie.Expires = DateTime.Now.AddDays(1); // Set expiration for 1 day
-                                    authCookie.HttpOnly = true; // Make the cookie HttpOnly, which increases security by not making it accessible via JavaScript
+                                    authCookie.Expires = DateTime.Now.AddDays(1); 
+                                    authCookie.HttpOnly = true; 
                                     Response.Cookies.Add(authCookie);
 
                                     lblStatus.Text = "Login successful!";

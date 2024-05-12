@@ -40,7 +40,7 @@
                     </p>
                 </div>
                 <div class="edit">    
-                    <asp:HyperLink ID="editLink" runat="server" class="editBtn btnPrimary" NavigateUrl='<%# "EditSupport.aspx?id=" + Eval("id")%>'>   
+                    <asp:HyperLink ID="editLink" runat="server" class="editBtn btnPrimary" NavigateUrl='<%# "WithdrawStatusUpdate.aspx?id=" + Eval("id")%>'>   
                         <span class="material-symbols-outlined editIcon">edit</span>
                         Edit
                     </asp:HyperLink>

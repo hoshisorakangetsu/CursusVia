@@ -28,7 +28,7 @@ namespace CursusVia.Tutor
                 string connectionString = Global.CS;
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT id, status, request_date FROM WithdrawalRequests WHERE tutor_id = @TutorId ORDER BY request_date DESC", con))
+                    using (SqlCommand cmd = new SqlCommand("SELECT id, status, note, request_date FROM WithdrawalRequests WHERE tutor_id = @TutorId ORDER BY request_date DESC", con))
                     {
                         cmd.Parameters.AddWithValue("@TutorId", tutorId);
                         con.Open();

@@ -99,30 +99,76 @@ namespace CursusVia
             }
         }
 
-        private void RemoveItemFromCart(int itemId)
-        {
-            string connectionString = Global.CS;
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string sql = "DELETE FROM CartItems WHERE id = @ItemId";
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@ItemId", itemId);
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
         protected void CartRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-        
-                if (e.CommandName == "Remove")
-                {
-                    int itemId = Convert.ToInt32(e.CommandArgument);
-                    RemoveItemFromCart(itemId);  // Handle item removal from DB
-                    BindCart(); // Re-bind to update the UI
-                }
-         
+
         }
+
+        /*
+                private void RemoveItemFromCart(int itemId)
+                {
+                    string connectionString = Global.CS;
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        string sql = "DELETE FROM CartItems WHERE id = @ItemId";
+                        using (SqlCommand cmd = new SqlCommand(sql, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@ItemId", itemId);
+                            conn.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+
+                protected void CartRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+                {
+
+                        if (e.CommandName == "Remove")
+                        {
+                            int itemId = Convert.ToInt32(e.CommandArgument);
+                            RemoveItemFromCart(itemId);  // Handle item removal from DB
+                            BindCart(); // Re-bind to update the UI
+                        }
+
+                }
+
+
+                // Add in your Cart.aspx.cs
+                protected void ItemSelector_CheckedChanged(object sender, EventArgs e)
+                {
+                    if (Context.User.Identity.IsAuthenticated)
+                    {
+                        ScriptManager.RegisterStartupScript(this, GetType(), "triggerUpdate", "triggerUpdate();", true);
+                    }
+                    else
+                    {
+                        Response.Redirect("LoginStudent.aspx");
+                    }
+                }
+
+                // Add in your Cart.aspx.cs
+                protected void UpdateSummary(object sender, EventArgs e)
+                {
+                    // Logic to calculate and update lblSubtotal, lblTax, and lblTotal
+                }
+
+
+                // Add in your Cart.aspx.cs
+                protected void DeleteSelected_Click(object sender, EventArgs e)
+                {
+                    foreach (RepeaterItem item in CartRepeater.Items)
+                    {
+                        CheckBox cb = (CheckBox)item.FindControl("ItemSelector");
+                        if (cb != null && cb.Checked)
+                        {
+                            int itemId = Convert.ToInt32(((HiddenField)item.FindControl("HiddenFieldItemId")).Value);
+                            RemoveItemFromCart(itemId);
+                        }
+                    }
+                    BindCart();
+                }
+        */
+
+
     }
 }

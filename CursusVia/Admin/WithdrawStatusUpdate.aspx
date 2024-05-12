@@ -33,7 +33,8 @@
         <div class="modal-footer">
             <asp:Literal ID="litPaymentInfo" runat="server" Text="Request Status will be updated accordingly"></asp:Literal>
             <div class="buttons">
-                <asp:Button ID="btnUpate" runat="server" Text="Update" CssClass="btnSubmit" OnClick="btnUpate_Click" />
+                <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btnSubmit" OnClick="btnUpdate_Click" />
+
                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btnCancel" OnClick="btnCancel_Click" />
             </div>
         </div>
