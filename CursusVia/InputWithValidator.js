@@ -4,19 +4,27 @@ const observer = new MutationObserver(mutations => {
         console.log(mutationRecord, mutationRecord.target.style.display);
         const target = mutationRecord.target;
         const targetParent = target.parentElement;
-        if (target.style.display !== 'none')
-            targetParent.classList.add('validationError')
-        else if (
-            target.style.display === 'none' &&
-            targetParent.classList.contains('validationError') &&
-            Array.from(targetParent
-                .querySelectorAll('.validationMessage')).every(vm => vm.style.display === 'none')
-        )
-            targetParent.classList.remove('validationError')
+        alterTargetParentClass(target, targetParent);
     });
 });
 
 const targets = document.querySelectorAll('.validationMessage');
 targets.forEach(target => {
     observer.observe(target, { attributes: true, attributeFilter: ['style'] });
-})
+    // for those that are not affected by partial postbacks
+    const targetParent = target.parentElement;
+    alterTargetParentClass(target, targetParent);
+});
+
+function alterTargetParentClass(target, targetParent) {
+    if (target.style.display && target.style.display !== 'none'
+        || target.style.visibility && target.style.visibility !== 'hidden')
+        targetParent.classList.add('validationError')
+    else if (
+        (target.style.display === 'none' || target.style.visibility === 'hidden') &&
+        targetParent.classList.contains('validationError') &&
+        Array.from(targetParent
+            .querySelectorAll('.validationMessage')).every(vm => vm.style.display === 'none' || vm.style.visibility === 'hidden')
+    )
+        targetParent.classList.remove('validationError')
+}

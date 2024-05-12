@@ -24,6 +24,15 @@ namespace CursusVia.Tutor
         protected global::System.Web.UI.WebControls.TextBox NewQuestion;
 
         /// <summary>
+        /// NewQuestionFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator NewQuestionFieldValidator;
+
+        /// <summary>
         /// AddQuestion control.
         /// </summary>
         /// <remarks>
@@ -33,22 +42,22 @@ namespace CursusVia.Tutor
         protected global::System.Web.UI.WebControls.Button AddQuestion;
 
         /// <summary>
-        /// NewAnswer control.
+        /// rptQuestions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NewAnswer;
+        protected global::System.Web.UI.WebControls.Repeater rptQuestions;
 
         /// <summary>
-        /// AddAnswer control.
+        /// questionDS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddAnswer;
+        protected global::System.Web.UI.WebControls.SqlDataSource questionDS;
 
         /// <summary>
         /// QuizQuestionID control.
@@ -60,13 +69,22 @@ namespace CursusVia.Tutor
         protected global::System.Web.UI.WebControls.HiddenField QuizQuestionID;
 
         /// <summary>
-        /// QuizQuestion control.
+        /// EditQuizQuestion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QuizQuestion;
+        protected global::System.Web.UI.WebControls.TextBox EditQuizQuestion;
+
+        /// <summary>
+        /// EditQuestionFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EditQuestionFieldValidator;
 
         /// <summary>
         /// QuizQuestionModalBtn control.
@@ -78,22 +96,31 @@ namespace CursusVia.Tutor
         protected global::System.Web.UI.WebControls.Button QuizQuestionModalBtn;
 
         /// <summary>
-        /// QuizAnswerID control.
+        /// QuizAnswerIDAnswerModal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField QuizAnswerID;
+        protected global::System.Web.UI.WebControls.HiddenField QuizAnswerIDAnswerModal;
 
         /// <summary>
-        /// QuizAnswer control.
+        /// EditQuizAnswer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QuizAnswer;
+        protected global::System.Web.UI.WebControls.TextBox EditQuizAnswer;
+
+        /// <summary>
+        /// EditAnswerFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EditAnswerFieldValidator;
 
         /// <summary>
         /// QuizAnswerModalBtn control.

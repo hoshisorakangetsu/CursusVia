@@ -53,7 +53,7 @@
                                     <div class="newItemControls">
                                         <% // save courseId for use of redirect %>
                                         <asp:HyperLink ID="NewChapterContent" runat="server" CssClass="btn btnPrimary" NavigateUrl='<%# "~/Tutor/CreateCourseContent.aspx?chapId=" + Eval("ChapterId") + "&courseId=" + Eval("CourseId") %>'>New Content</asp:HyperLink>
-                                        <asp:HyperLink ID="NewChapterQuiz" runat="server" CssClass="btn btnOutlinePrimary" NavigateUrl='<%# "~/Tutor/UpdateQuiz.aspx?chapId=" + Eval("ChapterId") + "&courseId=" + Eval("CourseId") %>'>New Quiz</asp:HyperLink>
+                                        <button id="NewChapterQuiz" class="btn btnOutlinePrimary"  onclick='openModalForNewQuiz(event, <%# Eval("ChapterId") %>)'>New Quiz</button>
                                     </div>
                                     <p class="itemCount"><%# Eval("ItemCount") %> Items</p>
                                     <span class="material-symbols-outlined chevron">expand_more</span>
@@ -93,10 +93,12 @@
                 </span>
             </button>
             <div class="chapterField">
+                <!-- use this to keep track whether is create new quiz or create/update chapter -->
+                <asp:HiddenField ID="ModalType" runat="server" />
                 <!-- see if possible, if not then use js and AJAX handle alrd, use this hidden input to track whether it is new chapter or edit current chapter -->
                 <asp:HiddenField ID="ChapterModalId" runat="server" />
-                <asp:TextBox ID="ChapterTitleTxt" runat="server" placeholder="Type Chapter Title Here"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter a chapter title" ControlToValidate="ChapterTitleTxt" Display="Dynamic" CssClass="validationMessage"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="ChapterTitleTxt" runat="server" placeholder="Type Title Here"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter a title" ControlToValidate="ChapterTitleTxt" Display="Dynamic" CssClass="validationMessage"></asp:RequiredFieldValidator>
                 <asp:Button ID="ChapterModalBtn" runat="server" Text="Submit" CssClass="btn btnPrimary surface-text" OnClick="ChapterModalBtn_Click" />
             </div>
         </div>
@@ -127,10 +129,20 @@
 
         function openModalForEdit(e, chapterId, currentTitle) {
             e.stopPropagation();
-            // dk how to access the hidden input field becuz the csharp scrambles the id, but for now the hack is to access the one and only hidden input field
-            chapterModal.querySelector("input[type=hidden]").value = chapterId;
+            chapterModal.querySelector("#<%= ModalType.ClientID %>").value = "CHAPTER";
+            chapterModal.querySelector("#<%= ChapterModalId.ClientID %>").value = chapterId;
             // same applies, directly get the one and only text input
             chapterModal.querySelector("input[type=text]").value = currentTitle;
+            openModal(chapterModal);
+        }
+
+        function openModalForNewQuiz(e, chapId) {
+            e.preventDefault();
+            e.stopPropagation();
+            chapterModal.querySelector("#<%= ModalType.ClientID %>").value = "QUIZ";
+            chapterModal.querySelector("#<%= ChapterModalId.ClientID %>").value = chapId;
+            // same applies, directly get the one and only text input
+            chapterModal.querySelector("input[type=text]").value = "";
             openModal(chapterModal);
         }
     </script>
