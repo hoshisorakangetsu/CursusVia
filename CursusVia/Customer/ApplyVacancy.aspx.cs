@@ -9,6 +9,9 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MailKit.Net.Smtp;
+using MailKit;
+using MimeKit;
 
 namespace CursusVia.Customer
 {
@@ -79,6 +82,51 @@ namespace CursusVia.Customer
 
             if (row > 0)
             {
+                //create object to store message
+                MimeMessage message = new MimeMessage();
+                //add sender info to the message
+                message.From.Add(new MailboxAddress("neohsc", "neohsc-pp21@student.tarc.edu.my"));
+                //add receiver
+                message.To.Add(MailboxAddress.Parse("soonqi03@gmail.com"));
+                //add message subject
+                message.Subject = "Testing";
+                //add the message body as plain text
+                message.Body =  new TextPart("plain")
+                {
+                    Text = @"yes
+                    Hello!.
+                    This is a dog."
+                };
+
+                //authentication which is a email   
+                string email="";
+                string password="";
+
+                //create smtp cilent
+                SmtpClient client = new SmtpClient();
+
+                try
+                {
+                    //connect to gmail smtp server using port 465 with SSl enabled
+                    client.Connect("smtp.gmail.com",465,true);
+                    //need autheticate if use gmail
+                    client.Authenticate(email, password);
+                    client.Send(message);
+
+                    //success message
+                }
+                catch (Exception ex)
+                {
+                    //cause error
+                    Response.Write(ex.Message.ToString());
+                }
+                finally
+                {
+                    //disconnect and dispose
+                    client.Disconnect(true);
+                    client.Dispose();
+                }
+
                 Response.Write("<script>alert('Job applied successfully');window.location = 'Vacancy.aspx';</script>");
             }
             else
