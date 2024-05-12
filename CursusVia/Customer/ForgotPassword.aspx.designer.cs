@@ -51,39 +51,39 @@ namespace CursusVia.Customer
 		protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
 		/// <summary>
-		/// txtName control.
+		/// btnRequest control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtName;
+		protected global::System.Web.UI.WebControls.Button btnRequest;
 
 		/// <summary>
-		/// Button1 control.
+		/// txtOtp control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button Button1;
+		protected global::System.Web.UI.WebControls.TextBox txtOtp;
 
 		/// <summary>
-		/// Button2 control.
+		/// btnSubmit control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button Button2;
+		protected global::System.Web.UI.WebControls.Button btnSubmit;
 
 		/// <summary>
-		/// lblMsg control.
+		/// otp control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblMsg;
+		protected global::System.Web.UI.WebControls.Label otp;
 	}
 }

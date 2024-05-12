@@ -14,6 +14,7 @@ using System.Web.UI.WebControls;
 using System.Net;
 using System.Data;
 using System.Xml;
+using System.Web.Security;
 
 
 
@@ -21,117 +22,147 @@ namespace CursusVia.Customer
 {
 	public partial class ForgotPassword : System.Web.UI.Page
 	{
-		SqlCommand cmd;
-		DataTable dt;
-		SqlConnection con = new SqlConnection();
-		SqlDataAdapter adp;
-
+		
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			con = new SqlConnection();
-			con.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-			con.Open();
-			if (con.State == ConnectionState.Closed)
-			{
-				con.Open();
-			}
+			
 
 		}
 
 
 
-		protected void Button1_Click(object sender, EventArgs e)
-		{
-			if (con.State == ConnectionState.Closed)
-			{ con.Open(); }
-			try
-			{
-				adp = new SqlDataAdapter("select name,email from students where email=@email or name=@name", con);
-				adp.SelectCommand.Parameters.AddWithValue("@email", txtEmail.Text);
-				adp.SelectCommand.Parameters.AddWithValue("@name", txtName.Text);
+	
 
-				dt = new DataTable();
-				adp.Fill(dt);
-				if (dt.Rows.Count == 0)
+		protected void btnRequest_Click(object sender, EventArgs e)
+		{
+			string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+			using (SqlConnection con = new SqlConnection(CS))
+			{
+				con.Open();
+				string sql = "select id from Students where email='" + txtEmail.Text + "'";
+				//+ "' and is_active=1";
+				SqlCommand cmd = new SqlCommand(sql, con);
+				SqlDataReader dr = cmd.ExecuteReader();
+				if (dr.Read())
 				{
-					lblMsg.Text = "Enter valid email address or uname";
-					txtEmail.Text = "";
-					txtName.Text = "";
-					return;
+					con.Close();
+					Random random = new Random();
+					int myRandom = random.Next(100000, 999999);
+					string login_otp = myRandom.ToString();
+					con.Open();
+					string updateAcc = "update Students set login_otp='" + login_otp + "',login_otp_created='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' where email='" + txtEmail.Text + "'";
+
+					SqlCommand cmdUpdate = new SqlCommand(updateAcc, con);
+					cmdUpdate.ExecuteNonQuery();
+					con.Close();
+
+
+					try
+					{
+
+						MailMessage msg = new MailMessage();
+						msg.From = new MailAddress("yongyk-pp21@student.tarc.edu.my");
+						msg.To.Add(txtEmail.Text.Trim());
+						msg.Subject = "Login OTP (only valid for 10 min)";
+						string emailBody = "Dear User, ";
+						emailBody += " Here is your login OTP: " + login_otp;
+						emailBody += " Thank you";
+
+						msg.Body = emailBody;
+						msg.IsBodyHtml = true;
+
+
+
+						SmtpClient smt = new SmtpClient();
+						smt.Host = "smtp.gmail.com";
+						smt.Port = 587;
+						smt.EnableSsl = true;
+						smt.UseDefaultCredentials = false; // Don't use default credentials
+						smt.Credentials = new System.Net.NetworkCredential("yongyk-pp21@student.tarc.edu.my", "030128070217");
+						smt.Send(msg);
+
+						otp.Text = "email send successfully";
+						otp.ForeColor = System.Drawing.Color.Green;
+					}
+					catch (SmtpException ex)
+					{
+						// Handle SMTP exception (e.g., no internet connection, SMTP server down)
+						otp.Text = "Failed to send email. Please try again later.";
+						otp.ForeColor = System.Drawing.Color.Red;
+
+
+					}
+					catch (FormatException ex)
+					{
+						// Handle invalid email format exception
+						otp.Text = "Invalid email address. Please enter a valid email.";
+						otp.ForeColor = System.Drawing.Color.Red;
+
+					}
+					catch (Exception ex)
+					{
+						otp.Text = "Email send fail";
+						otp.ForeColor = System.Drawing.Color.Red;
+
+					}
 				}
 				else
 				{
-					string code;
-					code = Guid.NewGuid().ToString();
-					cmd = new SqlCommand("update students set code=@code where  email=@email or name=@name", con);
-					cmd.Parameters.AddWithValue("@code", code);
-					cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-					cmd.Parameters.AddWithValue("@name", txtName.Text);
-					StringBuilder sbody = new StringBuilder();
-					//sbody.Append("<a href=http://usingasp.net/reset_pwd.aspx?email=" + txtEmail.Text);
-					//sbody.Append("&code=" + code + "&uname=" + txtName.Text + ">Click here to change your password</a>");
-					//	string resetUrl = "/resetPassword.aspx" +
-					//  "?email=" + HttpUtility.UrlEncode(txtEmail.Text) +
-					//  "&code=" + HttpUtility.UrlEncode(code) +
-					//  "&name=" + HttpUtility.UrlEncode(txtName.Text);
-					// Construct the password reset URL with necessary query parameters
-					//string resetUrl = "http://localhost/WebApplication1/Registration/ChangePassword.aspx?uid=" + code;
-
-					// Append the constructed URL to the email body
-		//	sbody.Append("<a href=\"" + resetUrl + "\">Click here to reset your password</a>");
-
-				//	sbody.Append("<a href=https://localhost:44383/C:/CursusVia/Customer/resetPassword.aspx?email=" + txtEmail.Text);
-
-
-					//sbody.Append("&code=" + code + "&uname=" + txtName.Text + ">Click here to change your password</a>");
-
-					sbody.Append("<a href=https://localhost:44383/C:/CursusVia/Customer/resetPassword.aspx?email=" + HttpUtility.UrlEncode(txtEmail.Text));
-					sbody.Append("&code=" + HttpUtility.UrlEncode(code) + "&name=" + HttpUtility.UrlEncode(txtName.Text) + ">Click here to change your password</a>");
-
-					// Append the constructed URL to the email body
-					//	sbody.Append("<a href=\"" + resetUrl + "\">Click here to reset your password</a>");
-					// Update the sender's email address with a valid one
-					string senderEmail = "yongyk-pp21@student.tarc.edu.my"; // Update with a valid sender email address
-					string recipientEmail = dt.Rows[0]["email"].ToString().Trim(); // Retrieve recipient's email address from the database
-
-					// Check if the recipient's email address is empty or invalid
-					if (string.IsNullOrWhiteSpace(recipientEmail))
-					{
-						lblMsg.Text = "Recipient's email address is empty or invalid.";
-						return;
-					}
-
-					// Create the MailMessage object with sender and recipient email addresses
-					System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage(senderEmail, recipientEmail, "Reset Your Password", sbody.ToString());
-
-					// Update SMTP server settings as needed
-					System.Net.Mail.SmtpClient mailclient = new System.Net.Mail.SmtpClient("smtp.gmail.com", 587); // Update SMTP server details as necessary
-					mailclient.EnableSsl = true;
-					System.Net.NetworkCredential mailAuthenticaion = new System.Net.NetworkCredential("yongyk-pp21@student.tarc.edu.my", "030128070217"); // Update with your actual Gmail username and password
-					mailclient.Credentials = mailAuthenticaion;
-					mail.IsBodyHtml = true;
-					mailclient.Send(mail);
-					cmd.ExecuteNonQuery();
-					cmd.Dispose();
-					con.Close();
-					lblMsg.Text = "Link has been sent to your email address";
-					txtEmail.Text = "";
-					txtName.Text = "";
+					otp.Text = "email is not registered";
+					otp.ForeColor = System.Drawing.Color.Red;
 
 				}
 
 			}
-			catch (Exception ex)
-			{
-				// if there will be any error created at the time of the sending mail then it goes inside the catch
-				//and display the error in the label
-				lblMsg.Text = ex.Message;
-			}
-			finally
-			{
-				con.Close();
-			}
+		}
 
+		protected void btnSubmit_Click(object sender, EventArgs e)
+		{
+			string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+			using (SqlConnection con = new SqlConnection(CS))
+			{
+
+				con.Open();
+				string sql = "select login_otp, id, login_otp_created from Students where email='" + txtEmail.Text + "'";
+				SqlCommand cmd = new SqlCommand(sql, con);
+				SqlDataReader dr = cmd.ExecuteReader();
+				if (dr.Read())
+				{
+					var start = DateTime.Now;
+					string login_otp = dr["login_otp"].ToString();
+					string id = dr["id"].ToString();
+					string oldTimeStr = dr["login_otp_created"].ToString();
+					DateTime oldTime = DateTime.Parse(oldTimeStr);
+					con.Close();
+					if (txtOtp.Text == login_otp && (start.Subtract(oldTime) <= TimeSpan.FromMinutes(10)))
+					{
+
+						FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
+							1,
+						id,
+						DateTime.Now,
+						DateTime.Now.AddMinutes(30),
+						false,
+						"Customer"
+					 );
+						string encTicket = FormsAuthentication.Encrypt(ticket);
+						HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+
+
+						Response.Cookies.Add(authCookie);
+						Response.Redirect("Student.aspx");
+					}
+					else
+					{
+						otp.Text = "Invalid otp";
+						otp.ForeColor = System.Drawing.Color.Red;
+
+					}
+
+				}
+			}
 		}
 	}
 }
+

@@ -15,14 +15,13 @@
         <asp:Label ID="lblLogin" runat="server" Text="Login" CssClass="lblLogin" ></asp:Label> 
         <asp:TextBox ID="txtUsername" runat="server" CssClass="txtUsername" PlaceHolder="👤 Username / Email"></asp:TextBox>
         <div style="height:30px;">
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="This field cannot be empty" ControlToValidate="txtUsername" ForeColor="red" Display="Dynamic"></asp:RequiredFieldValidator>
+     
             </div>
         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="txtPassword" Placeholder="🔒 Password" />
         <div style="height:30px;">
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="This field cannot be empty" ControlToValidate="txtPassword" ForeColor="red" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
         <asp:Button ID="btnLogin" runat="server" CssClass="btnLogin" Text="Login" OnClick="btnLogin_Click" />
-        <asp:LinkButton runat="server" ID="lbtnForgetPass" CssClass="lbtnForgetPass" >Forget password?</asp:LinkButton>
+        <asp:LinkButton runat="server" ID="lbtnForgetPass" CssClass="lbtnForgetPass" OnClick="lbtnForgetPass_Click" >Login with email OTP</asp:LinkButton>
         <asp:CheckBox runat="server" ID="cbRememberMe" Text="Remember me" CssClass="cbRememberMe"></asp:CheckBox>
         <asp:LinkButton runat="server" ID="lbtnShowRegister" Text="Register"  CssClass="lbtnRegister" OnClick="lbtnShowRegister_Click" />
           
