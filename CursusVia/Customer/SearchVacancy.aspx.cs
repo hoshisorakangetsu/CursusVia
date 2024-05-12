@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,16 +13,27 @@ namespace CursusVia.Customer
 {
     public partial class Vacancy1 : System.Web.UI.Page
     {
+        private string studentId;
         protected void Page_Load(object sender, EventArgs e)
         {
             string comName = Request.QueryString["comName"];
+
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+                studentId = authTicket.Name;
+            }
+            // for xb test on his machine only, remove in future
+            if (String.IsNullOrEmpty(studentId)) { studentId = "1"; }
 
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
             if (!string.IsNullOrEmpty(comName))
             {
                 txtCompanyName.Text = comName;
-                string sqlWithName = "SELECT Vacancies.id, Vacancies.job_title, Vacancies.min_salary, Vacancies.max_salary, Vacancies.type, Vacancies.role, Vacancies.job_requirement, Vacancies.job_description, Vacancies.email, Vacancies.company_id, Companies.name, Companies.address, Companies.postcode, Companies.state, Companies.area FROM Vacancies INNER JOIN Companies ON Vacancies.company_id = Companies.id WHERE Companies.name LIKE '%haha%'";
+                string sqlWithName = "SELECT Vacancies.id, Vacancies.job_title, Vacancies.min_salary, Vacancies.max_salary, Vacancies.type, Vacancies.role, Vacancies.job_requirement, Vacancies.job_description, Vacancies.email, Vacancies.company_id, Companies.name, Companies.address, Companies.postcode, Companies.state, Companies.area FROM Vacancies INNER JOIN Companies ON Vacancies.company_id = Companies.id WHERE Companies.name LIKE '%" + comName + "%'";
                 con.Open();
                 SqlDataAdapter adapterName = new SqlDataAdapter(sqlWithName, con);
                 DataSet dataSetName = new DataSet();
@@ -32,7 +44,7 @@ namespace CursusVia.Customer
             }
             else if (!IsPostBack)
             {
-                string sql = "SELECT Vacancies.id, Vacancies.job_title, Vacancies.min_salary, Vacancies.max_salary, Vacancies.type, Vacancies.role, Vacancies.job_requirement, Vacancies.job_description, Vacancies.email, Vacancies.company_id, Companies.name, Companies.address, Companies.postcode, Companies.state, Companies.area FROM Vacancies INNER JOIN Companies ON Vacancies.company_id = Companies.id";
+                string sql = "SELECT Vacancies.id, Vacancies.job_title, Vacancies.min_salary, Vacancies.max_salary, Vacancies.type, Vacancies.role, Vacancies.job_requirement, Vacancies.job_description, Vacancies.email, Vacancies.company_id, Companies.name, Companies.address, Companies.postcode, Companies.state, Companies.area FROM Vacancies INNER JOIN Companies ON Vacancies.company_id = Companies.id WHERE Vacancies.id NOT IN (SELECT vacancy_id FROM JobApplications WHERE student_id = " + studentId +")";
                 con.Open();
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
                 DataSet dataSet = new DataSet();
@@ -128,7 +140,7 @@ namespace CursusVia.Customer
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
 
-            string sql = "SELECT Vacancies.id, Vacancies.job_title, Vacancies.min_salary, Vacancies.max_salary, Vacancies.type, Vacancies.role, Vacancies.job_requirement, Vacancies.job_description, Vacancies.email, Vacancies.company_id, Companies.name, Companies.address, Companies.postcode, Companies.state, Companies.area FROM Vacancies INNER JOIN Companies ON Vacancies.company_id = Companies.id";
+            string sql = "SELECT Vacancies.id, Vacancies.job_title, Vacancies.min_salary, Vacancies.max_salary, Vacancies.type, Vacancies.role, Vacancies.job_requirement, Vacancies.job_description, Vacancies.email, Vacancies.company_id, Companies.name, Companies.address, Companies.postcode, Companies.state, Companies.area FROM Vacancies INNER JOIN Companies ON Vacancies.company_id = Companies.id WHERE Vacancies.id NOT IN (SELECT vacancy_id FROM JobApplications WHERE student_id = " + studentId +")";
             con.Open();
             SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
             DataSet dataSet = new DataSet();

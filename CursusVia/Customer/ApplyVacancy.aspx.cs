@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 using MailKit.Net.Smtp;
 using MailKit;
 using MimeKit;
+using System.IO;
 
 namespace CursusVia.Customer
 {
@@ -19,9 +20,11 @@ namespace CursusVia.Customer
     {
         string id;
         private string studentId;
+        private string jobTitle;
         protected void Page_Load(object sender, EventArgs e)
         {
             id = Request.QueryString["id"];
+            backLink.NavigateUrl= "ViewVacancy.aspx?id="+id;
 
             HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
 
@@ -48,6 +51,7 @@ namespace CursusVia.Customer
                 {
                     lblJobTitle.Text = reader["job_title"].ToString();
                     jobtitle.Text = reader["job_title"].ToString();
+                    jobTitle = reader["job_title"].ToString();
                     lblCompanyName.Text = reader["name"].ToString();
                     companyName.Text = reader["name"].ToString();
                     lblArea.Text = reader["area"].ToString() + ", " + reader["state"].ToString();
@@ -68,9 +72,15 @@ namespace CursusVia.Customer
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
 
+            con.Open();
             string insert = "INSERT INTO[dbo].[JobApplications] ([vacancy_id],[student_id],[resume_resource_id],[expecred_salary])VALUES(@VacancyId,@StudentId,@ResumeResourceId,@ExpectedSalary)";
             int file = Util.UploadFile(FileUpload1.PostedFile, Server);
-            if (file == 0) { return; }
+            if (file == 0) 
+            {
+                Response.Write("<script>alert('File upload fail');</script>");
+                //Response.Write("Error");
+                return; 
+            }
 
             SqlCommand cmd = new SqlCommand(insert, con);
 
@@ -79,28 +89,90 @@ namespace CursusVia.Customer
             cmd.Parameters.AddWithValue("@ResumeResourceId", file);
             cmd.Parameters.AddWithValue("@ExpectedSalary", Convert.ToDouble(txtMinSalary.Text));
             int row = cmd.ExecuteNonQuery();
-
+            con.Close();
             if (row > 0)
             {
+                //get student name
+                string studentName;
+                con.Open();
+                string std = "SELECT [name] FROM [Students] WHERE [id] = @StudentID";
+                SqlCommand stud = new SqlCommand(std, con);
+                stud.Parameters.AddWithValue("@StudentID", studentId);
+                studentName = stud.ExecuteScalar().ToString();
+                con.Close();
+
+                //get student email
+                string studentEmail;
+                con.Open();
+                string email = "SELECT [email] FROM [Students] WHERE [id] = @StudentID";
+                SqlCommand emailSql = new SqlCommand(email, con);
+                emailSql.Parameters.AddWithValue("@StudentID", studentId);
+                studentEmail = emailSql.ExecuteScalar().ToString();
+                con.Close();
+
+                //get HR email
+                string HREmail;
+                con.Open();
+                string hremail = "SELECT [email] FROM [Vacancies] WHERE [id] = @VacancyID";
+                SqlCommand hremailSql = new SqlCommand(hremail, con);
+                hremailSql.Parameters.AddWithValue("@VacancyID", id);
+                HREmail = hremailSql.ExecuteScalar().ToString();
+                con.Close();
+
+                Response.Write(HREmail);
+
                 //create object to store message
                 MimeMessage message = new MimeMessage();
                 //add sender info to the message
-                message.From.Add(new MailboxAddress("neohsc", "neohsc-pp21@student.tarc.edu.my"));
+                message.From.Add(new MailboxAddress("CursusVia", "neohsc-pp21@student.tarc.edu.my"));
                 //add receiver
-                message.To.Add(MailboxAddress.Parse("soonqi03@gmail.com"));
+                message.To.Add(MailboxAddress.Parse(HREmail));
+                //message.To.Add(MailboxAddress.Parse("soonqi03@gmail.com"));//replace with the email from db
                 //add message subject
-                message.Subject = "Testing";
-                //add the message body as plain text
-                message.Body =  new TextPart("plain")
+                message.Subject = "Resume for " + jobTitle;
+                //create the message body as plain text
+                var body = new TextPart("plain")
                 {
-                    Text = @"yes
-                    Hello!.
-                    This is a dog."
+                    Text = @"This is an auto generated email and the student resume is attached below.
+Please directly contact the student if you are interested.
+
+Student Name: " + studentName + " \n" +
+"Student Email: " + studentEmail + " \n" +
+"Expected Salary: RM" + txtMinSalary.Text 
                 };
 
+                //get student name
+                string filePath;
+                con.Open();
+                string resume = "SELECT [file_path] FROM [FileResources] WHERE [id] = @fileID";
+                SqlCommand fileSql = new SqlCommand(resume, con);
+                fileSql.Parameters.AddWithValue("@fileID", file);
+                filePath = fileSql.ExecuteScalar().ToString();
+                con.Close();
+
+                //create an pdf attachment for file located at path
+                var attachment = new MimePart()
+                {
+                    Content = new MimeContent(File.OpenRead(Server.MapPath(filePath)), ContentEncoding.Default),
+                    ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+                    ContentTransferEncoding = ContentEncoding.Base64,
+                    FileName = Path.GetFileName(Server.MapPath(filePath))
+                };
+
+                // now create the multipart/mixed container to hold the message text and the
+                // image attachment
+                var multipart = new Multipart("mixed");
+                multipart.Add(body);
+                multipart.Add(attachment);
+
+                // now set the multipart/mixed as the message body
+                message.Body = multipart;
+
                 //authentication which is a email   
-                string email="";
-                string password="";
+                /*string senderEmail = "CursusVia@hotmail.com";
+                string password = "tarumtWeb2024";*/
+                string senderEmail = "neohsc-pp21@student.tarc.edu.my";
+                string password = "030519070513";
 
                 //create smtp cilent
                 SmtpClient client = new SmtpClient();
@@ -108,9 +180,9 @@ namespace CursusVia.Customer
                 try
                 {
                     //connect to gmail smtp server using port 465 with SSl enabled
-                    client.Connect("smtp.gmail.com",465,true);
+                    client.Connect("smtp.gmail.com", 465, true);
                     //need autheticate if use gmail
-                    client.Authenticate(email, password);
+                    client.Authenticate(senderEmail, password);
                     client.Send(message);
 
                     //success message
@@ -118,7 +190,8 @@ namespace CursusVia.Customer
                 catch (Exception ex)
                 {
                     //cause error
-                    Response.Write(ex.Message.ToString());
+                    Response.Write("<script>alert('Job not applied successfully');window.location = 'Vacancy.aspx';</script>");
+                    //Response.Write(ex.Message.ToString());
                 }
                 finally
                 {
@@ -127,6 +200,9 @@ namespace CursusVia.Customer
                     client.Dispose();
                 }
 
+            }
+           if (row > 0)
+            {
                 Response.Write("<script>alert('Job applied successfully');window.location = 'Vacancy.aspx';</script>");
             }
             else

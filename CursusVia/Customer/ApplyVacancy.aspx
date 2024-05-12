@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/Customer.master" AutoEventWireup="true" CodeBehind="ApplyVacancy.aspx.cs" Inherits="CursusVia.Customer.ApplyVacancy" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/Customer.master" AutoEventWireup="true" CodeFile="ApplyVacancy.aspx.cs" Inherits="CursusVia.Customer.ApplyVacancy" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="CustomerMasterHead" runat="server">
     <link href="ApplyVacancy.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
     <div class="backBtn">
-        <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='ViewVacancy.aspx'>   
+        <asp:HyperLink ID="backLink" runat="server" class="backText">   
             <span class="material-symbols-outlined backIcon">arrow_back</span>
             Back
         </asp:HyperLink>
