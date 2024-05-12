@@ -20,7 +20,8 @@
     <IISExpressSSLPort>44383</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
+    <IISExpressUseClassicPipelineMode>
+    </IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -127,6 +128,7 @@
     <Content Include="Controls\MultiFileUpload.ascx" />
     <Content Include="Customer\AddToCart.aspx" />
     <Content Include="Customer\addToCartMessage.css" />
+    <Content Include="Controls\CustomerChapterOverview.ascx" />
     <Content Include="Customer\displaySuccessfulDeleteAccountMsg.aspx" />
     <Content Include="Customer\displaySuccessfulLogoutMessage.aspx" />
     <Content Include="Customer\emailIcon.png" />
@@ -496,6 +498,13 @@
     </Compile>
     <Compile Include="Customer\ApplyVacancy.aspx.designer.cs">
       <DependentUpon>ApplyVacancy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomerChapterOverview.ascx.cs">
+      <DependentUpon>CustomerChapterOverview.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerChapterOverview.ascx.designer.cs">
+      <DependentUpon>CustomerChapterOverview.ascx</DependentUpon>
     </Compile>
     <Compile Include="Customer\displaySuccessfulDeleteAccountMsg.aspx.cs">
       <DependentUpon>displaySuccessfulDeleteAccountMsg.aspx</DependentUpon>
