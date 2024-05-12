@@ -14,6 +14,7 @@ namespace CursusVia.Customer
         protected void Page_Load(object sender, EventArgs e)
         {
             string id = Request.QueryString["id"];
+            string comName = "";
 
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
@@ -30,6 +31,7 @@ namespace CursusVia.Customer
                 {
                     lblJobTitle.Text = reader["job_title"].ToString();
                     lblCompanyName.Text = reader["name"].ToString();
+                    comName = reader["name"].ToString();
                     lblArea.Text = reader["area"].ToString() + ", " + reader["state"].ToString();
                     lblMinSalary.Text = "RM" + reader["min_salary"].ToString();
                     lblMaxSalary.Text = " RM " + reader["max_Salary"].ToString() + " per month";
@@ -44,7 +46,7 @@ namespace CursusVia.Customer
             con.Close();
 
             applyNowLink.NavigateUrl = "ApplyVacancy.aspx?id="+id;
-            otherJobLink.NavigateUrl = "SearchVacancy.aspx?id="+id;
+            otherJobLink.NavigateUrl = "SearchVacancy.aspx?comName="+comName;
         }
     }
 }

@@ -50,9 +50,9 @@
                 <span class="surfaceText inputName"><b>Your Resume</b></span>
                 <div class="salaryInput">
                     <div class="resumeInput">
-                        <input id="resumePath" type="text" class="input" placeholder="Upload your resume"/>
+                        <asp:FileUpload ID="FileUpload1" runat="server" CssClass="input"/>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ControlToValidate="FileUpload1" ErrorMessage="Please upload your resume" CssClass="validationMessage"></asp:RequiredFieldValidator>
                     </div>
-                    <asp:Button ID="btnUpload" runat="server" Text="Upload File" CssClass="btnPrimary btn"/>
                 </div>
             </div>
             <div class="applyBtn">

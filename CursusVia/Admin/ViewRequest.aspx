@@ -31,7 +31,7 @@
         <ItemTemplate>
             <div class="contentContainer">
                 <div class="requestTitle">
-                    <h1 class="surfaceText"><%# Eval("admin_id") %></h1>
+                    <h1 class="surfaceText"><%# "Admin ID: " + Eval("admin_id") %></h1>
                     <p class="surfaceText">Replies on: <%# Eval("datetime") %></p>
                 </div>
                 <div>
@@ -48,25 +48,22 @@
             </div>
         </ItemTemplate>
     </asp:Repeater>
+    <asp:Repeater ID="Repeater2" runat="server">
+        <ItemTemplate>
+            <div class="contentContainer">
+                <div class="requestTitle">
+                    <h1 class="surfaceText"><%# "Requester ID: " + Eval("student_id") +  Eval("tutor_id")%></h1>
+                    <p class="surfaceText">Replies on: <%# Eval("datetime") %></p>
+                </div>
+                <div>
+                    <p class="surfaceText">
+                        <%# Eval("reply") %>
+                    </p>
+                </div>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
     <div class="noReply">
         <asp:Label ID="lblNoReplies" runat="server" CssClass="surfaceText h2"></asp:Label>
-    </div>
-    <div class="contentContainer">
-        <div class="requestTitle">
-            <h1 class="surfaceText">Student/Tutor Name</h1>
-            <p class="surfaceText">Replies on: 4/9/2024 15:00</p>
-        </div>
-        <div>
-            <p class="surfaceText">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget ex vitae sem tincidunt venenatis posuere eget elit. 
-                Etiam vel sagittis dui. Integer aliquet sapien a tellus tristique, eu tristique eros tincidunt. 
-                Cras bibendum metus eu quam fermentum, ut eleifend nunc elementum. Nulla sodales erat quis massa pulvinar, non volutpat orci finibus. 
-                Mauris ultrices non leo id ornare. Vivamus ipsum lacus, volutpat sit amet est eget, convallis dapibus ligula. 
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer egestas nisi pulvinar, pretium tellus eu, accumsan odio. 
-                Integer ornare ex non ipsum gravida blandit. Nullam vulputate ligula ut tristique facilisis. Sed sed orci velit. 
-                Duis sagittis ante eget ligula mattis auctor. Vivamus vel sem dolor. Cras euismod tortor vitae nisl feugiat vestibulum. 
-                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </p>
-        </div>
     </div>
 </asp:Content>

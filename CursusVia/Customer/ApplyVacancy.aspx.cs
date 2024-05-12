@@ -1,9 +1,12 @@
-﻿using System;
+﻿using CursusVia.Admin;
+using CursusVia.Tutor;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,9 +14,21 @@ namespace CursusVia.Customer
 {
     public partial class ApplyVacancy : System.Web.UI.Page
     {
+        string id;
+        private string studentId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string id = Request.QueryString["id"];
+            id = Request.QueryString["id"];
+
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+                studentId = authTicket.Name;
+            }
+            // for xb test on his machine only, remove in future
+            if (String.IsNullOrEmpty(studentId)) { studentId = "1"; }
 
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
@@ -45,7 +60,31 @@ namespace CursusVia.Customer
 
         protected void btnApply_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Vacancy.aspx");
+            if (!Page.IsValid) { return; }
+
+            string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+
+            string insert = "INSERT INTO[dbo].[JobApplications] ([vacancy_id],[student_id],[resume_resource_id],[expecred_salary])VALUES(@VacancyId,@StudentId,@ResumeResourceId,@ExpectedSalary)";
+            int file = Util.UploadFile(FileUpload1.PostedFile, Server);
+            if (file == 0) { return; }
+
+            SqlCommand cmd = new SqlCommand(insert, con);
+
+            cmd.Parameters.AddWithValue("@VacancyId", id);
+            cmd.Parameters.AddWithValue("@StudentId", studentId);
+            cmd.Parameters.AddWithValue("@ResumeResourceId", file);
+            cmd.Parameters.AddWithValue("@ExpectedSalary", Convert.ToDouble(txtMinSalary.Text));
+            int row = cmd.ExecuteNonQuery();
+
+            if (row > 0)
+            {
+                Response.Write("<script>alert('Job applied successfully');window.location = 'Vacancy.aspx';</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Job does not applied successfully');window.location = 'Vacancy.aspx';</script>");
+            }
         }
     }
 }
