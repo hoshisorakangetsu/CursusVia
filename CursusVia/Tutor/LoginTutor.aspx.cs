@@ -107,7 +107,7 @@ namespace CursusVia.Tutor
 
 		protected void lbtnForgetPass_Click(object sender, EventArgs e)
 		{
-			Response.Redirect("loginEmailOtp");
+			Response.Redirect("loginEmailOtp.aspx");
 		}
 	}
 }

@@ -45,7 +45,7 @@ Back
      <td>
          <div class="input-grp" style="margin-left:30px;">
             <label for="DropDownList1" style="margin-bottom:10px; color:black;" CssClass="form-control">Qualifications:</label>
-            <asp:DropDownList ID="ddlQualification" runat="server" CssClass="txtEmail2" style=" width: 70%; padding: 10px; margin-bottom: 15px; border: 1px solid #29354C; border-radius: 5px; box-sizing: border-box;" >
+            <asp:DropDownList ID="ddlQualification" runat="server" CssClass="txtEmail2" style=" width: 70%; padding: 10px; margin-bottom: 15px; border: 1px solid #29354C; border-radius: 5px; box-sizing: border-box;" EnableViewState ="true">
                 <asp:ListItem Value="PHD">PHD</asp:ListItem>
                 <asp:ListItem Value="Master">Master</asp:ListItem>
                 <asp:ListItem Value="Degree">Degree</asp:ListItem>
