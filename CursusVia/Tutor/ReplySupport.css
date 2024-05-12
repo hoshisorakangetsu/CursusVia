@@ -53,9 +53,15 @@
     border-color: rgba(0, 0, 0, .4);
     border-radius: .25em;
     font-family: "Inter", sans-serif !important;
+    padding: .35em;
 }
 
 .replyBtn {
     display: flex;
     justify-content: center;
+}
+
+.h1 {
+    font-size: 2em;
+    font-weight: bolder;
 }
