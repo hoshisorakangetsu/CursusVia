@@ -11,7 +11,7 @@ namespace CursusVia.Admin
 {
 
 
-    public partial class ViewWithdrawRequest
+    public partial class ViewPayoutRequest
     {
 
         /// <summary>

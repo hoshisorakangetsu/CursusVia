@@ -15,7 +15,7 @@
             <asp:DropDownList ID="ddlStatus" runat="server" CssClass="inputField">
                 <asp:ListItem>None</asp:ListItem>
                 <asp:ListItem>Pending</asp:ListItem>
-                <asp:ListItem>Approved</asp:ListItem>
+                <asp:ListItem>Approve</asp:ListItem>
                 <asp:ListItem>Paid</asp:ListItem>
                 <asp:ListItem Text="Reject" />
                 <asp:ListItem Text="Need addtional details" />

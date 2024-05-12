@@ -3,22 +3,21 @@
   <link href="SupportRequest.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="AdminMasterBody" runat="server">
-
-
+  
 
        <div class="headerContainer">
         <div class="search">
             <span class="material-symbols-outlined searchIcon">search</span>
             <input id="Text1" type="text" placeholder="Search Request" class="input"/>
-            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btnPrimary btn" />
+            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btnPrimary btn" OnClick="btnSearch_Click" />
         </div>
            <div class="filterSection">
         <div class="statusSection">
             <span class="surfaceText inputName"><b>Status</b></span>
             <asp:DropDownList ID="ddlStatus" runat="server" CssClass="inputField"> 
-                <asp:ListItem>Approved</asp:ListItem>
+                <asp:ListItem>Approve</asp:ListItem>
                 <asp:ListItem>Paid</asp:ListItem>
-                <asp:ListItem>Rejected</asp:ListItem>
+                <asp:ListItem>Reject</asp:ListItem>
                 <asp:ListItem>Pending</asp:ListItem>
             </asp:DropDownList>
         </div>
@@ -30,7 +29,7 @@
             <div class="dateInput inputField">
                 <div class="width-min">
                     <span class="surfaceText">Start Date</span>
-                   <asp:TextBox ID="TextBox3" runat="server" placeholder="Start Date" Type="Date" CssClass="dateInputField"></asp:TextBox>
+                   <asp:TextBox ID="txtSearch" runat="server" placeholder="Start Date" Type="Date" CssClass="dateInputField"></asp:TextBox>
                 </div>
                 <div>
                     <div>
@@ -61,11 +60,13 @@
         <asp:BoundField DataField="payout_date" HeaderText="Date " />
         <asp:BoundField DataField="payout_method" HeaderText="Payout Method" />
         <asp:BoundField DataField="total_payout" HeaderText="Total Payout" />
+        <asp:BoundField DataField="withdraw_request" HeaderText="Withdraw ID" />
+
         <asp:BoundField DataField="status" HeaderText="Status" />
         <asp:TemplateField>
             <ItemTemplate>
-               <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("id", "ViewWithdrawRequest.aspx?id={0}") %>' Text="View" CssClass="btnPrimary newBtn"></asp:HyperLink>
-                <asp:Hyperlink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='<%# "WithdrawStatusUpdate.aspx?id=" + Eval("id")%>'>Update</asp:Hyperlink>
+<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("id", "ViewPayoutRequest.aspx?id={0}") %>' Text="View" CssClass="btnPrimary newBtn"></asp:HyperLink>
+<asp:Hyperlink ID="HyperLink2" runat="server" class="btnPrimary newBtn" NavigateUrl='<%# "UpdatePayOrder.aspx?id=" + Eval("id")%>'>Update</asp:Hyperlink>
             </ItemTemplate>
             <headertemplate>
   Action

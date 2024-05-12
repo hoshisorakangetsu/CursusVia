@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="ViewWithdrawRequest.aspx.cs" Inherits="CursusVia.Admin.ViewWithdrawRequest" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="ViewPayoutRequest.aspx.cs" Inherits="CursusVia.Admin.ViewPayoutRequest" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="AdminMasterHead" runat="server">
     <link href="ViewWithdrawRequest.css" rel="stylesheet" />
 </asp:Content>

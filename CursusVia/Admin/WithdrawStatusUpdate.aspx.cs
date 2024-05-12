@@ -55,7 +55,13 @@ namespace CursusVia.Admin
                 {
                     int updateResult = updateCmd.ExecuteNonQuery();
                     if (updateResult > 0)
-                    {      
+                    {
+                        // Call to insert into Payouts should be here after confirming status is updated
+                        if (newStatus == "Approve")
+                        {
+                            InsertApprovedPayouts(requestId);
+                        }
+
                         Response.Redirect("~/Admin/UpdateConfirmation.aspx");
                     }
                     else
@@ -89,7 +95,49 @@ namespace CursusVia.Admin
             Response.Redirect("WithdrawalRequest.aspx");
         }
 
-    
+
+
+
+        private void InsertApprovedPayouts(int requestId)
+        {
+            using (SqlConnection con = new SqlConnection(Global.CS))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(
+                        @"INSERT INTO Payout (total_payout, payout_method, payout_date, status, withdraw_request, tutor_id, admin_id)
+                  SELECT wr.withdraw_amount, wr.bank_name, GETDATE(), 'Pending', wr.id, wr.tutor_id, NULL
+                  FROM WithdrawalRequests wr
+                  WHERE wr.status = 'Approve' AND wr.id = @ID", con);
+
+                    cmd.Parameters.AddWithValue("@ID", requestId);  // Use the parameter correctly here
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        Console.WriteLine("Successfully inserted " + rowsAffected + " records.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No records to insert. Check the status of WithdrawalRequests.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+        }
+
+
+
+
 
 
     }

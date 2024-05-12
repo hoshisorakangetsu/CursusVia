@@ -16,7 +16,7 @@ namespace CursusVia.Admin
             if (!IsPostBack)
             {
                 CheckAuthentication();
-                BindDataToday();
+                DisplayEmpty();
 
 
             }
@@ -32,12 +32,15 @@ namespace CursusVia.Admin
             }
         }
 
+
+
+       
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            string cs = Global.CS; // Ensure this uses the correct connection string name
+            string cs = Global.CS; 
             using (SqlConnection con = new SqlConnection(cs))
             {
-                // Corrected SQL query using the actual column names from your schema
+                
                 string query = @"
             SELECT w.id, w.withdraw_amount, w.request_date, w.status, w.account_number, t.name, t.balance 
             FROM WithdrawalRequests w 
@@ -54,6 +57,24 @@ namespace CursusVia.Admin
                 gvWithdrawalRequests.DataSource = dt;
                 gvWithdrawalRequests.DataBind();
             }
+        }
+
+
+        private void DisplayEmpty()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("id", typeof(int));
+            dt.Columns.Add("withdraw_amount", typeof(decimal));
+            dt.Columns.Add("request_date", typeof(DateTime));
+            dt.Columns.Add("status", typeof(string));
+            dt.Columns.Add("account_number", typeof(string));
+            dt.Columns.Add("name", typeof(string));
+            dt.Columns.Add("balance", typeof(decimal));
+
+            dt.Rows.Add(dt.NewRow()); 
+            gvWithdrawalRequests.DataSource = dt;
+            gvWithdrawalRequests.DataBind();
+            gvWithdrawalRequests.Rows[0].Visible = false; 
         }
 
 
@@ -145,9 +166,9 @@ namespace CursusVia.Admin
             BindDataToday();
         }
 
+        
 
 
 
-   
     }
 }

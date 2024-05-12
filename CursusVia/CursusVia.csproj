@@ -142,6 +142,7 @@
     <Content Include="Admin\UpdateVacancy.css" />
     <Content Include="Admin\Vacancy.aspx" />
     <Content Include="Admin\Vacancy.css" />
+    <Content Include="Admin\ViewPayoutRequest.aspx" />
     <Content Include="Admin\ViewRequest.aspx" />
     <Content Include="Admin\ViewRequest.css" />
     <Content Include="Admin\ViewVacancy.aspx" />
@@ -469,6 +470,13 @@
     </Compile>
     <Compile Include="Admin\Vacancy.aspx.designer.cs">
       <DependentUpon>Vacancy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ViewPayoutRequest.aspx.cs">
+      <DependentUpon>ViewPayoutRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ViewPayoutRequest.aspx.designer.cs">
+      <DependentUpon>ViewPayoutRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ViewRequest.aspx.cs">
       <DependentUpon>ViewRequest.aspx</DependentUpon>

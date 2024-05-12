@@ -35,7 +35,7 @@ namespace CursusVia.Admin
             string cs = Global.CS;
             using (SqlConnection con = new SqlConnection(cs))
             {
-                string query = "SELECT w.id, w.withdraw_amount, w.request_date, w.status, w.account_number, w.bank_name, w.account_holder_name, t.name, t.balance FROM WithdrawalRequests w JOIN Tutors t ON w.tutor_id = t.id WHERE w.id = @ID";
+                string query = "SELECT w.id, w.withdraw_amount, w.request_date, w.status, w.note, w.account_number, w.bank_name, w.account_holder_name, t.name, t.balance FROM WithdrawalRequests w JOIN Tutors t ON w.tutor_id = t.id WHERE w.id = @ID";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@ID", requestId);
 
@@ -50,6 +50,7 @@ namespace CursusVia.Admin
                     Literal3.Text = reader["bank_name"].ToString();
                     Literal4.Text = reader["account_number"].ToString();
                     Literal6.Text = reader["status"].ToString();
+                    Literal7.Text = reader["note"].ToString();
                 }
                 reader.Close();
             }
