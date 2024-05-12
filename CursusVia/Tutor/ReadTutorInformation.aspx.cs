@@ -41,6 +41,10 @@ namespace CursusVia.Tutor
 
 					}
 				}
+				else
+				{
+					Response.Redirect("LoginTutor.aspx");
+				}
 			}
 		}
 

@@ -49,12 +49,12 @@ namespace CursusVia.Tutor
 
 					if (!found)
 					{
-						Response.Redirect("Student.aspx");
+						Response.Redirect("Tutor.aspx");
 					}
 				}
 				else
 				{
-					Response.Redirect("LoginStudent.aspx");
+					Response.Redirect("LoginTutor.aspx");
 				}
 			}
 		}
@@ -88,12 +88,13 @@ namespace CursusVia.Tutor
 					con.Open();
 					cmd.ExecuteNonQuery();
 					con.Close();
-					lblMsg.Text = "update successfully";
+					Response.Write("<script>alert('updated successfully');window.location = 'UpdateDetailsTutor.aspx';</script>");
+
 
 				}
 				catch (Exception ex)
 				{
-					lblMsg.Text = "update fail ";
+					Response.Write("<script>alert('operation fail');window.location = 'UpdateDetailsTutor.aspx';</script>");
 				}
 			}
 		}
@@ -131,7 +132,7 @@ namespace CursusVia.Tutor
 			con.Close();
 			if (!found)
 			{
-				lblMsg.Text = "update failed ";
+				Response.Write("<script>alert('operation fail');window.location = 'UpdateDetailsTutor.aspx';</script>");
 			}
 
 
