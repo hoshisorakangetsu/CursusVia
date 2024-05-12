@@ -43,15 +43,14 @@ namespace CursusVia.Admin
             bool isEnd = false;
             string end = "";
 
-            DateTime date = Convert.ToDateTime(this.txtEnd.Text);
-            date = date.AddDays(1);
-
             if (!ddlStatus.SelectedValue.Equals("None"))
                 isStatus = true;
             if (txtStart.Text.Length > 0)
                 isStart = true;
             if (txtEnd.Text.Length > 0)
             {
+                DateTime date = Convert.ToDateTime(this.txtEnd.Text);
+                date = date.AddDays(1);
                 end = date.ToString("yyyy-MM-dd");
                 isEnd = true;
             }

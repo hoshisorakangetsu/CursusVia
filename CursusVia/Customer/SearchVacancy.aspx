@@ -15,12 +15,13 @@
                 <span class="surfaceText inputName"><b>Job Title</b></span>
                 <div class="search">
                     <span class="material-symbols-outlined searchIcon">search</span>
-                    <input id="txtSearch" type="text" placeholder="Search Job" class="input"/>
+                    <asp:TextBox ID="txtJobTitle" placeholder="Search Job" runat="server" CssClass="input"></asp:TextBox>
                 </div>
             </div>
             <div class="jobTypeSection">
                 <span class="surfaceText inputName"><b>Job Type</b></span>
                 <asp:DropDownList ID="ddlJobType" runat="server" CssClass="inputField">
+                    <asp:ListItem>None</asp:ListItem>
                     <asp:ListItem>Full Time</asp:ListItem>
                     <asp:ListItem>Part Time</asp:ListItem>
                 </asp:DropDownList>
@@ -31,14 +32,14 @@
                 <span class="surfaceText inputName"><b>Company Name</b></span>
                 <div class="search">
                     <span class="material-symbols-outlined searchIcon">search</span>
-                    <input id="txtCompanyName" type="text" placeholder="Search Company Name" class="input"/>
+                    <asp:TextBox ID="txtCompanyName" placeholder="Search Company Name" runat="server" CssClass="input"></asp:TextBox>
                 </div>
             </div>
             <div>
                 <span class="surfaceText inputName"><b>Working Area</b></span>
                 <div class="search">
                     <span class="material-symbols-outlined searchIcon">search</span>
-                    <input id="txtWorkingArea" type="text" placeholder="Search Working Area" class="input"/>
+                    <asp:TextBox ID="txtWorkingArea" placeholder="Search Working Area" runat="server" CssClass="input"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -48,7 +49,7 @@
                 <div class="salaryInput">
                     <span class="rm">RM</span>
                     <div class="search">
-                        <input id="txtMinSalary" type="text" class="input"/>
+                        <asp:TextBox ID="txtMinSalary" type="number" runat="server" CssClass="input"></asp:TextBox>
                     </div>
                 </div>
             </div>
@@ -57,14 +58,14 @@
                 <div class="salaryInput">
                     <span class="rm">RM</span>
                     <div class="search">
-                        <input id="txtMaxSalary" type="text" class="input"/>
+                        <asp:TextBox ID="txtMaxSalary" type="number" runat="server" CssClass="input"></asp:TextBox>
                     </div>
                 </div>             
             </div>
         </div>
         <div class="btnSection">
-            <asp:Button ID="Button1" runat="server" Text="Clear" CssClass="btnPrimary btn"/>
-            <asp:Button ID="Button2" runat="server" Text="Search" CssClass="btnPrimary btn"/>
+            <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btnPrimary btn" OnClick="btnClear_Click"/>
+            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btnPrimary btn" OnClick="btnSearch_Click"/>
         </div>
     </div>
     <div class="jobSection">
@@ -76,6 +77,7 @@
                         <span class="surfaceText jobCompanyText"><%# Eval("name") %></span>
                     </div>
                     <div class="jobDetails">
+                        <span class="jobDetailsText"><%# Eval("type") %></span>
                         <span class="jobDetailsText"><%# Eval("area") %>, <%# Eval("state") %></span>
                         <span class="jobDetailsText"><%# Eval("min_salary") %>  ~  <%# Eval("max_salary") %></span>
                         <span class="jobDetailsText"><%# Eval("role") %></span>

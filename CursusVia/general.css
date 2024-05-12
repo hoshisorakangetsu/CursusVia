@@ -60,6 +60,10 @@ a {
     display: flex;
 }
 
+.justify-between {
+    justify-content: space-between;
+}
+
 .items-center {
     align-items: center;
 }

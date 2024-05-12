@@ -11,7 +11,7 @@ namespace CursusVia.Tutor
 {
 
 
-	public partial class UpdatePasswordTutor
+	public partial class loginEmailOtp
 	{
 
 		/// <summary>
@@ -24,93 +24,66 @@ namespace CursusVia.Tutor
 		protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
 
 		/// <summary>
-		/// txtOldPassword control.
+		/// Div1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtOldPassword;
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
 
 		/// <summary>
-		/// RequiredFieldValidator1 control.
+		/// Label1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+		protected global::System.Web.UI.WebControls.Label Label1;
 
 		/// <summary>
-		/// txtNewPassword control.
+		/// txtEmail control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtNewPassword;
+		protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
 		/// <summary>
-		/// RequiredFieldValidator2 control.
+		/// btnRequest control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+		protected global::System.Web.UI.WebControls.Button btnRequest;
 
 		/// <summary>
-		/// RegularExpressionValidator1 control.
+		/// txtOtp control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+		protected global::System.Web.UI.WebControls.TextBox txtOtp;
 
 		/// <summary>
-		/// txtConfirmPassword control.
+		/// btnSubmit control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+		protected global::System.Web.UI.WebControls.Button btnSubmit;
 
 		/// <summary>
-		/// RequiredFieldValidator3 control.
+		/// otp control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-
-		/// <summary>
-		/// CompareValidator1 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
-
-		/// <summary>
-		/// lblMsg3 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblMsg3;
-
-		/// <summary>
-		/// Button1 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button Button1;
+		protected global::System.Web.UI.WebControls.Label otp;
 	}
 }

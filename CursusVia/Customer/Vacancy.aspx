@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/Customer.master" AutoEventWireup="true" CodeBehind="Vacancy.aspx.cs" Inherits="CursusVia.Customer.Vacancy2" %>
+﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Customer/Customer.master" AutoEventWireup="true" CodeBehind="Vacancy.aspx.cs" Inherits="CursusVia.Customer.Vacancy2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="CustomerMasterHead" runat="server">
     <link href="Vacancy.css" rel="stylesheet" />
 </asp:Content>

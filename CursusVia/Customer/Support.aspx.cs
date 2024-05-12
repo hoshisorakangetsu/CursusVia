@@ -50,9 +50,6 @@ namespace CursusVia.Customer
             bool isStart = false;
             bool isEnd = false;
 
-            DateTime date =  Convert.ToDateTime(this.EndDate.Text);
-            date = date.AddDays(1);
-
             filter = ddlStatus.SelectedValue;
             if (!filter.Equals("None"))
                 isStatus = true;
@@ -63,6 +60,8 @@ namespace CursusVia.Customer
             }
             if (EndDate.Text.Length > 0)
             {
+                DateTime date = Convert.ToDateTime(this.EndDate.Text);
+                date = date.AddDays(1);
                 end = date.ToString("yyyy-MM-dd");
                 isEnd = true;
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
@@ -99,8 +100,64 @@ namespace CursusVia.Tutor
                     </script>";
 
 							ClientScript.RegisterStartupScript(this.GetType(), "redirect", script);
+
+							try
+							{
+
+								MailMessage msg = new MailMessage();
+								msg.From = new MailAddress("yongyk-pp21@student.tarc.edu.my");
+								msg.To.Add(txtEmail.Text.Trim());
+								msg.Subject = "You have Successfully created a new account";
+								string emailBody = "<p><b>Dear  " + txtName.Text + ",</b></p>";
+								emailBody += " <p> You have successfully created a new account with us at " + DateTime.Now + " .</p>";
+								emailBody += "<p> Thank you for creating a new account </p>";
+								emailBody += "<p> <b> Cursus Via Team </b> </p>";
+
+								msg.Body = emailBody;
+								msg.IsBodyHtml = true;
+
+
+
+								SmtpClient smt = new SmtpClient();
+								smt.Host = "smtp.gmail.com";
+								smt.Port = 587;
+								smt.EnableSsl = true;
+								smt.UseDefaultCredentials = false; // Don't use default credentials
+								smt.Credentials = new System.Net.NetworkCredential("yongyk-pp21@student.tarc.edu.my", "030128070217");
+								smt.Send(msg);
+
+
+							}
+							catch (SmtpException ex)
+							{
+								// Handle SMTP exception (e.g., no internet connection, SMTP server down)
+								lblMsg2.Text = "Failed to send email. Please try again later.";
+								lblMsg2.ForeColor = System.Drawing.Color.Red;
+
+
+							}
+							catch (FormatException ex)
+							{
+								// Handle invalid email format exception
+								lblMsg2.Text = "Invalid email address. Please enter a valid email.";
+								lblMsg2.ForeColor = System.Drawing.Color.Red;
+
+							}
+							catch (Exception ex)
+							{
+								lblMsg2.Text = "Email send fail";
+								lblMsg2.ForeColor = System.Drawing.Color.Red;
+
+							}
+						}
+						else
+						{
+							lblMsg2.Text = "email is not registered";
+							lblMsg2.ForeColor = System.Drawing.Color.Red;
+
 						}
 					}
+					
 				}
 
 

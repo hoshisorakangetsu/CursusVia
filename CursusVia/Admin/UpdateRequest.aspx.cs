@@ -57,12 +57,22 @@ namespace CursusVia.Admin
 
             con.Open();
 
-            string replies = "SELECT [reply], [datetime], [support_req_id], [admin_id], [student_id], [tutor_id], [id] FROM [Replies] WHERE [support_req_id] = '" + id + "'";
+            string replies = "SELECT [reply], [datetime], [support_req_id], [admin_id], [student_id], [tutor_id], [id] FROM [Replies] WHERE [support_req_id] = '" + id + "' AND [admin_id] IS NOT NULL";
             SqlDataAdapter adapter = new SqlDataAdapter(replies, con);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             Repeater1.DataSource=dataSet;
             Repeater1.DataBind();
+            con.Close();
+
+            con.Open();
+            string repliesTutor = "SELECT [reply], [datetime], [support_req_id], [admin_id], [student_id], [tutor_id], [id] FROM [Replies] WHERE [support_req_id] = '" + id + "' AND [admin_id] IS NULL";
+            SqlDataAdapter adapterReplyTutor = new SqlDataAdapter(repliesTutor, con);
+            DataSet dataSetReplyTutor = new DataSet();
+            adapterReplyTutor.Fill(dataSetReplyTutor);
+            Repeater2.DataSource=dataSetReplyTutor;
+            Repeater2.DataBind();
+            con.Close();
 
             row = dataSet.Tables[0].Rows.Count;
 

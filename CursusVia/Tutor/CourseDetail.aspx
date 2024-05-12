@@ -33,8 +33,7 @@
                 </div>
             </ItemTemplate>
         </asp:FormView>
-        <asp:SqlDataSource runat="server" ID="CourseDetailHeroDS" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-></asp:SqlDataSource>
+        <asp:SqlDataSource runat="server" ID="CourseDetailHeroDS" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"></asp:SqlDataSource>
         <div class="courseOverview">
             <div class="courseOverviewHeading">
                 <h1>Course Overview</h1>
@@ -53,26 +52,40 @@
                                     <div class="newItemControls">
                                         <% // save courseId for use of redirect %>
                                         <asp:HyperLink ID="NewChapterContent" runat="server" CssClass="btn btnPrimary" NavigateUrl='<%# "~/Tutor/CreateCourseContent.aspx?chapId=" + Eval("ChapterId") + "&courseId=" + Eval("CourseId") %>'>New Content</asp:HyperLink>
-                                        <asp:HyperLink ID="NewChapterQuiz" runat="server" CssClass="btn btnOutlinePrimary" NavigateUrl='<%# "~/Tutor/UpdateQuiz.aspx?chapId=" + Eval("ChapterId") + "&courseId=" + Eval("CourseId") %>'>New Quiz</asp:HyperLink>
+                                        <button id="NewChapterQuiz" class="btn btnOutlinePrimary" onclick='openModalForNewQuiz(event, <%# Eval("ChapterId") %>)'>New Quiz</button>
                                     </div>
                                     <p class="itemCount"><%# Eval("ItemCount") %> Items</p>
                                     <span class="material-symbols-outlined chevron">expand_more</span>
                                 </div>
                             </div>
                             <div class="accordianContentWrapper">
-                                <asp:Repeater ID="ContentRepeater" runat="server" DataSourceID="ContentDS">
-                                    <ItemTemplate>
-                                        <div class="accordianContent">
+                                <div class="accordianContent">
+                                    <asp:Repeater ID="ContentRepeater" runat="server" DataSourceID="ContentDS">
+                                        <ItemTemplate>
                                             <asp:HyperLink CssClass="contentRow" NavigateUrl='<%# "~/Tutor/UpdateCourseContent.aspx?contentId=" + Eval("ContentId") + "&courseId=" + Eval("CourseId") %>' runat="server">
                                                 <%# Eval("ContentTitle") %>
                                                 <span class="updateIcon material-symbols-outlined">edit</span>
                                             </asp:HyperLink>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:Repeater>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                    <% // store chapter id to be used by the content data source %>
+                                    <asp:HiddenField ID="ChapIdForContentDS" runat="server" Value='<%# Eval("ChapterId") %>' />
+                                    <asp:SqlDataSource ID="ContentDS" runat="server" SelectCommand='SELECT [id] AS ContentId, [title] AS ContentTitle, (SELECT [course_id] FROM [Chapters] ch WHERE [ch].[id] = @ChapId) AS [CourseId] FROM [ChapterContents] WHERE [chapter_id] = @ChapId ORDER BY [order];' ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
+                                        <SelectParameters>
+                                            <asp:ControlParameter Name="ChapId" ControlID="ChapIdForContentDS" PropertyName="Value" />
+                                        </SelectParameters>
+                                    </asp:SqlDataSource>
+                                    <asp:Repeater ID="QuizRepeater" runat="server" DataSourceID="QuizDS">
+                                        <ItemTemplate>
+                                            <asp:HyperLink CssClass="contentRow" NavigateUrl='<%# "~/Tutor/UpdateQuiz.aspx?quizId=" + Eval("QuizId") + "&chapterId=" + Eval("ChapterId") + "&courseId=" + Eval("CourseId") %>' runat="server">
+                                                <%# Eval("QuizTitle") %>
+                                                <span class="updateIcon material-symbols-outlined">edit</span>
+                                            </asp:HyperLink>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </div>
                                 <% // store chapter id to be used by the content data source %>
-                                <asp:HiddenField ID="ChapIdForContentDS" runat="server" Value='<%# Eval("ChapterId") %>' />
-                                <asp:SqlDataSource ID="ContentDS" runat="server" SelectCommand='SELECT [id] AS ContentId, [title] AS ContentTitle, (SELECT [course_id] FROM [Chapters] ch WHERE [ch].[id] = @ChapId) AS [CourseId] FROM [ChapterContents] WHERE [chapter_id] = @ChapId ORDER BY [order];' ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
+                                <asp:SqlDataSource ID="QuizDS" runat="server" SelectCommand='SELECT cq.[id] AS QuizId, cq.[quiz_title] AS QuizTitle, cq.[chapter_id] AS ChapterId, c.[course_id] AS CourseId FROM [ChapterQuiz] cq INNER JOIN [Chapters] c ON cq.[chapter_id] = c.[id] WHERE cq.[chapter_id] = @ChapId' ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
                                     <SelectParameters>
                                         <asp:ControlParameter Name="ChapId" ControlID="ChapIdForContentDS" PropertyName="Value" />
                                     </SelectParameters>
@@ -81,8 +94,7 @@
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
-                <asp:SqlDataSource ID="ChapterDS" runat="server" ConnectionString='<%$ ConnectionStrings:ConnectionString %>'>
-                </asp:SqlDataSource>
+                <asp:SqlDataSource ID="ChapterDS" runat="server" ConnectionString='<%$ ConnectionStrings:ConnectionString %>'></asp:SqlDataSource>
             </div>
         </div>
     </div>
@@ -93,10 +105,12 @@
                 </span>
             </button>
             <div class="chapterField">
+                <!-- use this to keep track whether is create new quiz or create/update chapter -->
+                <asp:HiddenField ID="ModalType" runat="server" />
                 <!-- see if possible, if not then use js and AJAX handle alrd, use this hidden input to track whether it is new chapter or edit current chapter -->
                 <asp:HiddenField ID="ChapterModalId" runat="server" />
-                <asp:TextBox ID="ChapterTitleTxt" runat="server" placeholder="Type Chapter Title Here"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter a chapter title" ControlToValidate="ChapterTitleTxt" Display="Dynamic" CssClass="validationMessage"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="ChapterTitleTxt" runat="server" placeholder="Type Title Here"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter a title" ControlToValidate="ChapterTitleTxt" Display="Dynamic" CssClass="validationMessage"></asp:RequiredFieldValidator>
                 <asp:Button ID="ChapterModalBtn" runat="server" Text="Submit" CssClass="btn btnPrimary surface-text" OnClick="ChapterModalBtn_Click" />
             </div>
         </div>
@@ -127,10 +141,20 @@
 
         function openModalForEdit(e, chapterId, currentTitle) {
             e.stopPropagation();
-            // dk how to access the hidden input field becuz the csharp scrambles the id, but for now the hack is to access the one and only hidden input field
-            chapterModal.querySelector("input[type=hidden]").value = chapterId;
+            chapterModal.querySelector("#<%= ModalType.ClientID %>").value = "CHAPTER";
+            chapterModal.querySelector("#<%= ChapterModalId.ClientID %>").value = chapterId;
             // same applies, directly get the one and only text input
             chapterModal.querySelector("input[type=text]").value = currentTitle;
+            openModal(chapterModal);
+        }
+
+        function openModalForNewQuiz(e, chapId) {
+            e.preventDefault();
+            e.stopPropagation();
+            chapterModal.querySelector("#<%= ModalType.ClientID %>").value = "QUIZ";
+            chapterModal.querySelector("#<%= ChapterModalId.ClientID %>").value = chapId;
+            // same applies, directly get the one and only text input
+            chapterModal.querySelector("input[type=text]").value = "";
             openModal(chapterModal);
         }
     </script>

@@ -9,75 +9,69 @@
             Back
         </asp:HyperLink>
     </div>
-    <div class="contentContainer">
-        <div class="requestTitle">
-            <h1 class="surfaceText">Title</h1>
-            <p class="surfaceText">Posted on: 4/9/2024 09:00</p>
-        </div>
-        <div>
-            <p class="surfaceText">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget ex vitae sem tincidunt venenatis posuere eget elit. 
-                Etiam vel sagittis dui. Integer aliquet sapien a tellus tristique, eu tristique eros tincidunt. 
-                Cras bibendum metus eu quam fermentum, ut eleifend nunc elementum. Nulla sodales erat quis massa pulvinar, non volutpat orci finibus. 
-                Mauris ultrices non leo id ornare. Vivamus ipsum lacus, volutpat sit amet est eget, convallis dapibus ligula. 
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer egestas nisi pulvinar, pretium tellus eu, accumsan odio. 
-                Integer ornare ex non ipsum gravida blandit. Nullam vulputate ligula ut tristique facilisis. Sed sed orci velit. 
-                Duis sagittis ante eget ligula mattis auctor. Vivamus vel sem dolor. Cras euismod tortor vitae nisl feugiat vestibulum. 
-                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </p>
-        </div>
-        <div class="edit">    
-            <asp:HyperLink ID="editLink" runat="server" class="editBtn btnPrimary" NavigateUrl='EditSupport.aspx'>   
-                <span class="material-symbols-outlined editIcon">edit</span>
-                Edit
-            </asp:HyperLink>
-        </div>
-    </div>
+     <asp:Repeater ID="Repeater1" runat="server">
+        <ItemTemplate>
+            <div class="contentContainer">
+                <div class="requestTitle">
+                    <h1 class="surfaceText"><%# Eval("title") %></h1>
+                    <p class="surfaceText">Posted on: <%# Eval("date_send") %></p>
+                </div>
+                <div>
+                    <p class="surfaceText">
+                        <%# Eval("description") %>
+                    </p>
+                </div>
+                <div class="edit">    
+                    <asp:HyperLink ID="editLink" runat="server" class="editBtn btnPrimary" NavigateUrl='<%# "EditSupport.aspx?id=" + Eval("id")%>'>   
+                        <span class="material-symbols-outlined editIcon">edit</span>
+                        Edit
+                    </asp:HyperLink>
+                </div>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
     <div>
         <div>
-            <span class="surfaceText reply">Replies /No Replies Yet</span>
+            <span class="surfaceText reply">Replies</span>
         </div>
-        <div class="contentContainer">
-            <div class="requestTitle">
-                <h1 class="surfaceText">Admin ID</h1>
-                <p class="surfaceText">Replies on: 4/9/2024 12:00</p>
-            </div>
-            <div>
-                <p class="surfaceText">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget ex vitae sem tincidunt venenatis posuere eget elit. 
-                    Etiam vel sagittis dui. Integer aliquet sapien a tellus tristique, eu tristique eros tincidunt. 
-                    Cras bibendum metus eu quam fermentum, ut eleifend nunc elementum. Nulla sodales erat quis massa pulvinar, non volutpat orci finibus. 
-                    Mauris ultrices non leo id ornare. Vivamus ipsum lacus, volutpat sit amet est eget, convallis dapibus ligula. 
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer egestas nisi pulvinar, pretium tellus eu, accumsan odio. 
-                    Integer ornare ex non ipsum gravida blandit. Nullam vulputate ligula ut tristique facilisis. Sed sed orci velit. 
-                    Duis sagittis ante eget ligula mattis auctor. Vivamus vel sem dolor. Cras euismod tortor vitae nisl feugiat vestibulum. 
-                    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                </p>
-            </div>
-            <div class="edit">    
-                <asp:HyperLink ID="HyperLink1" runat="server" class="editBtn btnPrimary" NavigateUrl='ReplySupport.aspx'>   
-                    <span class="material-symbols-outlined editIcon">reply</span>
-                    Reply
-                </asp:HyperLink>
-            </div>
-        </div>
-        <div class="contentContainer">
-            <div class="requestTitle">
-                <h1 class="surfaceText">Student Name</h1>
-                <p class="surfaceText">Replies on: 4/9/2024 15:00</p>
-            </div>
-            <div>
-                <p class="surfaceText">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget ex vitae sem tincidunt venenatis posuere eget elit. 
-                    Etiam vel sagittis dui. Integer aliquet sapien a tellus tristique, eu tristique eros tincidunt. 
-                    Cras bibendum metus eu quam fermentum, ut eleifend nunc elementum. Nulla sodales erat quis massa pulvinar, non volutpat orci finibus. 
-                    Mauris ultrices non leo id ornare. Vivamus ipsum lacus, volutpat sit amet est eget, convallis dapibus ligula. 
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer egestas nisi pulvinar, pretium tellus eu, accumsan odio. 
-                    Integer ornare ex non ipsum gravida blandit. Nullam vulputate ligula ut tristique facilisis. Sed sed orci velit. 
-                    Duis sagittis ante eget ligula mattis auctor. Vivamus vel sem dolor. Cras euismod tortor vitae nisl feugiat vestibulum. 
-                    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                </p>
-            </div>
+        <asp:Repeater ID="Repeater2" runat="server">
+            <ItemTemplate>
+                <div class="contentContainer">
+                    <div class="requestTitle">
+                        <h1 class="surfaceText"><%# "Admin ID: " + Eval("admin_id") %></h1>
+                        <p class="surfaceText">Replies on: <%# Eval("datetime") %></p>
+                    </div>
+                    <div>
+                        <p class="surfaceText">
+                            <%# Eval("reply") %>
+                        </p>
+                    </div>
+                    <div class="edit">    
+                        <asp:HyperLink ID="editLink" runat="server" class="editBtn btnPrimary" NavigateUrl='<%# "ReplySupport.aspx?id=" + Eval("id")%>'>   
+                            <span class="material-symbols-outlined editIcon">reply</span>
+                            Reply
+                        </asp:HyperLink>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+        <asp:Repeater ID="Repeater3" runat="server">
+            <ItemTemplate>
+                <div class="contentContainer">
+                    <div class="requestTitle">
+                        <h1 class="surfaceText"><%# "Student ID: " + Eval("student_id") %></h1>
+                        <p class="surfaceText">Replies on: <%# Eval("datetime") %></p>
+                    </div>
+                    <div>
+                        <p class="surfaceText">
+                            <%# Eval("reply") %>
+                        </p>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+        <div class="noReply">
+            <asp:Label ID="lblNoReplies" runat="server" CssClass="surfaceText h2"></asp:Label>
         </div>
     </div>
 </asp:Content>

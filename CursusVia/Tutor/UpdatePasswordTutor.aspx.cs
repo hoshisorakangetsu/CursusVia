@@ -21,7 +21,10 @@ namespace CursusVia.Tutor
 		SqlCommand cmd;
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			if (!User.Identity.IsAuthenticated)
+			{
+				Response.Redirect("LoginTutor.aspx");
+			}
 		}
 		public static string getHash(string oriPassword)
 		{
@@ -84,9 +87,9 @@ namespace CursusVia.Tutor
 					UpdatePassword(id, newHashedPassword);
 
 					// Display success message
-					lblMsg3.Text = "Password updated successfully.";
-					lblMsg3.ForeColor = System.Drawing.Color.Green;
-					
+					Response.Write("<script>alert('password updated successfully');window.location = 'UpdatePasswordTutor.aspx';</script>");
+
+
 				}
 			}
 			catch (Exception ex)
