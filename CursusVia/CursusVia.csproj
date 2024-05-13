@@ -156,6 +156,10 @@
     <Content Include="Admin\ViewWithdrawRequest.css" />
     <Content Include="Admin\WithdrawStatusUpdate.aspx" />
     <Content Include="Admin\WithdrawUpdate.css" />
+    <Content Include="App_Data\CursusVia.mdf" />
+    <Content Include="App_Data\CursusVia_log.ldf">
+      <DependentUpon>CursusVia.mdf</DependentUpon>
+    </Content>
     <Content Include="Customer\Cart.aspx" />
     <Content Include="Customer\CartStyle.css" />
     <Content Include="Controls\FileUploadWithPreview.ascx" />
@@ -218,10 +222,6 @@
     <Content Include="Tutor\WithdrawRequestStatus.aspx" />
     <Content Include="Tutor\WithdrawSbmStyle.css" />
     <Content Include="App_Data\CreateDB.sql" />
-    <Content Include="App_Data\CursusVia.mdf" />
-    <Content Include="App_Data\CursusVia_log.ldf">
-      <DependentUpon>CursusVia.mdf</DependentUpon>
-    </Content>
     <Content Include="BackControlInit.js" />
     <Content Include="Customer\ApplyVacancy.aspx" />
     <Content Include="Customer\ApplyVacancy.css" />
