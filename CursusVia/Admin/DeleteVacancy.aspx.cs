@@ -52,11 +52,12 @@ namespace CursusVia.Admin
         {
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
-
+            con.Open(); 
             string select = "SELECT vacancy_id FROM JobApplications WHERE vacancy_id = @ID";
             SqlCommand cmd = new SqlCommand(select, con);
             cmd.Parameters.AddWithValue("@ID", id);
             int row = cmd.ExecuteNonQuery();
+            con.Close();
 
             if (row > 0)
             {
