@@ -60,23 +60,24 @@ namespace CursusVia.Customer
 			string authenticatedUserId = AuthenticateUser(txtUsername.Text, txtPassword.Text);
 
 
-
- if (authenticatedUserId != "0" && captchacode.Text.ToLower() == Session["sessionCaptcha"].ToString())
+			if (authenticatedUserId != "0" && captchacode.Text.ToLower() == (Session["sessionCaptcha"] != null ? Session["sessionCaptcha"].ToString() : "") )
 			{
-
-				//FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, cbRememberMe.Checked);
-				/*
-			{
-					Response.Cookies["authCookie"]["email"] = txtUsername.Text;
-					Response.Cookies["authCookie"]["password"] = txtPassword.Text;
 				
-				}
-				*/
 
 
-				//	FormsAuthentication.RedirectFromLoginPage(txtUsername.Text,cbRememberMe.Checked);
+			//FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, cbRememberMe.Checked);
+			/*
+		{
+				Response.Cookies["authCookie"]["email"] = txtUsername.Text;
+				Response.Cookies["authCookie"]["password"] = txtPassword.Text;
 
-				FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
+			}
+			*/
+
+
+			//	FormsAuthentication.RedirectFromLoginPage(txtUsername.Text,cbRememberMe.Checked);
+
+			FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
 					1,
 				authenticatedUserId,
 				DateTime.Now,
