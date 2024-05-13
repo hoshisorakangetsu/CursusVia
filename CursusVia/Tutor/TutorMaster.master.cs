@@ -21,7 +21,7 @@ namespace CursusVia.Tutor
                 tutorId = authTicket.Name;
                 if (!Page.IsPostBack)
                 {
-                    ProfileCardDS.SelectCommand = "SELECT username, email FROM Admins WHERE id = @TutorId";
+                    ProfileCardDS.SelectCommand = "SELECT name, email FROM Admins WHERE id = @TutorId";
                     ProfileCardDS.SelectParameters.Add("TutorId", tutorId);
                     ProfileCard.DataBind();
                 }
