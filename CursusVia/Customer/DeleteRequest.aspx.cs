@@ -23,10 +23,11 @@ namespace CursusVia.Customer
                 string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
 
-                string select = "SELECT [id], [title], [date_send], [description], [student_id] FROM [SupportRequests] WHERE [id] = '" + id + "'";
+                string select = "SELECT [id], [title], [date_send], [description], [student_id] FROM [SupportRequests] WHERE [id] = @ID";
 
                 con.Open();
                 SqlDataAdapter adapter = new SqlDataAdapter(select, con);
+                adapter.SelectCommand.Parameters.AddWithValue("@ID", id);
                 DataSet dataSet = new DataSet();
                 adapter.Fill(dataSet);
                 Repeater1.DataSource=dataSet;
@@ -35,8 +36,9 @@ namespace CursusVia.Customer
                 con.Close();
 
                 con.Open();
-                string replies = "SELECT [reply], [datetime], [support_req_id], [admin_id], [student_id], [tutor_id], [id] FROM [Replies] WHERE [support_req_id] = '" + id + "' AND [admin_id] IS NOT NULL";
+                string replies = "SELECT [reply], [datetime], [support_req_id], [admin_id], [student_id], [tutor_id], [id] FROM [Replies] WHERE [support_req_id] = @ID AND [admin_id] IS NOT NULL";
                 SqlDataAdapter adapterReply = new SqlDataAdapter(replies, con);
+                adapterReply.SelectCommand.Parameters.AddWithValue("@ID", id);
                 DataSet dataSetReply = new DataSet();
                 adapterReply.Fill(dataSetReply);
                 Repeater2.DataSource=dataSetReply;
@@ -44,8 +46,9 @@ namespace CursusVia.Customer
                 con.Close();
 
                 con.Open();
-                string repliesTutor = "SELECT [reply], [datetime], [support_req_id], [admin_id], [student_id], [tutor_id], [id] FROM [Replies] WHERE [support_req_id] = '" + id + "' AND [student_id] IS NOT NULL";
+                string repliesTutor = "SELECT [reply], [datetime], [support_req_id], [admin_id], [student_id], [tutor_id], [id] FROM [Replies] WHERE [support_req_id] = @ID AND [student_id] IS NOT NULL";
                 SqlDataAdapter adapterReplyTutor = new SqlDataAdapter(repliesTutor, con);
+                adapterReplyTutor.SelectCommand.Parameters.AddWithValue("@ID", id);
                 DataSet dataSetReplyTutor = new DataSet();
                 adapterReplyTutor.Fill(dataSetReplyTutor);
                 Repeater3.DataSource=dataSetReplyTutor;
@@ -66,13 +69,15 @@ namespace CursusVia.Customer
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
 
-            string deleteReply = "DELETE FROM [dbo].[Replies] WHERE [support_req_id] = '" + id + "'";
-            string deleteRequest = "DELETE FROM[dbo].[SupportRequests] WHERE [id] = '" + id + "'";
+            string deleteReply = "DELETE FROM [dbo].[Replies] WHERE [support_req_id] = @ID";
+            string deleteRequest = "DELETE FROM[dbo].[SupportRequests] WHERE [id] = @ID";
 
             con.Open();
             SqlCommand drop = new SqlCommand(deleteReply, con);
+            drop.Parameters.AddWithValue("@ID", id);
             drop.ExecuteNonQuery();
             SqlCommand drop1 = new SqlCommand(deleteRequest, con);
+            drop1.Parameters.AddWithValue("@ID", id);
             drop1.ExecuteNonQuery();
             con.Close();
 

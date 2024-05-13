@@ -31,9 +31,11 @@ namespace CursusVia.Customer
                 string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                string select = "SELECT JobApplications.expecred_salary, Vacancies.job_title, Companies.name FROM Vacancies INNER JOIN JobApplications ON Vacancies.id = JobApplications.vacancy_id INNER JOIN Companies ON Vacancies.company_id = Companies.id WHERE JobApplications.student_id = " + studentId;
-
+                string select = "SELECT JobApplications.expecred_salary, Vacancies.job_title, Companies.name FROM Vacancies INNER JOIN JobApplications ON Vacancies.id = JobApplications.vacancy_id INNER JOIN Companies ON Vacancies.company_id = Companies.id WHERE JobApplications.student_id = @sID";
+                
                 SqlDataAdapter adapter = new SqlDataAdapter(select, con);
+
+                adapter.SelectCommand.Parameters.AddWithValue("@sID", studentId);
                 DataSet dataSet = new DataSet();
                 adapter.Fill(dataSet);
                 GridView1.DataSource=dataSet;
@@ -46,10 +48,12 @@ namespace CursusVia.Customer
         {
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
-            string query = "SELECT JobApplications.expecred_salary, Vacancies.job_title, Companies.name FROM Vacancies INNER JOIN JobApplications ON Vacancies.id = JobApplications.vacancy_id INNER JOIN Companies ON Vacancies.company_id = Companies.id WHERE JobApplications.student_id = " + studentId + " AND  Vacancies.job_title LIKE '%" + txtRequestTitle.Text + "%'";
+            string query = "SELECT JobApplications.expecred_salary, Vacancies.job_title, Companies.name FROM Vacancies INNER JOIN JobApplications ON Vacancies.id = JobApplications.vacancy_id INNER JOIN Companies ON Vacancies.company_id = Companies.id WHERE JobApplications.student_id = @sID AND  Vacancies.job_title LIKE @Title";
 
             con.Open();
             SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            adapter.SelectCommand.Parameters.AddWithValue("@sID", studentId);
+            adapter.SelectCommand.Parameters.AddWithValue("@Title", "%" + txtRequestTitle.Text + "%");
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             GridView1.DataSource=dataSet;

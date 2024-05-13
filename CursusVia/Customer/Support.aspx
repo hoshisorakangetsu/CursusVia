@@ -27,7 +27,7 @@
                     <span class="surfaceText statusText">STATUS</span>
                     <asp:DropDownList ID="ddlStatus" runat="server" CssClass="inputField">
                         <asp:ListItem>None</asp:ListItem>
-                        <asp:ListItem>Procssing</asp:ListItem>
+                        <asp:ListItem>Processing</asp:ListItem>
                         <asp:ListItem>Completed</asp:ListItem>
                     </asp:DropDownList>
                 </div>

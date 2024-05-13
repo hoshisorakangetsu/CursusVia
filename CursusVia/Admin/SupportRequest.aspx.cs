@@ -25,10 +25,11 @@ namespace CursusVia.Admin
         {
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
-            string query = "SELECT[id], [title], [date_send], [status] FROM[SupportRequests] WHERE title LIKE '%" + txtRequestTitle.Text + "%'";
+            string query = "SELECT[id], [title], [date_send], [status] FROM[SupportRequests] WHERE title LIKE @Name";
 
             con.Open();
             SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            adapter.SelectCommand.Parameters.AddWithValue("@Name", "%" + txtRequestTitle.Text + "%");
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             GridView1.DataSource=dataSet;
@@ -60,19 +61,22 @@ namespace CursusVia.Admin
             string query;
 
             //default query
-            query = "SELECT[id], [title], [date_send], [status] FROM[SupportRequests] WHERE";
+            query = "SELECT[id], [title], [date_send], [status] FROM [SupportRequests] WHERE";
             if (isStatus)
-                query = String.Concat(query, " [status] = '" + ddlStatus.SelectedValue + "' AND");
+                query = String.Concat(query, " [status] = @Type AND");
             if (isStart)
-                query = String.Concat(query, " [date_send] >= '" + txtStart.Text + "' AND");
+                query = String.Concat(query, " [date_send] >= @Start AND");
             if (isEnd)
-                query = String.Concat(query, " [date_send] <= '" + end + "' AND");
+                query = String.Concat(query, " [date_send] <= @End AND");
 
             //remove the AND and space
             query = query.Remove(query.Length - 4);
 
             con.Open();
             SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            adapter.SelectCommand.Parameters.AddWithValue("@Type", ddlStatus.SelectedValue);
+            adapter.SelectCommand.Parameters.AddWithValue("@Start", txtStart.Text);
+            adapter.SelectCommand.Parameters.AddWithValue("@End", end);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             GridView1.DataSource=dataSet;

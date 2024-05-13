@@ -38,11 +38,12 @@ namespace CursusVia.Customer
                 string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
 
-                string details = "SELECT [reply], [datetime], [support_req_id], [student_id], [admin_id] FROM [Replies] WHERE [id] ='" + id + "'";
+                string details = "SELECT [reply], [datetime], [support_req_id], [student_id], [admin_id] FROM [Replies] WHERE [id] = @ID";
 
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand(details, con);
+                cmd.Parameters.AddWithValue("@ID", id);
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -70,7 +71,7 @@ namespace CursusVia.Customer
             int sId; int supportId;
             string supportReqId = "";
 
-            string details = "SELECT [support_req_id] FROM [Replies] WHERE [id] ='" + id + "'";
+            string details = "SELECT [support_req_id] FROM [Replies] WHERE [id] = @ID";
 
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
@@ -78,6 +79,7 @@ namespace CursusVia.Customer
             con.Open();
 
             SqlCommand cmd = new SqlCommand(details, con);
+            cmd.Parameters.AddWithValue("@ID", id);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
