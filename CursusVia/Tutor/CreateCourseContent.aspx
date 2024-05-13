@@ -9,12 +9,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
     <div class="createUpdateCourseContentMain">
-        <div class="backControl">
+        <asp:HyperLink ID="backControl" runat="server" CssClass="backControl">
             <span class="material-symbols-outlined">
             arrow_back
             </span>
             Course Menu
-        </div>
+        </asp:HyperLink>
         <uc:FileUploadWithPreview runat="server" ID="FileUploadWithPreview" FileType="video" IsRequired="true" />
         <div class="fields">
             <div class="genericInputField">

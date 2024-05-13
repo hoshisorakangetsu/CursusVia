@@ -16,6 +16,7 @@ namespace CursusVia.Tutor
         protected void Page_Load(object sender, EventArgs e)
         {
             contentId = Request.Params["contentId"];
+            backControl.NavigateUrl = $"~/Tutor/CourseDetail.aspx?id=" + Request.Params["courseId"];
             if (contentId == null)
             {
                 Response.Redirect("~/Tutor/MyCourses.aspx");

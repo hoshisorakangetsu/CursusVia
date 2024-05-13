@@ -49,7 +49,7 @@ namespace CursusVia.Tutor
 
 					if (!found)
 					{
-						Response.Redirect("Tutor.aspx");
+						Response.Redirect("LoginTutor.aspx");
 					}
 				}
 				else

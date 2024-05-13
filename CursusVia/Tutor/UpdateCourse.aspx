@@ -7,12 +7,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
     <div class="createUpdateCourseMain">
-        <div class="backControl">
+        <asp:HyperLink ID="backControl" runat="server" CssClass="backControl">
             <span class="material-symbols-outlined">
             arrow_back
             </span>
             All Courses
-        </div>
+        </asp:HyperLink>
         <% // no need is required because there will always be an image d, the user cannot remove the uploaded image %>
         <uc:FileUploadWithPreview runat="server" ID="CourseImgUploadWithPreview" IsRequired="false" FileType="image" />
         <div class="fields">

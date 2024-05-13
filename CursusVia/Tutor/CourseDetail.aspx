@@ -8,11 +8,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
     <div class="tutorCourseContentMain">
-        <div class="backControl">
+        <asp:HyperLink ID="backControl" runat="server" CssClass="backControl">
             <span class="material-symbols-outlined">arrow_back
             </span>
             All Courses
-        </div>
+        </asp:HyperLink>
         <asp:FormView runat="server" ID="CourseDetailHeroView" DataSourceID="CourseDetailHeroDS" DefaultMode="ReadOnly" CssClass="w-full">
             <ItemTemplate>
                 <div class="hero">

@@ -9,7 +9,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
     <div class="customerCourseContentMain">
-        <asp:HyperLink runat="server" ID="backControl" class="backControl">
+        <asp:HyperLink runat="server" ID="backControl" CssClass="backControl">
             <span class="material-symbols-outlined">arrow_back
             </span>
             All Courses
