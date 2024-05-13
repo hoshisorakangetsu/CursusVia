@@ -126,11 +126,11 @@ namespace CursusVia.Customer
 							{
 								// Handle SMTP exception (e.g., no internet connection, SMTP server down)
 								
-
 							}
 							catch (FormatException ex)
 							{
 								// Handle invalid email format exception
+								
 								
 							}
 							catch (Exception ex)
