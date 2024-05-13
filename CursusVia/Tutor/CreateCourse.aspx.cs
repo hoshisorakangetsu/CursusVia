@@ -12,7 +12,7 @@ namespace CursusVia.Tutor
 {
     public partial class CreateCourse : System.Web.UI.Page
     {
-        private string tutorId = "2"; // TODO remove hardcoded id
+        private string tutorId; 
         protected void Page_Load(object sender, EventArgs e)
         {
             HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
@@ -29,9 +29,6 @@ namespace CursusVia.Tutor
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             if (!Page.IsValid) { return; }
-
-            // for xb test on his machine only, remove in future
-            if (String.IsNullOrEmpty(tutorId)) { tutorId = "2"; }
 
             using (SqlConnection con = new SqlConnection(cs))
             {
