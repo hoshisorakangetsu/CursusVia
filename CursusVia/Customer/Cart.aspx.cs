@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -18,22 +19,23 @@ namespace CursusVia
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
 
             if (!IsPostBack)
             {
+
                 BindGrid();
                 HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
                 if (authCookie == null || !AuthenticateUser(authCookie))
                 {
                     Response.Redirect("LoginStudent.aspx");
 
-                 
+
                 }
 
                 BindGrid();
             }
-           
+
         }
 
         private bool AuthenticateUser(HttpCookie authCookie)
@@ -59,14 +61,15 @@ namespace CursusVia
                 CartItemDataAccess dataAccess = new CartItemDataAccess();
                 dataAccess.DeleteCartItems(new List<int> { itemId });
                 BindGrid(); // Rebind to update the view
+               
             }
             else
             {
-             
+                Response.Redirect(Request.RawUrl); // Redirect to the same pag
                 // Handle error or log it
                 Debug.WriteLine("Invalid row index or empty DataKeys.");
             }
-            Response.Redirect(Request.RawUrl); // Redirect to the same pag
+           
         }
 
         public class CartItemDataAccess
@@ -129,6 +132,7 @@ namespace CursusVia
                 {
                     int itemId = Convert.ToInt32(GridView1.DataKeys[row.RowIndex].Value);
                     idsToDelete.Add(itemId);
+
                 }
             }
 
@@ -137,11 +141,14 @@ namespace CursusVia
                 CartItemDataAccess dataAccess = new CartItemDataAccess();
                 dataAccess.DeleteCartItems(idsToDelete);
                 BindGrid();
+                Response.Redirect(Request.RawUrl); // Redirect to the same pag
             }
 
 
 
         }
+
+
     }
 }
 

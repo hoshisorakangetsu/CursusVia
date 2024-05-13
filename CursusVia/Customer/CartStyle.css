@@ -53,21 +53,36 @@
     align-items: center;
     background-color: #ceb8b8;
     padding: 12px 14px;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     border-radius: 4px;
 }
 
 .item-header {
-    padding: 0px 35px;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
     background-color: #29354C;
     color: white;
+    padding: 10px 50px; 
+    font-weight: bold;
+    margin-bottom: 3px;
+    border-radius: 4px;
 }
 
+
+
+
+
+
+
+
 .cart-row {
-    padding: 40px 50px;
-    background-color: #808080;
+    padding: 8px 50px; /* Reduced top and bottom padding */
+    background-color: #354055;
+    font-size: 18px;
+       color:ghostwhite;
 }
+
+
 
 .cart-column, .cart-cell {
     display: flex;

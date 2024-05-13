@@ -21,7 +21,7 @@
                     <asp:TemplateField HeaderText="Image">
                         <ItemTemplate>
                             <div style="width: 100%; height: 100%; object-fit: contain;">
-                                <img src='<%# Eval("ImagePath").ToString().Substring(1) %>' alt="Item Image" style="height:100%; width: 100%; object-fit: cover;"/>
+                                <img src='<%# Eval("ImagePath").ToString().Substring(1) %>' alt="Item Image" style="height:80%; width: 80%; object-fit: cover;"/>
                             </div>
                         </ItemTemplate>
                         <HeaderStyle CssClass="item-header" />
