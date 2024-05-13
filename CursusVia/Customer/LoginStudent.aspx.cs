@@ -24,35 +24,7 @@ namespace CursusVia.Customer
 	
 		protected void btnLogin_Click(object sender, EventArgs e)
 		{
-			/*
-			string email = txtUsername.Text;
-			string password = txtPassword.Text;
-			bool rememberMe = cbRememberMe.Checked;
-			string hash = getHash(password);
-
-			//Response.Redirect("Student.aspx");
-			string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-			using (SqlConnection con = new SqlConnection(CS))
-			{
-				string sql = "Select COUNT(*) from Students where email=@Email and password=@Password";
-				SqlCommand cmd = new SqlCommand(sql, con);
-				cmd.Parameters.AddWithValue("@Email", txtUsername.Text.Trim());
-				cmd.Parameters.AddWithValue("@Password", getHash(txtPassword.Text.Trim()));
-				con.Open();
-
-				int matched = (Int32)cmd.ExecuteScalar();
-				if (matched == 1)
-				{
-					
-				}
-				
-				else
-				{
-					lblMessage.ForeColor = System.Drawing.Color.Red;
-					lblMessage.Text = "Invalid username and password";
-				}
-				
-			}*/
+			
 			string username = txtUsername.Text;
 			string password = txtPassword.Text;
 			bool rememberMe = cbRememberMe.Checked;
@@ -63,19 +35,6 @@ namespace CursusVia.Customer
 			if (authenticatedUserId != "0" && captchacode.Text.ToLower() == (Session["sessionCaptcha"] != null ? Session["sessionCaptcha"].ToString() : "") )
 			{
 				
-
-
-			//FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, cbRememberMe.Checked);
-			/*
-		{
-				Response.Cookies["authCookie"]["email"] = txtUsername.Text;
-				Response.Cookies["authCookie"]["password"] = txtPassword.Text;
-
-			}
-			*/
-
-
-			//	FormsAuthentication.RedirectFromLoginPage(txtUsername.Text,cbRememberMe.Checked);
 
 			FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
 					1,
@@ -94,10 +53,6 @@ namespace CursusVia.Customer
 
 				Response.Cookies.Add(authCookie);
 
-				//Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
-				//string userData = authTicket.UserData;
-				//FormsIdentity identity=(FormsIdentity)ctx.User.Identity;
-				//string[] username = identity.Ticket.UserData.Split(',');
 				Response.Redirect("Student.aspx");
 			}
 			else
