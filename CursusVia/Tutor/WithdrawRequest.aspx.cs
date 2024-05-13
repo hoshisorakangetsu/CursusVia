@@ -116,7 +116,7 @@ namespace CursusVia.Tutor
                     cmd.Parameters.AddWithValue("@TutorId", tutorId);
                     con.Open();
                     object result = cmd.ExecuteScalar();
-                    if (result != null)
+                    if (result != DBNull.Value)
                     {
                         balance = Convert.ToSingle(result);
                     }
