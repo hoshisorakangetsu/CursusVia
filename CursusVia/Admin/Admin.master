@@ -9,14 +9,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="sideNav">
-            <div class="profileCard">
-                <div class="profileAbbr">HY</div>
-                <div class="names">
-                    <div class="username">hyue</div>
-                    <div class="email">hyue@gmail.com</div>
-                                        <asp:HyperLink ID="hLUpdate" runat="server" NavigateUrl="~/Admin/UpdateAdminAccount.aspx"> Update Admin</asp:HyperLink>
-                </div>
-            </div>
+            <asp:FormView ID="ProfileCard" runat="server" DataSourceID="ProfileCardDS">
+                <ItemTemplate>
+                    <div class="profileCard">
+                        <div class="profileAbbr">CV</div>
+                        <div class="names">
+                            <div class="username"><%# Eval("username") %></div>
+                            <div class="email"><%# Eval("email") %></div>
+                                                <asp:HyperLink ID="hLUpdate" runat="server" NavigateUrl="~/Admin/UpdateAdminAccount.aspx"> Update Admin</asp:HyperLink>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:FormView>
+            <asp:SqlDataSource ID="ProfileCardDS" runat="server"></asp:SqlDataSource>
             <div class="navContainer">
                 <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1" OnItemDataBound="Repeater1_ItemDataBound">
                     <ItemTemplate>

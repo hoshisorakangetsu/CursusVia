@@ -13,7 +13,17 @@ namespace CursusVia.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            HttpCookie authCookie = Request.Cookies["AdminAuth"];
+            if (authCookie == null || authCookie["LoggedIn"] != "true")
+            {
+                Response.Redirect("AdminAccount.aspx");
+            }
+            if (!Page.IsPostBack)
+            {
+                ProfileCardDS.SelectCommand = "SELECT username, email FROM Admins WHERE id = @AdminId";
+                ProfileCardDS.SelectParameters.Add("AdminId", authCookie.Values["AdminID"]);
+                ProfileCard.DataBind();
+            }
         }
         protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
