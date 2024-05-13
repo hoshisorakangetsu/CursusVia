@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Collections.Specialized.BitVector32;
 
 namespace CursusVia
 {
@@ -17,8 +18,7 @@ namespace CursusVia
         private int studentId;
 
         protected void Page_Load(object sender, EventArgs e)
-        {
-           
+        { 
 
             if (!IsPostBack)
             {
@@ -27,8 +27,6 @@ namespace CursusVia
                 if (authCookie == null || !AuthenticateUser(authCookie))
                 {
                     Response.Redirect("LoginStudent.aspx");
-
-                 
                 }
 
                 BindGrid();
@@ -138,9 +136,41 @@ namespace CursusVia
                 dataAccess.DeleteCartItems(idsToDelete);
                 BindGrid();
             }
+        }
 
+        private void CreateCheckoutSession()
+        {
 
+            string baseUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
 
+            var options = new SessionCreateOptions
+            {
+                LineItems = new List<SessionLineItemOptions>
+                {
+                    new SessionLineItemOptions
+                    {
+                        PriceData = new SessionLineItemPriceDataOptions
+                        {
+                            UnitAmount = 2000,
+                            Currency = "usd",
+                            ProductData = new SessionLineItemPriceDataProductDataOptions
+                            {
+                                Name = "T-shirt",
+                            },
+                        },
+                        Quantity = 1,
+                    },
+                },
+                Mode = "payment",
+                SuccessUrl = $"{baseUrl}/success.aspx",
+                CancelUrl = "http://localhost:4242/cancel",
+            };
+
+            var service = new SessionService();
+            Session session = service.Create(options);
+
+            // Store the session ID in the session state
+            Session["sessionId"] = session.Id;
         }
     }
 }

@@ -137,7 +137,6 @@ CREATE TABLE [dbo].[Payments]
 	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [payment_amount] FLOAT NOT NULL, 
     [payment_date] DATETIME NOT NULL, 
-    [payment_method] NVARCHAR(50) NOT NULL, 
     [transaction_method] NVARCHAR(50) NOT NULL, 
     [student_id] INT NOT NULL, 
     CONSTRAINT [FK_Payments_Students] FOREIGN KEY ([student_id]) REFERENCES [Students]([id])
