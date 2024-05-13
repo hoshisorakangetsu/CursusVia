@@ -37,7 +37,7 @@ namespace CursusVia.Admin
                 string encTicket = FormsAuthentication.Encrypt(ticket);
                 HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
                 Response.Cookies.Add(authCookie);
-                Response.Redirect("AdminDashboard.aspx");
+                Response.Redirect("~/Admin/WithdrawalRequest.aspx");
             }
             else
             {
