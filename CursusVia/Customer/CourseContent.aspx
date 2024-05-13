@@ -9,11 +9,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
     <div class="customerCourseContentMain">
-        <div class="backControl">
+        <asp:HyperLink runat="server" ID="backControl" class="backControl">
             <span class="material-symbols-outlined">arrow_back
             </span>
             All Courses
-        </div>
+        </asp:HyperLink>
         <asp:FormView runat="server" ID="CourseDetailHeroView" DataSourceID="CourseDetailHeroDS" DefaultMode="ReadOnly" CssClass="w-full">
             <ItemTemplate>
                 <div class="hero">
@@ -89,6 +89,5 @@
             </div>
         </div>
     </div>
-    <script src='<%= ResolveUrl("~/BackControlInit.js") %>' defer></script>
     <script src='<%= ResolveUrl("~/InputWithValidator.js") %>' defer></script>
 </asp:Content>

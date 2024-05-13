@@ -8,11 +8,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
     <div class="customerChapterContentMain">
-        <div class="backControl">
+        <asp:HyperLink ID="backControl" runat="server" class="backControl">
             <span class="material-symbols-outlined">arrow_back
             </span>
             All Courses
-        </div>
+        </asp:HyperLink>
         <asp:FormView ID="ChapterContentView" runat="server" DataSourceID="ChapterContentDS">
             <ItemTemplate>
                 <div class="vid">
@@ -41,6 +41,5 @@
             <h1>Navigate Course</h1>
             <uc:CustomerChapterOverview runat="server" ID="CustomerChapterOverview" />
         </div>
-        </div>
-        <script src='<%= ResolveUrl("~/BackControlInit.js") %>' defer></script>
+    </div>
 </asp:Content>

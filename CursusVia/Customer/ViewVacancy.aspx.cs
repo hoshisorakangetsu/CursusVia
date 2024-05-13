@@ -11,9 +11,10 @@ namespace CursusVia.Customer
 {
     public partial class ViewVacancy : System.Web.UI.Page
     {
+        private string id;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string id = Request.QueryString["id"];
+            id = Request.QueryString["id"];
             string comName = "";
 
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
@@ -45,7 +46,7 @@ namespace CursusVia.Customer
 
             con.Close();
 
-            applyNowLink.NavigateUrl = "ApplyVacancy.aspx?id="+id;
+            applyNowLink.NavigateUrl = $"ApplyVacancy.aspx?id={id}";
             otherJobLink.NavigateUrl = "SearchVacancy.aspx?comName="+comName;
         }
     }

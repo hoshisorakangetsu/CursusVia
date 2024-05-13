@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tutor/TutorMaster.master" AutoEventWireup="true" CodeBehind="TutorRatings.aspx.cs" Inherits="CursusVia.Tutor.TutorRatings" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TutorMasterHead" runat="server">
     <link href="TutorRatings.css" rel="stylesheet" />
+     <style>
+        tr:hover {
+        background-color: lightgray;
+      }
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
 <div class="backbtn" style="padding: 2em 2em 0 2em;">
@@ -9,38 +14,38 @@
 Back
 </asp:HyperLink>
  </div>
-    <div class="header">
-    <h1 >Tutor's Ratings</h1>
-    <h2>Dr Ali Bin Hassan</h2>
-    </div>
-    <div class="ratingcontainer" >
-        <h3 style="font-size:80px;">5.0</h3>
-        <p>⭐⭐⭐⭐⭐</p>
-        <p>Total 3 Ratings.</p>
-    </div>
-    <div class="ratingdetails">
+    <h1 style="margin-top:20px; margin-left:20px;">Tutor Ratings</h1>
+   <div  style="position:absolute;margin-left:60px; width:50%; margin-top:20px; margin-bottom:20px;">
+    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="true" onSelectedIndexChanged="DropDownList1_SelectedIndexChanged" >
+    <asp:ListItem Selected="True">All</asp:ListItem>
+    <asp:ListItem Value="5">⭐5.0</asp:ListItem>
+    <asp:ListItem Value="4">⭐4.0</asp:ListItem>
+    <asp:ListItem Value="3">⭐3.0</asp:ListItem>
+    <asp:ListItem Value="2">⭐2.0</asp:ListItem>
+    <asp:ListItem Value="1">⭐1.0</asp:ListItem>
+</asp:DropDownList></div>
+    <asp:Repeater ID="Repeater1" runat="server">
+        <HeaderTemplate>
+               <div style="position:absolute;margin-left:60px; width:100%; margin-top:50px;">
        
-        <div class="bar-5"></div><p style="position:relative;">5.0</p>
-        <div class="bar-4"></div><p style="position:relative;">4.0</p>
-        <div class="bar-3"></div><p style="position:relative;">3.0</p>
+   
+      <table id="rating" style="width:60%; border:1px solid; text-align:center;"> 
 
-
-    </div>
-    <div class="containerRatings">
-        <label>Filter by Ratings:</label>
-  
-        <asp:DropDownList ID="DropDownList1" runat="server">
-            <asp:ListItem>5⭐</asp:ListItem>
-            <asp:ListItem>4⭐</asp:ListItem>
-            <asp:ListItem>3⭐</asp:ListItem>
-            <asp:ListItem>2⭐</asp:ListItem>
-            <asp:ListItem>1⭐</asp:ListItem>
-        </asp:DropDownList>
-        <p style="margin-top:20px;">⭐⭐⭐⭐⭐⭐</p>
-        <p>Student Id: 001</p>
-        <p style="margin-top:20px;">⭐⭐⭐⭐⭐⭐</p>
-        <p>Student Id: 002</p>
-        <p style="margin-top:20px;">⭐⭐⭐⭐⭐⭐</p>
-        <p>Student Id: 003</p>
-    </div>
+         <tr>
+           <td style="padding:20px; border-bottom:1px solid black;"><b>🧑‍🎓Student's id</b></td>
+            <td style="padding:20px; border-bottom:1px solid black;"><b>⭐Rating</b></td>
+         </tr>
+        </HeaderTemplate>
+        <ItemTemplate>
+             <tr>
+              <td style="width:50%; padding:10px;"><%#Eval("Student_id") %></td>
+               <td style="width:50%; padding:10px;"><%#Eval("rating") %></td>
+            </tr>
+              
+        </ItemTemplate>
+         <FooterTemplate>
+     </table>
+     </div>
+ </FooterTemplate>
+    </asp:Repeater>
 </asp:Content>

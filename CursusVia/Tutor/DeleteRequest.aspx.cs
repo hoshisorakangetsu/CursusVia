@@ -82,7 +82,10 @@ namespace CursusVia.Tutor
             drop1.ExecuteNonQuery();
             con.Close();
 
-            Response.Write("<script>alert('Support Request deleted successfully');window.location = 'Support.aspx';</script>");
+            Session["toast"] = new Toast("Support request deleted successfully", "success");
+            Response.Redirect("Support.aspx");
+
+            //Response.Write("<script>alert('Support Request deleted successfully');window.location = 'Support.aspx';</script>");
         }
     }
 }

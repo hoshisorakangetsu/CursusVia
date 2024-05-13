@@ -7,11 +7,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CustomerMasterBody" runat="server">
     <div class="courseQuizMain">
-        <div class="backControl">
+        <asp:HyperLink ID="backControl" runat="server" class="backControl">
             <span class="material-symbols-outlined">arrow_back
             </span>
             All Courses
-        </div>
+        </asp:HyperLink>
         <% // does not store the user's responses so they can try again next time by reloading or coming back to the same page %>
         <asp:Repeater ID="RptQuestions" runat="server" DataSourceID="QuestionDS">
             <ItemTemplate>

@@ -13,6 +13,7 @@ namespace CursusVia.Customer
         {
             // post back wont happen in this page (no controls for it to trigger post back, most of the stuff populated by csharp and js take over with AJAX
             string courseId = Request.Params["courseId"];
+            backControl.NavigateUrl = $"~/CourseContent.aspx?id={courseId}";
             CustomerChapterOverviewControl.CourseId = courseId; // dk why server inline tags aren't working
 
             string quizId = Request.Params["quizId"];

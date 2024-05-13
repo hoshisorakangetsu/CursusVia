@@ -73,11 +73,15 @@ namespace CursusVia.Customer
 
             if (row > 0)
             {
-                Response.Write("<script>alert('Request edit successfully');window.location = 'Support.aspx';</script>");
+                Session["toast"] = new Toast("Request edit successfully", "success");
+                Response.Redirect("Support.aspx");
+                //Response.Write("<script>alert('Request edit successfully');window.location = 'Support.aspx';</script>");
             }
             else
             {
-                Response.Write("<script>alert('Request does not edit successfully');window.location = 'Support.aspx';</script>");
+                Session["toast"] = new Toast("Request does not edit successfully", "fail");
+                Response.Redirect("Support.aspx");
+                //Response.Write("<script>alert('Request does not edit successfully');window.location = 'Support.aspx';</script>");
             }
         }
     }

@@ -16,6 +16,7 @@ namespace CursusVia.Customer
         private string studentId;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //newRequestLink.NavigateUrl = "SearchVacancy.aspx?id="+studentId;
             HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
 
             if (authCookie != null)

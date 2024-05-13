@@ -115,5 +115,22 @@ namespace CursusVia.Customer
             Repeater1.DataBind();
             con.Close();
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+
+            string query = "SELECT [id], [title], [date_send], [description], [status], [student_id] FROM [SupportRequests] WHERE [student_id] = @sID AND [title] LIKE @reqTitle";
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            adapter.SelectCommand.Parameters.AddWithValue("@sID", studentId);
+            adapter.SelectCommand.Parameters.AddWithValue("@reqTitle", "%" + txtTitle.Text + "%");
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            Repeater1.DataSource=dataSet;
+            Repeater1.DataBind();
+            con.Close();
+        }
     }
 }

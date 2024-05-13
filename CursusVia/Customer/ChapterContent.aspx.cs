@@ -13,6 +13,8 @@ namespace CursusVia.Customer
         {
             string contentId = Request.Params["contentId"];
             string courseId = Request.Params["courseId"];
+
+            backControl.NavigateUrl = $"~/Customer/CourseContent.aspx?id={courseId}";
             
             ChapterContentDS.SelectCommand = @"
                 SELECT [cc].[title], [cc].[content], [fr].[file_path] 
