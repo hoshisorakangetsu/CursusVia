@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="coursesList">
-            <asp:Repeater runat="server" ID="CourseRepeater" DataSourceID="CourseRepeaterSqlDS">
+            <asp:Repeater runat="server" ID="CourseRepeater" DataSourceID="CourseRepeaterSqlDS" OnItemCommand="CourseRepeater_ItemCommand">
                 <ItemTemplate>
                     <div class="courseCard">
                         <% 
@@ -44,11 +44,11 @@
                         <p class="coursePrice">RM <%# Eval("price") %></p>
                         <div class="actions">
                             <asp:HyperLink ID="ViewDetails" runat="server" CssClass="btn btnPrimary" NavigateUrl='<%# "~/Tutor/CourseDetail.aspx?id=" + Eval("id") %>'>View Details</asp:HyperLink>
-                            <asp:HyperLink ID="AddToCart" runat="server" CssClass="btnOutlinePrimary secondaryAction" NavigateUrl="~/customer/Cart.aspx">
+                            <asp:LinkButton ID="AddToCart" runat="server" CssClass="btnOutlinePrimary secondaryAction" CommandName="DeleteCourse" CommandArgument='<%# Eval("id") %>'>
                                 <span class="material-symbols-outlined">
                                     delete
                                 </span>
-                            </asp:HyperLink>
+                            </asp:LinkButton>
                         </div>
                     </div>
                 </ItemTemplate>

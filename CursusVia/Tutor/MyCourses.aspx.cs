@@ -11,7 +11,7 @@ namespace CursusVia.Tutor
 {
     public partial class MyCourses : System.Web.UI.Page
     {
-        private string tutorId;
+        private string tutorId = "2";
         protected void Page_Load(object sender, EventArgs e)
         {
             HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
@@ -21,6 +21,14 @@ namespace CursusVia.Tutor
                 FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
                 tutorId = authTicket.Name;
             }
+            if (!Page.IsPostBack)
+            {
+                FetchTutorCourse();
+            }
+        }
+
+        private void FetchTutorCourse()
+        {
             string cmd = @"
                 SELECT 
                     c.[id],
@@ -83,6 +91,16 @@ namespace CursusVia.Tutor
             // Redirect to the constructed URL
             Response.Redirect(redirectUrl);
 
+        }
+
+        protected void CourseRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "DeleteCourse")
+            {
+                Toast t = new Toast($"Deleting Course {e.CommandArgument}", "fail");
+                Session["toast"] = t;
+                //Response.Write($"<script>alert({e.CommandArgument})</script>");
+            }
         }
     }
 }
