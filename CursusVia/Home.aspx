@@ -30,37 +30,31 @@
                 </span>
 
                 <div class="courseCategoryScroller" id="courseCategoryScroller">
-                    <div class="courseCategoryCard">
+                    <div class="courseCategoryCard" onclick="location.href = '/Courses.aspx?category=web_development'">
                         <p>Web Development</p>
                         <div>
                             <img src="res/web_dev_course.png" />
                         </div>
                     </div>
-                    <div class="courseCategoryCard">
+                    <div class="courseCategoryCard" onclick="location.href = '/Courses.aspx?category=web_development'">
                         <p>Graphic Design</p>
                         <div>
                             <img src="res/graphic_design.png" />
                         </div>
                     </div>
-                    <div class="courseCategoryCard">
+                    <div class="courseCategoryCard" onclick="location.href = '/Courses.aspx?category=mobile_apps'">
                         <p>Mobile Application</p>
                         <div>
                             <img src="res/mobile_apps_course.png" />
                         </div>
                     </div>
-                    <div class="courseCategoryCard">
+                    <div class="courseCategoryCard" onclick="location.href = '/Courses.aspx?category=digital_marketing'">
                         <p>Digital Marketing</p>
                         <div>
                             <img src="res/digital_marketing_course.png" />
                         </div>
                     </div>
-                    <div class="courseCategoryCard">
-                        <p>Web Development</p>
-                        <div>
-                            <img src="res/web_dev_course.png" />
-                        </div>
-                    </div>
-                    <div class="courseCategoryCard">
+                    <div class="courseCategoryCard" onclick="location.href = '/Courses.aspx?category=web_development'">
                         <p>Web Development</p>
                         <div>
                             <img src="res/web_dev_course.png" />

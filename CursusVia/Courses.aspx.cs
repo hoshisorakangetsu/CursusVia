@@ -75,7 +75,7 @@ namespace CursusVia
             if (NotNullEmptyWhiteSpace(category) && category != "All Category")
             {
                 finalCommand += "AND c.[category] = @category\n";
-                CourseRepeaterSqlDS.SelectParameters.Add("category", "web_development");
+                CourseRepeaterSqlDS.SelectParameters.Add("category", category);
                 CourseCategoryFilter.SelectedValue = category;
             }
             if (NotNullEmptyWhiteSpace(priceMin))

@@ -2,7 +2,7 @@
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode url="~/Home.aspx" title="Home" description="">
     <siteMapNode url="~/Courses.aspx" title="Courses"  description="">
-      <siteMapNode url="~/Courses.aspx?category=web_dev" title="Web Development"  description="" />
+      <siteMapNode url="~/Courses.aspx?category=web_development" title="Web Development"  description="" />
       <siteMapNode url="~/Courses.aspx?category=graphic_design" title="Graphic Design"  description="" />
       <siteMapNode url="~/Courses.aspx?category=mobile_app" title="Mobile Application"  description="" />
       <siteMapNode url="~/Courses.aspx?category=digital_marketing" title="Digital Marketing"  description="" />
