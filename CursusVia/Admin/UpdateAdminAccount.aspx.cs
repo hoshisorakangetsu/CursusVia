@@ -74,7 +74,7 @@ namespace CursusVia.Admin
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     // the Admin ID is stored in the session upon login
-                    cmd.Parameters.AddWithValue("@AdminID", HttpContext.Current.Session["AdminID"]);
+                    cmd.Parameters.AddWithValue("@AdminID", Request.Cookies["AdminAuth"].Values["AdminID"]);
 
                     try
                     {
