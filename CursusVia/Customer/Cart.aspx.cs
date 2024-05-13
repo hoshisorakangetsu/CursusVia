@@ -201,9 +201,9 @@ namespace CursusVia
                 conn.Open();
                 foreach (var id in idsToPurchase)
                 {
-                    string cmd = "SELECT price FROM Courses WHERE id = @courseId";
+                    string cmd = "SELECT price FROM Courses c WHERE c.id = (SELECT ci.course_id FROM CartItems ci WHERE ci.id = @cartId)";
                     SqlCommand command = new SqlCommand(cmd, conn);
-                    command.Parameters.AddWithValue("@courseId", id);
+                    command.Parameters.AddWithValue("@cartId", id);
                     using (SqlDataReader dr = command.ExecuteReader())
                     {
                         if (dr.Read())
