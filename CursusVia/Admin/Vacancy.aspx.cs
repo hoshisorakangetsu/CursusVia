@@ -24,9 +24,10 @@ namespace CursusVia.Admin
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
 
-            string query = "SELECT Vacancies.id, Vacancies.job_title, Companies.name FROM Vacancies INNER JOIN Companies ON Vacancies.company_id = Companies.id WHERE Vacancies.job_title LIKE '%" + txtJobTitle.Text + "%'";
+            string query = "SELECT Vacancies.id, Vacancies.job_title, Companies.name FROM Vacancies INNER JOIN Companies ON Vacancies.company_id = Companies.id WHERE Vacancies.job_title LIKE @Title";
             con.Open();
             SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            adapter.SelectCommand.Parameters.AddWithValue("@Title", "%" + txtJobTitle.Text + "%");
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             GridView1.DataSource=dataSet;

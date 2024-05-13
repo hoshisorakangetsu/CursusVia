@@ -35,10 +35,11 @@ namespace CursusVia.Tutor
                 string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
 
-                string read = "SELECT [title],[description] FROM [SupportRequests] WHERE [id] = '" + requestId + "'";
+                string read = "SELECT [title],[description] FROM [SupportRequests] WHERE [id] = @ID";
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand(read, con);
+                cmd.Parameters.AddWithValue("@ID", requestId);
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
