@@ -86,6 +86,10 @@
     display: none;
 }
 
+.btn {
+    padding: .5em .75em !important;
+}
+
 .courseCategoryCard {
     flex: 1 0 23%;
     display: flex;
