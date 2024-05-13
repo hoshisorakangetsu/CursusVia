@@ -169,7 +169,7 @@ namespace CursusVia
                 },
                 Mode = "payment",
                 SuccessUrl = $"{baseUrl}/PayementSuccess.aspx?ids=[{String.Join(",", idsToPurchase)}]&amount={price}",
-                CancelUrl = $"{baseUrl}/Cart.aspx",
+                CancelUrl = $"{baseUrl}/PaymentFaild.aspx",
             };
 
             var service = new SessionService();
@@ -189,7 +189,7 @@ namespace CursusVia
                 CheckBox chk = (CheckBox)row.FindControl("chkSelect");
                 if (chk != null && chk.Checked)
                 {
-                    int itemId = Convert.ToInt32(GridView1.DataKeys[row.RowIndex].Value);
+                    int itemId = Convert.ToInt32(chk.Value);
                     idsToPurchase.Add(itemId);
                 }
             }

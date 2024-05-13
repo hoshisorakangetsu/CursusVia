@@ -28,6 +28,9 @@ namespace CursusVia.Customer
             courseId = Request.Params["id"];
             backControl.NavigateUrl = $"~/MyCourses.aspx";
 
+            // check if the student has purchased this course
+            CheckHasPurchased();
+
             CourseDetailHeroDS.SelectCommand = @"
                 SELECT 
                     [c].[id],
@@ -67,6 +70,11 @@ namespace CursusVia.Customer
             CustomerChapterOverview.CourseId = courseId; // dk why server inline tags aren't working
 
             InitRatingSection();
+        }
+
+        protected void CheckHasPurchased()
+        {
+
         }
 
         protected void InitRatingSection()
