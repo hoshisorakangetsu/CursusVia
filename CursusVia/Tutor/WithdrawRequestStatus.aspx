@@ -4,10 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
   <h1 style="margin: 1rem; margin-bottom: .5rem;">Withdraw Requests</h1>
+    <!--
+        Need change db structure @matt
+        <asp:BoundField DataField="note" HeaderText="Notes" SortExpression="note" />
+        -->
     <asp:GridView ID="gvWithdrawRequests" runat="server" AutoGenerateColumns="False" CssClass="withdraw-requests-grid">
         <Columns>
             <asp:BoundField DataField="id" HeaderText="Request ID" SortExpression="id" />
-            <!--<asp:BoundField DataField="note" HeaderText="Notes" SortExpression="note" />-->
             <asp:BoundField DataField="status" HeaderText="Status" SortExpression="status" />
             <asp:BoundField DataField="request_date" HeaderText="Request Date" SortExpression="request_date" DataFormatString="{0:yyyy-MM-dd}" />
         </Columns>
