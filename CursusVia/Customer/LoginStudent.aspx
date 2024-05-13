@@ -10,7 +10,7 @@
      
     <asp:Panel ID="pnlLogin" runat="server" Visible="true">
          <h3 style="margin-left: 1rem;">Login</h3>
-    <div id="loginContainer" runat="server" class="login-container" style="height:470px; width:500px;">
+    <div id="loginContainer" runat="server" class="login-container" style="height:510px; width:470px;">
         <asp:Label ID="lblhavAcc" runat="server" Text="Have an account?" CssClass="lblhavAcc"></asp:Label>
         <asp:Label ID="lblLogin" runat="server" Text="Login" CssClass="lblLogin" ></asp:Label> 
         <asp:TextBox ID="txtUsername" runat="server" CssClass="txtUsername" PlaceHolder="👤 Username / Email"></asp:TextBox>

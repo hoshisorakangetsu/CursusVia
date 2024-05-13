@@ -12,7 +12,7 @@
    Back
        </asp:HyperLink>
    </div>
-   <div id="RegisterContainer" runat="server" class="Register-container" style="width:490px; margin-top:50px; height:520px;">
+   <div id="RegisterContainer" runat="server" class="Register-container" style="width:490px; margin-top:50px; height:550px;">
    <asp:Label ID="lblRegister" runat="server" Text="Register Tutor" CssClass="lblRegister" ></asp:Label>
    <asp:TextBox ID="txtEmail" runat="server" CssClass="txtEmail" PlaceHolder="📧Email"/>
        <div style="height:50px;">
