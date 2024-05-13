@@ -50,7 +50,7 @@
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btnSubmit" OnClick="btnSubmit_Click"/>
         <div style="margin-bottom:20px;">
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
-            <asp:Label ID="lblmsg" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="lblmsg" runat="server" Text=""></asp:Label>
             </div>
         
         </div>
