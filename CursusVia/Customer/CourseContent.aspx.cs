@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,13 +12,22 @@ namespace CursusVia.Customer
 {
     public partial class CourseContent : System.Web.UI.Page
     {
-        // TODO change this to get from cookie
-        private string customerId = "1";
+        private string customerId;
         private string courseId;
         private readonly string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+                customerId = authTicket.Name;
+            }
+
             courseId = Request.Params["id"];
+            backControl.NavigateUrl = $"~/MyCourses.aspx";
+
             CourseDetailHeroDS.SelectCommand = @"
                 SELECT 
                     [c].[id],
