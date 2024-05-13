@@ -189,7 +189,7 @@ namespace CursusVia
                 CheckBox chk = (CheckBox)row.FindControl("chkSelect");
                 if (chk != null && chk.Checked)
                 {
-                    int itemId = Convert.ToInt32(chk.Value);
+                    int itemId = Convert.ToInt32(((HiddenField)row.FindControl("cartIdHiddenField")).Value);
                     idsToPurchase.Add(itemId);
                 }
             }

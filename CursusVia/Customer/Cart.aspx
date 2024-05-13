@@ -27,7 +27,8 @@
                 <Columns>
                     <asp:TemplateField HeaderText="Select">
                         <ItemTemplate>
-                            <asp:CheckBox ID="chkSelect" runat="server" CssClass="checkbox-style" Value=<%# Eval("CartItemId") %> />
+                            <asp:HiddenField ID="cartIdHiddenField" runat="server" Value='<%# Eval("CartItemId") %>'   />
+                            <asp:CheckBox ID="chkSelect" runat="server" CssClass="checkbox-style" />
                         </ItemTemplate>
                         <HeaderStyle CssClass="item-header" />
                         <ItemStyle CssClass="cart-row" />
