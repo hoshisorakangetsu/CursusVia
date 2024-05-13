@@ -50,7 +50,7 @@ namespace CursusVia.Tutor
                     WHERE [cq].[chapter_id] = @ChapterId 
                     ORDER BY [order] DESC;
                 ";
-                string chapterId = Request.Params["chapId"];
+                string chapterId = Request.Params["chapterId"];
 
                 using (SqlConnection con = new SqlConnection(cs))
                 {

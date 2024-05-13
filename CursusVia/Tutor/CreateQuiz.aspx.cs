@@ -25,7 +25,7 @@ namespace CursusVia.Tutor
                 command.Parameters.AddWithValue("@QuizTitle", quizTitle);
 
                 int quizId = Convert.ToInt32(command.ExecuteScalar());
-                Response.Redirect("~/Tutor/UpdateQuiz.aspx?quizId=" + quizId + "&chapId=" + chapId + "&courseId=" + courseId);
+                Response.Redirect("~/Tutor/UpdateQuiz.aspx?quizId=" + quizId + "&chapterId=" + chapId + "&courseId=" + courseId);
             }
         }
     }
