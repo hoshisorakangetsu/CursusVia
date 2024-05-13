@@ -134,8 +134,13 @@ namespace CursusVia.Customer
 
                     if (affectedTutorRating > 0 && affectedCourseRating > 0) 
                     {
-                        Response.Redirect(Request.RawUrl);
+                        Session["toast"] = new Toast("Successfully submitted ratings", "success");
                     }
+                    else
+                    {
+                        Session["toast"] = new Toast("Oops! Something unexpected happened, please hang on tight while we attempt to fix it.", "fail");
+                    }
+                    Response.Redirect(Request.RawUrl);
                 }
             }
         }

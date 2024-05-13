@@ -15,9 +15,9 @@ namespace CursusVia.Tutor
         private string courseId;
         protected void Page_Load(object sender, EventArgs e)
         {
+            courseId = Request.Params["id"];
             if (!Page.IsPostBack)
             {
-                courseId = Request.Params["id"];
                 if (courseId == null)
                 {
                     Response.Redirect("~/Tutor/MyCourses.aspx");
@@ -48,7 +48,7 @@ namespace CursusVia.Tutor
                     if (dr.Read())
                     {
                         CourseTitle.Text = dr["title"].ToString();
-                        Price.Text = dr["price"].ToString();
+                        Price.Text = Convert.ToDecimal(dr["price"]).ToString("0.00");
                         Description.Text = dr["description"].ToString();
                         CourseCategory.SelectedValue = dr["category"].ToString();
                         CourseImgUploadWithPreview.Src = dr["cover_pic_file_path"].ToString().Substring(1);
@@ -97,9 +97,16 @@ namespace CursusVia.Tutor
                     command.Parameters.AddWithValue("@CoverPicResId", fileId);
                 }
                 command.Parameters.AddWithValue("@Category", CourseCategory.SelectedValue);
+                command.Parameters.AddWithValue("@CourseId", courseId);
                 int rows = command.ExecuteNonQuery();
                 if (rows > 0)
                 {
+                    Session["toast"] = new Toast("Successfully updated course", "success");
+                    Response.Redirect("MyCourses.aspx");
+                }
+                else
+                {
+                    Session["toast"] = new Toast("Oops! Something unexpected happened, please hang on tight while we attempt to fix it.", "fail");
                     Response.Redirect("MyCourses.aspx");
                 }
             }

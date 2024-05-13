@@ -100,6 +100,7 @@ namespace CursusVia.Tutor
                 command.ExecuteNonQuery();
 
                 HandleFileResources(Convert.ToInt32(contentId));
+                Session["toast"] = new Toast("Successfully added quiz", "success");
                 Response.Redirect("~/Tutor/CourseDetail.aspx?id=" + Request.Params["courseId"]);
             }
         }

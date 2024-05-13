@@ -12,7 +12,7 @@
    Back
        </asp:HyperLink>
    </div>
-   <div id="RegisterContainer" runat="server" class="Register-container" style="width:420px; margin-top:50px;">
+   <div id="RegisterContainer" runat="server" class="Register-container" style="width:490px; margin-top:50px; height:520px;">
    <asp:Label ID="lblRegister" runat="server" Text="Register Tutor" CssClass="lblRegister" ></asp:Label>
    <asp:TextBox ID="txtEmail" runat="server" CssClass="txtEmail" PlaceHolder="📧Email"/>
        <div style="height:50px;">
@@ -56,7 +56,7 @@
        <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btnSubmit" OnClick="btnSubmit_Click"/>
        <div style="margin-bottom:20px;">
        <asp:Label ID="lblMessage" runat="server" ></asp:Label>
-           <asp:Label ID="lblMsg2" runat="server" Text="Label"></asp:Label>
+           <asp:Label ID="lblMsg2" runat="server" Text=""></asp:Label>
            </div>
        
        </div>

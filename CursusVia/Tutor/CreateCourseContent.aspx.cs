@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -55,6 +56,8 @@ namespace CursusVia.Tutor
                 if (contentId > 0)
                 {
                     HandleFileResources(contentId);
+                    
+                    Session["toast"] = new Toast("Successfully added quiz", "success");
                     Response.Redirect("~/Tutor/CourseDetail.aspx?id=" + Request.Params["courseId"]);
                 }
             }

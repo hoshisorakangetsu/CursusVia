@@ -69,7 +69,15 @@ namespace CursusVia.Tutor
                     insertCommand.Parameters.AddWithValue("@Question", question);
                     insertCommand.Parameters.AddWithValue("@Order", order);
                     insertCommand.Parameters.AddWithValue("@QuizId", quizId);
-                    insertCommand.ExecuteNonQuery();
+                    int rows = insertCommand.ExecuteNonQuery();
+                    if (rows > 0)
+                    {
+                        Session["toast"] = new Toast("Successfully added quiz", "success");
+                    } 
+                    else
+                    {
+                        Session["toast"] = new Toast("Oops! Something unexpected happened, please hang on tight while we attempt to fix it.", "fail");
+                    }
                     Response.Redirect(Request.RawUrl); // reload to have the repeaters automagically refetch the questions
                 }
 
@@ -116,7 +124,15 @@ namespace CursusVia.Tutor
                 SqlCommand command = new SqlCommand(deleteQuestionCmd, con);
                 command.Parameters.AddWithValue("@QuestionID", questionId);
 
-                command.ExecuteNonQuery();
+                int rows = command.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    Session["toast"] = new Toast("Successfully deleted quiz", "success");
+                }
+                else
+                {
+                    Session["toast"] = new Toast("Oops! Something unexpected happened, please hang on tight while we attempt to fix it.", "fail");
+                }
                 Response.Redirect(Request.RawUrl);
             }
         }
@@ -159,7 +175,15 @@ namespace CursusVia.Tutor
                 cmd2.Parameters.AddWithValue("@AnswerId", answerId);
                 cmd2.Parameters.AddWithValue("@QuestionId", questionId);
                 cmd2.Parameters.AddWithValue("@IsCorrect", false);
-                cmd2.ExecuteNonQuery();
+                int rows = cmd2.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    Session["toast"] = new Toast("Successfully added quiz answer", "success");
+                }
+                else
+                {
+                    Session["toast"] = new Toast("Oops! Something unexpected happened, please hang on tight while we attempt to fix it.", "fail");
+                }
                 Response.Redirect(Request.RawUrl); // reload to have the repeaters automagically refetch the questions
             }
         }
@@ -187,7 +211,15 @@ namespace CursusVia.Tutor
                 command.Parameters.AddWithValue("@IsCorrect", isCorrect);
                 command.Parameters.AddWithValue("@QuestionID", quesAnsId[0]);
                 command.Parameters.AddWithValue("@AnswerID", quesAnsId[1]);
-                command.ExecuteNonQuery();
+                int rows = command.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    Session["toast"] = new Toast("Successfully updated answer", "success");
+                }
+                else
+                {
+                    Session["toast"] = new Toast("Oops! Something unexpected happened, please hang on tight while we attempt to fix it.", "fail");
+                }
                 Response.Redirect(Request.RawUrl); // reload to have the repeaters automagically refetch the questions
             }
         }
@@ -220,7 +252,15 @@ namespace CursusVia.Tutor
                     cmd.Parameters.AddWithValue("@AnswerID", quesAndAnsId[1]);
                     cmd.Parameters.AddWithValue("@QuestionID", quesAndAnsId[0]);
 
-                    cmd.ExecuteNonQuery();
+                    int rows = cmd.ExecuteNonQuery();
+                    if (rows > 0)
+                    {
+                        Session["toast"] = new Toast("Successfully deleted answer", "success");
+                    }
+                    else
+                    {
+                        Session["toast"] = new Toast("Oops! Something unexpected happened, please hang on tight while we attempt to fix it.", "fail");
+                    }
                     Response.Redirect(Request.RawUrl);
                 }
             }
@@ -244,7 +284,15 @@ namespace CursusVia.Tutor
                 command.Parameters.AddWithValue("@NewQuestion", newQuestion);
                 command.Parameters.AddWithValue("@QuestionID", questionId);
 
-                command.ExecuteNonQuery();
+                int rows = command.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    Session["toast"] = new Toast("Successfully updated quiz answers", "success");
+                }
+                else
+                {
+                    Session["toast"] = new Toast("Oops! Something unexpected happened, please hang on tight while we attempt to fix it.", "fail");
+                }
                 Response.Redirect(Request.RawUrl);
             }
         }
@@ -267,7 +315,15 @@ namespace CursusVia.Tutor
                 command.Parameters.AddWithValue("@NewAnswer", newAnswer);
                 command.Parameters.AddWithValue("@AnswerID", answerId);
 
-                command.ExecuteNonQuery();
+                int rows = command.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    Session["toast"] = new Toast("Successfully updated answers", "success");
+                }
+                else
+                {
+                    Session["toast"] = new Toast("Oops! Something unexpected happened, please hang on tight while we attempt to fix it.", "fail");
+                }
                 Response.Redirect(Request.RawUrl);
             }
         }

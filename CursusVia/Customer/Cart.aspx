@@ -20,7 +20,9 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Image">
                         <ItemTemplate>
-                            <img src='<%# Eval("ImagePath").ToString().Substring(1) %>' alt="Item Image" class="product-image" />
+                            <div style="width: 100%; height: 100%; object-fit: contain;">
+                                <img src='<%# Eval("ImagePath").ToString().Substring(1) %>' alt="Item Image" style="height:100%; width: 100%; object-fit: cover;"/>
+                            </div>
                         </ItemTemplate>
                         <HeaderStyle CssClass="item-header" />
                         <ItemStyle CssClass="cart-row" />
@@ -40,12 +42,20 @@
                 <HeaderStyle CssClass="item-header" />
             </asp:GridView>
         </div>
-        <div class="order-summary">
-            <h3>Order Summary</h3>
-            <p>Item(s) subtotal: <asp:Label ID="lblSubtotal" runat="server"></asp:Label></p>
-            <p>Tax (7%): <asp:Label ID="lblTax" runat="server"></asp:Label></p>
-            <p>Total: <asp:Label ID="lblTotal" runat="server"></asp:Label></p>
-            <asp:Button ID="Button1" runat="server" Text="Checkout" CssClass="Button"/>
-        </div>
+       <div class="order-summary">
+    <h3>Order Summary</h3>
+    <asp:Repeater ID="RepeaterOrderSummary" runat="server">
+        <ItemTemplate>
+            <p><%# Eval("Title") %> - <%# Eval("Price", "{0:C}") %></p>
+        </ItemTemplate>
+    </asp:Repeater>
+    <p>Item(s) subtotal: <asp:Label ID="lblSubtotal" runat="server"></asp:Label></p>
+    <p>Tax (7%): <asp:Label ID="lblTax" runat="server"></asp:Label></p>
+    <p>Total: <asp:Label ID="lblTotal" runat="server"></asp:Label></p>
+    <asp:Button ID="Button1" runat="server" Text="Checkout" CssClass="Button"/>
+</div>
+
     </div>
 </asp:Content>
+
+
