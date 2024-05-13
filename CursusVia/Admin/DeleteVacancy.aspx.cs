@@ -77,7 +77,7 @@ namespace CursusVia.Admin
             }
             else
             {
-                Session["toast"] = new Toast("Selected job cannot be deleted", "success");
+                Session["toast"] = new Toast("Selected job cannot be deleted", "fail");
                 Response.Redirect("Vacancy.aspx");
             }
 
