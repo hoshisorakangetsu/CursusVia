@@ -74,7 +74,27 @@ namespace CursusVia.Customer
 
         protected void CheckHasPurchased()
         {
+            string query = "SELECT COUNT(*) FROM PurchasedCourses WHERE student_id = @customerId AND course_id = @courseId";
 
+            using (SqlConnection connection = new SqlConnection(cs))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@customerId", customerId);
+                    command.Parameters.AddWithValue("@courseId", courseId);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+
+                    // Check if the user has purchased the course
+                    if (count == 0)
+                    {
+                        Session["toast"] = new Toast("It seems like you have not bought this course yet", "fail");
+                        Response.Redirect("~/Customer/MyCourses.aspx");
+                    }
+                    // No need for an else block; if purchased, the function exits without redirecting
+                }
+            }
         }
 
         protected void InitRatingSection()

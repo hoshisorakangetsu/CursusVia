@@ -30,10 +30,9 @@ namespace CursusVia.Tutor
 			string authenticatedUserId = AuthenticateTutor(txtUsername.Text, txtPassword.Text);
 
 
-
-			 if (authenticatedUserId != "0" && captchacode.Text.ToLower() == Session["sessionCaptcha"].ToString())
+			if (authenticatedUserId != "0" && captchacode.Text.ToLower() == (Session["sessionCaptcha"] != null ? Session["sessionCaptcha"].ToString() : ""))
 			{
-				// Redirect the user to the AdminHome  page
+				
 
 				FormsAuthenticationTicket ticketTutor = new FormsAuthenticationTicket(
 					1,
