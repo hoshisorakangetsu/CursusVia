@@ -108,13 +108,14 @@ namespace CursusVia.Admin
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Request.UrlReferrer != null)
+            if (Request.UrlReferrer == null)
             {
-                Response.Redirect(Request.UrlReferrer.ToString());
+                Response.Redirect("~/Admin/AdminAccount.aspx");
+               
             }
             else
             {
-                Response.Redirect("~/Admin/Default.aspx");
+                Response.Redirect(Request.UrlReferrer.ToString());
             }
         }
     }

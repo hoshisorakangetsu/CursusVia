@@ -67,6 +67,25 @@ namespace CursusVia
                                 command.Parameters.AddWithValue("@PaymentId", paymentId);
                                 courseId = Convert.ToInt32(command.ExecuteScalar());
                             }
+                            // Now courseId can be used to perform further operations like updating tutor balance or inserting into purchased courses
+                            string updateTutorBalance = @"
+                            UPDATE Tutors
+                            SET balance = balance + (@PaymentAmount / 2)
+                            FROM Tutors
+                            INNER JOIN Courses ON Tutors.id = Courses.tutor_id
+                            WHERE Courses.id = @CourseId";
+
+                            using (SqlCommand balanceCommand = new SqlCommand(updateTutorBalance, connection))
+                            {
+                                balanceCommand.Parameters.AddWithValue("@PaymentAmount", Convert.ToDecimal(paymentAmount)); // Assuming paymentAmount is a string that needs conversion to Decimal
+                                balanceCommand.Parameters.AddWithValue("@CourseId", courseId);
+                                balanceCommand.ExecuteNonQuery();
+                            }
+
+
+
+
+
                             string deleteFromCart = "SELECT course_id FROM CartItems WHERE id=@cartId";
 
                             using (SqlCommand command = new SqlCommand(deleteFromCart, connection))
@@ -77,7 +96,10 @@ namespace CursusVia
                             }
                         }
                     }
-                    Response.Redirect("~/Customer/MyCourses.aspx");
+
+                    Response.Write("<script>alert('Payment successful!'); location.href='~/Customer/Courses.aspx';</script>");
+                    Response.Redirect("~/Customer/Courses.aspx");
+
                     Session["sessionId"] = null;
                 }
             }
