@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/Customer.master" AutoEventWireup="true" CodeFile="ApplyVacancy.aspx.cs" Inherits="CursusVia.Customer.ApplyVacancy" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="CustomerMasterHead" runat="server">
     <link href="ApplyVacancy.css" rel="stylesheet" />
 </asp:Content>
@@ -62,3 +63,5 @@
      </div>
     <script src='<%= ResolveUrl("~/InputWithValidator.js") %>' defer></script>
 </asp:Content>
+
+

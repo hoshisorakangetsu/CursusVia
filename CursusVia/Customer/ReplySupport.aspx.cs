@@ -120,11 +120,17 @@ namespace CursusVia.Customer
             con.Close();
             if (row > 0)
             {
-                Response.Write("<script>alert('Reply created successfully');window.location = 'Support.aspx';</script>");
+                Session["toast"] = new Toast("Reply created successfully", "success");
+                Response.Redirect("Support.aspx");
+
+                //Response.Write("<script>alert('Reply created successfully');window.location = 'Support.aspx';</script>");
             }
             else
             {
-                Response.Write("<script>alert('Reply does not created successfully');window.location = 'Support.aspx';</script>");
+                Session["toast"] = new Toast("Reply does not created successfully", "fail");
+                Response.Redirect("Support.aspx");
+
+                //Response.Write("<script>alert('Reply does not created successfully');window.location = 'Support.aspx';</script>");
             }
         }
     }

@@ -160,6 +160,7 @@
     <Content Include="App_Data\CursusVia_log.ldf">
       <DependentUpon>CursusVia.mdf</DependentUpon>
     </Content>
+    <Content Include="Customer\ApplyVacancy.aspx" />
     <Content Include="Customer\Cart.aspx" />
     <Content Include="Customer\CartStyle.css" />
     <Content Include="Controls\FileUploadWithPreview.ascx" />
@@ -196,6 +197,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="PayementSuccess.aspx" />
+    <Content Include="PaymentFaild.aspx" />
     <Content Include="SuccessfulMessage.css" />
     <Content Include="SuccsessfulMessage.aspx" />
     <Content Include="ToastScript.js" />
@@ -223,7 +226,6 @@
     <Content Include="Tutor\WithdrawSbmStyle.css" />
     <Content Include="App_Data\CreateDB.sql" />
     <Content Include="BackControlInit.js" />
-    <Content Include="Customer\ApplyVacancy.aspx" />
     <Content Include="Customer\ApplyVacancy.css" />
     <Content Include="BrowseCourseCard.css" />
     <Content Include="CourseContent.aspx" />
@@ -515,6 +517,13 @@
     <Compile Include="Admin\WithdrawStatusUpdate.aspx.designer.cs">
       <DependentUpon>WithdrawStatusUpdate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Customer\ApplyVacancy.aspx.cs">
+      <DependentUpon>ApplyVacancy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\ApplyVacancy.aspx.designer.cs">
+      <DependentUpon>ApplyVacancy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer\Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -542,13 +551,6 @@
     </Compile>
     <Compile Include="Customer\AddToCart.aspx.designer.cs">
       <DependentUpon>AddToCart.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\ApplyVacancy.aspx.cs">
-      <DependentUpon>ApplyVacancy.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer\ApplyVacancy.aspx.designer.cs">
-      <DependentUpon>ApplyVacancy.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controls\CustomerChapterOverview.ascx.cs">
       <DependentUpon>CustomerChapterOverview.ascx</DependentUpon>
@@ -642,6 +644,20 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Admins.cs" />
+    <Compile Include="PayementSuccess.aspx.cs">
+      <DependentUpon>PayementSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PayementSuccess.aspx.designer.cs">
+      <DependentUpon>PayementSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentFaild.aspx.cs">
+      <DependentUpon>PaymentFaild.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentFaild.aspx.designer.cs">
+      <DependentUpon>PaymentFaild.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SuccsessfulMessage.aspx.cs">
       <DependentUpon>SuccsessfulMessage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

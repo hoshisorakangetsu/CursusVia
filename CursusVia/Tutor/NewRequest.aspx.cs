@@ -50,11 +50,16 @@ namespace CursusVia.Tutor
 
             if (row > 0)
             {
-                Response.Write("<script>alert('Request created successfully');window.location = 'Support.aspx';</script>");
+                Session["toast"] = new Toast("Request created successfully", "fail");
+                Response.Redirect("Support.aspx");
+                //Response.Write("<script>alert('Request created successfully');window.location = 'Support.aspx';</script>");
             }
             else
             {
-                Response.Write("<script>alert('Request does not created successfully');window.location = 'Support.aspx';</script>");
+                Session["toast"] = new Toast("Request does not created successfully", "fail");
+                Response.Redirect("Support.aspx");
+                
+                //Response.Write("<script>alert('Request does not created successfully');window.location = 'Support.aspx';</script>");
             }
         }
     }

@@ -12,9 +12,10 @@ namespace CursusVia.Admin
 {
     public partial class ViewVacancy : System.Web.UI.Page
     {
+        private string id;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string id = Request.QueryString["id"];
+            id = Request.QueryString["id"];
 
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
@@ -48,12 +49,12 @@ namespace CursusVia.Admin
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            Response.Redirect("UpdateVacancy.aspx?id="+ Request.QueryString["id"]);
+            Response.Redirect("UpdateVacancy.aspx?id="+id);
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            Response.Redirect("DeleteVacancy.aspx?id="+ Request.QueryString["id"]);
+            Response.Redirect("DeleteVacancy.aspx?id="+id);
         }
     }
 }

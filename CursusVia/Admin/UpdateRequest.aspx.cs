@@ -104,11 +104,17 @@ namespace CursusVia.Admin
 
             if (row > 0)
             {
-                Response.Write("<script>alert('Status reply update successfully');window.location = 'SupportRequest.aspx';</script>");
+                Session["toast"] = new Toast("Status reply update successfully", "success");
+                Response.Redirect("SupportRequest.aspx");
+
+                //Response.Write("<script>alert('Status reply update successfully');window.location = 'SupportRequest.aspx';</script>");
             }
             else
             {
-                Response.Write("<script>alert('Status reply does not update');window.location = 'SupportRequest.aspx';</script>");
+                Session["toast"] = new Toast("Status reply does not update", "fail");
+                Response.Redirect("SupportRequest.aspx");
+
+                //Response.Write("<script>alert('Status reply does not update');window.location = 'SupportRequest.aspx';</script>");
             }
         }
     }
