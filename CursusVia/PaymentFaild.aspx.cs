@@ -11,7 +11,9 @@ namespace CursusVia
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["sessionId"] = null;
+            Response.Write("<script>alert('Payment unsuccessful! Please try again'); location.href = '~/Customer/Courses.aspx';</script>");
+            Response.Redirect("~/Customer/Cart.aspx");
         }
     }
 }
