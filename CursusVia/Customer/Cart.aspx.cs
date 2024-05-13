@@ -22,7 +22,7 @@ namespace CursusVia
         private int studentId;
 
         protected void Page_Load(object sender, EventArgs e)
-        { 
+        {
 
             if (!IsPostBack)
             {
@@ -38,7 +38,7 @@ namespace CursusVia
 
                 BindGrid();
             }
-           
+
         }
 
         private bool AuthenticateUser(HttpCookie authCookie)
@@ -67,7 +67,7 @@ namespace CursusVia
             }
             else
             {
-             
+
                 // Handle error or log it
                 Debug.WriteLine("Invalid row index or empty DataKeys.");
             }
@@ -146,27 +146,26 @@ namespace CursusVia
 
         private void CreateCheckoutSession(List<int> idsToPurchase, decimal price)
         {
-        string baseUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
-
+            string baseUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
 
             var options = new SessionCreateOptions
             {
                 LineItems = new List<SessionLineItemOptions>
+            {
+                new SessionLineItemOptions
                 {
-                    new SessionLineItemOptions
+                    PriceData = new SessionLineItemPriceDataOptions
                     {
-                        PriceData = new SessionLineItemPriceDataOptions
+                        UnitAmount = (int)(price*100),
+                        Currency = "myr",
+                        ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
-                            UnitAmount = (int)(price*100),
-                            Currency = "myr",
-                            ProductData = new SessionLineItemPriceDataProductDataOptions
-                            {
-                                Name = $"Purchasing {idsToPurchase.Count} Courses",
-                            },
+                            Name = $"Purchasing {idsToPurchase.Count} Courses",
                         },
-                        Quantity = 1,
                     },
+                    Quantity = 1,
                 },
+            },
                 Mode = "payment",
                 SuccessUrl = $"{baseUrl}/PayementSuccess.aspx?ids=[{String.Join(",", idsToPurchase)}]&amount={price}",
                 CancelUrl = $"{baseUrl}/Cart.aspx",
@@ -221,4 +220,3 @@ namespace CursusVia
         }
     }
 }
-
