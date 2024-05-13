@@ -9,7 +9,7 @@
     <div class="backBtn">
        <asp:HyperLink ID="backLink" runat="server" class="backText" NavigateUrl='LoginTutor.aspx'>   
    <span class="material-symbols-outlined backIcon" style="font-size: 1.25em; display: flex; justify-content: left; color: var(--text-on-surface) !important; gap: .5em; margin-top:20px;">arrow_back</span>
-   Back
+   
        </asp:HyperLink>
    </div>
    <div id="RegisterContainer" runat="server" class="Register-container" style="width:490px; margin-top:50px; height:550px;">
