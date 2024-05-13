@@ -148,24 +148,25 @@ namespace CursusVia
         {
             string baseUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
 
+
             var options = new SessionCreateOptions
             {
                 LineItems = new List<SessionLineItemOptions>
-            {
-                new SessionLineItemOptions
                 {
-                    PriceData = new SessionLineItemPriceDataOptions
+                    new SessionLineItemOptions
                     {
-                        UnitAmount = (int)(price*100),
-                        Currency = "myr",
-                        ProductData = new SessionLineItemPriceDataProductDataOptions
+                        PriceData = new SessionLineItemPriceDataOptions
                         {
-                            Name = $"Purchasing {idsToPurchase.Count} Courses",
+                            UnitAmount = (int)(price*100),
+                            Currency = "myr",
+                            ProductData = new SessionLineItemPriceDataProductDataOptions
+                            {
+                                Name = $"Purchasing {idsToPurchase.Count} Courses",
+                            },
                         },
+                        Quantity = 1,
                     },
-                    Quantity = 1,
                 },
-            },
                 Mode = "payment",
                 SuccessUrl = $"{baseUrl}/PayementSuccess.aspx?ids=[{String.Join(",", idsToPurchase)}]&amount={price}",
                 CancelUrl = $"{baseUrl}/Cart.aspx",
