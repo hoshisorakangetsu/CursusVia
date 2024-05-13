@@ -13,8 +13,14 @@
         <asp:Label ID="lblhavAcc" runat="server" Text="Have an account?" CssClass="lblhavAcc"></asp:Label>
         <asp:Label ID="lblLogin" runat="server" Text="Login" CssClass="lblLogin" ></asp:Label> 
         <asp:TextBox ID="txtUsername" runat="server" CssClass="txtUsername" PlaceHolder="👤 Username / Email"></asp:TextBox>
-        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="txtPassword" Placeholder="🔒 Password" />
-        <asp:Button ID="btnLogin" runat="server" CssClass="btnLogin" Text="Login" OnClick="btnLogin_Click"/>
+                <div style="height:30px;">
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="cannot leave blank" ControlToValidate="txtUsername" ValidationGroup="loginValidation" Forecolor="red"></asp:RequiredFieldValidator>
+        </div>
+         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="txtPassword" Placeholder="🔒 Password" />
+          <div style="height:30px;">
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="cannot Leave Blank" controlToValidate="txtPassword" ValidationGroup="loginValidation" Forecolor="red"></asp:RequiredFieldValidator>
+       </div>
+          <asp:Button ID="btnLogin" runat="server" CssClass="btnLogin" Text="Login" OnClick="btnLogin_Click" ValidationGroup="loginValidation"/>
         <asp:LinkButton runat="server" ID="lbtnForgetPass" CssClass="lbtnForgetPass" OnClick="lbtnForgetPass_Click">Log in with email OTP</asp:LinkButton>
         <asp:CheckBox runat="server" ID="cbRememberMe" Text="Remember me" CssClass="cbRememberMe"></asp:CheckBox>
         <asp:LinkButton runat="server" ID="lbtnShowRegister" Text="Register" CssClass="lbtnRegister" OnClick="lbtnShowRegister_Click" />
