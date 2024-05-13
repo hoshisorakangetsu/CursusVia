@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,7 +12,20 @@ namespace CursusVia.Tutor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string tutorId;
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
 
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+                tutorId = authTicket.Name;
+            }
+            if (!Page.IsPostBack)
+            {
+                ProfileCardDS.SelectCommand = "SELECT username, email FROM Admins WHERE id = @AdminId";
+                ProfileCardDS.SelectParameters.Add("AdminId", authCookie.Values["AdminID"]);
+                ProfileCard.DataBind();
+            }
         }
         protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
