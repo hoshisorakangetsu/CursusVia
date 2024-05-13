@@ -40,12 +40,18 @@
                 <HeaderStyle CssClass="item-header" />
             </asp:GridView>
         </div>
-        <div class="order-summary">
-            <h3>Order Summary</h3>
-            <p>Item(s) subtotal: <asp:Label ID="lblSubtotal" runat="server"></asp:Label></p>
-            <p>Tax (7%): <asp:Label ID="lblTax" runat="server"></asp:Label></p>
-            <p>Total: <asp:Label ID="lblTotal" runat="server"></asp:Label></p>
-            <asp:Button ID="Button1" runat="server" Text="Checkout" CssClass="Button"/>
-        </div>
+       <div class="order-summary">
+    <h3>Order Summary</h3>
+    <asp:Repeater ID="RepeaterOrderSummary" runat="server">
+        <ItemTemplate>
+            <p><%# Eval("Title") %> - <%# Eval("Price", "{0:C}") %></p>
+        </ItemTemplate>
+    </asp:Repeater>
+    <p>Item(s) subtotal: <asp:Label ID="lblSubtotal" runat="server"></asp:Label></p>
+    <p>Tax (7%): <asp:Label ID="lblTax" runat="server"></asp:Label></p>
+    <p>Total: <asp:Label ID="lblTotal" runat="server"></asp:Label></p>
+    <asp:Button ID="Button1" runat="server" Text="Checkout" CssClass="Button"/>
+</div>
+
     </div>
 </asp:Content>
