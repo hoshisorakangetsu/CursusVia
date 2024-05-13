@@ -17,9 +17,9 @@ namespace CursusVia.Tutor
         private readonly string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            quizId = Request.Params["quizId"];
             if (!Page.IsPostBack)
             {
-                quizId = Request.Params["quizId"];
                 backControl.NavigateUrl = $"~/Tutor/CourseDetail.aspx?id=" + Request.Params["courseId"];
                 questionDS.SelectCommand = @"
                     SELECT 
