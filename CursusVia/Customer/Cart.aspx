@@ -7,35 +7,38 @@
         <h2 style="margin-left: 1rem;">Shopping Cart</h2>
     </div>
     <div class="main-container">
-            <!-- Shopping Cart -->
-            <div class="cart-container">
-                <asp:Repeater ID="CartRepeater" runat="server" OnItemCommand="CartRepeater_ItemCommand">
-                    <HeaderTemplate>
-                        <div class="item-header">
-                            <div class="cart-column">Select</div>
-                             <div class="cart-column">Image</div>
-                            <div class="cart-column">Item Name</div>
-                            <div class="cart-column">Description</div>
-                            <div class="cart-column">Price</div>        
-                            <div class="cart-column">Delete Item</div>
-                        </div>
-                    </HeaderTemplate>
-                    <ItemTemplate>
-                       <div class="cart-row">
-        <div class="cart-cell">
-<asp:CheckBox ID="ItemSelector" runat="server" />
-        </div>
-        <div class="cart-cell"><img src='<%# Eval("ImagePath").ToString().Substring(1) %>' alt="Item Image" width="80" height="80"/></div>
-        <div class="cart-cell"><asp:Label ID="lblCTitle" runat="server" Text='<%# Eval("Title") %>'></asp:Label></div>
-        <div class="cart-cell"><%# Eval("Description") %></div>
-        <div class="cart-cell">$<asp:Label ID="lblCPrice" runat="server" Text='<%# Eval("Price") %>'></asp:Label></div>
-        <div class="cart-cell">
-          <asp:Button ID="btnDeleteSelected" runat="server" Text="Delete Selected" CssClass="btnDelete" />
-
-        </div>
-    </div>
-                </ItemTemplate>
-            </asp:Repeater>
+        <div class="cart-container">
+            <asp:Button ID="btnDeleteSelected" runat="server" Text="Delete Selected" OnClick="btnDeleteSelected_Click" CssClass="Button" style="margin-bottom: 20px;" />
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="CartItemId" CssClass="cart-table" OnRowDeleting="GridView1_RowDeleting" GridLines="None">
+                <Columns>
+                    <asp:TemplateField HeaderText="Select">
+                        <ItemTemplate>
+                            <asp:CheckBox ID="chkSelect" runat="server" CssClass="checkbox-style" />
+                        </ItemTemplate>
+                        <HeaderStyle CssClass="item-header" />
+                        <ItemStyle CssClass="cart-row" />
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Image">
+                        <ItemTemplate>
+                            <img src='<%# Eval("ImagePath").ToString().Substring(1) %>' alt="Item Image" class="product-image" />
+                        </ItemTemplate>
+                        <HeaderStyle CssClass="item-header" />
+                        <ItemStyle CssClass="cart-row" />
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="Title" HeaderText="Item Name" HeaderStyle-CssClass="item-header" ItemStyle-CssClass="cart-row" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" HeaderStyle-CssClass="item-header" ItemStyle-CssClass="cart-row" />
+                    <asp:BoundField DataField="Price" HeaderText="Price" DataFormatString="{0:C}" HeaderStyle-CssClass="item-header" ItemStyle-CssClass="cart-row" />
+                    <asp:TemplateField HeaderText="Action">
+                        <ItemTemplate>
+                            <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' Text="Delete" CssClass="btnDelet" />
+                        </ItemTemplate>
+                        <HeaderStyle CssClass="item-header" />
+                        <ItemStyle CssClass="cart-row" />
+                    </asp:TemplateField>
+                </Columns>
+                <RowStyle CssClass="cart-row" />
+                <HeaderStyle CssClass="item-header" />
+            </asp:GridView>
         </div>
         <div class="order-summary">
             <h3>Order Summary</h3>
@@ -46,5 +49,3 @@
         </div>
     </div>
 </asp:Content>
-
-
