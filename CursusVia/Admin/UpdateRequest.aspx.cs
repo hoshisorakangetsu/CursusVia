@@ -24,12 +24,11 @@ namespace CursusVia.Admin
         {
             id = Request.QueryString["id"];
 
-            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+            HttpCookie authCookie = Request.Cookies["AdminAuth"];
 
             if (authCookie != null)
             {
-                HttpCookie auth = Request.Cookies["AdminAuth"];
-                adminId = auth.Values["AdminID"];
+                adminId = authCookie.Values["AdminID"];
             }
 
             //if (String.IsNullOrEmpty(adminId)) { adminId = "1"; }
