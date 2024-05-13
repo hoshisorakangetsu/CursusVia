@@ -1,6 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="CursusVia.Cart" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="CartStyle.css" rel="stylesheet" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        var stripe = Stripe('pk_test_51PFuSUJsbFY19ohRkkcAvtj9aCAfW8nQ5Juw18qWCuf8x3p4RqWRiBg2YHDfITkZsy2B6nm99EgrdBJ2EJDkvRZM00OIgQz9E4');
+        function checkout() {
+            stripe.redirectToCheckout({
+                sessionId: "<%= Session["sessionId"] %>"
+            }).then(function (result) {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            });
+            return false;
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="cart-header">
@@ -41,6 +55,7 @@
                 <RowStyle CssClass="cart-row" />
                 <HeaderStyle CssClass="item-header" />
             </asp:GridView>
+            <asp:Button ID="SelectForCheckout" runat="server" Text="Select for Checkout" OnClick="SelectForCheckout_Click" CssClass="btn btnPrimary" />
         </div>
        <div class="order-summary">
     <h3>Order Summary</h3>
@@ -52,10 +67,11 @@
     <p>Item(s) subtotal: <asp:Label ID="lblSubtotal" runat="server"></asp:Label></p>
     <p>Tax (7%): <asp:Label ID="lblTax" runat="server"></asp:Label></p>
     <p>Total: <asp:Label ID="lblTotal" runat="server"></asp:Label></p>
-    <asp:Button ID="Button1" runat="server" Text="Checkout" CssClass="Button"/>
+    <asp:Button ID="Button1" runat="server" Text="Checkout" CssClass="Button" OnClientClick="checkout()" />
 </div>
 
     </div>
+
 </asp:Content>
 
 

@@ -1,10 +1,14 @@
 ﻿using CursusVia.Customer;
+using Org.BouncyCastle.Crypto;
+using Stripe;
+using Stripe.Checkout;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -22,6 +26,9 @@ namespace CursusVia
 
             if (!IsPostBack)
             {
+                // since for test only and is in assignment will be pushing the key directly to version control
+                StripeConfiguration.ApiKey = "sk_test_51PFuSUJsbFY19ohRW0C3PKDFDInv5DchhrAACTRY8CTTrcYj57OWHWTnOPuplS0Hg1tVP7KiE23PQJMj1ogNhnsB00ZtiThM0T";
+
                 BindGrid();
                 HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
                 if (authCookie == null || !AuthenticateUser(authCookie))
@@ -114,7 +121,6 @@ namespace CursusVia
 
             }
 
-
         }
 
         protected void btnDeleteSelected_Click(object sender, EventArgs e)
@@ -138,10 +144,10 @@ namespace CursusVia
             }
         }
 
-        private void CreateCheckoutSession()
+        private void CreateCheckoutSession(List<int> idsToPurchase, decimal price)
         {
+        string baseUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
 
-            string baseUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
 
             var options = new SessionCreateOptions
             {
@@ -151,19 +157,19 @@ namespace CursusVia
                     {
                         PriceData = new SessionLineItemPriceDataOptions
                         {
-                            UnitAmount = 2000,
-                            Currency = "usd",
+                            UnitAmount = (int)(price*100),
+                            Currency = "myr",
                             ProductData = new SessionLineItemPriceDataProductDataOptions
                             {
-                                Name = "T-shirt",
+                                Name = $"Purchasing {idsToPurchase.Count} Courses",
                             },
                         },
                         Quantity = 1,
                     },
                 },
                 Mode = "payment",
-                SuccessUrl = $"{baseUrl}/success.aspx",
-                CancelUrl = "http://localhost:4242/cancel",
+                SuccessUrl = $"{baseUrl}/PayementSuccess.aspx?ids=[{String.Join(",", idsToPurchase)}]&amount={price}",
+                CancelUrl = $"{baseUrl}/Cart.aspx",
             };
 
             var service = new SessionService();
@@ -171,6 +177,47 @@ namespace CursusVia
 
             // Store the session ID in the session state
             Session["sessionId"] = session.Id;
+        }
+
+        protected void SelectForCheckout_Click(object sender, EventArgs e)
+        {
+            string connectionString = Global.CS;
+
+            List<int> idsToPurchase = new List<int>();
+            foreach (GridViewRow row in GridView1.Rows)
+            {
+                CheckBox chk = (CheckBox)row.FindControl("chkSelect");
+                if (chk != null && chk.Checked)
+                {
+                    int itemId = Convert.ToInt32(GridView1.DataKeys[row.RowIndex].Value);
+                    idsToPurchase.Add(itemId);
+                }
+            }
+
+            decimal coursePrice = 0;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                foreach (var id in idsToPurchase)
+                {
+                    string cmd = "SELECT price FROM Courses WHERE id = @courseId";
+                    SqlCommand command = new SqlCommand(cmd, conn);
+                    command.Parameters.AddWithValue("@courseId", id);
+                    using (SqlDataReader dr = command.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            coursePrice += Convert.ToDecimal(dr["price"]);
+                        }
+                    }
+                }
+                conn.Close();
+            }
+            lblSubtotal.Text = "RM" + coursePrice.ToString("0.00");
+            lblTotal.Text = coursePrice.ToString("0.00");
+
+            CreateCheckoutSession(idsToPurchase, Convert.ToDecimal(lblTotal.Text));
         }
     }
 }
