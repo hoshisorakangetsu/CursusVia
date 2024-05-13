@@ -10,6 +10,12 @@ using System.Web;
 
 namespace CursusVia
 {
+    public class Toast
+    {
+        public string Msg { get; set; }
+        public string Type { get; set; }
+        public Toast(string msg, string type) { Msg = msg; Type = type; }
+    }
     public class Util
     {
 

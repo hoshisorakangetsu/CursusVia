@@ -22,7 +22,7 @@
                     <span class="material-symbols-outlined searchIcon">search
                     </span>
                     <asp:TextBox ID="SearchTextBox" runat="server" CssClass="searchTextBox" placeholder="Search Courses"></asp:TextBox>
-                    <asp:Button ID="SearchButton" runat="server" Text="Search" CssClass="btn btnPrimary searchBtn" />
+                    <asp:Button ID="SearchButton" runat="server" Text="Search" CssClass="btn btnPrimary searchBtn" OnClick="SearchButton_Click" />
                 </div>
                 <div class="rightControl">
                     <asp:DropDownList ID="CourseCategoryFilter" runat="server" CssClass="filterCategory">
@@ -42,16 +42,19 @@
                 <div class="advancedFilterCourseControl">
                     <div class="priceFilter">
                         <label>Price</label>
-                        <div class="priceRange">
-                            <div class="priceField">
-                                RM
-                                <asp:TextBox ID="MinPrice" runat="server" CssClass="priceBox"></asp:TextBox>
+                        <div class="priceRangeWrapper">
+                            <div class="priceRange">
+                                <div class="priceField" id="minPriceField">
+                                    RM
+                                    <asp:TextBox ID="MinPrice" runat="server" CssClass="priceBox" onchange="validatePrice()"></asp:TextBox>
+                                </div>
+                                ~ 
+                                <div class="priceField" id="maxPriceField">
+                                    RM
+                                    <asp:TextBox ID="MaxPrice" runat="server" CssClass="priceBox" onchange="validatePrice()"></asp:TextBox>
+                                </div>
                             </div>
-                            ~ 
-                            <div class="priceField">
-                                RM
-                                <asp:TextBox ID="MaxPrice" runat="server" CssClass="priceBox"></asp:TextBox>
-                            </div>
+                            <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="CustomValidator" CssClass="validationMessage" ClientValidationFunction="validateFormat" Display="Dynamic"></asp:CustomValidator>
                         </div>
                     </div>
                     <div class="sortBy genericInputField">
@@ -75,8 +78,8 @@
                 <ItemTemplate>
                     <div class="courseCard">
                         <% 
-                            // this comment should not be shown to the public as it concerns the internal working, so will be enclosing in server tags
-                            // Substring 1 because the upload file utils include "~", which is not understandable by client browsers 
+// this comment should not be shown to the public as it concerns the internal working, so will be enclosing in server tags
+// Substring 1 because the upload file utils include "~", which is not understandable by client browsers 
                         %>
                         <img src='<%# Eval("courseImgPath").ToString().Substring(1) %>' alt="Placeholder" />
                         <p class="courseName"><%# Eval("title") %></p>
@@ -86,10 +89,10 @@
                         <div class="actions">
                             <asp:HyperLink ID="ViewDetails" runat="server" CssClass="btn btnPrimary" NavigateUrl='<%# "~/CourseContent.aspx?id=" + Eval("id") %>'>View Details</asp:HyperLink>
                             <asp:HyperLink ID="AddToCart" runat="server" CssClass="btnOutlinePrimary" NavigateUrl='<%# "~/Customer/AddToCart.aspx?courseId=" + Eval("id") %>'>
-                <span class="material-symbols-outlined">
-                    add_shopping_cart
-                </span>
-            </asp:HyperLink>
+                                <span class="material-symbols-outlined">
+                                    add_shopping_cart
+                                </span>
+                            </asp:HyperLink>
                         </div>
                     </div>
                 </ItemTemplate>
@@ -98,4 +101,33 @@
         </div>
     </div>
     <script src="Courses.js" defer></script>
+    <script src="InputWithValidator.js" defer></script>
+    <script>
+        function validatePrice() {
+            ValidatorValidate(document.querySelector('#<%= CustomValidator1.ClientID %>'));
+        }
+
+        function validateFormat(sender, args) {
+            const validNumber = (num) => /^(\d+(\.\d{0,2})?)?$/.test(num);
+            const minPrice = document.querySelector('#<%= MinPrice.ClientID %>');
+            const maxPrice = document.querySelector('#<%= MaxPrice.ClientID %>');
+
+            let isValid = true;
+            if (!validNumber(minPrice.value) && !validNumber(maxPrice.value)) {
+                console.log(minPrice, maxPrice, minPrice.value, maxPrice.value, !validNumber(minPrice.value), !validNumber(maxPrice.value))
+                isValid = false;
+                sender.innerHTML = "Please enter valid numbers";
+            } else if (!validNumber(minPrice.value)) {
+                isValid = false;
+                sender.innerHTML = "Please enter valid min price";
+            } else if (!validNumber(maxPrice.value)) {
+                isValid = false;
+                sender.innerHTML = "Please enter valid max price";
+            } else if (parseFloat(minPrice.value) > parseFloat(maxPrice.value)) {
+                isValid = false;
+                sender.innerHTML = "Min price cannot be greater than max price";
+            }
+            args.IsValid = isValid;
+        }
+    </script>
 </asp:Content>
