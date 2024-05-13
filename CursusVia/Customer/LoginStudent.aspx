@@ -30,6 +30,10 @@
           
           <asp:Image ID="captchaImage" runat="server" Height="50px" Width="150px"  ImageUrl="~/Customer/MyCaptcha.aspx" /><br>
         <asp:TextBox ID="captchacode" runat="server" Placeholder="Enter captcha code" CssClass="txtEmail"></asp:TextBox>
+         <div style="height:30px;">
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="cannot be empty" ControlToValidate="captchacode" ValidationGroup="loginValidation" ForeColor="red"></asp:RequiredFieldValidator>
+
+     </div>
           <asp:Label ID="lblMessage" runat="server"/>
 
 </div>
