@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -111,10 +112,10 @@ namespace CursusVia.Customer
                 SqlCommand command1 = new SqlCommand(selectCourseRatingCmd, con);
                 command1.Parameters.AddWithValue("@CourseId", courseId);
                 command1.Parameters.AddWithValue("@CustomerId", customerId);
-                string courseRatingStr = command1.ExecuteScalar().ToString();
-                if (!String.IsNullOrEmpty(courseRatingStr))
+                object courseRating = command1.ExecuteScalar();
+                if (courseRating != DBNull.Value)
                 {
-                    CourseRating.SelectedValue = courseRatingStr;
+                    CourseRating.SelectedValue = courseRating.ToString();
                     CourseRating.Enabled = false;
                 }
 
@@ -128,10 +129,10 @@ namespace CursusVia.Customer
                 SqlCommand command2 = new SqlCommand( selectTutorRatingCmd, con);
                 command2.Parameters.AddWithValue("@CourseId", courseId);
                 command2.Parameters.AddWithValue("@CustomerId", customerId);
-                string tutorRatingStr = command2.ExecuteScalar().ToString();
-                if (!String.IsNullOrEmpty(tutorRatingStr))
+                object tutorRating = command2.ExecuteScalar();
+                if (tutorRating != DBNull.Value)
                 {
-                    TutorRating.SelectedValue = tutorRatingStr;
+                    TutorRating.SelectedValue = tutorRating.ToString();
                     TutorRating.Enabled = false;
                     SubmitRating.Enabled = false;
                 }
