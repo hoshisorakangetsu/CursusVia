@@ -13,19 +13,19 @@ namespace CursusVia.Customer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string tutorId;
+            string customerId;
             HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
 
             if (authCookie != null)
             {
                 FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
-                tutorId = authTicket.Name;
-            }
-            if (!Page.IsPostBack)
-            {
-                ProfileCardDS.SelectCommand = "SELECT name, email FROM Students WHERE id = @AdminId";
-                ProfileCardDS.SelectParameters.Add("AdminId", authCookie.Values["AdminID"]);
-                ProfileCard.DataBind();
+                customerId = authTicket.Name;
+                if (!Page.IsPostBack)
+                {
+                    ProfileCardDS.SelectCommand = "SELECT name, email FROM Students WHERE id = @CustomerId";
+                    ProfileCardDS.SelectParameters.Add("CustomerId", customerId);
+                    ProfileCard.DataBind();
+                }
             }
         }
 

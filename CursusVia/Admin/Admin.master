@@ -21,7 +21,7 @@
                     </div>
                 </ItemTemplate>
             </asp:FormView>
-            <asp:SqlDataSource ID="ProfileCardDS" runat="server"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="ProfileCardDS" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"></asp:SqlDataSource>
             <div class="navContainer">
                 <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1" OnItemDataBound="Repeater1_ItemDataBound">
                     <ItemTemplate>

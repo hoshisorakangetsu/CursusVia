@@ -19,12 +19,12 @@ namespace CursusVia.Tutor
             {
                 FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
                 tutorId = authTicket.Name;
-            }
-            if (!Page.IsPostBack)
-            {
-                ProfileCardDS.SelectCommand = "SELECT username, email FROM Admins WHERE id = @AdminId";
-                ProfileCardDS.SelectParameters.Add("AdminId", authCookie.Values["AdminID"]);
-                ProfileCard.DataBind();
+                if (!Page.IsPostBack)
+                {
+                    ProfileCardDS.SelectCommand = "SELECT username, email FROM Admins WHERE id = @TutorId";
+                    ProfileCardDS.SelectParameters.Add("TutorId", tutorId);
+                    ProfileCard.DataBind();
+                }
             }
         }
         protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)

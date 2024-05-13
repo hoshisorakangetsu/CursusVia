@@ -13,13 +13,13 @@
                     <div class="profileCard">
                         <div class="profileAbbr">CV</div>
                         <div class="names">
-                            <div class="username"><%# Eval("username") %></div>
+                            <div class="username"><%# Eval("name") %></div>
                             <div class="email"><%# Eval("email") %></div>
                         </div>
                     </div>
                 </ItemTemplate>
             </asp:FormView>
-            <asp:SqlDataSource ID="ProfileCardDS" runat="server"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="ProfileCardDS" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"></asp:SqlDataSource>
             <div class="navContainer">
                 <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1" OnItemDataBound="Repeater1_ItemDataBound">
                     <ItemTemplate>

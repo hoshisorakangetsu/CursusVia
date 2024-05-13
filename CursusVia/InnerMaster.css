@@ -74,6 +74,7 @@ body {
     flex-direction: column;
     gap: .1em;
     justify-content: center;
+    text-align: center;
 }
 
 .names .username {
