@@ -30,9 +30,7 @@ namespace CursusVia.Tutor
 			string authenticatedUserId = AuthenticateTutor(txtUsername.Text, txtPassword.Text);
 
 
-			//if (authenticatedUserId != "0" && captchacode.Text.ToLower() == (Session["sessionCaptcha"] != null ? Session["sessionCaptcha"].ToString() : ""))
-			// captcha cannot run
-			if (true)
+			if (authenticatedUserId != "0" && captchacode.Text.ToLower() == (Session["sessionCaptcha"] != null ? Session["sessionCaptcha"].ToString() : ""))
 			{
 				
 
