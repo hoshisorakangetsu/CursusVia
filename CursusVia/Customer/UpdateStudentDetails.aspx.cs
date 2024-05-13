@@ -81,31 +81,7 @@ namespace CursusVia.Customer
 			con.Open();
 			cmd.ExecuteNonQuery();
 			con.Close();
-			/*
-			if (!string.IsNullOrEmpty(id))
-			{
-				MailMessage msg = new MailMessage();
-				msg.From = new MailAddress("yongyk-pp21@student.tarc.edu.my");
-				msg.To.Add(lblEmail.Text);
-				msg.Subject = "Here is your updated details";
-				msg.Body = "Your new Email is: " + email;
-				msg.Body = "Your new Name is: " + name;
-
-				msg.IsBodyHtml = true;
-
-				SmtpClient smt = new SmtpClient();
-				smt.Host = "smtp.gmail.com";
-				smt.Port = 587;
-				smt.EnableSsl = true;
-				smt.UseDefaultCredentials = false; // Don't use default credentials
-				smt.Credentials = new System.Net.NetworkCredential("yongyk-pp21@student.tarc.edu.my", "030128070217");
-				//smt.Credentials = new NetworkCredential("your_email@gmail.com", "your_password"); // Provide valid credentials here
-
-				smt.Send(msg);
-				lblMsg.Text = "Updated Successfully";
-				lblMsg.ForeColor = System.Drawing.Color.ForestGreen;
 			
-			}*/
 
 		}
 
@@ -137,65 +113,21 @@ namespace CursusVia.Customer
 			con.Close();
 			if (!found)
 			{
-				lblMsg.Text = "update failed ";
+				Response.Write("<script>alert('operation fail');window.location = 'UpdateStudentDetails.aspx';</script>");
 			}
 			if (name == oldName)
 			{
 				args.IsValid = false;
-				lblMsg.Text = " Update fail due to no updated information";
 			}
 			else
 			{
-				try
-				{
-					MailMessage msg = new MailMessage();
-					msg.From = new MailAddress("yongyk-pp21@student.tarc.edu.my");
-					msg.To.Add(lblEmail.Text);
-					msg.Subject = "Here is your updated details";
-					msg.Body = "Your new Email is: " + email;
-					msg.Body = "Your new Name is: " + name;
+				Response.Write("<script>alert('updated successfully');window.location = 'UpdateStudentDetails.aspx';</script>");
 
-					msg.IsBodyHtml = true;
-
-					SmtpClient smt = new SmtpClient();
-					smt.Host = "smtp.gmail.com";
-					smt.Port = 587;
-					smt.EnableSsl = true;
-					smt.UseDefaultCredentials = false; // Don't use default credentials
-					smt.Credentials = new System.Net.NetworkCredential("yongyk-pp21@student.tarc.edu.my", "030128070217");
-					//smt.Credentials = new NetworkCredential("your_email@gmail.com", "your_password"); // Provide valid credentials here
-
-					smt.Send(msg);
-					lblMsg.Text = "Updated Successfully";
-					lblMsg.ForeColor = System.Drawing.Color.ForestGreen;
-					lblMsg2.Text = "An email will be send ";
-					lblMsg2.ForeColor = System.Drawing.Color.ForestGreen;
+			
 
 				}
-				catch (SmtpException ex)
-				{
-					// Handle SMTP exception (e.g., no internet connection, SMTP server down)
-					lblMsg.Text = "Failed to send email. Please try again later.";
-					lblMsg.ForeColor = System.Drawing.Color.Red;
-					lblMsg2.Text = "updated successfully";
-					lblMsg2.ForeColor = System.Drawing.Color.ForestGreen;
-
-				}
-				catch (FormatException ex)
-				{
-					// Handle invalid email format exception
-					lblMsg.Text = "Invalid email address. Please enter a valid email.";
-					lblMsg.ForeColor = System.Drawing.Color.Red;
-					lblMsg2.Text = "updated successfully";
-					lblMsg2.ForeColor = System.Drawing.Color.ForestGreen;
-				}
-				catch (Exception ex)
-				{
-					// Handle other exceptions
-					lblMsg.Text = "An error occurred. Please try again later.";
-					lblMsg.ForeColor = System.Drawing.Color.Red;
-				}
+			
 			}
 		}
 	}
-}
+
