@@ -97,8 +97,7 @@ namespace CursusVia
                         }
                     }
 
-                    Response.Write("<script>alert('Payment successful!'); location.href='~/Customer/Courses.aspx';</script>");
-                    Response.Redirect("~/Customer/Courses.aspx");
+                    Response.Write("<script>alert('Payment successful!'); location.href='~/Customer/MyCourses.aspx';</script>");
 
                     Session["sessionId"] = null;
                 }
