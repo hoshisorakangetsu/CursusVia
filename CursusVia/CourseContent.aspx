@@ -6,11 +6,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="courseContentMain">
-        <div class="backControl">
+        <asp:HyperLink ID="backControl" runat="server" CssClass="backControl">HyperLink
             <span class="material-symbols-outlined">arrow_back
             </span>
             Browse Courses
-        </div>
+        </asp:HyperLink>
         <asp:FormView runat="server" ID="CourseDetailHeroView" DataSourceID="CourseDetailHeroDS" DefaultMode="ReadOnly" CssClass="w-full">
             <ItemTemplate>
                 <div class="hero">

@@ -16,6 +16,7 @@ namespace CursusVia.Tutor
         protected void Page_Load(object sender, EventArgs e)
         {
             courseId = Request.Params["id"];
+            backControl.NavigateUrl = $"~/Tutor/MyCourses.aspx";
             if (!Page.IsPostBack)
             {
                 if (courseId == null)
