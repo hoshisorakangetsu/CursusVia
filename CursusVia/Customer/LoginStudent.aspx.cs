@@ -80,7 +80,7 @@ namespace CursusVia.Customer
 					1,
 				authenticatedUserId,
 				DateTime.Now,
-				DateTime.Now.AddMinutes(30),
+				DateTime.Now.AddMinutes(60),
 				rememberMe,
 				"Customer"
 			 );

@@ -1,8 +1,10 @@
 ﻿using CursusVia.Customer;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -13,6 +15,129 @@ namespace CursusVia
     public partial class Cart : Page
     {
         private int studentId;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+   
+            if (!IsPostBack)
+            {
+                HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+                if (authCookie == null || !AuthenticateUser(authCookie))
+                {
+                    Response.Redirect("LoginStudent.aspx");
+
+                 
+                }
+
+                BindGrid();
+            }
+           
+        }
+
+        private bool AuthenticateUser(HttpCookie authCookie)
+        {
+            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
+            return ticket != null &&
+                   !string.IsNullOrEmpty(ticket.Name) &&
+                   int.TryParse(ticket.Name, out studentId);
+        }
+
+        private void BindGrid()
+        {
+            CartItemDataAccess dataAccess = new CartItemDataAccess();
+            GridView1.DataSource = dataAccess.GetCartItems(studentId);
+            GridView1.DataBind();
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            if (GridView1.DataKeys.Count > e.RowIndex && e.RowIndex >= 0)
+            {
+                int itemId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value);
+                CartItemDataAccess dataAccess = new CartItemDataAccess();
+                dataAccess.DeleteCartItems(new List<int> { itemId });
+                BindGrid(); // Rebind to update the view
+            }
+            else
+            {
+                // Handle error or log it
+                Debug.WriteLine("Invalid row index or empty DataKeys.");
+            }
+        }
+
+        public class CartItemDataAccess
+        {
+            private string connectionString = Global.CS;
+
+            public DataTable GetCartItems(int studentId)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string sql = @"SELECT ci.id AS CartItemId, c.title AS Title, c.description AS Description, c.price AS Price, fr.file_path AS ImagePath 
+                       FROM dbo.CartItems ci 
+                       JOIN dbo.Courses c ON ci.course_id = c.id 
+                       JOIN dbo.FileResources fr ON c.cover_pic_res_id = fr.id 
+                       WHERE ci.student_id = @StudentId";
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@StudentId", studentId);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    // Debug output to check column names
+                    foreach (DataColumn col in dt.Columns)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Column: " + col.ColumnName);
+                    }
+
+                    return dt;
+                }
+            }
+
+            public void DeleteCartItems(List<int> ids)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    foreach (int id in ids)
+                    {
+                        SqlCommand cmd = new SqlCommand("DELETE FROM CartItems WHERE id = @id", conn);
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                }
+            }
+        }
+
+        protected void btnDeleteSelected_Click(object sender, EventArgs e)
+        {
+            List<int> idsToDelete = new List<int>();
+            foreach (GridViewRow row in GridView1.Rows)
+            {
+                CheckBox chk = (CheckBox)row.FindControl("chkSelect");
+                if (chk != null && chk.Checked)
+                {
+                    int itemId = Convert.ToInt32(GridView1.DataKeys[row.RowIndex].Value);
+                    idsToDelete.Add(itemId);
+                }
+            }
+
+            if (idsToDelete.Count > 0)
+            {
+                CartItemDataAccess dataAccess = new CartItemDataAccess();
+                dataAccess.DeleteCartItems(idsToDelete);
+                BindGrid();
+            }
+        }
+    }
+}
+
+/*  private int studentId;
+        private int cartItemId;
+        SqlConnection conn = new SqlConnection (Global.CS);
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -89,86 +214,59 @@ namespace CursusVia
             if (studentId > 0)  // Check if studentId is greater than 0
             {
                 DataTable cartItems = GetCartItems(studentId);
-                CartRepeater.DataSource = cartItems;
-                CartRepeater.DataBind();
+                CartGridView.DataSource = cartItems;
+                CartGridView.DataBind();
             }
             else
             {
                 // Handle cases where the student ID is not available
-                Response.Redirect("LoginStudent.aspx");
+                Response.Redirect("Cart.aspx");
             }
         }
 
-        protected void CartRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
 
+
+
+
+
+
+
+
+
+
+
+
+        protected void btnDeleteSelected_Click(object sender, EventArgs e)
+        {
+            // Iterate through the GridView
+            foreach (GridViewRow row in CartGridView.Rows)
+            {
+                CheckBox chk = (CheckBox)row.FindControl("chkSelect");
+                if (chk != null && chk.Checked)
+                {
+                    // Find the value of the CartItemId in the row
+                    int cartItemId = Convert.ToInt32(CartGridView.DataKeys[row.RowIndex].Value);
+
+                    // Call the method to delete the item
+                    DeleteCartItem(cartItemId);
+                }
+            }
+
+            // Rebind the GridView to show the updated list
+            BindCart();
         }
 
-        /*
-                private void RemoveItemFromCart(int itemId)
+        private void DeleteCartItem(int cartItemId)
+        {
+            string connectionString = Global.CS;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM CartItems WHERE id = @CartItemId", con))
                 {
-                    string connectionString = Global.CS;
-                    using (SqlConnection conn = new SqlConnection(connectionString))
-                    {
-                        string sql = "DELETE FROM CartItems WHERE id = @ItemId";
-                        using (SqlCommand cmd = new SqlCommand(sql, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@ItemId", itemId);
-                            conn.Open();
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
+                    cmd.Parameters.AddWithValue("@CartItemId", cartItemId);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
                 }
-
-                protected void CartRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
-                {
-
-                        if (e.CommandName == "Remove")
-                        {
-                            int itemId = Convert.ToInt32(e.CommandArgument);
-                            RemoveItemFromCart(itemId);  // Handle item removal from DB
-                            BindCart(); // Re-bind to update the UI
-                        }
-
-                }
-
-
-                // Add in your Cart.aspx.cs
-                protected void ItemSelector_CheckedChanged(object sender, EventArgs e)
-                {
-                    if (Context.User.Identity.IsAuthenticated)
-                    {
-                        ScriptManager.RegisterStartupScript(this, GetType(), "triggerUpdate", "triggerUpdate();", true);
-                    }
-                    else
-                    {
-                        Response.Redirect("LoginStudent.aspx");
-                    }
-                }
-
-                // Add in your Cart.aspx.cs
-                protected void UpdateSummary(object sender, EventArgs e)
-                {
-                    // Logic to calculate and update lblSubtotal, lblTax, and lblTotal
-                }
-
-
-                // Add in your Cart.aspx.cs
-                protected void DeleteSelected_Click(object sender, EventArgs e)
-                {
-                    foreach (RepeaterItem item in CartRepeater.Items)
-                    {
-                        CheckBox cb = (CheckBox)item.FindControl("ItemSelector");
-                        if (cb != null && cb.Checked)
-                        {
-                            int itemId = Convert.ToInt32(((HiddenField)item.FindControl("HiddenFieldItemId")).Value);
-                            RemoveItemFromCart(itemId);
-                        }
-                    }
-                    BindCart();
-                }
-        */
-
-
-    }
-}
+            }
+        }
+*/

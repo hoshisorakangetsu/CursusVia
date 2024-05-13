@@ -37,11 +37,12 @@ namespace CursusVia.Admin
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
 
-            string details = "SELECT [id], [title], [date_send], [description], [tutor_id], [student_id] FROM [SupportRequests] WHERE [id] ='" + id + "'";
+            string details = "SELECT [id], [title], [date_send], [description], [tutor_id], [student_id] FROM [SupportRequests] WHERE [id] = @ID";
 
             con.Open();
 
             SqlCommand cmd = new SqlCommand(details, con);
+            cmd.Parameters.AddWithValue("@ID", id);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
@@ -89,7 +90,6 @@ namespace CursusVia.Admin
             SqlConnection con = new SqlConnection(cs);
 
             con.Open();
-            //string getValue = "SELECT [id], [title], [date_send], [description], [status], [tutor_id], [student_id] FROM [SupportRequests] WHERE [id] ='" + id + "'";
 
             string selectQuery = "INSERT INTO [dbo].[Replies] ([reply],[datetime],[support_req_id],[admin_id]) VALUES (@Reply,@Datetime,@SupportReqId,@AdminId)";
 

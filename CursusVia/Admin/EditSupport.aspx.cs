@@ -22,11 +22,12 @@ namespace CursusVia.Admin
                 string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
 
-                string read = "SELECT [reply], [support_req_id], [id] FROM [Replies] WHERE [id] ='" + id + "'";
+                string read = "SELECT [reply], [support_req_id], [id] FROM [Replies] WHERE [id] = @ID";
 
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand(read, con);
+                cmd.Parameters.AddWithValue("@ID", id);
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {

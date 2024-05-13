@@ -20,11 +20,12 @@ namespace CursusVia.Admin
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
 
-            string details = "SELECT [title], [date_send], [description] FROM [SupportRequests] WHERE [id] ='" + id + "'";
+            string details = "SELECT [title], [date_send], [description] FROM [SupportRequests] WHERE [id] = @ID";
 
             con.Open();
 
             SqlCommand cmd = new SqlCommand(details, con);
+            cmd.Parameters.AddWithValue("@ID", id);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
@@ -40,8 +41,9 @@ namespace CursusVia.Admin
 
             con.Open();
 
-            string replies = "SELECT [reply], [datetime], [support_req_id], [admin_id], [student_id], [tutor_id], [id] FROM [Replies] WHERE [support_req_id] = '" + id + "' AND [admin_id] IS NOT NULL";
+            string replies = "SELECT [reply], [datetime], [support_req_id], [admin_id], [student_id], [tutor_id], [id] FROM [Replies] WHERE [support_req_id] = @ID AND [admin_id] IS NOT NULL";
             SqlDataAdapter adapter = new SqlDataAdapter(replies, con);
+            adapter.SelectCommand.Parameters.AddWithValue("@ID", id);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             Repeater1.DataSource=dataSet;
@@ -50,8 +52,9 @@ namespace CursusVia.Admin
             con.Close();
 
             con.Open();
-            string repliesTutor = "SELECT [reply], [datetime], [support_req_id], [admin_id], [student_id], [tutor_id], [id] FROM [Replies] WHERE [support_req_id] = '" + id + "' AND [admin_id] IS NULL";
+            string repliesTutor = "SELECT [reply], [datetime], [support_req_id], [admin_id], [student_id], [tutor_id], [id] FROM [Replies] WHERE [support_req_id] = @ID AND [admin_id] IS NULL";
             SqlDataAdapter adapterReplyTutor = new SqlDataAdapter(repliesTutor, con);
+            adapterReplyTutor.SelectCommand.Parameters.AddWithValue("@ID", id);
             DataSet dataSetReplyTutor = new DataSet();
             adapterReplyTutor.Fill(dataSetReplyTutor);
             Repeater2.DataSource=dataSetReplyTutor;

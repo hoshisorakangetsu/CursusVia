@@ -24,11 +24,12 @@ namespace CursusVia.Admin
                 string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
 
-                string read = "SELECT Companies.name, Companies.address, Companies.postcode, Companies.state, Companies.area, Vacancies.job_title, Vacancies.min_salary, Vacancies.max_salary, Vacancies.type, Vacancies.role, Vacancies.job_requirement, Vacancies.job_description, Vacancies.company_id, Vacancies.email FROM Companies INNER JOIN Vacancies ON Companies.id = Vacancies.company_id WHERE Vacancies.id ='" + id + "'";
+                string read = "SELECT Companies.name, Companies.address, Companies.postcode, Companies.state, Companies.area, Vacancies.job_title, Vacancies.min_salary, Vacancies.max_salary, Vacancies.type, Vacancies.role, Vacancies.job_requirement, Vacancies.job_description, Vacancies.company_id, Vacancies.email FROM Companies INNER JOIN Vacancies ON Companies.id = Vacancies.company_id WHERE Vacancies.id = @ID";
 
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand(read, con);
+                cmd.Parameters.AddWithValue("@ID", id);
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -111,7 +112,7 @@ namespace CursusVia.Admin
                 companyID = cmd.ExecuteScalar();
             }
             //update job details
-            string updateJob = "UPDATE [dbo].[Vacancies] SET [job_title]=@JobTitle, [min_salary]=@MinSalary, [max_salary]=@MaxSalary, [type]=@Type, [role]=@Role, [job_requirement]=@JobRequirement, [job_description]=@JobDescription, [company_id]=@CompanyId, [email]=@Email WHERE [id] ='" + Request.QueryString["id"] + "'";
+            string updateJob = "UPDATE [dbo].[Vacancies] SET [job_title]=@JobTitle, [min_salary]=@MinSalary, [max_salary]=@MaxSalary, [type]=@Type, [role]=@Role, [job_requirement]=@JobRequirement, [job_description]=@JobDescription, [company_id]= @CompanyId, [email]= @Email WHERE [id] = @ID";
 
             SqlCommand insertJob = new SqlCommand(updateJob, con);
             insertJob.Parameters.AddWithValue("@JobTitle", txtSearch.Text);
@@ -123,6 +124,7 @@ namespace CursusVia.Admin
             insertJob.Parameters.AddWithValue("@JobDescription", txtJobDescr.Text);
             insertJob.Parameters.AddWithValue("@CompanyId", Convert.ToInt32(companyID));
             insertJob.Parameters.AddWithValue("@Email", txtHRemail.Text);
+            insertJob.Parameters.AddWithValue("@ID", Request.QueryString["id"]);
 
             row += insertJob.ExecuteNonQuery();
 

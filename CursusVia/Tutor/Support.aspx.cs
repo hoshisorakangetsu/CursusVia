@@ -32,9 +32,10 @@ namespace CursusVia.Tutor
                 string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
 
-                string query = "SELECT [id], [title], [date_send], [description], [status], [tutor_id] FROM [SupportRequests] WHERE [tutor_id] = '" + tutorId + "'";
+                string query = "SELECT [id], [title], [date_send], [description], [status], [tutor_id] FROM [SupportRequests] WHERE [tutor_id] = @tID";
                 con.Open();
                 SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+                adapter.SelectCommand.Parameters.AddWithValue("@tID", tutorId);
                 DataSet dataSet = new DataSet();
                 adapter.Fill(dataSet);
                 Repeater1.DataSource=dataSet;
@@ -69,21 +70,25 @@ namespace CursusVia.Tutor
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
 
-            string query = "SELECT [id], [title], [date_send], [description], [status], [tutor_id] FROM [SupportRequests] WHERE [tutor_id] = '" + tutorId + "'";
+            string query = "SELECT [id], [title], [date_send], [description], [status], [tutor_id] FROM [SupportRequests] WHERE [tutor_id] = @tID";
             if (isStatus)
             {
-                query = String.Concat(query, " AND [status] = '" + filter + "'");
+                query = String.Concat(query, " AND [status] = @filter");
             }
             if (isStart)
             {
-                query = String.Concat(query, " AND [date_send] >= '" +  begin + "'");
+                query = String.Concat(query, " AND [date_send] >= @Start");
             }
             if (isEnd)
             {
-                query = String.Concat(query, " AND [date_send] <= '" + end + "'");
+                query = String.Concat(query, " AND [date_send] <= @End");
             }
             con.Open();
             SqlDataAdapter sql = new SqlDataAdapter(query, con);
+            sql.SelectCommand.Parameters.AddWithValue("@tID", tutorId);
+            sql.SelectCommand.Parameters.AddWithValue("@filter", filter);
+            sql.SelectCommand.Parameters.AddWithValue("@Start", begin);
+            sql.SelectCommand.Parameters.AddWithValue("@End", end);
             DataSet dt = new DataSet();
             sql.Fill(dt);
             Repeater1.DataSource=dt;
@@ -100,9 +105,10 @@ namespace CursusVia.Tutor
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
 
-            string query = "SELECT [id], [title], [date_send], [description], [status], [tutor_id] FROM [SupportRequests] WHERE [tutor_id] = '" + tutorId + "'";
+            string query = "SELECT [id], [title], [date_send], [description], [status], [tutor_id] FROM [SupportRequests] WHERE [tutor_id] = @tID   ";
             con.Open();
             SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            adapter.SelectCommand.Parameters.AddWithValue("@tID", tutorId);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             Repeater1.DataSource=dataSet;
