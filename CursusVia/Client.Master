@@ -21,7 +21,7 @@
                 <asp:SiteMapDataSource runat="server" ID="SiteMapDataSource1"></asp:SiteMapDataSource>
             </div>
             <div class="headerRight">
-                <a href="Cart.aspx" class="cart">
+                <a href="/Customer/Cart.aspx" class="cart">
                     <span class="material-symbols-outlined">shopping_bag</span>
                 </a>
                 <!--
@@ -73,5 +73,19 @@
             <p class="copyright">&copy;2024, CursusVia. All Rights Reserved</p>
         </footer>
     </form>
+    <div class="toasts"></div>
+    <!-- used later to clone a toast and add to toasts div -->
+    <div class="toastWrapper hidden">
+        <div class="toastContent">
+            <div class="toastIcon">
+                <!-- inject the icon to the span -->
+                <span class="material-symbols-outlined"></span>
+            </div>
+            <div class="toastMsg"></div>
+        </div>
+        <div class="toastProgress">
+            <div class="toastProgressBar"></div>
+        </div>
+    </div>
 </body>
 </html>

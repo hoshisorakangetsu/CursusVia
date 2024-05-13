@@ -193,6 +193,7 @@
     </Content>
     <Content Include="SuccessfulMessage.css" />
     <Content Include="SuccsessfulMessage.aspx" />
+    <Content Include="ToastScript.js" />
     <Content Include="Tutor\CreateQuiz.aspx" />
     <Content Include="Tutor\deleteMsg.aspx" />
     <Content Include="Tutor\emailIcon.png" />
