@@ -7,7 +7,7 @@
     <asp:GridView ID="gvWithdrawRequests" runat="server" AutoGenerateColumns="False" CssClass="withdraw-requests-grid">
         <Columns>
             <asp:BoundField DataField="id" HeaderText="Request ID" SortExpression="id" />
-            <asp:BoundField DataField="note" HeaderText="Notes" SortExpression="note" />
+            <!--<asp:BoundField DataField="note" HeaderText="Notes" SortExpression="note" />-->
             <asp:BoundField DataField="status" HeaderText="Status" SortExpression="status" />
             <asp:BoundField DataField="request_date" HeaderText="Request Date" SortExpression="request_date" DataFormatString="{0:yyyy-MM-dd}" />
         </Columns>
