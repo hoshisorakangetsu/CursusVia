@@ -16,6 +16,7 @@ namespace CursusVia
                 Toast t = (Toast)Session["toast"];
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "createToast", $"<script defer>setTimeout(() => makeToast('{t.Msg}', '{t.Type}'), 100)</script>", false);
                 // clearing session does not work send help
+                Session["toast"] = null;
             }
         }
     }

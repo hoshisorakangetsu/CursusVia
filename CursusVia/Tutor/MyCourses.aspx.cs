@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -12,6 +13,7 @@ namespace CursusVia.Tutor
     public partial class MyCourses : System.Web.UI.Page
     {
         private string tutorId = "2";
+        private readonly string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
@@ -68,14 +70,14 @@ namespace CursusVia.Tutor
 
             CourseRepeaterSqlDS.SelectCommand = cmd;
             CourseRepeaterSqlDS.SelectParameters.Add("TutorId", tutorId.ToString());
-            CourseRepeaterSqlDS.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            CourseRepeaterSqlDS.ConnectionString = cs;
             CourseRepeater.DataBind();
         }
 
         protected void SearchButton_Click(object sender, EventArgs e)
         {
             bool NotNullEmptyWhiteSpace(string str) => !(String.IsNullOrEmpty(str) || String.IsNullOrWhiteSpace(str));
-            string redirectUrl = "Courses.aspx?";
+            string redirectUrl = "/Tutor/MyCourses.aspx?";
 
             if (NotNullEmptyWhiteSpace(SearchTextBox.Text))
             {
@@ -97,6 +99,15 @@ namespace CursusVia.Tutor
         {
             if (e.CommandName == "DeleteCourse")
             {
+                string courseId = e.CommandArgument.ToString();
+                // check if the course they try to delete alrd has ppl enrolled
+                string selectCourseEnrollCount = "SELECT COUNT(*) FROM [PurchasedCourses] WHERE [course_id] = @courseId";
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+                    SqlCommand command = new SqlCommand(selectCourseEnrollCount, con);
+                    command.Parameters.AddWithValue("@courseId", courseId);
+                }
                 Toast t = new Toast($"Deleting Course {e.CommandArgument}", "fail");
                 Session["toast"] = t;
                 //Response.Write($"<script>alert({e.CommandArgument})</script>");

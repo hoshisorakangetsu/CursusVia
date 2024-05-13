@@ -85,7 +85,7 @@ namespace CursusVia.Customer
         protected void SearchButton_Click(object sender, EventArgs e)
         {
             bool NotNullEmptyWhiteSpace(string str) => !(String.IsNullOrEmpty(str) || String.IsNullOrWhiteSpace(str));
-            string redirectUrl = "Courses.aspx?";
+            string redirectUrl = "/Customer/MyCourses.aspx?";
 
             if (NotNullEmptyWhiteSpace(SearchTextBox.Text))
             {

@@ -12,7 +12,7 @@ namespace CursusVia.Tutor
 {
     public partial class CreateCourse : System.Web.UI.Page
     {
-        private string tutorId;
+        private string tutorId = "2"; // TODO remove hardcoded id
         protected void Page_Load(object sender, EventArgs e)
         {
             HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
@@ -54,6 +54,12 @@ namespace CursusVia.Tutor
                 int rows = command.ExecuteNonQuery();
                 if (rows > 0)
                 {
+                    Session["toast"] = new Toast("Successfully created course", "success");
+                    Response.Redirect("MyCourses.aspx");
+                } 
+                else
+                {
+                    Session["toast"] = new Toast("Oops! Something unexpected happened, please hang on tight while we attempt to fix it.", "fail");
                     Response.Redirect("MyCourses.aspx");
                 }
             }
