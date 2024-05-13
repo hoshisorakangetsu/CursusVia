@@ -46,8 +46,15 @@ namespace CursusVia.Tutor
 
                     if (result != null)
                     {
-                        decimal balance = Convert.ToDecimal(result);
-                        litBalance.Text = $"RM {balance:N2}";
+                        try
+                        {
+                            decimal balance = Convert.ToDecimal(result);
+                            litBalance.Text = $"RM {balance:N2}";
+                        } 
+                        catch (Exception)
+                        { 
+                            litBalance.Text = "RM 0.00";
+                        }
                     }
                     else
                     {
