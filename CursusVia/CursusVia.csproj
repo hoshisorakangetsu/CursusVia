@@ -196,6 +196,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="PayementSuccess.aspx" />
+    <Content Include="PaymentFaild.aspx" />
     <Content Include="SuccessfulMessage.css" />
     <Content Include="SuccsessfulMessage.aspx" />
     <Content Include="ToastScript.js" />
@@ -642,6 +644,20 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Admins.cs" />
+    <Compile Include="PayementSuccess.aspx.cs">
+      <DependentUpon>PayementSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PayementSuccess.aspx.designer.cs">
+      <DependentUpon>PayementSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentFaild.aspx.cs">
+      <DependentUpon>PaymentFaild.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentFaild.aspx.designer.cs">
+      <DependentUpon>PaymentFaild.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SuccsessfulMessage.aspx.cs">
       <DependentUpon>SuccsessfulMessage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

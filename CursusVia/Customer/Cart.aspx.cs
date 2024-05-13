@@ -18,10 +18,11 @@ namespace CursusVia
 
         protected void Page_Load(object sender, EventArgs e)
         {
+           
 
-   
             if (!IsPostBack)
             {
+                BindGrid();
                 HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
                 if (authCookie == null || !AuthenticateUser(authCookie))
                 {
@@ -61,9 +62,11 @@ namespace CursusVia
             }
             else
             {
+             
                 // Handle error or log it
                 Debug.WriteLine("Invalid row index or empty DataKeys.");
             }
+            Response.Redirect(Request.RawUrl); // Redirect to the same pag
         }
 
         public class CartItemDataAccess
@@ -108,8 +111,12 @@ namespace CursusVia
                         cmd.ExecuteNonQuery();
                     }
                     conn.Close();
+
                 }
+
             }
+
+
         }
 
         protected void btnDeleteSelected_Click(object sender, EventArgs e)
@@ -133,143 +140,8 @@ namespace CursusVia
             }
 
 
-            Response.Redirect("Cart.aspx");
+
         }
     }
 }
 
-/*  private int studentId;
-        private int cartItemId;
-        SqlConnection conn = new SqlConnection (Global.CS);
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-                if (authCookie != null)
-                {
-                    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
-                    if (ticket != null && !string.IsNullOrEmpty(ticket.Name))
-                    {
-                        if (int.TryParse(ticket.Name, out int parsedId))
-                        {
-                            studentId = parsedId;
-                            System.Diagnostics.Debug.WriteLine("Student ID set to: " + studentId);
-                        }
-                        else
-                        {
-                            System.Diagnostics.Debug.WriteLine("Failed to parse student ID.");
-                            Response.Redirect("LoginStudent.aspx");
-                        }
-                    }
-                    else
-                    {
-                        System.Diagnostics.Debug.WriteLine("Ticket is null or empty.");
-                        Response.Redirect("LoginStudent.aspx");
-                    }
-                }
-                else
-                {
-                    System.Diagnostics.Debug.WriteLine("Authentication cookie is missing.");
-                    Response.Redirect("LoginStudent.aspx");
-                }
-            }
-            BindCart();
-        }
-
-        private DataTable GetCartItems(int studentId)
-        {
-            DataTable dt = new DataTable();
-            string connectionString = Global.CS;
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string sql = @"
-            SELECT
-                ci.id AS CartItemId,
-                c.title AS Title,
-                c.description AS Description,
-                c.price AS Price,
-                fr.file_path AS ImagePath
-            FROM
-                dbo.CartItems ci
-            INNER JOIN
-                dbo.Courses c ON ci.course_id = c.id
-            INNER JOIN
-                dbo.FileResources fr ON c.cover_pic_res_id = fr.id
-            WHERE
-                ci.student_id = @StudentId;
-        ";
-
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@StudentId", studentId);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                }
-            }
-            return dt;
-        }
-
-        private void BindCart()
-        {
-            if (studentId > 0)  // Check if studentId is greater than 0
-            {
-                DataTable cartItems = GetCartItems(studentId);
-                CartGridView.DataSource = cartItems;
-                CartGridView.DataBind();
-            }
-            else
-            {
-                // Handle cases where the student ID is not available
-                Response.Redirect("Cart.aspx");
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-        protected void btnDeleteSelected_Click(object sender, EventArgs e)
-        {
-            // Iterate through the GridView
-            foreach (GridViewRow row in CartGridView.Rows)
-            {
-                CheckBox chk = (CheckBox)row.FindControl("chkSelect");
-                if (chk != null && chk.Checked)
-                {
-                    // Find the value of the CartItemId in the row
-                    int cartItemId = Convert.ToInt32(CartGridView.DataKeys[row.RowIndex].Value);
-
-                    // Call the method to delete the item
-                    DeleteCartItem(cartItemId);
-                }
-            }
-
-            // Rebind the GridView to show the updated list
-            BindCart();
-        }
-
-        private void DeleteCartItem(int cartItemId)
-        {
-            string connectionString = Global.CS;
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand("DELETE FROM CartItems WHERE id = @CartItemId", con))
-                {
-                    cmd.Parameters.AddWithValue("@CartItemId", cartItemId);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
-*/
