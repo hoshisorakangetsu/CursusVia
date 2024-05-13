@@ -1,15 +1,15 @@
 CREATE TABLE [dbo].[FileResources]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [file_path] NVARCHAR(50) NOT NULL, 
-    [file_name] NVARCHAR(50) NOT NULL
+    [file_path] NVARCHAR(MAX) NOT NULL, 
+    [file_name] NVARCHAR(MAX) NOT NULL
 )
 
 CREATE TABLE [dbo].[Admins]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [username] NVARCHAR(50) NOT NULL, 
-    [password] NVARCHAR(50) NOT NULL, 
+    [password] NVARCHAR(255) NOT NULL, 
     [email] NVARCHAR(50) NOT NULL
 )
 
