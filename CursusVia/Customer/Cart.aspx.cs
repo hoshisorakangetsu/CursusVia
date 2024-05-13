@@ -131,6 +131,9 @@ namespace CursusVia
                 dataAccess.DeleteCartItems(idsToDelete);
                 BindGrid();
             }
+
+
+            Response.Redirect("Cart.aspx");
         }
     }
 }
