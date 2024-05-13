@@ -21,7 +21,7 @@
                         <p class="courseDesc"><%# Eval("courseDesc") %></p>
                         <p class="rating">Rating: <%# Eval("rating") %>/5.0 (<%# Eval("ratingCount") %>)</p>
                         <div class="actions">
-                            <asp:HyperLink ID="Enroll" runat="server" CssClass="btn btnPrimary">Enroll</asp:HyperLink>
+                            <asp:HyperLink ID="Enroll" runat="server" CssClass="btn btnPrimary" NavigateUrl='<%# "~/Customer/AddToCart.aspx?courseId=" + Eval("id") %>'>Enroll</asp:HyperLink>
                             <asp:HyperLink ID="AddToCart" runat="server" CssClass="btnOutlinePrimary" NavigateUrl='<%# "~/Customer/AddToCart.aspx?courseId=" + Eval("id") %>'>
                                 <span class="material-symbols-outlined">
                                 add_shopping_cart

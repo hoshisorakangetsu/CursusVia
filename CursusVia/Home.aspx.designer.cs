@@ -21,7 +21,7 @@ namespace CursusVia
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEnrollNow;
+        protected global::System.Web.UI.WebControls.HyperLink btnEnrollNow;
 
         /// <summary>
         /// btnLearnMore control.
@@ -30,7 +30,7 @@ namespace CursusVia
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLearnMore;
+        protected global::System.Web.UI.WebControls.HyperLink btnLearnMore;
 
         /// <summary>
         /// btnApplyNow control.
@@ -39,6 +39,6 @@ namespace CursusVia
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApplyNow;
+        protected global::System.Web.UI.WebControls.HyperLink btnApplyNow;
     }
 }

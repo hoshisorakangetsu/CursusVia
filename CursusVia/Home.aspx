@@ -17,8 +17,8 @@
         </div>
         <img src="res/women_with_pen.png" class="heroImg" />
         <div class="heroBtnGroup">
-            <asp:Button ID="btnEnrollNow" CssClass="btnPrimary btn" runat="server" Text="Enroll Now" />
-            <asp:Button ID="btnLearnMore" CssClass="btnSecondary btn" runat="server" Text="Learn More" />
+            <asp:HyperLink NavigateUrl="~/Customer/LoginStudent.aspx" ID="btnEnrollNow" CssClass="btnPrimary btn" runat="server" Text="Enroll Now" />
+            <asp:HyperLink NavigateUrl="~/Customer/LoginStudent.aspx" ID="btnLearnMore" CssClass="btnSecondary btn" runat="server" Text="Learn More" />
         </div>
     </div>
     <div class="courseCategories">
@@ -93,7 +93,7 @@
                 from anywhere in the world. Take control of your income and teaching
                 schedule without the constraints of a boss looming over you.
             </p>
-            <asp:Button ID="btnApplyNow" CssClass="btnPrimary btn" runat="server" Text="Apply Now" />
+            <asp:HyperLink NavigateUrl="~/Tutor/LoginTutor.aspx" ID="btnApplyNow" CssClass="btnPrimary btn" runat="server" Text="Apply Now" />
         </div>
     </div>
     <script src="HomeCourseCategoryScroller.js" defer></script>
