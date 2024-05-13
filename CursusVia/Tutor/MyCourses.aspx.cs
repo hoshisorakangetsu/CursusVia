@@ -11,10 +11,9 @@ namespace CursusVia.Tutor
 {
     public partial class MyCourses : System.Web.UI.Page
     {
+        private string tutorId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            // TODO delete the = "2" part
-            string tutorId = "2";
             HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
 
             if (authCookie != null)
@@ -50,10 +49,39 @@ namespace CursusVia.Tutor
                 WHERE 
                     c.[tutor_id] = @TutorId
             ";
-            CourseRepeaterSqlDS.SelectCommand = cmd + ";";
-            if (!Page.IsPostBack) CourseRepeaterSqlDS.SelectParameters.Add("TutorId", tutorId.ToString());
+            bool NotNullEmptyWhiteSpace(string str) => !(String.IsNullOrEmpty(str) || String.IsNullOrWhiteSpace(str));
+            string searchKeyword = Request.Params["search"];
+            if (NotNullEmptyWhiteSpace(searchKeyword))
+            {
+                cmd += "AND c.[title] LIKE @keyword\n";
+                CourseRepeaterSqlDS.SelectParameters.Add("keyword", $"%{searchKeyword}%");
+                SearchTextBox.Text = searchKeyword;
+            }
+
+            CourseRepeaterSqlDS.SelectCommand = cmd;
+            CourseRepeaterSqlDS.SelectParameters.Add("TutorId", tutorId.ToString());
             CourseRepeaterSqlDS.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             CourseRepeater.DataBind();
+        }
+
+        protected void SearchButton_Click(object sender, EventArgs e)
+        {
+            bool NotNullEmptyWhiteSpace(string str) => !(String.IsNullOrEmpty(str) || String.IsNullOrWhiteSpace(str));
+            string redirectUrl = "Courses.aspx?";
+
+            if (NotNullEmptyWhiteSpace(SearchTextBox.Text))
+            {
+                redirectUrl += $"search={Server.UrlEncode(SearchTextBox.Text)}&";
+            }
+
+            // Remove the trailing '&' and '?' if present
+            if (redirectUrl.EndsWith("&") || redirectUrl.EndsWith("?"))
+            {
+                redirectUrl = redirectUrl.Substring(0, redirectUrl.Length - 1);
+            }
+
+            // Redirect to the constructed URL
+            Response.Redirect(redirectUrl);
 
         }
     }

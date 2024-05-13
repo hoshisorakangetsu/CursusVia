@@ -90,29 +90,36 @@
     overflow: hidden;
 }
 
+.priceRangeWrapper {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--outline);
+    border-radius: .5em;
+    padding: .35em;
+}
+
 .priceRange {
     display: flex;
     gap: .25em;
-    border: 1px solid var(--outline);
-    padding: .35em;
-    border-radius: .5em;
     transition: .25s;
 }
 
 .priceField {
     display: flex;
+    flex: 1;
     align-items: center;
     gap: .1em;
 }
 
 .priceBox {
+    flex: 1;
     padding: .15em;
     border: 1px solid var(--outline);
     border-radius: .35em;
     width: 10ch;
 }
 
-.priceRange:focus-within {
+.priceRangeWrapper:focus-within {
     border-color: var(--primary-color);
     box-shadow: 0 2px 16px var(--primary-shadow);
 }

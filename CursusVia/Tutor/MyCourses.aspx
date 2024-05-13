@@ -22,7 +22,7 @@
                     <span class="material-symbols-outlined searchIcon">search
                     </span>
                     <asp:TextBox ID="SearchTextBox" runat="server" CssClass="searchTextBox" placeholder="Search Courses"></asp:TextBox>
-                    <asp:Button ID="SearchButton" runat="server" Text="Search" CssClass="btn btnPrimary searchBtn" />
+                    <asp:Button ID="SearchButton" runat="server" Text="Search" CssClass="btn btnPrimary searchBtn" OnClick="SearchButton_Click" />
                 </div>
                 <div class="rightControl">
                     <asp:HyperLink ID="CreateCourse" runat="server" CssClass="btn btnPrimary" NavigateUrl="~/Tutor/CreateCourse.aspx">New Course</asp:HyperLink>

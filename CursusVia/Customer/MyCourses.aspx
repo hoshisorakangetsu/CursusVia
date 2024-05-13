@@ -21,7 +21,7 @@
                     <span class="material-symbols-outlined searchIcon">search
                     </span>
                     <asp:TextBox ID="SearchTextBox" runat="server" CssClass="searchTextBox" placeholder="Search Courses"></asp:TextBox>
-                    <asp:Button ID="SearchButton" runat="server" Text="Search" CssClass="btn btnPrimary searchBtn" />
+                    <asp:Button ID="SearchButton" runat="server" Text="Search" CssClass="btn btnPrimary searchBtn" OnClick="SearchButton_Click" />
                 </div>
                 <div class="rightControl">
                     <asp:DropDownList ID="CourseCategoryFilter" runat="server" CssClass="filterCategory">
