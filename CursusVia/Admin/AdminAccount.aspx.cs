@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.SqlClient;
-using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using static CursusVia.Util;
 
@@ -9,71 +12,71 @@ namespace CursusVia.Admin
 {
     public partial class AdminAccount : Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            // Initial page setup can be placed here
+        }
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            string usernameOrEmail = txtUsername.Text;
+            string username = txtUsername.Text;
             string password = txtPassword.Text;
-            string hashedPassword = SecurityHelper.HashPassword(password); // Hashing the password for security
 
-            string connectionString = Global.CS; // Using global connection string
-            string sql = "SELECT password, id FROM Admins WHERE username = @Username OR email = @Username";
+            string authenticatedUserId = AuthenticateAdmin(username, password);
 
-            using (SqlConnection con = new SqlConnection(connectionString))
+            if (authenticatedUserId != "0")
             {
-                try
-                {
-                    con.Open();
-                    using (SqlCommand cmd = new SqlCommand(sql, con))
-                    {
-                        cmd.Parameters.AddWithValue("@username", usernameOrEmail);
-
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                string dbHashedPassword = reader["password"].ToString();
-                                int adminId = Convert.ToInt32(reader["id"]); // Retrieve the admin ID
-
-                                if (dbHashedPassword == hashedPassword)
-                                {
-                                    // Create a secure cookie with admin ID and login indicator
-                                    HttpCookie authCookie = new HttpCookie("AdminAuth");
-                                    authCookie.Values["AdminID"] = adminId.ToString();
-                                    authCookie.Values["LoggedIn"] = "true";
-                                    authCookie.Expires = DateTime.Now.AddDays(1); 
-                                    authCookie.HttpOnly = true; 
-                                    Response.Cookies.Add(authCookie);
-
-                                    lblStatus.Text = "Login successful!";
-                                    lblStatus.CssClass = "success";
-                                    Response.Redirect("/Admin/WithdrawalRequest.aspx");
-                                }
-                                else
-                                {
-                                    lblStatus.Text = "Invalid username or password.";
-                                    lblStatus.CssClass = "error";
-                                    lblStatus.Visible = true;
-                                }
-                            }
-                            else
-                            {
-                                lblStatus.Text = "Invalid username or password.";
-                                lblStatus.CssClass = "error";
-                                lblStatus.Visible = true;
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    lblStatus.Text = "Error during login: " + ex.Message;
-                    lblStatus.CssClass = "error";
-                    lblStatus.Visible = true;
-                }
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
+                    1, // Ticket version
+                    authenticatedUserId, // User ID
+                    DateTime.Now,
+                    DateTime.Now.AddMinutes(60), // Ticket expiration
+                    false, 
+                    "Admin" 
+                );
+                string encTicket = FormsAuthentication.Encrypt(ticket);
+                HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+                Response.Cookies.Add(authCookie);
+                Response.Redirect("~/Admin/WithdrawalRequest.aspx");
+            }
+            else
+            {
+                Response.Write("<script>alert('Invalid username or password');window.location = 'LoginAdmin.aspx';</script>");
             }
         }
 
+        private string AuthenticateAdmin(string username, string password)
+        {
+            string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(CS))
+            {
+                string sql = "SELECT id FROM Admins WHERE username=@Username AND password=@Password";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@Username", username.Trim());
+                cmd.Parameters.AddWithValue("@Password", getHash(password.Trim()));
+                con.Open();
+                object result = cmd.ExecuteScalar();
+                return result != null ? result.ToString() : "0";
+            }
+        }
 
+        public static string getHash(string inputPassword)
+        {
+            using (SHA256 sha = SHA256.Create())
+            {
+                byte[] hashedBytes = sha.ComputeHash(Encoding.UTF8.GetBytes(inputPassword));
+                return Convert.ToBase64String(hashedBytes);
+            }
+        }
 
+        protected void lbtnShowRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RegisterAdmin.aspx");
+        }
+
+        protected void lbtnForgetPass_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ForgotPasswordAdmin.aspx");
+        }
     }
 }

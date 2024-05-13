@@ -23,7 +23,7 @@ namespace CursusVia.Customer
             }
             if (!Page.IsPostBack)
             {
-                ProfileCardDS.SelectCommand = "SELECT username, email FROM Admins WHERE id = @AdminId";
+                ProfileCardDS.SelectCommand = "SELECT name, email FROM Students WHERE id = @AdminId";
                 ProfileCardDS.SelectParameters.Add("AdminId", authCookie.Values["AdminID"]);
                 ProfileCard.DataBind();
             }

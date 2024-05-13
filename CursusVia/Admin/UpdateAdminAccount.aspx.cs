@@ -29,47 +29,38 @@ namespace CursusVia.Admin
                 return;
             }
 
-            string hashedPassword = SecurityHelper.HashPassword(newPassword); //  
-            string connectionString = Global.CS; // Global connection string
-
-            SqlConnection con = null;
-            SqlCommand cmd = null;
+            string hashedPassword = SecurityHelper.HashPassword(newPassword);
+            string connectionString = Global.CS;
 
             try
             {
-                con = new SqlConnection(connectionString);
-                con.Open();
-                string sql = "UPDATE Admins SET Email = @Email, Password = @Password WHERE AdminID = @AdminID"; //  
-                cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Password", hashedPassword);
-                cmd.Parameters.AddWithValue("@AdminID", Session["AdminID"]); 
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+                    string sql = "UPDATE Admins SET Email = @Email, Password = @Password WHERE AdminID = @AdminID";
+                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Parameters.AddWithValue("@Password", hashedPassword);
+                        cmd.Parameters.AddWithValue("@AdminID", Session["AdminID"]);
 
-                int rowsAffected = cmd.ExecuteNonQuery();
-                if (rowsAffected > 0)
-                {
-                    Response.Redirect("~/Admin/UpdateConfirmation.aspx");
-                }
-                else
-                {
-                    lblStatus.Text = "Update failed. No data was changed.";
-                    lblStatus.Visible = true;
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            Response.Redirect("~/Admin/UpdateConfirmation.aspx");
+                        }
+                        else
+                        {
+                            lblStatus.Text = "Update failed. No data was changed.";
+                            lblStatus.Visible = true;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
                 lblStatus.Text = "Error updating account: " + ex.Message;
                 lblStatus.Visible = true;
-            }
-            finally
-            {
-                if (cmd != null)
-                    cmd.Dispose();
-                if (con != null)
-                {
-                    con.Close();
-                    con.Dispose();
-                }
             }
         }
 
