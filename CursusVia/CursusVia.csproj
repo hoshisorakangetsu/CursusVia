@@ -177,6 +177,7 @@
     <Content Include="Customer\Payment.css" />
     <Content Include="Customer\PaymentConfirm.aspx" />
     <Content Include="Customer\resetPassword.aspx" />
+    <Content Include="GeneralError.aspx" />
     <Content Include="InputWithValidator.js" />
     <Content Include="Customer\RegisterStudent.aspx" />
     <Content Include="Global.asax" />
@@ -607,6 +608,13 @@
     </Compile>
     <Compile Include="Customer\resetPassword.aspx.designer.cs">
       <DependentUpon>resetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralError.aspx.cs">
+      <DependentUpon>GeneralError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GeneralError.aspx.designer.cs">
+      <DependentUpon>GeneralError.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
