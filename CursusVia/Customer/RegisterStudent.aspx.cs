@@ -139,10 +139,7 @@ namespace CursusVia.Customer
 
 							}
 						}
-						else
-						{
-							
-						}
+					
 
 					}
 				}
