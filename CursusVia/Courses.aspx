@@ -85,7 +85,7 @@
                         <p class="courseName"><%# Eval("title") %></p>
                         <p class="tutorName"><%# Eval("tutorName") %></p>
                         <p class="rating">Rating <%# Eval("rating") %>/5.0 (<%# Eval("ratingCount") %>)</p>
-                        <p class="coursePrice">RM <%# Eval("price") %></p>
+                        <p class="coursePrice">RM <%# Convert.ToDecimal(Eval("price")).ToString("0.00") %></p>
                         <div class="actions">
                             <asp:HyperLink ID="ViewDetails" runat="server" CssClass="btn btnPrimary" NavigateUrl='<%# "~/CourseContent.aspx?id=" + Eval("id") %>'>View Details</asp:HyperLink>
                             <asp:HyperLink ID="AddToCart" runat="server" CssClass="btnOutlinePrimary" NavigateUrl='<%# "~/Customer/AddToCart.aspx?courseId=" + Eval("id") %>'>

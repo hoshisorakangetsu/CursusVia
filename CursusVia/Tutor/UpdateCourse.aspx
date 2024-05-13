@@ -25,7 +25,7 @@
                 <asp:Label AssociatedControlID="Price" runat="server">Price</asp:Label>
                 <asp:TextBox ID="Price" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter a price (RM) for the course" ControlToValidate="Price" CssClass="validationMessage" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please only enter numbers (accepted 0-9 and .)" ControlToValidate="Price" CssClass="validationMessage" ValidationExpression="\d+\.?\d+" Display="Dynamic"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please only enter numbers (accepted 0-9 and .)" ControlToValidate="Price" CssClass="validationMessage" ValidationExpression="\d+(\.?\d{0,2})?" Display="Dynamic"></asp:RegularExpressionValidator>
             </div>
             <div class="genericInputField">
                 <asp:Label AssociatedControlID="CourseCategory" runat="server">Category</asp:Label>

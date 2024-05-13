@@ -48,7 +48,7 @@ namespace CursusVia.Tutor
                     if (dr.Read())
                     {
                         CourseTitle.Text = dr["title"].ToString();
-                        Price.Text = dr["price"].ToString();
+                        Price.Text = Convert.ToDecimal(dr["price"]).ToString("0.00");
                         Description.Text = dr["description"].ToString();
                         CourseCategory.SelectedValue = dr["category"].ToString();
                         CourseImgUploadWithPreview.Src = dr["cover_pic_file_path"].ToString().Substring(1);
