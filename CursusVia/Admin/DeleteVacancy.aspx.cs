@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CursusVia.Customer;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -12,9 +13,10 @@ namespace CursusVia.Admin
 {
     public partial class DeleteVacancy : System.Web.UI.Page
     {
+        private string id;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string id = Request.QueryString["id"];
+            id = Request.QueryString["id"];
 
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
@@ -50,17 +52,36 @@ namespace CursusVia.Admin
         {
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
-
-            string select = "SELECT FROM ";
-
-            string delete = "DELETE FROM [dbo].[Vacancies] WHERE [id] = '" + Request.QueryString["id"] + "'";
-            con.Open();
-
-            SqlCommand drop = new SqlCommand(delete, con);
-            drop.ExecuteNonQuery();
+            con.Open(); 
+            string select = "SELECT vacancy_id FROM JobApplications WHERE vacancy_id = @ID";
+            SqlCommand cmd = new SqlCommand(select, con);
+            cmd.Parameters.AddWithValue("@ID", id);
+            int row = cmd.ExecuteNonQuery();
             con.Close();
 
-            Response.Write("<script>alert('Job deleted successfully');window.location = 'Vacancy.aspx';</script>");
+            if (row > 0)
+            {
+                string delete = "DELETE FROM [dbo].[Vacancies] WHERE [id] = @ID";
+                con.Open();
+
+                SqlCommand drop = new SqlCommand(delete, con);
+
+                drop.Parameters.AddWithValue("@ID", id);
+                drop.ExecuteNonQuery();
+                con.Close();
+
+                Session["toast"] = new Toast("Job deleted successfully", "success");
+                Response.Redirect("Vacancy.aspx");
+
+                //Response.Write("<script>alert('Job deleted successfully');window.location = 'Vacancy.aspx';</script>");
+            }
+            else
+            {
+                Session["toast"] = new Toast("Selected job cannot be deleted", "fail");
+                Response.Redirect("Vacancy.aspx");
+            }
+
+            
         }
     }
 }

@@ -24,7 +24,7 @@ namespace CursusVia.Admin
             HttpCookie authCookie = Request.Cookies["AdminAuth"];
             if (authCookie == null || authCookie["LoggedIn"] != "true")
             {
-                Response.Redirect("AdminLogin.aspx");
+                Response.Redirect("AdminAccount.aspx");
             }
         }
 

@@ -27,8 +27,8 @@ namespace CursusVia.Admin
 
             if (authCookie != null)
             {
-                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
-                adminId = authTicket.Name;
+                HttpCookie auth = Request.Cookies["AdminAuth"];
+                adminId = auth.Values["AdminID"];
             }
 
             //if (String.IsNullOrEmpty(adminId)) { adminId = "1"; }

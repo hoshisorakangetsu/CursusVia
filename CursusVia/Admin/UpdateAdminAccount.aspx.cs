@@ -29,7 +29,7 @@ namespace CursusVia.Admin
                 return;
             }
 
-            string hashedPassword = SecurityHelper.HashPassword(newPassword); //  SecurityHelper is using a secure hashing algorithm
+            string hashedPassword = SecurityHelper.HashPassword(newPassword); //  
             string connectionString = Global.CS; // Global connection string
 
             SqlConnection con = null;
@@ -39,7 +39,7 @@ namespace CursusVia.Admin
             {
                 con = new SqlConnection(connectionString);
                 con.Open();
-                string sql = "UPDATE Admins SET Email = @Email, Password = @Password WHERE AdminID = @AdminID"; //  identify which admin to update
+                string sql = "UPDATE Admins SET Email = @Email, Password = @Password WHERE AdminID = @AdminID"; //  
                 cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@Password", hashedPassword);
@@ -108,13 +108,14 @@ namespace CursusVia.Admin
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Request.UrlReferrer != null)
+            if (Request.UrlReferrer == null)
             {
-                Response.Redirect(Request.UrlReferrer.ToString());
+                Response.Redirect("~/Admin/AdminAccount.aspx");
+               
             }
             else
             {
-                Response.Redirect("~/Admin/Default.aspx");
+                Response.Redirect(Request.UrlReferrer.ToString());
             }
         }
     }
