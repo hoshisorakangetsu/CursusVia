@@ -23,8 +23,8 @@ namespace CursusVia.Tutor
                 FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
                 tutorId = authTicket.Name;
             }
-            // for xb test on his machine only, remove in future
-            if (String.IsNullOrEmpty(tutorId)) { tutorId = "1"; }
+            
+            //if (String.IsNullOrEmpty(tutorId)) { tutorId = "1"; }
         }
 
         protected void btnCreate_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace CursusVia.Tutor
 
             if (row > 0)
             {
-                Session["toast"] = new Toast("Request created successfully", "fail");
+                Session["toast"] = new Toast("Request created successfully", "success");
                 Response.Redirect("Support.aspx");
                 //Response.Write("<script>alert('Request created successfully');window.location = 'Support.aspx';</script>");
             }

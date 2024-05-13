@@ -32,8 +32,7 @@ namespace CursusVia.Admin
                 adminId = authTicket.Name;
             }
 
-            // for xb test on his machine only, remove in future
-            if (String.IsNullOrEmpty(adminId)) { adminId = "1"; }
+            //if (String.IsNullOrEmpty(adminId)) { adminId = "1"; }
 
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);

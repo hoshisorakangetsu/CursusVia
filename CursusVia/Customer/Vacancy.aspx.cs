@@ -24,8 +24,7 @@ namespace CursusVia.Customer
                 FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
                 studentId = authTicket.Name;
             }
-            // for xb test on his machine only, remove in future
-            if (String.IsNullOrEmpty(studentId)) { studentId = "1"; }
+            //if (String.IsNullOrEmpty(studentId)) { studentId = "1"; }
 
             if (!IsPostBack)
             {

@@ -25,15 +25,14 @@ namespace CursusVia.Customer
                 FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
                 studentId = authTicket.Name;
             }
-            // for xb test on his machine only, remove in future
-            if (String.IsNullOrEmpty(studentId)) { studentId = "1"; }
+            //if (String.IsNullOrEmpty(studentId)) { studentId = "1"; }
 
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
             if (!string.IsNullOrEmpty(comName))
             {
                 txtCompanyName.Text = comName;
-                string sqlWithName = "SELECT Vacancies.id, Vacancies.job_title, Vacancies.min_salary, Vacancies.max_salary, Vacancies.type, Vacancies.role, Vacancies.job_requirement, Vacancies.job_description, Vacancies.email, Vacancies.company_id, Companies.name, Companies.address, Companies.postcode, Companies.state, Companies.area FROM Vacancies INNER JOIN Companies ON Vacancies.company_id = Companies.id WHERE Companies.name LIKE @Name";
+                string sqlWithName = "SELECT Vacancies.id, Vacancies.job_title, Vacancies.min_salary, Vacancies.max_salary, Vacancies.type, Vacancies.role, Vacancies.job_requirement, Vacancies.job_description, Vacancies.email, Vacancies.company_id, Companies.name, Companies.address, Companies.postcode, Companies.state, Companies.area FROM Vacancies INNER JOIN Companies ON Vacancies.company_id = Companies.id WHERE Companies.name = @Name";
                 con.Open();
                 SqlDataAdapter adapterName = new SqlDataAdapter(sqlWithName, con);
                 adapterName.SelectCommand.Parameters.AddWithValue("@Name", "%" + comName + "%");

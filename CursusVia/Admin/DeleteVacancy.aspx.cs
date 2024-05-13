@@ -51,6 +51,8 @@ namespace CursusVia.Admin
             string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
 
+            string select = "SELECT FROM ";
+
             string delete = "DELETE FROM [dbo].[Vacancies] WHERE [id] = '" + Request.QueryString["id"] + "'";
             con.Open();
 
