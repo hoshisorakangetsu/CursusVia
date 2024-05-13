@@ -98,6 +98,7 @@
 
 .loadingIcon {
     animation: rotate 2s linear infinite; 
+    font-size: 4rem;
 }
 
 .loading.appearOverlay {
