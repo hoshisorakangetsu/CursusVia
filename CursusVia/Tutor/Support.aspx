@@ -10,8 +10,8 @@
             </asp:HyperLink>
             <div class="search">
                 <span class="material-symbols-outlined searchIcon">search</span>
-                <input id="Text1" type="text" placeholder="Search Request" class="input"/>
-                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btnPrimary btn" />
+                <asp:TextBox ID="txtJobTitle" runat="server" placeholder="Search Request" CssClass="input"></asp:TextBox>
+                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btnPrimary btn" OnClick="btnSearch_Click" />
             </div>
         </div>
         <div class="content">

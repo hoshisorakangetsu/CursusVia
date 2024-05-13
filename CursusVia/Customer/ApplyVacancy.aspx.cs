@@ -1,18 +1,15 @@
-﻿using CursusVia.Admin;
-using CursusVia.Tutor;
+﻿using MailKit.Net.Smtp;
+using MimeKit;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MailKit.Net.Smtp;
-using MailKit;
-using MimeKit;
-using System.IO;
 
 namespace CursusVia.Customer
 {
@@ -23,7 +20,7 @@ namespace CursusVia.Customer
         private string jobTitle;
         protected void Page_Load(object sender, EventArgs e)
         {
-            id = Request.QueryString["id"];
+            id = Request.Params["id"];
             backLink.NavigateUrl= "ViewVacancy.aspx?id="+id;
 
             HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
@@ -76,11 +73,10 @@ namespace CursusVia.Customer
             con.Open();
             string insert = "INSERT INTO[dbo].[JobApplications] ([vacancy_id],[student_id],[resume_resource_id],[expecred_salary])VALUES(@VacancyId,@StudentId,@ResumeResourceId,@ExpectedSalary)";
             int file = Util.UploadFile(FileUpload1.PostedFile, Server);
-            if (file == 0) 
+            if (file == 0)
             {
-                Response.Write("<script>alert('File upload fail');</script>");
-                //Response.Write("Error");
-                return; 
+                Session["toast"] = new Toast("File upload fail", "fail");
+                Response.Redirect(Request.RawUrl);
             }
 
             SqlCommand cmd = new SqlCommand(insert, con);
@@ -139,7 +135,7 @@ Please directly contact the student if you are interested.
 
 Student Name: " + studentName + " \n" +
 "Student Email: " + studentEmail + " \n" +
-"Expected Salary: RM" + txtMinSalary.Text 
+"Expected Salary: RM" + txtMinSalary.Text
                 };
 
                 //get student name
@@ -180,18 +176,23 @@ Student Name: " + studentName + " \n" +
 
                 try
                 {
+                    //Session["toast"] = new Toast("testing", "success");
+                    //Response.Redirect("Vacancy.aspx");
                     //connect to gmail smtp server using port 465 with SSl enabled
                     client.Connect("smtp.gmail.com", 465, true);
                     //need autheticate if use gmail
                     client.Authenticate(senderEmail, password);
+                    //Response.Write("authe");
                     client.Send(message);
-
+                    //Response.Redirect("Vacancy.aspx");
                     //success message
                 }
                 catch (Exception ex)
                 {
                     //cause error
-                    Response.Write("<script>alert('Job not applied successfully');window.location = 'Vacancy.aspx';</script>");
+                    Session["toast"] = new Toast("Email send failed", "fail");
+                    //Response.Redirect("Vacancy.aspx");
+                    //Response.Write("<script>alert('Job not applied successfully');window.location = 'Vacancy.aspx';</script>");
                     //Response.Write(ex.Message.ToString());
                 }
                 finally
@@ -202,13 +203,17 @@ Student Name: " + studentName + " \n" +
                 }
 
             }
-           if (row > 0)
+            if (row > 0)
             {
-                Response.Write("<script>alert('Job applied successfully');window.location = 'Vacancy.aspx';</script>");
+                Session["toast"] = new Toast("Job applied successfully", "success");
+                Response.Redirect("Vacancy.aspx");
+                //Response.Write("<script>alert('Job applied successfully');window.location = 'Vacancy.aspx';</script>");
             }
             else
             {
-                Response.Write("<script>alert('Job does not applied successfully');window.location = 'Vacancy.aspx';</script>");
+                Session["toast"] = new Toast("Job does not applied successfully", "fail");
+                Response.Redirect("Vacancy.aspx");
+                //Response.Write("<script>alert('Job does not applied successfully');window.location = 'Vacancy.aspx';</script>");
             }
         }
     }

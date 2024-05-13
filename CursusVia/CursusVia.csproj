@@ -156,6 +156,7 @@
     <Content Include="Admin\ViewWithdrawRequest.css" />
     <Content Include="Admin\WithdrawStatusUpdate.aspx" />
     <Content Include="Admin\WithdrawUpdate.css" />
+    <Content Include="Customer\ApplyVacancy.aspx" />
     <Content Include="Customer\Cart.aspx" />
     <Content Include="Customer\CartStyle.css" />
     <Content Include="Controls\FileUploadWithPreview.ascx" />
@@ -223,7 +224,6 @@
       <DependentUpon>CursusVia.mdf</DependentUpon>
     </Content>
     <Content Include="BackControlInit.js" />
-    <Content Include="Customer\ApplyVacancy.aspx" />
     <Content Include="Customer\ApplyVacancy.css" />
     <Content Include="BrowseCourseCard.css" />
     <Content Include="CourseContent.aspx" />
@@ -515,6 +515,13 @@
     <Compile Include="Admin\WithdrawStatusUpdate.aspx.designer.cs">
       <DependentUpon>WithdrawStatusUpdate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Customer\ApplyVacancy.aspx.cs">
+      <DependentUpon>ApplyVacancy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\ApplyVacancy.aspx.designer.cs">
+      <DependentUpon>ApplyVacancy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer\Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -542,13 +549,6 @@
     </Compile>
     <Compile Include="Customer\AddToCart.aspx.designer.cs">
       <DependentUpon>AddToCart.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\ApplyVacancy.aspx.cs">
-      <DependentUpon>ApplyVacancy.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer\ApplyVacancy.aspx.designer.cs">
-      <DependentUpon>ApplyVacancy.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controls\CustomerChapterOverview.ascx.cs">
       <DependentUpon>CustomerChapterOverview.ascx</DependentUpon>

@@ -115,5 +115,22 @@ namespace CursusVia.Tutor
             Repeater1.DataBind();
             con.Close();
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+
+            string query = "SELECT [id], [title], [date_send], [description], [status], [tutor_id] FROM [SupportRequests] WHERE [tutor_id] = @tID AND [title] LIKE @title";
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            adapter.SelectCommand.Parameters.AddWithValue("@tID", tutorId);
+            adapter.SelectCommand.Parameters.AddWithValue("@title", $"%{txtJobTitle.Text}%");
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            Repeater1.DataSource=dataSet;
+            Repeater1.DataBind();
+            con.Close();
+        }
     }
 }

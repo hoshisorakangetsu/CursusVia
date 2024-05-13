@@ -103,11 +103,17 @@ namespace CursusVia.Admin
 
             if (row > 0)
             {
-                Response.Write("<script>alert('Reply created successfully');window.location = 'SupportRequest.aspx';</script>");
+                Session["toast"] = new Toast("Reply created successfully", "success");
+                Response.Redirect("SupportRequest.aspx");
+
+                //Response.Write("<script>alert('Reply created successfully');window.location = 'SupportRequest.aspx';</script>");
             }
             else
             {
-                Response.Write("<script>alert('Reply does not created successfully');window.location = 'SupportRequest.aspx';</script>");
+                Session["toast"] = new Toast("Reply does not created successfully", "fail");
+                Response.Redirect("SupportRequest.aspx");
+
+                //Response.Write("<script>alert('Reply does not created successfully');window.location = 'SupportRequest.aspx';</script>");
             }
 
         }
