@@ -7,12 +7,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
     <div class="createUpdateCourseMain">
-        <div class="backControl">
-            <span class="material-symbols-outlined">
+        <asp:HyperLink ID="backControl" runat="server" CssClass="backControl">
+             <span class="material-symbols-outlined">
             arrow_back
             </span>
             All Courses
-        </div>
+        </asp:HyperLink>
         <uc:FileUploadWithPreview runat="server" ID="CourseImgUploadWithPreview" IsRequired="true" FileType="image" />
         <div class="fields">
             <div class="genericInputField">

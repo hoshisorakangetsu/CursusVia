@@ -6,12 +6,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TutorMasterBody" runat="server">
     <div class="updateQuizMain">
-        <div class="backControl">
+        <asp:HyperLink ID="backControl" runat="server" CssClass="backControl">
             <span class="material-symbols-outlined">arrow_back
             </span>
             Course Menu
-        </div>
-
+        </asp:HyperLink>
         <div class="newQuestionField">
             <asp:TextBox ID="NewQuestion" runat="server" placeholder="Type question here" TextMode="MultiLine" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'" Rows="1"></asp:TextBox>
             <asp:RequiredFieldValidator ID="NewQuestionFieldValidator" runat="server" ErrorMessage="Please enter a question" ControlToValidate="NewQuestion" Display="Dynamic" CssClass="validationMessage" ValidationGroup="ValNewQuestion"></asp:RequiredFieldValidator>

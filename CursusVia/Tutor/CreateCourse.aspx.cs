@@ -22,6 +22,8 @@ namespace CursusVia.Tutor
                 FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
                 tutorId = authTicket.Name;
             }
+
+            backControl.NavigateUrl = $"~/MyCourses.aspx";
         }
 
         protected void submitForm_Click(object sender, EventArgs e)

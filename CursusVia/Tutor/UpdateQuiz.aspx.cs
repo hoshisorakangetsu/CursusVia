@@ -20,6 +20,7 @@ namespace CursusVia.Tutor
             if (!Page.IsPostBack)
             {
                 quizId = Request.Params["quizId"];
+                backControl.NavigateUrl = $"~/Tutor/CourseDetail.aspx?id=" + Request.Params["courseId"];
                 questionDS.SelectCommand = @"
                     SELECT 
                         [id] AS QuestionId, 

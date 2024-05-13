@@ -13,6 +13,7 @@ namespace CursusVia
         protected void Page_Load(object sender, EventArgs e)
         {
             courseId = Request.Params["id"];
+            backControl.NavigateUrl = $"~/Courses.apsx";
             CourseDetailHeroDS.SelectCommand = @"
                 SELECT 
                     [c].[id],

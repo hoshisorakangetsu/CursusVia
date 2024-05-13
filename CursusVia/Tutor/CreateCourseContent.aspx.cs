@@ -23,6 +23,7 @@ namespace CursusVia.Tutor
                 Response.Redirect("~/Tutor/MyCourses.aspx");
             }
 
+            backControl.NavigateUrl = $"~/Tutor/CourseDetail.aspx ? id=" + Request.Params["courseId"];
         }
 
         protected void submitForm_Click(object sender, EventArgs e)
