@@ -107,9 +107,9 @@ namespace CursusVia.Admin
                     con.Open();
                     SqlCommand cmd = new SqlCommand(
                         @"INSERT INTO Payout (total_payout, payout_method, payout_date, status, withdraw_request, tutor_id, admin_id)
-                  SELECT wr.withdraw_amount, wr.bank_name, GETDATE(), 'Pending', wr.id, wr.tutor_id, NULL
-                  FROM WithdrawalRequests wr
-                  WHERE wr.status = 'Approve' AND wr.id = @ID", con);
+                        SELECT wr.withdraw_amount, wr.bank_name, GETDATE(), 'Pending', wr.id, wr.tutor_id, NULL
+                         FROM WithdrawalRequests wr
+                         WHERE wr.status = 'Approve' AND wr.id = @ID", con);
 
                     cmd.Parameters.AddWithValue("@ID", requestId);  // Use the parameter correctly here
 

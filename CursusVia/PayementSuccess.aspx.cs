@@ -69,24 +69,37 @@ namespace CursusVia
                             }
                             // Now courseId can be used to perform further operations like updating tutor balance or inserting into purchased courses
                             string updateTutorBalance = @"
-                            UPDATE Tutors
-                            SET balance = balance + (@PaymentAmount / 2)
-                            FROM Tutors
-                            INNER JOIN Courses ON Tutors.id = Courses.tutor_id
-                            WHERE Courses.id = @CourseId";
+                             UPDATE Tutors
+                             SET balance = balance + (Courses.price * 0.5)
+                             FROM Tutors
+                             INNER JOIN Courses ON Tutors.id = Courses.tutor_id
+                             WHERE Courses.id = @CourseId";
 
-                            using (SqlCommand balanceCommand = new SqlCommand(updateTutorBalance, connection))
+                          
                             {
-                                balanceCommand.Parameters.AddWithValue("@PaymentAmount", Convert.ToDecimal(paymentAmount)); // Assuming paymentAmount is a string that needs conversion to Decimal
-                                balanceCommand.Parameters.AddWithValue("@CourseId", courseId);
-                                balanceCommand.ExecuteNonQuery();
+                                using (SqlCommand balanceCommand = new SqlCommand(updateTutorBalance, connection))
+                                {
+                                    balanceCommand.Parameters.AddWithValue("@CourseId", courseId); // Ensure courseId is fetched and valid
+
+                                    int affectedRows = balanceCommand.ExecuteNonQuery();
+                                    if (affectedRows > 0)
+                                    {
+                                        Console.WriteLine("Tutor balance updated successfully.");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("No tutor balance was updated. Check the course ID and tutor setup.");
+                                    }
+                                }
                             }
 
 
 
 
 
-                            string deleteFromCart = "SELECT course_id FROM CartItems WHERE id=@cartId";
+
+
+                            string deleteFromCart = "DELETE FROM CartItems WHERE id=@cartId";
 
                             using (SqlCommand command = new SqlCommand(deleteFromCart, connection))
                             {
@@ -98,6 +111,7 @@ namespace CursusVia
                     }
 
                     Response.Write("<script>alert('Payment successful!'); location.href='~/Customer/MyCourses.aspx';</script>");
+                    Response.Redirect("~/Customer/Cart.aspx");
 
                     Session["sessionId"] = null;
                 }
