@@ -1,26 +1,37 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Web;
-using System.Web.Configuration;
+using System.Web.UI;
 using static CursusVia.Util;
 
 namespace CursusVia.Admin
 {
-    public partial class UpdateAdminAccount : System.Web.UI.Page
+    public partial class UpdateAdminAccount : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                LoadAdminData(); // Optionally load existing data to be updated
+                if (!IsAuthenticated())
+                {
+                    Response.Redirect("~/Admin/Login.aspx"); // Redirect to login if not authenticated
+                }
+                LoadAdminEmail();
             }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string email = txtEmail.Text.Trim();
-            string newPassword = txtPass.Text;
-            string confirmNewPassword = txtConfirmPass.Text;
+            string verificationKey = txtVerify.Text.Trim();
+            if (verificationKey != "1996")
+            {
+                lblStatus.Text = "Invalid verification key.";
+                lblStatus.Visible = true;
+                return;
+            }
+
+            string newPassword = txtPass.Text.Trim();
+            string confirmNewPassword = txtConfirmPass.Text.Trim();
 
             if (newPassword != confirmNewPassword)
             {
@@ -37,12 +48,11 @@ namespace CursusVia.Admin
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
-                    string sql = "UPDATE Admins SET Email = @Email, Password = @Password WHERE AdminID = @AdminID";
+                    string sql = "UPDATE Admins SET Password = @Password WHERE id = @AdminID";
                     using (SqlCommand cmd = new SqlCommand(sql, con))
                     {
-                        cmd.Parameters.AddWithValue("@Email", email);
                         cmd.Parameters.AddWithValue("@Password", hashedPassword);
-                        cmd.Parameters.AddWithValue("@AdminID", Session["AdminID"]);
+                        cmd.Parameters.AddWithValue("@AdminID", GetAdminIdFromCookie());
 
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
@@ -64,50 +74,70 @@ namespace CursusVia.Admin
             }
         }
 
-        private void LoadAdminData()
+        private void LoadAdminEmail()
         {
-            string connectionString = Global.CS; // Global connection string
-            string sql = "SELECT username, email FROM Admins WHERE id = @AdminID";
-
+            string connectionString = Global.CS;
+            string sql = "SELECT email FROM Admins WHERE id = @AdminID";
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
-                    // the Admin ID is stored in the session upon login
-                    cmd.Parameters.AddWithValue("@AdminID", Request.Cookies["AdminAuth"].Values["AdminID"]);
-
+                    cmd.Parameters.AddWithValue("@AdminID", GetAdminIdFromCookie());
                     try
                     {
                         con.Open();
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
-                            { 
-                    
+                            {
                                 txtEmail.Text = reader["email"].ToString();
+                                txtEmail.ReadOnly = true;
                             }
                         }
                     }
                     catch (Exception ex)
                     {
-                        // Handle exceptions 
-                        Console.WriteLine("Error loading admin data: " + ex.Message);
+                        lblStatus.Text = "Error loading admin data: " + ex.Message;
+                        lblStatus.Visible = true;
                     }
                 }
             }
         }
 
-        protected void btnCancel_Click(object sender, EventArgs e)
+        private int? GetAdminIdFromCookie()
         {
-            if (Request.UrlReferrer == null)
+            HttpCookie authCookie = Request.Cookies["AdminAuth"];
+            if (authCookie != null && authCookie.Values["AdminID"] != null)
             {
-                Response.Redirect("~/Admin/AdminAccount.aspx");
-               
+                if (int.TryParse(authCookie.Values["AdminID"], out int adminId))
+                {
+                    return adminId;
+                }
+                else
+                {
+                    lblStatus.Text = "Invalid session data.";
+                    lblStatus.Visible = true;
+                }
             }
             else
             {
-                Response.Redirect(Request.UrlReferrer.ToString());
+                lblStatus.Text = "Session not found. Please login again.";
+                lblStatus.Visible = true;
             }
+            return null; // Return null if the admin ID is not found or invalid
         }
+
+        private bool IsAuthenticated()
+        {
+            return GetAdminIdFromCookie() != null;
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Admin/AdminAccount.aspx"); // Redirect back to a safe admin page
+        }
+
+
+
     }
 }
