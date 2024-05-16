@@ -144,6 +144,7 @@ namespace CursusVia
             }
         }
 
+
         private void CreateCheckoutSession(List<int> idsToPurchase, decimal price)
         {
             string baseUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);

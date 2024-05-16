@@ -63,11 +63,11 @@ namespace CursusVia.Admin
                 {
                     // Update WithdrawalRequests
                     cmd.CommandText = @"
-                UPDATE WithdrawalRequests
-                SET status = @Status, note = @Note
-                FROM WithdrawalRequests
-                INNER JOIN Payout ON WithdrawalRequests.id = Payout.withdraw_request
-                WHERE Payout.id = @PayoutID";
+                      UPDATE WithdrawalRequests
+            SET status = @Status, note = @Note
+            FROM WithdrawalRequests
+            INNER JOIN Payout ON WithdrawalRequests.id = Payout.withdraw_request
+            WHERE Payout.id = @PayoutID";
                     cmd.Parameters.AddWithValue("@Status", newStatus);
                     cmd.Parameters.AddWithValue("@Note", notes);
                     cmd.Parameters.AddWithValue("@PayoutID", payoutId);
@@ -75,10 +75,24 @@ namespace CursusVia.Admin
 
                     // Update Payout
                     cmd.CommandText = @"
-                UPDATE Payout
-                SET status = @Status
-                WHERE id = @PayoutID";
+            UPDATE Payout
+            SET status = @Status
+            WHERE id = @PayoutID";
                     cmd.ExecuteNonQuery();
+
+                    // If the status is "Paid", update the tutor's balance
+                    if (newStatus.Equals("Paid", StringComparison.OrdinalIgnoreCase))
+                    {
+                        // Subtract the withdrawal amount from the tutor's balance
+                        cmd.CommandText = @"
+                UPDATE Tutors
+                SET balance = balance - w.withdraw_amount
+                FROM Tutors t
+                INNER JOIN WithdrawalRequests w ON t.id = w.tutor_id
+                INNER JOIN Payout p ON w.id = p.withdraw_request
+                WHERE p.id = @PayoutID";
+                        cmd.ExecuteNonQuery();
+                    }
 
                     // Attempt to commit the transaction.
                     transaction.Commit();
