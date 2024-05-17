@@ -22,6 +22,7 @@ namespace CursusVia.Tutor
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+			/*
 			if (User.Identity.IsAuthenticated)
 			{
 				//HttpContext ctx=HttpContext.Current;
@@ -44,6 +45,74 @@ namespace CursusVia.Tutor
 			else
 			{
 				Response.Redirect("LoginTutor.aspx");
+			}
+			*/
+			if (User.Identity.IsAuthenticated)
+			{
+				HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+				if (authCookie != null)
+				{
+					string encryptedTicket = authCookie.Value;
+					FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(encryptedTicket);
+					string id = authTicket.Name;
+					string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+					using (SqlConnection con = new SqlConnection(connectionString))
+					{
+						con.Open();
+						SqlTransaction transaction = con.BeginTransaction();
+
+						try
+						{
+							// Check if there are related ratings
+							string checkRatingsQuery = "SELECT COUNT(*) FROM TutorRatings WHERE tutor_id = @id";
+							using (SqlCommand checkCmd = new SqlCommand(checkRatingsQuery, con, transaction))
+							{
+								checkCmd.Parameters.AddWithValue("@id", id);
+								int ratingCount = (int)checkCmd.ExecuteScalar();
+
+								if (ratingCount > 0)
+								{
+									// Delete related ratings
+									string deleteRatingsQuery = "DELETE FROM TutorRatings WHERE tutor_id = @id";
+									using (SqlCommand deleteRatingsCmd = new SqlCommand(deleteRatingsQuery, con, transaction))
+									{
+										deleteRatingsCmd.Parameters.AddWithValue("@id", id);
+										deleteRatingsCmd.ExecuteNonQuery();
+									}
+								}
+							}
+
+							// Delete tutor
+							string deleteTutorQuery = "DELETE FROM Tutors WHERE id = @id";
+							using (SqlCommand cmd = new SqlCommand(deleteTutorQuery, con, transaction))
+							{
+								cmd.Parameters.AddWithValue("@id", id);
+								int affectedRows = cmd.ExecuteNonQuery();
+								if (affectedRows >= 1)
+								{
+									transaction.Commit();
+									Response.Redirect("deleteMsg.aspx");
+								}
+								else
+								{
+									throw new Exception("No rows affected while deleting the tutor.");
+								}
+							}
+						}
+						catch (Exception ex)
+						{
+							transaction.Rollback();
+							// Log or handle the exception as needed
+							Response.Write("Error: " + ex.Message);
+						}
+					}
+				}
+				else
+				{
+					Response.Redirect("LoginTutor.aspx");
+				}
+
 			}
 		}
 
