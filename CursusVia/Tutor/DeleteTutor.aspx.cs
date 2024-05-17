@@ -56,7 +56,7 @@ namespace CursusVia.Tutor
 					FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(encryptedTicket);
 					string id = authTicket.Name;
 					string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-
+					/*
 					using (SqlConnection con = new SqlConnection(connectionString))
 					{
 						con.Open();
@@ -105,6 +105,26 @@ namespace CursusVia.Tutor
 							transaction.Rollback();
 							// Log or handle the exception as needed
 							Response.Write("Error: " + ex.Message);
+						}
+					}
+					*/
+					using (SqlConnection con = new SqlConnection(connectionString))
+					{
+						try
+						{
+
+							string sql = "update Tutors set email= null, password= null where id=@id";
+							SqlCommand cmd = new SqlCommand(sql, con);
+							cmd.Parameters.AddWithValue("@id", id);
+							con.Open();
+							cmd.ExecuteNonQuery();
+							con.Close();
+							Response.Redirect("deleteMsg.aspx");
+						}
+						catch (Exception ex)
+						{
+							Response.Write("<script>alert('operation fail');window.location = 'DeleteTutor.aspx';</script>");
+
 						}
 					}
 				}
