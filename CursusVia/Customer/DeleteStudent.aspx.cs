@@ -113,7 +113,7 @@ namespace CursusVia.Customer
 								}
 								else
 								{
-									throw new Exception("No rows affected while deleting the tutor.");
+									throw new Exception("No rows affected while deleting the student.");
 								}
 							}
 						}
