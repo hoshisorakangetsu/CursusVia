@@ -147,6 +147,11 @@ namespace CursusVia.Tutor
 					}
 
 				}
+				else
+				{
+					otp.Text = "Invalid otp ";
+					otp.ForeColor = System.Drawing.Color.Red;
+				}
 			}
 		}
 	}

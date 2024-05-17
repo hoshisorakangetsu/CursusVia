@@ -16,8 +16,8 @@ CREATE TABLE [dbo].[Admins]
 CREATE TABLE [dbo].[Students]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [email] NVARCHAR(50) NOT NULL, 
-    [password] NVARCHAR(50) NOT NULL, 
+    [email] NVARCHAR(50)  NULL, 
+    [password] NVARCHAR(50)  NULL, 
     [name] NVARCHAR(50) NOT NULL,
     [login_otp] NVARCHAR(50)  NULL,
     [login_otp_created] NVARCHAR(50) NULL,
@@ -29,8 +29,8 @@ CREATE TABLE [dbo].[Tutors]
 	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [name] NVARCHAR(50) NOT NULL, 
     [qualifications] NVARCHAR(50)  NULL, 
-    [password] NVARCHAR(50) NOT NULL, 
-    [email] NVARCHAR(50) NOT NULL, 
+    [password] NVARCHAR(50)  NULL, 
+    [email] NVARCHAR(50)  NULL, 
     [balance] FLOAT  NULL,
     [login_otp] NVARCHAR(50)  NULL,
     [login_otp_created] NVARCHAR(50) NULL,
