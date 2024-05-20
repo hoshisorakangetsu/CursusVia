@@ -35,7 +35,7 @@ namespace CursusVia.Customer
                 string sqlWithName = "SELECT Vacancies.id, Vacancies.job_title, Vacancies.min_salary, Vacancies.max_salary, Vacancies.type, Vacancies.role, Vacancies.job_requirement, Vacancies.job_description, Vacancies.email, Vacancies.company_id, Companies.name, Companies.address, Companies.postcode, Companies.state, Companies.area FROM Vacancies INNER JOIN Companies ON Vacancies.company_id = Companies.id WHERE Companies.name = @Name";
                 con.Open();
                 SqlDataAdapter adapterName = new SqlDataAdapter(sqlWithName, con);
-                adapterName.SelectCommand.Parameters.AddWithValue("@Name", "%" + comName + "%");
+                adapterName.SelectCommand.Parameters.AddWithValue("@Name", comName);
                 DataSet dataSetName = new DataSet();
                 adapterName.Fill(dataSetName);
                 Repeater1.DataSource=dataSetName;

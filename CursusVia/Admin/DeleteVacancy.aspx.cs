@@ -61,6 +61,11 @@ namespace CursusVia.Admin
 
             if (row > 0)
             {
+                Session["toast"] = new Toast("Selected job cannot be deleted", "fail");
+                Response.Redirect("Vacancy.aspx");
+            }
+            else
+            {
                 string delete = "DELETE FROM [dbo].[Vacancies] WHERE [id] = @ID";
                 con.Open();
 
@@ -75,13 +80,6 @@ namespace CursusVia.Admin
 
                 //Response.Write("<script>alert('Job deleted successfully');window.location = 'Vacancy.aspx';</script>");
             }
-            else
-            {
-                Session["toast"] = new Toast("Selected job cannot be deleted", "fail");
-                Response.Redirect("Vacancy.aspx");
-            }
-
-            
         }
     }
 }
