@@ -70,7 +70,7 @@ namespace CursusVia
 
                             string updateTutorBalance = @"
                                 UPDATE Tutors
-                                SET balance = balance + (@PaymentAmount * 0.5)
+                                SET balance = COALESCE(balance, 0) + (@PaymentAmount * 0.5)
                                 FROM Tutors t
                                 INNER JOIN Courses c ON t.id = c.tutor_id
                                 WHERE c.id = @CourseId";
@@ -79,15 +79,7 @@ namespace CursusVia
                             {
                                 balanceCommand.Parameters.AddWithValue("@PaymentAmount", paymentAmount);
                                 balanceCommand.Parameters.AddWithValue("@CourseId", courseId);
-                                int affectedRows = balanceCommand.ExecuteNonQuery();
-                                if (affectedRows > 0)
-                                {
-                                    Console.WriteLine("Tutor balance updated successfully.");
-                                }
-                                else
-                                {
-                                    Console.WriteLine("No tutor balance was updated. Check the course ID and tutor setup.");
-                                }
+                                balanceCommand.ExecuteNonQuery();
                             }
 
                             string deleteFromCart = "DELETE FROM CartItems WHERE id=@cartId";
@@ -108,3 +100,7 @@ namespace CursusVia
         }
     }
 }
+
+
+
+

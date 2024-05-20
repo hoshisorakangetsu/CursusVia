@@ -141,6 +141,7 @@ namespace CursusVia
                 CartItemDataAccess dataAccess = new CartItemDataAccess();
                 dataAccess.DeleteCartItems(idsToDelete);
                 BindGrid();
+                Response.Redirect("~/Customer/Cart.aspx");  
             }
         }
 
