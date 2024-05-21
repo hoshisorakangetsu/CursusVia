@@ -59,10 +59,11 @@ namespace CursusVia.Admin
                         // Call to insert into Payouts should be here after confirming status is updated
                         if (newStatus == "Approve")
                         {
-                            InsertApprovedPayouts(requestId);
+                            InsertApprovedPayouts(requestId, adminId);
                         }
 
-                        Response.Redirect("~/Admin/UpdateConfirmation.aspx");
+                        Response.Redirect("~/Admin/UpdateConfirmation.aspx", false);
+                        Context.ApplicationInstance.CompleteRequest();
                     }
                     else
                     {
@@ -75,7 +76,6 @@ namespace CursusVia.Admin
                 }
             }
         }
-
 
         protected int GetAdminIdFromCookie()
         {
@@ -92,13 +92,11 @@ namespace CursusVia.Admin
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("WithdrawalRequest.aspx");
+            Response.Redirect("WithdrawalRequest.aspx", false);
+            Context.ApplicationInstance.CompleteRequest();
         }
 
-
-
-
-        private void InsertApprovedPayouts(int requestId)
+        private void InsertApprovedPayouts(int requestId, int adminId)
         {
             using (SqlConnection con = new SqlConnection(Global.CS))
             {
@@ -107,11 +105,12 @@ namespace CursusVia.Admin
                     con.Open();
                     SqlCommand cmd = new SqlCommand(
                         @"INSERT INTO Payout (total_payout, payout_method, payout_date, status, withdraw_request, tutor_id, admin_id)
-                        SELECT wr.withdraw_amount, wr.bank_name, GETDATE(), 'Pending', wr.id, wr.tutor_id, NULL
+                        SELECT wr.withdraw_amount, wr.bank_name, GETDATE(), 'Pending', wr.id, wr.tutor_id, @AdminID
                          FROM WithdrawalRequests wr
                          WHERE wr.status = 'Approve' AND wr.id = @ID", con);
 
-                    cmd.Parameters.AddWithValue("@ID", requestId);  // Use the parameter correctly here
+                    cmd.Parameters.AddWithValue("@ID", requestId);
+                    cmd.Parameters.AddWithValue("@AdminID", adminId);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
 
@@ -134,11 +133,5 @@ namespace CursusVia.Admin
                 }
             }
         }
-
-
-
-
-
-
     }
 }

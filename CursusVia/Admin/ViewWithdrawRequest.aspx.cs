@@ -61,7 +61,7 @@ namespace CursusVia.Admin
 
         protected void btnCanWithdrawal_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/admin/WithdrawalRequest.aspx");
+            Response.Redirect("WithdrawalRequest.aspx");
 
         }
 
