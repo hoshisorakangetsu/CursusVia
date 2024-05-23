@@ -121,7 +121,8 @@ namespace CursusVia.Customer
                 //create object to store message
                 MimeMessage message = new MimeMessage();
                 //add sender info to the message
-                message.From.Add(new MailboxAddress("CursusVia", "neohsc-pp21@student.tarc.edu.my"));
+                // TODO replace test@example.com with actual email
+                message.From.Add(new MailboxAddress("CursusVia", "test@example.com"));
                 //add receiver
                 message.To.Add(MailboxAddress.Parse(HREmail));
                 //message.To.Add(MailboxAddress.Parse("soonqi03@gmail.com"));//replace with the email from db
@@ -166,10 +167,9 @@ Student Name: " + studentName + " \n" +
                 message.Body = multipart;
 
                 //authentication which is a email   
-                /*string senderEmail = "CursusVia@hotmail.com";
-                string password = "tarumtWeb2024";*/
-                string senderEmail = "neohsc-pp21@student.tarc.edu.my";
-                string password = "030519070513";
+                // TODO replace test@example.com with actual email and verysecurepassword with actual password
+                string senderEmail = "test@example.com";
+                string password = "verysecurepassword";
 
                 //create smtp cilent
                 SmtpClient client = new SmtpClient();
